@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+	
+        <title>通道参数</title>
+
+        <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
+        <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
+        <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <block name="header">
+           <include file="block/header"/>
+        </block>
+        <section>
+            <div class="mainwrapper">
+			   <block name="left">
+			   <include file="block/left" />
+               </block>
+                
+                <div class="mainpanel">
+                    <div class="contentpanel">
+                       
+                        <div class="panel panel-title-head">
+                        <div class="search_banner">
+                             <div class="pull-left col-md-1">
+	                                <a class="btn btn-info btn-large" href="../Account/userAdd">普通参数</a>
+	                          </div> 
+	                          <div class="pull-left col-md-1">
+	                                <a class="btn btn-info btn-large" href="../Account/userAdd">高级参数</a>
+	                          </div>
+                             <div class="pull-left col-md-1">
+	                                <a class="btn btn-info btn-large" href="../Account/userAdd">导出配置</a>
+	                          </div> 
+	                          <div class="pull-left col-md-1">
+	                                <a class="btn btn-info btn-large" href="../Account/userAdd">恢复配置</a>
+	                          </div>
+	                          <div style="clear:both"></div>
+                         </div>   
+                            <table id="basicTable" class="table table-striped table-bordered responsive">
+                                <thead class="">
+                                    <tr>
+                                        <th>通道编号</th>
+                                        <th>通道名称</th>
+                                        <th>通道号码1</th>
+                                        <th>通道电路号1</th>
+                                        <th>通道号码2</th>
+                                        <th>通道电路号2</th>
+                                        <th>是否检测DTMF</th>
+                                        <th>录音启动方式</th>
+                                        <th>通道禁用启用</th>
+                                    </tr>
+                                </thead>
+                         
+                                <tbody>
+                                  <tr role="row" class="odd">
+                                     <td>1</td>
+                                     <td>Rec001</td>
+                                     <td><input type="text"></td>
+                                     <td><input type="text"></td>
+                                     <td><input type="text"></td>
+                                     <td><input type="text"></td>
+                                     <td><select><option>1</option></select></td>
+                                     <td><select><option>1</option></select></td>
+                                     <td><select><option>1</option></select></td>
+                                  </tr>
+                                  <tr role="row" class="even">
+                                     <td>2</td>
+                                     <td>Rec002</td>
+                                     <td><input type="text"></td>
+                                     <td><input type="text"></td>
+                                     <td><input type="text"></td>
+                                     <td><input type="text"></td>
+                                     <td><select><option>1</option></select></td>
+                                     <td><select><option>1</option></select></td>
+                                     <td><select><option>1</option></select></td>
+                                   </tr>
+                                </tbody>
+                            </table>
+                            
+                        </div><!-- panel -->
+                        <div class=" col-md-12">
+	                                <input class="btn btn-info btn-large" type="button" value="提交参数">
+	                    </div> 
+                        
+                            
+                           
+                        </div><!-- panel -->
+                      
+                        
+                    </div><!-- contentpanel -->
+                </div><!-- mainpanel --><!-- mainpanel -->
+            </div><!-- mainwrapper -->
+            
+            
+        </section>
+		
+        <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
+	
+		
+    </body>
+</html>

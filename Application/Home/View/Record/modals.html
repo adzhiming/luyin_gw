@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+	
+        <title>硬盘参数</title>
+
+        <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
+        <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
+        <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+		
+    </head>
+
+    <body>
+        <block name="header">
+           <include file="block/header"/>
+        </block>
+        <section>
+            <div class="mainwrapper">
+			   <block name="left">
+			   <include file="block/left" />
+               </block>
+                
+                <div class="mainpanel">
+                    <div class="contentpanel">
+                       
+                        <div class="panel panel-title-head">
+                            <div class="search_banner">
+                                <h5 class="text-primary">当前录音路径: D:\\</h5>
+                                <p>当前所有空间小于预留空间时,会存到下个盘</p>
+                            </div><!-- panel-heading -->
+                            <table id="basicTable" class="table table-striped table-bordered responsive">
+                                <thead class="">
+                                    <tr>
+                                        <th>当前磁盘</th>
+                                        <th>驱动器</th>
+                                        <th>磁盘状态</th>
+                                        <th>声音文件存放目录</th>
+                                        <th>磁盘预留空间数</th>
+                                    </tr>
+                                </thead>
+                         
+                                <tbody>
+                                  
+                                </tbody>
+                            </table>
+                        </div><!-- panel -->
+                        
+                        
+                            
+                           
+                        </div><!-- panel -->
+                      
+                        
+                    </div><!-- contentpanel -->
+                </div><!-- mainpanel --><!-- mainpanel -->
+            </div><!-- mainwrapper -->
+        </section>
+		
+		<div class="modal fade" id="pathMod" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		      </div>
+		      <div class="modal-body">
+		        ...
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+        <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/jquery.datatables.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
+
+<script type="text/javascript">
+$(document).ready( function () {
+table=$('#basicTable').dataTable(
+        {
+            "ajax": {  //类似jquery的ajax参数，基本都可以用。
+                "type": "post",  //后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
+                "url": '../record/diskManerage',
+                "dataSrc": "data",  //默认data，也可以写其他的，格式化table的时候取里面的数据
+                "data": function (d) {  //d 是原始的发送给服务器的数据，默认很长。
+                	console.log(d)
+                    d.extra_search = $('#reportrange span').html();
+                    d.is_search = $('#is_search').val();
+                    $('#is_search').val(0);
+                    //获取是否是查询,然后置0，0为非搜索查询
+                }
+            },
+         /* "createdRow": function ( row, data, index ) {   //定义行样式
+                var color;
+                if ( data.ThreatLV == 'hight' ) {
+                     color="red";
+                }else if(data.ThreatLV == 'middle'){
+                     color="#e58323";
+                }
+                    $('td', row).eq(0).css('font-weight',"").css("color",color);
+                    $('td', row).eq(1).css('font-weight',"").css("color",color);
+                    $('td', row).eq(2).css('font-weight',"").css("color",color);
+                    $('td', row).eq(3).css('font-weight',"").css("color",color);
+                    $('td', row).eq(4).css('font-weight',"").css("color",color);
+                    $('td', row).eq(6).css('font-weight',"").css("color",color);
+                    $('td', row).eq(8).css('font-weight',"").css("color",color);
+                
+            }, */
+            //"sPaginationType": "full_numbers", //分页风格，full_number会把所有页码显示出来（大概是，自己尝试）
+           
+            
+            "bAutoWidth": false,  //宽度是否自动，感觉不好使的时候关掉试试
+            "bLengthChange": false,
+            "bFilter": false,
+            
+            "bProcessing": true, //开启读取服务器数据时显示正在加载中……特别是大数据量的时候，开启此功能比较好
+            "bServerSide": true, //开启服务器模式，使用服务器端处理配置datatable。注意：sAjaxSource参数也必须被给予为了给datatable源代码来获取所需的数据对于每个画。 这个翻译有点别扭。开启此模式后，你对datatables的每个操作 每页显示多少条记录、下一页、上一页、排序（表头）、搜索，这些都会传给服务器相应的值。
+//            "sAjaxSource": '__URL__/serach_nasty', //给服务器发请求的url
+            "aoColumns": [  //这个属性下的设置会应用到所有列，按顺序没有是空
+                {"mData": function(data){
+                	return '<label style="display:block; margin:0 !important"><input data-id="'+data.D_id+'" type="radio" name="disk"></label>';
+                }},
+                {"mData": 'D_name'},
+                {"mData": function(data){
+//              	var box = '<div />';
+					var prc = (data.D_used / data.D_total).toFixed(2);
+					var bar = '<div class="barblock"><div class="bar" style="width:'+prc*100+'%"></div></div>';
+					var txt = '<div>可用'+prc*100+'%('+data.D_total+'GB)</div>';
+					return bar + txt;
+                }},
+                {"mData": function(data){
+                	var el = '<a data-toggle="modal" data-target="#pathMod"><div>'+data.D_path+'</div></a>'
+                	return el
+                }},
+                {"mData": function(data){
+                	var s = '<select class=""form-control><option>'+data.D_space+'</option></select> MB';
+                	return s;
+                }},
+                
+                
+            ],
+
+
+        });
+        
+})     
+</script>
+     	
+		
+    </body>
+</html>

@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+	
+        <title>用户编辑</title>
+
+        <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
+        <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
+        <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <block name="header">
+           <include file="block/header"/>
+        </block>
+        <section>
+            <div class="mainwrapper">
+			   <block name="left">
+			   <include file="block/left" />
+               </block>
+                
+                <div class="mainpanel">
+                    <div class="contentpanel">
+                       
+                       	<div class="col-md-12">
+                                <form id="basicForm" action="form-validation.html">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="panel-btns">
+                                            <a href="#" class="panel-minimize tooltips" data-toggle="tooltip" title="Minimize Panel"><i class="fa fa-minus"></i></a>
+                                            <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
+                                        </div><!-- panel-btns -->
+                                        <h4 class="panel-title">用户编辑</h4>
+                                    </div><!-- panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">用户名 <span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                </div>
+                                            </div><!-- form-group -->
+                                          
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">密码 <span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <input type="email" name="email" class="form-control" placeholder="密码" required />
+                                                </div>
+                                            </div><!-- form-group -->
+                                          
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">用户权限</label>
+                                                <div class="col-sm-6">
+                                                    <input type="url" name="url" class="form-control" />
+                                                </div>
+                                            </div><!-- form-group -->
+                                            
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">有权号码<span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <textarea rows="5" class="form-control" placeholder="有权号码，指用户有权查看录音的号码。此项留空则可查看所有号码的录音。 
+多个号码用逗号隔开，系统将自动过滤非数字字符。" required></textarea>
+                                                </div>
+                                            </div><!-- form-group -->
+                                            
+                                            <div class="form-group">
+	                                            <label class="col-sm-2 control-label">工作站<span class="asterisk">*</span></label>
+	                                            <div class="col-sm-6">
+	                                                <div class="ckbox ckbox-primary">
+	                                                    <input type="checkbox" id="int_website" value="m" name="int[]" required="">
+	                                                    <label for="int_website">Website</label>
+	                                                </div><!-- rdio -->
+	                                                
+	                                                <div class="ckbox ckbox-primary">
+	                                                    <input type="checkbox" value="f" id="int_software" name="int[]">
+	                                                    <label for="int_software">Software</label>
+	                                                </div><!-- rdio -->
+	                                            
+	                                                <div class="ckbox ckbox-primary">
+	                                                    <input type="checkbox" value="f" id="int_mobile" name="int[]">
+	                                                    <label for="int_mobile">Mobile</label>
+	                                                </div><!-- rdio -->
+	                                                <label id="intError" class="error" for="int[]"></label>
+	                                            </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">备注信息<span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <textarea rows="5" class="form-control" placeholder="备注信息" required></textarea>
+                                                </div>
+                                            </div><!-- form-group -->
+                                        </div><!-- row -->
+                                        <div class="modal-footer col-sm-6">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					        <button type="button" class="btn btn-primary">添加</button>
+					      </div>
+                                    </div><!-- panel-body -->
+                           
+                                </div><!-- panel -->
+                                </form>
+                                
+                            </div><!-- col-md-6 -->
+                           
+                            
+					      
+                        </div><!-- panel -->
+                      
+                        
+                    </div><!-- contentpanel -->
+                </div><!-- mainpanel --><!-- mainpanel -->
+            </div><!-- mainwrapper -->
+            
+        
+        </section>
+		
+        <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
+        
+
+
+<script type="text/javascript">
+$(document).ready( function () {
+table=$('#basicTable').dataTable(
+        {
+            "ajax": {  //类似jquery的ajax参数，基本都可以用。
+                "type": "post",  //后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
+                "url": '../record/recordList',
+                "dataSrc": "data",  //默认data，也可以写其他的，格式化table的时候取里面的数据
+                "data": function (d) {  //d 是原始的发送给服务器的数据，默认很长。
+                    d.extra_search = $('#reportrange span').html();
+                    d.is_search = $('#is_search').val();
+                    $('#is_search').val(0);
+                    //获取是否是查询,然后置0，0为非搜索查询
+                }
+            },
+         /* "createdRow": function ( row, data, index ) {   //定义行样式
+                var color;
+                if ( data.ThreatLV == 'hight' ) {
+                     color="red";
+                }else if(data.ThreatLV == 'middle'){
+                     color="#e58323";
+                }
+                    $('td', row).eq(0).css('font-weight',"").css("color",color);
+                    $('td', row).eq(1).css('font-weight',"").css("color",color);
+                    $('td', row).eq(2).css('font-weight',"").css("color",color);
+                    $('td', row).eq(3).css('font-weight',"").css("color",color);
+                    $('td', row).eq(4).css('font-weight',"").css("color",color);
+                    $('td', row).eq(6).css('font-weight',"").css("color",color);
+                    $('td', row).eq(8).css('font-weight',"").css("color",color);
+                
+            }, */
+            "pagingType": "full_numbers",
+            //"sPaginationType": "full_numbers", //分页风格，full_number会把所有页码显示出来（大概是，自己尝试）
+            "sDom": "<'row-fluid inboxHeader'<'span6'<'dt_actions'>l><'span6'f>r>t<'row-fluid inboxFooter'<'span6'i><'span6'p>>", //待补充
+            "iDisplayLength": 12,  //每页显示10条数据
+            "bAutoWidth": false,  //宽度是否自动，感觉不好使的时候关掉试试
+            "bLengthChange": false,
+            "bFilter": false,
+            "oLanguage": {  //下面是一些汉语翻译
+                "sSearch": "搜索",
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "没有检索到数据",
+                "sInfo": "显示 _START_ 至 _END_ 条 &nbsp;&nbsp;共 _TOTAL_ 条",
+                "sInfoFiltered": "(筛选自 _MAX_ 条数据)",
+                "sInfoEmtpy": "没有数据",
+                "sProcessing": "正在加载数据...",
+                "oPaginate":
+                        {
+                            "sFirst": "首页",
+                            "sPrevious": "前一页",
+                            "sNext": "后一页",
+                            "sLast": "末页"
+                        }
+            },
+            "bProcessing": true, //开启读取服务器数据时显示正在加载中……特别是大数据量的时候，开启此功能比较好
+            "bServerSide": true, //开启服务器模式，使用服务器端处理配置datatable。注意：sAjaxSource参数也必须被给予为了给datatable源代码来获取所需的数据对于每个画。 这个翻译有点别扭。开启此模式后，你对datatables的每个操作 每页显示多少条记录、下一页、上一页、排序（表头）、搜索，这些都会传给服务器相应的值。
+//            "sAjaxSource": '__URL__/serach_nasty', //给服务器发请求的url
+            "aoColumns": [  //这个属性下的设置会应用到所有列，按顺序没有是空
+                {"mData": 'N_SN'}, //mData 表示发请求时候本列的列明，返回的数据中相同下标名字的数据会填充到这一列
+                {"mData": 'N_ChannelID'},
+                {"mData": 'N_ChannelInfo'},
+                {"mData": 'V_Caller'},
+                {"mData": 'V_Called'},
+                {"mData": 'V_Called'},
+                {"mData": 'longtime'},
+               
+                
+                /* {"mData": function (mData) {
+                       return '<img src="__PUBLIC__/images/warn'+mData.ActivityReuslt+'.png" />';
+                    }
+                },
+                {"mData": 'ProtocolType'},
+                {"mData": function (mData) {
+                       return '<img src="__PUBLIC__/images/'+mData.FileType+'.png" />';
+                    }
+                },
+                {"mData": function (mData) {             //列数据
+                        var show;
+                        switch(mData.ThreatLV){
+                            case 'hight': show='高';
+                                break;
+                            case 'middle': show='中';
+                                break;
+                            case 'low': show='低';
+                                break;
+                        }
+                       return show;
+                    }
+                 } */
+            ],
+
+            "aoColumnDefs": [//和aoColums类似，但他可以给指定列附近属性
+                {"bSortable": false, "aTargets": [1, 3, 6, 7]}, //这句话意思是第1,3,6,7,8,9列（从0开始算） 不能排序
+                {"bSearchable": false, "aTargets": [1, 2, 3, 4, 5, 6, 7]} //bSearchable 这个属性表示是否可以全局搜索，其实在服务器端分页中是没用的
+            ],
+            "aaSorting": [[2, "desc"]], //默认排序
+            "fnInitComplete": function (oSettings, json) { //表格初始化完成后调用 在这里和服务器分页没关系可以忽略
+                $("input[aria-controls='DataTables_Table_0']").attr("placeHolder", "请输入高手用户名");
+            }
+        });
+        
+        
+jQuery('#datetimepicker_start').datetimepicker();
+jQuery('#datetimepicker_end').datetimepicker();
+
+})     
+</script>        
+		
+		
+    </body>
+</html>

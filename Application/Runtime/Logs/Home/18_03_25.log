@@ -1,0 +1,262 @@
+[ 2018-03-25T21:17:31+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.007000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.110006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.110006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.011001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.009000s ]
+
+[ 2018-03-25T21:19:35+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-25T21:25:38+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0340s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `tab_rec_cdrinfo` WHERE ( date_formt(D_StartTime,'%Y-%m-%d') = ) 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `tab_rec_cdrinfo` WHERE ( date_formt(D_StartTime,'%Y-%m-%d') = ) 
+
+[ 2018-03-25T21:26:04+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+ERR: 1305:FUNCTION db_neuoplatform.date_formt does not exist
+ [ SQL语句 ] : SELECT * FROM `tab_rec_cdrinfo` WHERE ( date_formt(D_StartTime,'%Y-%m-%d') = 2018-03-25 ) 
+ERR: 1305:FUNCTION db_neuoplatform.date_formt does not exist
+ [ SQL语句 ] : SELECT * FROM `tab_rec_cdrinfo` WHERE ( date_formt(D_StartTime,'%Y-%m-%d') = 2018-03-25 ) 
+
+[ 2018-03-25T21:26:16+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+ERR: 1305:FUNCTION db_neuoplatform.date_formt does not exist
+ [ SQL语句 ] : SELECT * FROM `tab_rec_cdrinfo` WHERE ( date_formt(D_StartTime,'%Y-%m-%d') = '2018-03-25' ) 
+ERR: 1305:FUNCTION db_neuoplatform.date_formt does not exist
+ [ SQL语句 ] : SELECT * FROM `tab_rec_cdrinfo` WHERE ( date_formt(D_StartTime,'%Y-%m-%d') = '2018-03-25' ) 
+
+[ 2018-03-25T21:29:15+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `tab_rec_cdrinfo` WHERE ( FROM_UNIXTIME(D_StartTime,'%Y-%m-%d') = '2018-03-25' )  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.067003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.068003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005000s ]
+
+[ 2018-03-25T21:35:45+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) )  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.063004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-25T21:36:47+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0200s ]
+SQL: SELECT * FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) )  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-25T21:38:32+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0140s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) )  [ RunTime:0.0070s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 12 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-25T21:38:50+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) )  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 10 行.
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 12 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-25T21:39:05+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0140s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-25T23:23:49+08:00 ] 127.0.0.1 /home/index/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.008000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0260s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0290s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0060s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.112006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.113006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php:30) H:\www\luyinxitong_gw\ThinkPHP\Library\Think\View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php:30) H:\www\luyinxitong_gw\ThinkPHP\Library\Think\View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php:30) H:\www\luyinxitong_gw\ThinkPHP\Library\Think\View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.009001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.009001s ]
+

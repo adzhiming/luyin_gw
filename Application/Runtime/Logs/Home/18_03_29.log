@@ -1,0 +1,1542 @@
+[ 2018-03-29T00:08:13+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0260s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0160s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+NOTIC: [2] Missing argument 2 for getTodayChannelCount(), called in H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php on line 36 and defined H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 4 行.
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0090s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LI' at line 1
+ [ SQL语句 ] : SELECT count(a.*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LI' at line 1
+ [ SQL语句 ] : SELECT count(a.*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1  
+
+[ 2018-03-29T00:08:52+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0100s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0000s ]
+NOTIC: [2] Missing argument 2 for getTodayChannelCount(), called in H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php on line 36 and defined H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 4 行.
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0080s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LI' at line 1
+ [ SQL语句 ] : SELECT count(a.*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LI' at line 1
+ [ SQL语句 ] : SELECT count(a.*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1  
+
+[ 2018-03-29T00:10:29+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0130s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0120s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LI' at line 1
+ [ SQL语句 ] : SELECT count(a.*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LI' at line 1
+ [ SQL语句 ] : SELECT count(a.*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1  
+
+[ 2018-03-29T00:10:40+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0170s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0160s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0110s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LI' at line 1
+ [ SQL语句 ] : SELECT count(a.*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LI' at line 1
+ [ SQL语句 ] : SELECT count(a.*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1  
+
+[ 2018-03-29T00:10:59+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0170s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0110s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0080s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2018-03-29T00:11:35+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0150s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0140s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0100s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1   [ RunTime:0.0010s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29')
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29')
+
+[ 2018-03-29T00:12:07+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0170s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0090s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2018-03-29T00:12:29+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0140s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2018-03-29T00:14:28+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0100s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0100s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0100s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '1' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '1' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '2' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '2' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '3' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '3' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '4' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '4' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '5' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '5' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '6' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '6' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '7' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '7' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10007' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10007' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10006' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10006' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10005' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10005' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10004' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10004' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10003' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10003' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10002' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10002' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10001' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10001' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10000' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10000' [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-29T00:15:05+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0130s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0120s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '1' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '1' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '2' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '2' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '3' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '3' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '4' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '4' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '5' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '5' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '6' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '6' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '7' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '7' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10007' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10007' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10006' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10006' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10005' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10005' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10004' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10004' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10003' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10003' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10002' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10002' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10001' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10001' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10000' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10000' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-02-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-02-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-02-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-02-28' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-01' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-01' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-02' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-02' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-03' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-03' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-04' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-04' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-05' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-05' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-06' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-06' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-07' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-07' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-08' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-08' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-09' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-09' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-10' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-10' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-11' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-11' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-12' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-12' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-13' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-13' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-14' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-14' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-15' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-15' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-16' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-16' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-17' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-17' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-18' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-18' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-19' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-19' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-20' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-20' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-21' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-21' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-22' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-22' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-23' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-23' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-24' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-24' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-25' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-25' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-26' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-26' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-28' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-28' [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-29T00:15:57+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0160s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '1' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '2' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '2' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '3' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '3' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '4' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '4' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '5' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '5' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '6' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '6' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '7' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '7' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10007' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10007' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10006' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10006' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10005' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10005' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10004' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10004' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10003' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10003' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10002' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10002' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10001' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10001' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10000' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10000' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-02-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-02-27' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-02-28' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-02-28' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-01' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-01' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-02' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-02' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-03' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-03' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-04' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-04' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-05' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-05' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-06' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-06' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-07' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-07' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-08' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-08' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-09' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-09' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-10' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-10' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-11' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-11' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-12' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-12' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-13' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-13' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-14' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-14' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-15' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-15' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-16' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-16' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-17' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-17' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-18' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-18' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-19' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-19' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-20' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-20' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-21' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-21' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-22' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-22' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-23' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-23' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-24' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-24' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-25' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-25' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-26' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-26' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-28' [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-03-29T00:17:40+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0120s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0100s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '1' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '2' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '2' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '3' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '3' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '4' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '4' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '5' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '5' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '6' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '6' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '7' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '7' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10007' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10007' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10006' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10006' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10005' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10005' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10004' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10004' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10003' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10003' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10002' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10002' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10001' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10001' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10000' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-29' and a.N_ChannelID = '10000' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-02-27' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-02-27' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-02-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-02-28' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-01' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-01' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-02' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-02' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-03' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-03' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-04' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-04' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-05' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-05' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-06' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-06' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-07' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-07' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-08' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-08' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-09' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-09' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-10' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-10' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-11' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-11' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-12' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-12' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-13' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-13' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-14' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-14' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-15' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-15' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-16' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-16' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-17' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-17' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-18' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-18' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-19' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-19' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-20' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-20' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-21' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-21' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-22' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-22' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-23' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-23' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-24' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-24' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-25' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-25' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-26' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-26' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-28' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-28' [ RunTime:0.0030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\www\luyinxitong_gw\Application\Home\Common\function.php:14) H:\www\luyinxitong_gw\ThinkPHP\Library\Think\View.class.php 第 91 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\www\luyinxitong_gw\Application\Home\Common\function.php:14) H:\www\luyinxitong_gw\ThinkPHP\Library\Think\View.class.php 第 92 行.
+NOTIC: [2] Cannot modify header information - headers already sent by (output started at H:\www\luyinxitong_gw\Application\Home\Common\function.php:14) H:\www\luyinxitong_gw\ThinkPHP\Library\Think\View.class.php 第 93 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2018-03-29T00:18:37+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0080s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0090s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0090s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-02-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-02-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-02-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-02-28' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-01' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-01' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-02' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-02' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-03' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-03' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-04' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-04' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-05' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-05' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-06' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-06' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-07' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-07' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-08' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-08' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-09' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-09' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-10' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-10' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-11' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-11' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-12' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-12' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-13' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-13' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-14' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-14' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-15' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-15' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-16' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-16' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-17' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-17' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-18' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-18' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-19' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-19' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-20' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-20' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-21' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-21' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-22' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-22' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-23' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-23' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-24' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-24' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-25' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-25' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-26' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-26' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( TO_DAYS(a.D_StartTime) = '2018-03-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = '2018-03-28' [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-29T00:22:33+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0140s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0140s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0110s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-27' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-28' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-28' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-01' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-01' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-02' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-02' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-03' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-03' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-04' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-04' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-05' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-05' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-06' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-06' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-07' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-07' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-08' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-08' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-09' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-09' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-10' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-10' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-11' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-11' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-12' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-12' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-13' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-13' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-14' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-14' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-15' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-15' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-16' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-16' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-17' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-17' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-18' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-18' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-19' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-19' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-20' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-20' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-21' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-21' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-22' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-22' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-23' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-23' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-24' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-24' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-25' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-25' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-26' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-26' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-28' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-28' [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-29T00:23:35+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0150s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0100s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0100s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-27' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-28' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-01' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-01' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-02' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-02' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-03' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-03' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-04' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-04' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-05' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-05' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-06' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-06' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-07' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-07' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-08' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-08' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-09' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-09' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-10' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-10' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-11' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-11' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-12' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-12' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-13' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-13' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-14' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-14' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-15' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-15' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-16' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-16' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-17' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-17' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-18' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-18' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-19' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-19' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-20' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-20' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-21' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-21' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-22' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-22' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-23' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-23' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-24' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-24' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-25' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-25' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-26' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-26' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-28' [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-29T00:23:55+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0110s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0100s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0110s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-27' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-28' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-01' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-01' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-02' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-02' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-03' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-03' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-04' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-04' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-05' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-05' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-06' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-06' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-07' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-07' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-08' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-08' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-09' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-09' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-10' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-10' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-11' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-11' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-12' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-12' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-13' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-13' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-14' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-14' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-15' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-15' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-16' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-16' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-17' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-17' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-18' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-18' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-19' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-19' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-20' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-20' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-21' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-21' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-22' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-22' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-23' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-23' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-24' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-24' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-25' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-25' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-26' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-26' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-28' [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-03-29T00:24:20+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0110s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0100s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0110s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '1' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '1' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '2' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '2' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '3' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '3' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '4' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '4' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '5' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '5' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '6' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '6' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '7' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '7' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10007' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10007' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10006' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10006' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10005' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10005' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10004' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10004' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10003' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10003' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10002' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10002' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10001' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10001' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10000' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10000' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-27' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-28' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-01' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-01' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-02' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-02' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-03' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-03' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-04' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-04' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-05' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-05' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-06' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-06' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-07' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-07' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-08' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-08' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-09' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-09' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-10' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-10' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-11' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-11' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-12' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-12' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-13' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-13' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-14' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-14' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-15' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-15' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-16' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-16' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-17' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-17' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-18' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-18' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-19' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-19' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-20' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-20' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-21' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-21' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-22' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-22' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-23' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-23' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-24' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-24' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-25' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-25' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-26' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-26' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-27' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-27' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-28' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-28' [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-29T00:25:08+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0160s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0140s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0100s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '1' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '1' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '2' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '2' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '3' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '3' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '4' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '4' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '5' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '5' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '6' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '6' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '7' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '7' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10007' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10007' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10006' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10006' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10005' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10005' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10004' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10004' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10003' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10003' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10002' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10002' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10001' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10001' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10000' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-29' and a.N_ChannelID = '10000' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-27' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-02-28' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-01' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-01' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-02' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-02' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-03' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-03' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-04' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-04' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-05' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-05' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-06' ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-06' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-07' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-07' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-08' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-08' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-09' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-09' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-10' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-10' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-11' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-11' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-12' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-12' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-13' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-13' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-14' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-14' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-15' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-15' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-16' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-16' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-17' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-17' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-18' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-18' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-19' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-19' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-20' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-20' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-21' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-21' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-22' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-22' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-23' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-23' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-24' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-24' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-25' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-25' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-26' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-26' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-27' ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-27' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM tab_rec_cdrinfo a WHERE ( DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-28' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '2018-03-28' [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-03-29T22:45:55+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.008001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.008001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 75 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 82 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.084005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.084005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008001s ]
+
+[ 2018-03-29T22:45:56+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\RecordController.class.php 第 14 行.
+
+[ 2018-03-29T22:57:09+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0310s ]
+SQL: SELECT distinct N_ChannelNo FROM `tab_sys_paramschannel` ORDER BY N_ChannelNo  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.002001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 75 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 82 行.
+NOTIC: [8] Array to string conversion H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined variable: Array H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.073004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.074004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006000s ]
+
+[ 2018-03-29T22:57:10+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\RecordController.class.php 第 15 行.
+
+[ 2018-03-29T22:57:31+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0120s ]
+SQL: SELECT distinct N_ChannelNo FROM `tab_sys_paramschannel` ORDER BY N_ChannelNo  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 75 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 82 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: id H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-29T22:57:31+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\RecordController.class.php 第 15 行.
+
+[ 2018-03-29T22:59:19+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0150s ]
+SQL: SELECT distinct N_ChannelNo FROM `tab_sys_paramschannel` ORDER BY N_ChannelNo  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 75 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 82 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2018-03-29T22:59:19+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\RecordController.class.php 第 15 行.
+
+[ 2018-03-29T23:00:13+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0110s ]
+SQL: SELECT distinct N_ChannelNo FROM `tab_sys_paramschannel` ORDER BY N_ChannelNo  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 75 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 82 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-29T23:00:13+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\RecordController.class.php 第 15 行.
+
+[ 2018-03-29T23:00:51+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0140s ]
+SQL: SELECT distinct N_ChannelNo FROM `tab_sys_paramschannel` ORDER BY N_ChannelNo  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 75 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 82 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 206 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2018-03-29T23:00:51+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\RecordController.class.php 第 15 行.
+
+[ 2018-03-29T23:01:08+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0130s ]
+SQL: SELECT distinct N_ChannelNo FROM `tab_sys_paramschannel` ORDER BY N_ChannelNo  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 75 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 82 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.033002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-29T23:01:09+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\RecordController.class.php 第 15 行.
+
+[ 2018-03-29T23:01:56+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0150s ]
+SQL: SELECT distinct N_ChannelNo FROM `tab_sys_paramschannel` ORDER BY N_ChannelNo  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 75 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 82 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2018-03-29T23:01:56+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.019001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.019001s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\RecordController.class.php 第 15 行.
+
+[ 2018-03-29T23:03:25+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0120s ]
+SQL: SELECT distinct N_ChannelNo FROM `tab_sys_paramschannel` ORDER BY N_ChannelNo  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 75 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\5bcd071c9e296a77304e9aed68250968.php 第 82 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-29T23:03:25+08:00 ] 127.0.0.1 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\RecordController.class.php 第 15 行.
+

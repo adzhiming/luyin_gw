@@ -1,0 +1,1870 @@
+[ 2018-03-27T00:00:17+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0170s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_ved_bakinfo` [ RunTime:0.0170s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004001s ]
+
+[ 2018-03-27T00:02:01+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0170s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0160s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_ved_bakinfo` [ RunTime:0.0170s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocount H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.038002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.038002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-27T00:02:31+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0210s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0200s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_ved_bakinfo` [ RunTime:0.0180s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0030s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-27T00:02:34+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tab_ved_bakinfo` [ RunTime:0.0130s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-27T00:03:10+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_ved_bakinfo` [ RunTime:0.0180s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voiceCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vedioCnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.038002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-27T00:03:25+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0170s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_ved_bakinfo` [ RunTime:0.0170s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.039002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-27T00:04:42+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0210s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0150s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_ved_bakinfo` [ RunTime:0.0140s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: voicecnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: vediocnt H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 38 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-27T00:04:56+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0150s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0140s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_ved_bakinfo` [ RunTime:0.0130s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-27T00:06:45+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0200s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0150s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tab_ved_bakinfo` [ RunTime:0.0120s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 10 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: where H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 17 行.
+SQL: SELECT count(*) cnt FROM `tab_ved_bakinfo` LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-27T00:33:04+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0230s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0220s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0020s ]
+
+[ 2018-03-27T00:33:38+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0140s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+
+[ 2018-03-27T00:33:57+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0130s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0130s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+
+[ 2018-03-27T00:34:14+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0160s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0070s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.052003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.052003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2018-03-27T00:34:43+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-27T00:35:11+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0120s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0120s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-27T00:35:38+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0160s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: N_ChannelNo H:\www\luyinxitong_gw\Application\Home\Controller\IndexController.class.php 第 36 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-27T00:35:56+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0200s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '0' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '1' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '2' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '3' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '4' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '5' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '6' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '7' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10007' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10006' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10005' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10004' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10003' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10002' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10001' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10000' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-27T00:36:28+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0170s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2018-03-27T00:36:54+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '0' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '1' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '2' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '3' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '4' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '5' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '6' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '7' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10007' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10006' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10005' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10004' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10003' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10002' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10001' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10000' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-27T00:37:18+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '0' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+ERR: 1146:Table 'db_neuoplatform.rec_cdrinfo' doesn't exist
+ [ SQL语句 ] : select count(b.VID) cnt from rec_cdrinfo a left join ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='0'
+ERR: 1146:Table 'db_neuoplatform.rec_cdrinfo' doesn't exist
+ [ SQL语句 ] : select count(b.VID) cnt from rec_cdrinfo a left join ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='0'
+
+[ 2018-03-27T00:37:50+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0210s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0210s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '0' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='0' [ RunTime:0.0070s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '1' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='1' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '2' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='2' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '3' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='3' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '4' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='4' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '5' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='5' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '6' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='6' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '7' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='7' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10007' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10007' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10006' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10006' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10005' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10005' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10004' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10004' [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10003' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10003' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10002' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10002' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10001' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10001' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10000' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10000' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 19 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-03-27T00:38:23+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0130s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0140s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '0' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='0' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '1' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='1' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '2' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='2' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '3' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='3' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '4' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='4' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '5' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='5' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '6' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='6' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '7' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='7' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10007' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10007' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10006' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10006' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10005' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10005' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10004' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10004' [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10003' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10003' [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10002' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10002' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10001' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10001' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10000' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10000' [ RunTime:0.0010s ]
+NOTIC: [8] Undefined index: cnt H:\www\luyinxitong_gw\Application\Home\Common\function.php 第 18 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-27T00:38:58+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0180s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0170s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '0' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='0' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '1' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='1' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '2' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='2' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '3' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='3' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '4' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='4' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '5' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='5' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '6' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='6' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '7' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='7' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10007' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10007' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10006' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10006' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10005' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10005' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10004' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10004' [ RunTime:0.0000s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10003' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10003' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10002' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10002' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10001' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10001' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10000' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10000' [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-03-27T00:40:16+08:00 ] 127.0.0.1 /home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0200s ]
+SQL: SELECT count(*) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_sys_alarmlog` [ RunTime:0.0190s ]
+SQL: SELECT count(*) as cnt FROM `tab_sys_alarmlog` WHERE ( N_ClearFlag = 0 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT count(distinct N_ChannelID) as cnt FROM `tab_rec_cdrinfo` WHERE ( TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `tab_sys_channelconfig` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `tab_sys_channelconfig`  [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '0' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='0' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '1' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='1' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '2' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='2' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '3' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='3' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '4' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='4' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '5' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='5' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '6' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='6' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '7' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='7' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10007' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10007' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10006' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10006' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10005' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10005' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10004' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10004' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10003' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10003' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10002' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10002' [ RunTime:0.0010s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10001' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10001' [ RunTime:0.0020s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` WHERE ( N_ChannelID = '10000' and TO_DAYS(D_StartTime) = TO_DAYS(NOW()) ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where a.N_ChannelID ='10000' [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 72 行.
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\2a94b8bda04ff446dcedd42276fc99ee.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+

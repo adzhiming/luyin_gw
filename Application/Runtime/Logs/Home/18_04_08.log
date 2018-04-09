@@ -1,0 +1,392 @@
+[ 2018-04-08T00:08:46+08:00 ] 223.74.66.197 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000314s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000475s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000526s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0009s ]
+SQL: SELECT distinct N_ChannelNo FROM `tab_sys_paramschannel` ORDER BY N_ChannelNo  [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000111s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+NOTIC: [8] Undefined variable: AccountSub /www/wwwroot/luyinxitong_gw/Application/Runtime/Cache/Home/5bcd071c9e296a77304e9aed68250968.php 第 75 行.
+NOTIC: [8] Undefined variable: SystemSub /www/wwwroot/luyinxitong_gw/Application/Runtime/Cache/Home/5bcd071c9e296a77304e9aed68250968.php 第 82 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016139s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016184s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000197s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000470s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000510s ]
+
+[ 2018-04-08T00:08:47+08:00 ] 223.74.66.197 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000323s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000425s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000472s ]
+NOTIC: [8] Undefined index: datetimepicker_start /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 21 行.
+NOTIC: [8] Undefined index: datetimepicker_end /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 22 行.
+NOTIC: [8] Undefined index: SearchMode /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 23 行.
+NOTIC: [8] Undefined index: search_key1 /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 24 行.
+NOTIC: [8] Undefined index: stime /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 25 行.
+NOTIC: [8] Undefined index: InOut /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 26 行.
+NOTIC: [8] Undefined index: chk_CN /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 27 行.
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_bakinfo` [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: sEcho /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 32 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_bakinfo` LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: 23 /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 49 行.
+SQL: SELECT `N_SN`,`N_ChannelID`,`D_StartTime`,`D_StopTime`,`V_VoiceFile`,`N_FileFormat`,`N_CallDirection`,`V_Caller`,`V_Called`,`V_Ext`,`N_BackUp`,`N_Lock`,`N_Alarm`,`N_AvoidRec`,`N_DeleteFlag`,`N_Locker`,`V_Path`,`V_NetPath`,`V_Diverter`,`V_Diverted`,`N_IsTalk`,`ReMark` FROM `tab_rec_cdrinfo` LIMIT 0,10   [ RunTime:0.0008s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0006s ]
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10000 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111402' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0007s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111402' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111401' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111401' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111400' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0009s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111400' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111399' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111399' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111398' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0014s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111398' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111397' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111397' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0007s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111396' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111396' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111395' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111395' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0015s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111394' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0007s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111394' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10000 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111393' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111393' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+
+[ 2018-04-08T00:10:17+08:00 ] 223.74.66.197 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000345s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000473s ]
+NOTIC: [8] Undefined index: datetimepicker_start /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 21 行.
+NOTIC: [8] Undefined index: datetimepicker_end /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 22 行.
+NOTIC: [8] Undefined index: SearchMode /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 23 行.
+NOTIC: [8] Undefined index: search_key1 /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 24 行.
+NOTIC: [8] Undefined index: stime /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 25 行.
+NOTIC: [8] Undefined index: InOut /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 26 行.
+NOTIC: [8] Undefined index: chk_CN /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 27 行.
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tab_rec_bakinfo` [ RunTime:0.0008s ]
+NOTIC: [8] Undefined index: sEcho /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 32 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_bakinfo` LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: 23 /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 49 行.
+SQL: SELECT `N_SN`,`N_ChannelID`,`D_StartTime`,`D_StopTime`,`V_VoiceFile`,`N_FileFormat`,`N_CallDirection`,`V_Caller`,`V_Called`,`V_Ext`,`N_BackUp`,`N_Lock`,`N_Alarm`,`N_AvoidRec`,`N_DeleteFlag`,`N_Locker`,`V_Path`,`V_NetPath`,`V_Diverter`,`V_Diverted`,`N_IsTalk`,`ReMark` FROM `tab_rec_cdrinfo` LIMIT 10,10   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0007s ]
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10001 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111392' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111392' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10001 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111391' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111391' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10000 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111390' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111390' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10001 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111389' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111389' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10000 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0007s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111388' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111388' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10000 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111387' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111387' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10001 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111386' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111386' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='3365861' or OfficeNum ='3365861' or OtherNum ='3365861' or remark='3365861' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111385' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111385' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='23365887452' or OfficeNum ='23365887452' or OtherNum ='23365887452' or remark='23365887452' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111384' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0007s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111384' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 1 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111383' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111383' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+
+[ 2018-04-08T00:10:25+08:00 ] 223.74.66.197 /home/record/recordList
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000330s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000436s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000486s ]
+NOTIC: [8] Undefined index: datetimepicker_start /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 21 行.
+NOTIC: [8] Undefined index: datetimepicker_end /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 22 行.
+NOTIC: [8] Undefined index: SearchMode /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 23 行.
+NOTIC: [8] Undefined index: search_key1 /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 24 行.
+NOTIC: [8] Undefined index: stime /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 25 行.
+NOTIC: [8] Undefined index: InOut /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 26 行.
+NOTIC: [8] Undefined index: chk_CN /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 27 行.
+SQL: SHOW COLUMNS FROM `tab_rec_cdrinfo` [ RunTime:0.0009s ]
+SQL: SHOW COLUMNS FROM `tab_rec_bakinfo` [ RunTime:0.0007s ]
+NOTIC: [8] Undefined index: sEcho /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 32 行.
+SQL: SELECT count(*) cnt FROM `tab_rec_cdrinfo` LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT count(*) cnt FROM `tab_rec_bakinfo` LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: 23 /www/wwwroot/luyinxitong_gw/Application/Home/Controller/RecordController.class.php 第 49 行.
+SQL: SELECT `N_SN`,`N_ChannelID`,`D_StartTime`,`D_StopTime`,`V_VoiceFile`,`N_FileFormat`,`N_CallDirection`,`V_Caller`,`V_Called`,`V_Ext`,`N_BackUp`,`N_Lock`,`N_Alarm`,`N_AvoidRec`,`N_DeleteFlag`,`N_Locker`,`V_Path`,`V_NetPath`,`V_Diverter`,`V_Diverted`,`N_IsTalk`,`ReMark` FROM `tab_rec_cdrinfo` LIMIT 20,10   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `tab_sys_paramschannel` [ RunTime:0.0006s ]
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111382' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0005s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111382' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 3 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111380' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111380' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10001 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111403' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111403' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 1 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111404' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111404' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10000 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111405' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111405' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10001 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111406' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111406' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10000 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111407' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111407' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10001 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111408' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111408' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10000 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0005s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111409' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111409' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+SQL: SELECT `V_Value` FROM `tab_sys_paramschannel` WHERE `N_ChannelNo` = 10001 AND `V_ParamsName` = 'ChnName' LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2003' or OfficeNum ='2003' or OtherNum ='2003' or remark='2003' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( Mobile ='2004' or OfficeNum ='2004' or OtherNum ='2004' or remark='2004' ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111410' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: LocalFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 128 行.
+SQL: SHOW COLUMNS FROM `tab_ved_cdrinfo` [ RunTime:0.0006s ]
+SQL: SELECT `RecID`,`LocalFileName`,`RemoteFileName` FROM `tab_ved_cdrinfo` WHERE `RecID` = '1111410' LIMIT 1  UNION ALL SELECT RecID,LocalFileName,RemoteFileName FROM tab_ved_bakinfo [ RunTime:0.0003s ]
+NOTIC: [8] Undefined index: RemoteFileName /www/wwwroot/luyinxitong_gw/Application/Home/Common/function.php 第 135 行.
+
+[ 2018-04-08T22:56:24+08:00 ] 213.23.12.149 /w00tw00t.at.blackhats.romanian.anti-sec:)
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000326s ]
+NOTIC: [2] preg_replace(): Compilation failed: unmatched parentheses at offset 11 /www/wwwroot/luyinxitong_gw/ThinkPHP/Library/Think/Dispatcher.class.php 第 127 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000434s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000481s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000030s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000069s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004748s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004792s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000169s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000202s ]
+
+[ 2018-04-08T22:56:28+08:00 ] 213.23.12.149 /w00tw00t.at.blackhats.romanian.anti-sec:)
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000335s ]
+NOTIC: [2] preg_replace(): Compilation failed: unmatched parentheses at offset 11 /www/wwwroot/luyinxitong_gw/ThinkPHP/Library/Think/Dispatcher.class.php 第 127 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000436s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000031s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000070s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004373s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004416s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000177s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000211s ]
+

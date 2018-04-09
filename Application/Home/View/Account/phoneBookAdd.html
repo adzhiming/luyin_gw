@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+	
+        <title>添加联系人</title>
+
+        <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
+        <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
+        <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <block name="header">
+           <include file="block/header"/>
+        </block>
+        <section>
+            <div class="mainwrapper">
+			   <block name="left">
+			   <include file="block/left" />
+               </block>
+                
+                <div class="mainpanel">
+                    <div class="contentpanel">
+                       
+                       	<div class="col-md-12">
+                                <form id="basicForm" action="form-validation.html">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="panel-btns">
+                                            <a href="#" class="panel-minimize tooltips" data-toggle="tooltip" title="Minimize Panel"><i class="fa fa-minus"></i></a>
+                                            <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
+                                        </div><!-- panel-btns -->
+                                        <h4 class="panel-title">联系人添加</h4>
+                                    </div><!-- panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">姓名 <span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                </div>
+                                            </div><!-- form-group -->
+                                          
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">性别 <span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <input type="email" name="email" class="form-control" placeholder="密码" required />
+                                                </div>
+                                            </div><!-- form-group -->
+                                          
+                                            <div class="form-group">
+                                            <label class="col-sm-2 control-label">所属分组<span class="asterisk">*</span></label>
+                                            <div class="col-sm-6">
+                                                <select id="fruits" data-placeholder="Choose One" class="width100p" required>
+                                                    <option value="">Choose One</option>
+                                                    <option value="apple">Apple</option>
+                                                    <option value="orange">Orange</option>
+                                                    <option value="grapes">Grapes</option>
+                                                    <option value="strawberry">Strawberry</option>
+                                                </select>
+                                            </div>
+                                        </div><!-- form-group -->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">移动电话 <span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                </div>
+                                            </div><!-- form-group -->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">办公电话 <span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                </div>
+                                            </div><!-- form-group -->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">其它电话 <span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                </div>
+                                            </div><!-- form-group -->
+                                            
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">备注信息<span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <textarea rows="5" class="form-control" placeholder="备注信息" required></textarea>
+                                                </div>
+                                            </div><!-- form-group -->
+                                        </div><!-- row -->
+                                        <div class="modal-footer col-sm-6">
+									        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+									        <button type="button" class="btn btn-primary">添加</button>
+									    </div>
+                                    </div><!-- panel-body -->
+                           
+                                </div><!-- panel -->
+                                </form>
+                                
+                            </div><!-- col-md-6 -->
+                           
+                            
+					      
+                        </div><!-- panel -->
+                      
+                        
+                    </div><!-- contentpanel -->
+                </div><!-- mainpanel --><!-- mainpanel -->
+            </div><!-- mainwrapper -->
+            
+        
+        </section>
+		
+        <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/select2.min.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready( function () {
+	// Validation with select boxes
+    jQuery("#flowers, #fruits").select2({
+        minimumResultsForSearch: -1
+    });
+})     
+</script>        
+		
+		
+    </body>
+</html>

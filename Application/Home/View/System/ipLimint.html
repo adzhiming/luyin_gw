@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+	
+        <title>IP限制</title>
+
+        <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
+        <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
+        <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <block name="header">
+           <include file="block/header"/>
+        </block>
+        <section>
+            <div class="mainwrapper">
+			   <block name="left">
+			   <include file="block/left" />
+               </block>
+                
+                <div class="mainpanel">
+                    <div class="contentpanel">
+                       
+                        <div class="panel panel-title-head">
+                         <div class="search_banner">
+                                <div>
+	                                <!-- <div class="pull-left col-md-1">
+	                                    <h4 class="panel-title">录音查询</h4>
+	                                </div> -->
+	                                <div class="pull-left col-md-3">
+	                                <div class="input-group" style="padding:5px;">
+		                                <lable class="pull-left">新增IP地址：<input id="name" style="width:100px" type="text" value="" /></lable><br>
+		                             </div>
+		                             
+	                                </div>
+	                                <div class="pull-left col-md-8">
+											<button class="btn btn-info btn-large">提交</button>
+											支持二级通配符，如：192.168.1.* 和 192.168.*.*都是合法地址
+	                                </div>
+	                                
+                                </div>
+                                <div style="clear:both"></div>
+                            </div><!-- panel-heading -->   
+                            <table id="basicTable" class="table table-striped table-bordered responsive">
+                                <thead class="">
+                                    <tr>
+                                        <td>IP地址</td>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                         
+                                <tbody>
+                                  <tr role="row" class="odd">
+                                     <td>192.168.1.5</td>
+                                     <td><select><option>允许访问</option><option>禁止访问</option></select></td>
+                                     <td>删除</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- panel -->
+                        
+                        
+                            
+                           
+                        </div><!-- panel -->
+                      
+                        
+                    </div><!-- contentpanel -->
+                </div><!-- mainpanel --><!-- mainpanel -->
+            </div><!-- mainwrapper -->
+        </section>
+		
+        <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
+        
+
+
+<script type="text/javascript">
+$(document).ready( function () {
+
+
+})     
+</script>        
+		
+		
+    </body>
+</html>

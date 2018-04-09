@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+	
+        <title>录音系统</title>
+
+        <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
+		
+    </head>
+
+    <body>
+		<block name="header">
+           <include file="block/header"/>
+        </block>
+      
+        <section>
+            <div class="mainwrapper">
+			   <block name="left">
+			   <include file="block/left" />
+               </block>
+                <div class="mainpanel">
+                    <div class="contentpanel">
+                        <div class="row row-stat">
+                        
+                        <div class="col-md-2">
+                                <div class="panel noborder">
+                                    <div class="panel-heading noborder">
+                                        <div class="panel-btns">
+                                            <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
+                                        </div><!-- panel-btns -->
+                                        <div class="panel-icon icon-globe"><i class="fa fa-signal"></i></div>
+                                        <div class="media-body">                                          
+                                            <h3 class="mt5">322</h3>
+											<h5 class="md-title nomargin">当日录音数量</h5>
+                                        </div><!-- media-body -->
+                                    </div><!-- panel-body -->
+                                </div><!-- panel -->
+                            </div><!-- col-md-3 -->
+						    <div class="col-md-2">
+                                <div class="panel noborder">
+                                    <div class="panel-heading noborder">
+                                        <div class="panel-btns">
+                                            <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
+                                        </div><!-- panel-btns -->
+                                        <div class="panel-icon icon-user"><i class="fa fa-warning"></i></div>
+                                        <div class="media-body">
+                                            <h3 class="mt5">2123</h3>
+                                            <h5 class="md-title nomargin">未处理告警</h5>											
+                                        </div><!-- media-body -->
+                                    </div><!-- panel-body -->
+                                </div><!-- panel -->
+                            </div><!-- col-md-3 -->
+							
+							
+							
+                            <div class="col-md-2">
+                                <div class="panel noborder">
+                                    <div class="panel-heading noborder">
+                                        <div class="panel-btns">
+                                            <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
+                                        </div><!-- panel-btns -->
+                                        <div class="panel-icon icon-envelope"><i class="fa fa-volume-control-phone"></i></div>
+                                        <div class="media-body">                                           
+                                            <h3 class="mt5">30</h3>
+											<h5 class="md-title nomargin">当日活跃通道数</h5>
+                                        </div><!-- media-body -->
+                                    </div><!-- panel-body -->
+                                </div><!-- panel -->
+                            </div><!-- col-md-3 -->
+							
+							<div class="col-md-2">
+                                <div class="panel noborder">
+                                    <div class="panel-heading noborder">
+                                        <div class="panel-btns">
+                                            <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
+                                        </div><!-- panel-btns -->
+                                        <div class="panel-icon icon-gavel"><i class="fa fa-file-audio-o"></i></div>
+                                        <div class="media-body">                                           
+                                            <h3 class="mt5">23546</h3>
+											<h5 class="md-title nomargin">未备份录音数</h5>
+                                        </div><!-- media-body -->
+                                    </div><!-- panel-body -->
+                                </div><!-- panel -->
+                            </div><!-- col-md-3 -->
+                            
+                            <div class="col-md-4">
+                                <div class="panel noborder">
+                                    <div class="panel-heading noborder">
+                                        <div class="panel-btns">
+                                            <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
+                                        </div><!-- panel-btns -->
+                                        <div class="panel-icon icon-gavel"><i class="fa  fa-hdd-o"></i></div>
+                                        <div class="media-body">                                           
+                                            <div class="progress" style="background-color:#babbbe">
+												<div class="progress-bar" role="progressbar" aria-valuenow="60"
+													 aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+												</div>
+											</div>
+											 <h5 class="md-title nomargin" style="margin-top:10px;">已使用40% </h5> 
+                                        </div><!-- media-body -->
+                                    </div><!-- panel-body -->
+                                </div><!-- panel -->
+                            </div><!-- col-md-3 -->
+                        </div><!-- row -->
+						
+						<!-- 最近一个月录音数据 -->					    
+						<div class="row">
+						    
+                            <div class="col-md-12">
+                               <!--  <div class="panel panel-default">
+                                    <div class="panel-body padding15">
+                                        <h5 class="md-title mt0 mb10">最近30天数据统计（单位：条）</h5>
+                                        <div id="basicFlotLegend" class="flotLegend"></div>
+                                        <div id="bar-chart" class="height300"></div>
+                                    </div>panel-body
+                                    
+                                </div>panel -->
+                                <div id="container" style="min-width:600px; height:250px;"></div>
+                            </div>
+                        </div><!-- row -->
+                        <br>
+                        <!-- 所有录音通道数据统计-->					    
+						<div class="row">
+						    
+                            <div class="col-md-12">
+                             
+                                <div id="container2" style="min-width:600px; height:250px;"></div>
+                            </div>
+                        </div><!-- row -->
+               
+                        <div class="row">
+                            <div class="col-md-12">
+                                
+                            </div><!-- col-md-4 -->
+                        </div><!-- row -->
+                        
+						
+						
+	
+
+                    </div><!-- contentpanel --> <div style="clear:both"></div>
+                </div><!-- mainpanel -->
+               
+            </div><!-- mainwrapper -->
+        </section>
+		
+        <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/hightstock/highstock.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/hightstock/exporting.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/hightstock/highcharts-zh_CN.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script> 
+ 		<script>
+
+ 		$(function() {
+ 			$('#container').highcharts({
+ 		        title: {
+ 		            text: '数据统计'
+ 		        },
+ 		       subtitle: {
+		            text: '今天各通道录音录像统计'
+		        },
+ 		        xAxis: {
+ 		        	type: 'category',
+ 		            title: {
+ 		                text: null
+ 		            },
+ 		            min: 0,
+ 		            max: 4,
+ 		            scrollbar: {
+ 		                enabled: true
+ 		            },
+ 		           categories: ['1001通道(电路)', ' 1002通道(电路)', '1003通道(电路)', '1004通道(电路)', '1005通道(电路)'],
+ 		            tickLength: 0
+ 		        },
+ 		       yAxis: {
+		            min: 0,
+		            max: 800,
+		            title: {
+		                text: '录音记录',
+		                align: 'high'
+		            }
+		        },
+ 		        plotOptions: {
+ 		            series: {
+ 		                stacking: 'normal'
+ 		            }
+ 		        },
+ 		        series: [{
+ 		            type: 'column',
+ 		            name: '录音',
+ 		            data: [30, 200, 300, 300, 40]
+ 		        }, {
+ 		            type: 'column',
+ 		            name: '录像',
+ 		            data: [20, 0, 500, 700, 60]
+ 		        }]
+ 		    });
+ 			
+ 		    
+ 		});
+
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		var chart = Highcharts.chart('container2', {
+ 		    title: {
+ 		        text: '数据统计'
+ 		    },
+ 		    subtitle: {
+ 		        text: '最近一个月录音录像数据统计'
+ 		    },
+ 		    yAxis: {
+ 		        title: {
+ 		            text: '数据记录（条）'
+ 		        }
+ 		    },
+ 		    legend: {
+ 		        layout: 'vertical',
+ 		        align: 'right',
+ 		        verticalAlign: 'middle'
+ 		    },
+ 		    plotOptions: {
+ 		        series: {
+ 		            label: {
+ 		                connectorAllowed: false
+ 		            },
+ 		            pointStart: 10
+ 		        }
+ 		    },
+ 		    series: [{
+ 		        name: '录音',
+ 		        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+ 		    }, {
+ 		        name: '录像',
+ 		        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
+ 		    }],
+ 		    responsive: {
+ 		        rules: [{
+ 		            condition: {
+ 		                maxWidth: 500
+ 		            },
+ 		            chartOptions: {
+ 		                legend: {
+ 		                    layout: 'horizontal',
+ 		                    align: 'center',
+ 		                    verticalAlign: 'bottom'
+ 		                }
+ 		            }
+ 		        }]
+ 		    }
+ 		});
+ 		
+		</script>
+		
+    </body>
+</html>
