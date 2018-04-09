@@ -36,42 +36,53 @@ class RecordController extends AuthController {
             $field.="N_AvoidRec,N_DeleteFlag,N_Locker,V_Path,V_NetPath,";
             $field.="V_Diverter,V_Diverted,N_IsTalk,ReMark ";
             
-            $where = array();
-            if(!empty($chk_CN)){
-                $where['N_ChannelID'] = array('in',$chk_CN);
-            }
-            if(!empty($datetimepicker_start) && !empty($datetimepicker_end) && $datetimepicker_start <= $datetimepicker_end)
-            {
-                $where['D_StartTime'] =  array(array('egt',$datetimepicker_start),array('elt',$datetimepicker_end)) ;
-            }
             
-            if($search_key!=""){//通话号码(姓名)的取值，0则号码，1则姓名
+            $where  .=  " D_StartTime between '{$datetimepicker_start}' and '$datetimepicker_end' ";
+            
+            if(!empty($chk_CN)){
+                $where  .= " and N_ChannelID in ($chk_CN)";
+            }
+           
+            if($search_key != ""){//通话号码(姓名)的取值，0则号码，1则姓名
                 if($SearchMode==0){
                     $key=getNumByName($search_key);
                     if($key==""){
-                        $where['N_SN']= -1;//姓名没匹配到号码，直接设置一个不成立的条件
+                        $where .= ' and N_SN = -1';//姓名没匹配到号码，直接设置一个不成立的条件
                     }else{
-                        $where['_string'] = " V_caller in ('{$key}') or V_called in('{$key}') or v_ext in('{$key}')";
+                        $where .= " and (V_caller in ('{$key}') or V_called in('{$key}') or v_ext in('{$key}')) ";
                     }
                 }else{
-                    $where['_string'] = " V_caller like '".$search_key."%' or V_called like '".$search_key."%'  orv_ext like '".$search_key."%'";
+                    $where .= " and (V_caller like '".$search_key."%' or V_called like '".$search_key."%'  orv_ext like '".$search_key."%')";
                 }
             }
             if ($has_vedio==1) {//只查有录象的记录
-                $where['N_SN']= array("in","select `recid` from tab_ved_cdrinfo union select `recid` from tab_ved_bakinfo order by `recid`");
-            }
-            echo $InOut;
-            //按拨叫方向查询
-            if($InOut!=2){
-                $where['N_CallDirection']= $InOut;
+                $sql = "select `recid` from tab_ved_cdrinfo union select `recid` from tab_ved_bakinfo order by `recid` ";
+                $res = M()->query($sql);
+                $recid = "";
+                if($res){
+                    foreach ($res as $v){
+                        if($recid == ""){
+                            $recid = $v['recid'];
+                        }
+                        else 
+                        {
+                            $recid = $recid .",".$v['recid'];
+                        } 
+                    }
+                }
+                if(!empty($recid)) $where .= " and N_SN in ($recid)";
             }
             
+            //按拨叫方向查询
+            if($InOut!=2){
+                $where .= " and N_CallDirection= {$InOut}";
+            }
+            $where.=" and  (unix_timestamp(D_StopTime)-unix_timestamp(D_StartTime))>=$stime ";
             $CntNoBackup=$m->field("count(*) cnt")->where($where)->find();	//未备份部分数据
-             echo M()->getLastSql();die;
             $CntNoBackup=$CntNoBackup['cnt'];
             $CntBackup = $m_bak->field("count(*) cnt")->where($where)->find();	//已备份部分数据
             $CntBackup=$CntBackup['cnt'];
-            $total = (int)$CntNoBackup + (int)$$CntBackup;
+            $total = (int)$CntNoBackup + (int)$CntBackup;
             $rs = array();
             if($CntBackup==0)
             {
@@ -145,6 +156,9 @@ class RecordController extends AuthController {
         //列出所有通道
         $rsChno = M('sys_paramschannel')->order('N_ChannelNo')->field("distinct N_ChannelNo")->select();
         $this->assign("rsChno",$rsChno);
+        
+        $this->assign("datetimepicker_start",date("Y-m-d",strtotime("-300 day"))." 00:00:00" );
+        $this->assign("datetimepicker_end",date("Y-m-d",time())." 23:59:59");
         $this->assign("CurrentPage",'recordList');
         $this->display();
     }

@@ -32,18 +32,18 @@
                     <div class="contentpanel">
                        
                         <div class="panel panel-title-head">
-                        <form id="form1">
+                        <!--<form id="form1">-->
                             <div class="search_banner">
-                                <div>
+                                <div class="clearfix">
 	                                <!-- <div class="pull-left col-md-1">
 	                                    <h4 class="panel-title">录音查询</h4>
 	                                </div> -->
 	                                <div class="pull-left col-md-3">
 	                                <div class="input-group" style="padding:5px;">
-		                                <lable class="pull-left">开始时间：<input name="datetimepicker_start" type="text" value="2018-03-15 05:06" /></lable><br>
+		                                <lable class="pull-left">开始时间：<input name="datetimepicker_start" id="datetimepicker_start" type="text" value="{$datetimepicker_start}" /></lable><br>
 		                             </div>
 		                             <div class="input-group" style="padding:5px;">
-		                                <lable class="pull-left">结束时间：<input name="datetimepicker_end" type="text" value="2018-03-15 05:06" /></lable>                     
+		                                <lable class="pull-left">结束时间：<input name="datetimepicker_end" id="datetimepicker_end" type="text" value="{$datetimepicker_end}" /></lable>                     
 	                                 </div>
 	                                </div>
 	                                <div class="pull-left col-md-3">
@@ -53,7 +53,7 @@
 										        <input name="SearchMode"   value="0" type="radio" aria-label="...">按号码查询
 										        <input name="SearchMode"   value="1" type="radio" aria-label="...">按姓名查询
 										      </span>
-										      <input type="text" name="search_key1" class="search_form-control" aria-label="..." value="">
+										      <input type="text" name="search_key" id="search_key" class="search_form-control" aria-label="..." value="">
 										     
 									    </div><!-- /input-group -->
 									    <div class="search_input_group">
@@ -61,44 +61,44 @@
 										        <input name="InOut" value="2" type="radio" aria-label="...">拨出和来电
 										        <input name="InOut" value="1" type="radio" aria-label="...">拨出
 										        <input name="InOut" value="0" type="radio" aria-label="...">来电
-										        <input name="details" value="1" type="checkbox" aria-label="...">有录像
+										        <input name="has_vedio" id="has_vedio" value="1" type="checkbox" aria-label="...">有录像
 										      </span>
 									    </div><!-- /input-group -->
 	                                </div>
-	                                <div class="pull-left col-md-2">
-		                                <div style="width:75%;float:left;line-height:33px;"> <span style=" font-weight: 400;    font-size: 13px;color: #555;padding: 6px 0px;">时长大于等于（秒）：</span></div> 
-		                                <input type="text" name="stime" class="search_form-control" style="width:25%;"> 
+	                                <div class="col-md-3">
+		                                <div class="search_input_group">
+										      <span class="search_input-group-addon">
+										        	时长大于等于（秒）：
+										      </span>
+										      <input type="text" name="stime" id="stime"  class="search_form-control" value="1">
+									    </div>
 	                                </div>
-	                                <div class="pull-left col-md-2">
-	                                    <div class="btn-group" style="margin-bottom: 0px;">
-											  <button data-toggle="dropdown" class="btn dropdown-toggle">所有通道 <span class="caret"></span></button>
-											  <div class="dropdown-menu dropdown-menu-right">
+	                                <div class="col-md-3">
+	                                	<div class="col-xs-6">
+										    <button data-toggle="dropdown" class="btn dropdown-toggle">通道选择 <span class="caret"></span></button>
+										    <div class="dropdown-menu dropdown-menu-right">
 											  	<div class="dropdown-menu-floatlist">
-											  		<div class="labelblock">
-											  		<!-- <table border=0 id="tabChno">
-											  		   <tr> -->
+											  		<div id="channelblock" class="labelblock">
 												  		<foreach name="rsChno" item="chnolist">
-												  			<label onclick="selectChannel()" for='chkChnl_"{$chnolist.n_channelno}"'><input type="checkbox" id='chkChnl_"{$chnolist.n_channelno}"' value="{$chnolist.n_channelno}"  name="chk_CN"/>{$chnolist.n_channelno}</label>
+												  			<label for='chkChnl_{$chnolist.n_channelno}'><input type="checkbox" id='chkChnl_{$chnolist.n_channelno}' value="{$chnolist.n_channelno}"  name="chk_CN"/>{$chnolist.n_channelno}</label>
 													  	</foreach>
-												  	   <!-- </tr>	
-												  	</table> -->
 											  		</div>
 											  		<div class="clearfix">
-											  			<div class="pull-right">
-												  			<button class="btn btn-primary btn-sm s">确定</button>
-												  			<button class="btn btn-default btn-sm c">取消</button>
-											  			</div>
-											  			<label class="pull-right allchecked"><input type="checkbox" />全选/全否</label>
+											  			<label class="pull-right allchecked"><input id="allCheckBox" type="checkbox" />全选/全否</label>
 											  			<p class="tip pull-right text-primary">提示:查找所有通道时可全不选中</p>
 											  		</div>
 											  	</div>
-											  </div>
-											</div>
-											<div class="btn btn-info btn-large search">搜索</div>
-	                                   </div>
+									    	</div>
+									    </div>
+								    	<div class="col-xs-6">
+								    		<div class="btn btn-info btn-large search">开始搜索</div>
+										</div>
+	                                </div>
                                 </div>
-                                <div style="clear:both"></div>
-                            </div></form><!-- panel-heading -->
+                            </div>
+                        <!--</form>-->
+                        	
+                        <!-- panel-heading -->
                             <div class="table-responsive">
                             <table id="basicTable" class="table table-striped table-bordered">
                                 <thead class="">
@@ -126,17 +126,18 @@
                                 </tbody>
                             </table>
                             </div>
+                            <div style="clear:both"></div> 
                         </div><!-- panel -->
                         
                         
-                            
+                           
                            
                         </div><!-- panel -->
                       
                         
                     </div><!-- contentpanel -->
-                </div><!-- mainpanel --><!-- mainpanel -->
             </div><!-- mainwrapper -->
+            
         </section>
 		
 		<div class="modal fade" id="videoPlayMod" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -181,37 +182,52 @@
         <script src="__PUBLIC__/assets/bootstrap/js/bootstrap-datetimepicker.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/jquery.audioplayer.js"></script>
-
 <script type="text/javascript">
+
+ 
+
+var CHANNEL_ARR = new Array();
+var CHANNEL_TB;
+var InOut = 2;
+var SearchMode = 0;
+var has_vedio = 0;
 $(document).ready( function () {
-table=$('#basicTable').dataTable(
+	
+	
+CHANNEL_TB = $('#basicTable').dataTable(
         {
+        	
             "ajax": {  //类似jquery的ajax参数，基本都可以用。
                 "type": "post",  //后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                "url": '../record/recordList',
-                "dataSrc": "data",  //默认data，也可以写其他的，格式化table的时候取里面的数据
-                "data": function (d) {  //d 是原始的发送给服务器的数据，默认很长。
-                    d.is_search = $('#is_search').val();
-                    $('#is_search').val(0);
+                "url": "{:U('record/recordList')}",
+//              "dataSrc": "data",  //默认data，也可以写其他的，格式化table的时候取里面的数据
+                "dataType":"json",
+                "data":  function (d){  //d 是原始的发送给服务器的数据，默认很长。
+                	$("input:radio[name='InOut']:checked").each(function() { 
+                		InOut = $(this).val();  // 每一个被选中项的值
+                    });	
+                	$("input:radio[name='SearchMode']:checked").each(function() { 
+                		SearchMode = $(this).val();  // 每一个被选中项的值
+                    });
+                	if($('#has_vedio').is(':checked')){
+                		has_vedio = 1;
+                	}
+                	d.chk_CN = String(CHANNEL_ARR);
+                	d.datetimepicker_start=$('#datetimepicker_start').val();
+                	d.datetimepicker_end=$('#datetimepicker_end').val();
+                	d.SearchMode=SearchMode;
+                	d.InOut=InOut;
+                	d.search_key=$('#search_key').val();
+                	d.has_vedio=has_vedio;
+                	d.stime=$('#stime').val();
+                    return d;
+//              	d.chk_CN = CHANNEL_ARR;
+//                  d.is_search = $('#is_search').val();
+//                  $('#is_search').val(0);
                     //获取是否是查询,然后置0，0为非搜索查询
                 }
             },
-         /* "createdRow": function ( row, data, index ) {   //定义行样式
-                var color;
-                if ( data.ThreatLV == 'hight' ) {
-                     color="red";
-                }else if(data.ThreatLV == 'middle'){
-                     color="#e58323";
-                }
-                    $('td', row).eq(0).css('font-weight',"").css("color",color);
-                    $('td', row).eq(1).css('font-weight',"").css("color",color);
-                    $('td', row).eq(2).css('font-weight',"").css("color",color);
-                    $('td', row).eq(3).css('font-weight',"").css("color",color);
-                    $('td', row).eq(4).css('font-weight',"").css("color",color);
-                    $('td', row).eq(6).css('font-weight',"").css("color",color);
-                    $('td', row).eq(8).css('font-weight',"").css("color",color);
-                
-            }, */
+        
             "pagingType": "full_numbers",
             //"sPaginationType": "full_numbers", //分页风格，full_number会把所有页码显示出来（大概是，自己尝试）
             "sDom": "<'row-fluid inboxHeader'<'span6'<'dt_actions'>l><'span6'f>r>t<'row-fluid inboxFooter'<'span6'i><'span6'p>>", //待补充
@@ -239,7 +255,11 @@ table=$('#basicTable').dataTable(
             "bServerSide": true, //开启服务器模式，使用服务器端处理配置datatable。注意：sAjaxSource参数也必须被给予为了给datatable源代码来获取所需的数据对于每个画。 这个翻译有点别扭。开启此模式后，你对datatables的每个操作 每页显示多少条记录、下一页、上一页、排序（表头）、搜索，这些都会传给服务器相应的值。
 //            "sAjaxSource": '__URL__/serach_nasty', //给服务器发请求的url
             "aoColumns": [  //这个属性下的设置会应用到所有列，按顺序没有是空
-                {"mData": 'n_sn'}, //mData 表示发请求时候本列的列明，返回的数据中相同下标名字的数据会填充到这一列
+            	{"mData": function (mData)
+             	   {
+                     return "<input type='checkbox' name='selID' value='"+mData.N_SN+"' />";
+                    }
+             	},
                 {"mData": 'n_channelid'},
                 {"mData": 'n_channelinfo'},
                 {"mData": 'v_caller'},
@@ -269,109 +289,46 @@ table=$('#basicTable').dataTable(
         });
         
 $('.search').click(function(){
-	
+
 	var datetimepicker_start = $("input[name='datetimepicker_start']").val();
 	var datetimepicker_end = $("input[name='datetimepicker_end']").val();
-	var SearchMode = $("input[name='SearchMode']").val();
-	var InOut = $("input[name='InOut']").val();
+	$("input:radio[name='InOut']:checked").each(function() { 
+		InOut = $(this).val();  // 每一个被选中项的值
+    });	
+	$("input:radio[name='SearchMode']:checked").each(function() { 
+		SearchMode = $(this).val();  // 每一个被选中项的值
+    });
+	if($('#has_vedio').is(':checked')){
+		has_vedio = 1;
+	}
 	var details = $("input[name='details']").val();
-    
-    var selectchk_CNModule = $("[name='chk_CN']");  
-    length = selectchk_CNModule.length;  
-    var index = 0;  
-    var chk_CN_Arr = new Array();  
-    for(i = 0; i < length; i++) {  
-        if(selectchk_CNModule[i].checked == true) {  
-        	chk_CN_Arr[index] = selectchk_CNModule[i].value;  
-            ++index;  
-        }  
-    }  
- 
-    $.ajax({
-		url: "{:U('record/recordList')}",
-		type: 'POST',
-		data: { "chk_CN": chk_CN_Arr},
-		success: function(result){
-			 // $('#basicTable').dataTable().fnDestroy();
-			  $('#basicTable').DataTable({
-				  "pagingType": "full_numbers",
-		            //"sPaginationType": "full_numbers", //分页风格，full_number会把所有页码显示出来（大概是，自己尝试）
-		            "sDom": "<'row-fluid inboxHeader'<'span6'<'dt_actions'>l><'span6'f>r>t<'row-fluid inboxFooter'<'span6'i><'span6'p>>", //待补充
-		            "iDisplayLength": 10,  //每页显示10条数据
-		            "bAutoWidth": false,  //宽度是否自动，感觉不好使的时候关掉试试
-		            "bLengthChange": false,
-		            "bFilter": false,
-		            "oLanguage": {  //下面是一些汉语翻译
-		                "sSearch": "搜索",
-		                "sLengthMenu": "每页显示 _MENU_ 条记录",
-		                "sZeroRecords": "没有检索到数据",
-		                "sInfo": "显示 _START_ 至 _END_ 条 &nbsp;&nbsp;共 _TOTAL_ 条",
-		                "sInfoFiltered": "(筛选自 _MAX_ 条数据)",
-		                "sInfoEmtpy": "没有数据",
-		                "sProcessing": "正在加载数据...",
-		                "oPaginate":
-		                        {
-		                            "sFirst": "首页",
-		                            "sPrevious": "前一页",
-		                            "sNext": "后一页",
-		                            "sLast": "末页"
-		                        }
-		            },
-		            "bProcessing": true, //开启读取服务器数据时显示正在加载中……特别是大数据量的时候，开启此功能比较好
-		            "bServerSide": true, //开启服务器模式，使用服务器端处理配置datatable。注意：sAjaxSource参数也必须被给予为了给datatable源代码来获取所需的数据对于每个画。 这个翻译有点别扭。开启此模式后，你对datatables的每个操作 每页显示多少条记录、下一页、上一页、排序（表头）、搜索，这些都会传给服务器相应的值。
-//		            "sAjaxSource": '__URL__/serach_nasty', //给服务器发请求的url
-		            "aoColumns": [  //这个属性下的设置会应用到所有列，按顺序没有是空
-		                {"mData": 'n_sn'}, //mData 表示发请求时候本列的列明，返回的数据中相同下标名字的数据会填充到这一列
-		                {"mData": 'n_channelid'},
-		                {"mData": 'n_channelinfo'},
-		                {"mData": 'v_caller'},
-		                {"mData": 'v_called'},
-		                {"mData": 'v_ext'},
-		                {"mData": 'n_calldirection'},
-		                {"mData": 'd_starttime'},
-		                {"mData": 'd_stoptime'},
-		                {"mData": 'longtime'},
-		                {"mData": 'v_voicefileplay'},
-		                {"mData": 'local_video'},
-		                {"mData": 'remote_video'},
-		                {"mData": 'n_lock'},
-		                {"mData": 'remark'},
-		               
-		            ],
+	
+    //console.log(CHANNEL_TB)
 
-		            "aoColumnDefs": [//和aoColums类似，但他可以给指定列附近属性
-		                {"bSortable": false, "aTargets": [0,1, 3, 6, 7, 8]}, //这句话意思是第1,3,6,7,8,9列（从0开始算） 不能排序
-		                {"bSearchable": false, "aTargets": [1, 2, 3, 4, 5, 6, 7, 8]} //bSearchable 这个属性表示是否可以全局搜索，其实在服务器端分页中是没用的
-		            ],
-		            "aaSorting": [[2, "desc"]], //默认排序
-		            "fnInitComplete": function (oSettings, json) { //表格初始化完成后调用 在这里和服务器分页没关系可以忽略
-		                $("input[aria-controls='DataTables_Table_0']").attr("placeHolder", "请输入高手用户名");
-		            }
-			  })
-		},
-		error: function() {
-			alert('网络错误，请刷新页面后重试！');
-		}
-	});
+    CHANNEL_TB.fnClearTable();
+    CHANNEL_TB.fnReloadAjax();
+ 
+
      
 }) 
 
+ 
 		
 	jQuery('#datetimepicker_start').datetimepicker();
 	jQuery('#datetimepicker_end').datetimepicker();
 	
+
 	$('.dropdown-menu-floatlist').on('click',function(e){
-		if($(e.target).is('.btn')){
-			if($(e.target).is('.s')){
-				alert('确定');
-			}else{
-				//alert('取消')
-			}
-			return;
-		}
-		$(e.delegateTarget).find('.labelblock').find('input').prop('checked',$(e.delegateTarget).find('.allchecked input').prop('checked'));
 		e.stopPropagation();
-	})
+	}).on('change','#allCheckBox', function(e){
+//		console.log($(e.target).prop('checked'))
+		$('#channelblock').find('[type=checkbox]').prop('checked',$(e.target).prop('checked'));
+		channelArrSet();
+	}).on('change','#channelblock [type=checkbox]', function(e){
+		channelArrSet();
+	});
+	
+	
 	
 	$('#basicTable').on('click', '.video-play',function(e){
 		e.preventDefault();
@@ -395,22 +352,20 @@ $('.search').click(function(){
 
 })  
 
-function selectChannel(){
-	 var $input=$(this).find('input');
+function channelArrSet(){
+	CHANNEL_ARR = [];
+	$('#channelblock').find('[type=checkbox]').each(function(){
+		if($(this).prop('checked') == true)
+		CHANNEL_ARR.push(parseInt($(this).val()));
+	})
+	CHANNEL_ARR.sort();
+}
 
-     // 此处是关键，判断input的选中状态，如果没有做任何处理，那么input的checked是先ture后false
-
-     if($input.is(':checked')){
-
-         console.log($input.val());
-
-     }
-
-     else {
-     console.log(1)
-    	 $(this).find('input').attr("checked","checked"); 
-
-     }
+function channelElnSet(arr){
+	CHANNEL_ARR = arr;
+	for(var i in CHANNEL_ARR){
+		$('chkChnl_'+CHANNEL_ARR[i]).prop('checked')
+	}
 }
 </script>        
 		

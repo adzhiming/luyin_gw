@@ -44,10 +44,7 @@
                                         <th>磁盘预留空间数</th>
                                     </tr>
                                 </thead>
-                         
-                                <tbody>
-                                  
-                                </tbody>
+                                <tbody></tbody>
                             </table>
                         </div><!-- panel -->
                         
@@ -62,15 +59,57 @@
             </div><!-- mainwrapper -->
         </section>
 		
-		<div class="modal fade" id="pathMod" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade" id="pathMod" tabindex="-1" role="dialog" >
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		        <div class="search_input_group">
+				      <span class="search_input-group-addon">
+				        	当前位置：
+				      </span>
+				      <input type="text" name="path"  class="search_form-control" value="C:/">
+			    </div>
 		      </div>
 		      <div class="modal-body">
-		        ...
+		      	<div class="row">
+		      		<div class="col-xs-3">
+		      			<div class="diskWrap">
+		      				<div class="item active">
+		      					<em class="disk-ico"></em>
+		      					<div class="name">C:/</div>
+		      				</div>
+		      				<div class="item">
+		      					<em class="disk-ico"></em>
+		      					<div class="name">D:/</div>
+		      				</div>
+		      				<div class="item">
+		      					<em class="disk-ico"></em>
+		      					<div class="name">E:/</div>
+		      				</div>
+		      				<div class="item">
+		      					<em class="disk-ico"></em>
+		      					<div class="name">F:/</div>
+		      				</div>
+		      			</div>
+		      		</div>
+		      		<div class="col-xs-9">
+		      			<div class="fileWrap clearfix">
+		      				<div class="item active">
+		      					<em class="file-ico"></em>
+		      					<div class="name">video</div>
+		      				</div>
+		      				<div class="item">
+		      					<em class="file-ico"></em>
+		      					<div class="name">video</div>
+		      				</div>
+		      				<div class="item">
+		      					<em class="file-ico"></em>
+		      					<div class="name">video</div>
+		      				</div>
+		      			</div>
+		      		</div>
+		      	</div>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -101,25 +140,6 @@ table=$('#basicTable').dataTable(
                     //获取是否是查询,然后置0，0为非搜索查询
                 }
             },
-         /* "createdRow": function ( row, data, index ) {   //定义行样式
-                var color;
-                if ( data.ThreatLV == 'hight' ) {
-                     color="red";
-                }else if(data.ThreatLV == 'middle'){
-                     color="#e58323";
-                }
-                    $('td', row).eq(0).css('font-weight',"").css("color",color);
-                    $('td', row).eq(1).css('font-weight',"").css("color",color);
-                    $('td', row).eq(2).css('font-weight',"").css("color",color);
-                    $('td', row).eq(3).css('font-weight',"").css("color",color);
-                    $('td', row).eq(4).css('font-weight',"").css("color",color);
-                    $('td', row).eq(6).css('font-weight',"").css("color",color);
-                    $('td', row).eq(8).css('font-weight',"").css("color",color);
-                
-            }, */
-            //"sPaginationType": "full_numbers", //分页风格，full_number会把所有页码显示出来（大概是，自己尝试）
-           
-            
             "bAutoWidth": false,  //宽度是否自动，感觉不好使的时候关掉试试
             "bLengthChange": false,
             "bFilter": false,
@@ -153,6 +173,11 @@ table=$('#basicTable').dataTable(
 
 
         });
+        
+    $('#pathMod').on('show.bs.modal',function(e){
+    	var r = e.relatedTarget;
+    	
+    })
         
 })     
 </script>

@@ -104,7 +104,7 @@ table=$('#basicTable').dataTable(
         {
             "ajax": {  //类似jquery的ajax参数，基本都可以用。
                 "type": "post",  //后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                "url": '../record/recordList',
+                "url": '../record/recordCount',
                 "dataSrc": "data",  //默认data，也可以写其他的，格式化table的时候取里面的数据
                 "data": function (d) {  //d 是原始的发送给服务器的数据，默认很长。
                     d.extra_search = $('#reportrange span').html();
@@ -113,22 +113,7 @@ table=$('#basicTable').dataTable(
                     //获取是否是查询,然后置0，0为非搜索查询
                 }
             },
-         /* "createdRow": function ( row, data, index ) {   //定义行样式
-                var color;
-                if ( data.ThreatLV == 'hight' ) {
-                     color="red";
-                }else if(data.ThreatLV == 'middle'){
-                     color="#e58323";
-                }
-                    $('td', row).eq(0).css('font-weight',"").css("color",color);
-                    $('td', row).eq(1).css('font-weight',"").css("color",color);
-                    $('td', row).eq(2).css('font-weight',"").css("color",color);
-                    $('td', row).eq(3).css('font-weight',"").css("color",color);
-                    $('td', row).eq(4).css('font-weight',"").css("color",color);
-                    $('td', row).eq(6).css('font-weight',"").css("color",color);
-                    $('td', row).eq(8).css('font-weight',"").css("color",color);
-                
-            }, */
+        
             "pagingType": "full_numbers",
             //"sPaginationType": "full_numbers", //分页风格，full_number会把所有页码显示出来（大概是，自己尝试）
             "sDom": "<'row-fluid inboxHeader'<'span6'<'dt_actions'>l><'span6'f>r>t<'row-fluid inboxFooter'<'span6'i><'span6'p>>", //待补充
@@ -201,35 +186,6 @@ table=$('#basicTable').dataTable(
         
 })     
 </script>
-<!-- <script type="text/javascript">
-$(document).ready( function () {
-table=$('#basicTable').dataTable(
-        {
-            "ajax": {  //类似jquery的ajax参数，基本都可以用。
-                "type": "post",  //后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                "url": '__URL__/recordList',
-                "columns": [
-                            {"data": 'N_SN'}, //mData 表示发请求时候本列的列明，返回的数据中相同下标名字的数据会填充到这一列
-                            {"data": 'N_ChannelID'},
-                            {"data": 'N_ChannelInfo'},
-                            {"data": 'V_Caller'},
-                            {"data": 'V_Called'},
-                            {"data": 'V_Called'},
-                            {"data": 'N_CallDirection'},
-                            {"data": 'D_StartTime'},
-                            {"data": 'D_StopTime'},
-                            {"data": 'longtime'},
-                            {"data": 'V_VoiceFile'},
-                            {"data": 'V_VoiceFile'},
-                            {"data": 'V_VoiceFile'},
-                            {"data": 'N_Locker'},
-                            {"data": 'ReMark'}
-                 ]
-            },
-        })
-        
-})     
-</script>   -->      	
-		
+
     </body>
 </html>

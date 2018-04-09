@@ -113,6 +113,40 @@ function getNameByPhoneNum($num){
     return $num;
 }
 
+//按姓名查找时，先根据姓名从号簿中查找到相关应的号码。
+function getNumByName($name){
+    $name = trim($name);
+    $strNum = "";
+    if($name!=""){
+        $rs = M('phonebook')->field("Mobile,OfficeNum,OtherNum")->where("contactName like'%".$name."%'")->find();
+        if($rs)
+        {
+            if(!empty($rs['mobile'])){
+                $strNum =  $rs['mobile'];
+            }
+            if(!empty($rs['0fficenum'])){
+                if($strNum == ""){
+                    $strNum =  $rs['0fficenum'];
+                }
+                else
+                {
+                    $strNum = $strNum .",". $rs['0fficenum'];
+                }
+            }
+            if(!empty($rs['othernum'])){
+                if($strNum == ""){
+                    $strNum =  $rs['othernum'];
+                }
+                else
+                {
+                    $strNum = $strNum .",". $rs['othernum'];
+                }
+            }
+        }
+    }  
+    return $strNum;
+}
+
 //根据RecID获取主叫、被叫录象
 function getVedioByRecID($id,$type)
 {
