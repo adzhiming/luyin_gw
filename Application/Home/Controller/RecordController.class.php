@@ -14,8 +14,9 @@ class RecordController extends AuthController {
     
 
     public function recordList(){
-        $datetimepicker_start = $_REQUEST['datetimepicker_start'];
-        $datetimepicker_end = $_REQUEST['datetimepicker_end'];
+        $s_time = date("Y-m-d",strtotime("-300 day"))." 00:00:00";
+        $e_time = date("Y-m-d",time())." 23:59:59";
+         
         if(IS_AJAX){
             $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
             $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
@@ -25,6 +26,8 @@ class RecordController extends AuthController {
             $stime = isset($_REQUEST['stime'])?$_REQUEST['stime']:1;
             $InOut = $_REQUEST['InOut'];
             $chk_CN = $_REQUEST['chk_CN'];
+            $datetimepicker_start = isset($_REQUEST['datetimepicker_start'])?$_REQUEST['datetimepicker_start']:$s_time;
+            $datetimepicker_end = isset($_REQUEST['datetimepicker_end'])?$_REQUEST['datetimepicker_end']:$e_time;
             //$name = $_REQUEST['search']['value'];
             $m = M("rec_cdrinfo");
             $m_bak = M("rec_bakinfo");
@@ -157,78 +160,79 @@ class RecordController extends AuthController {
         $rsChno = M('sys_paramschannel')->order('N_ChannelNo')->field("distinct N_ChannelNo")->select();
         $this->assign("rsChno",$rsChno);
         
-        $this->assign("datetimepicker_start",date("Y-m-d",strtotime("-300 day"))." 00:00:00" );
-        $this->assign("datetimepicker_end",date("Y-m-d",time())." 23:59:59");
+        $this->assign("datetimepicker_start",$s_time);
+        $this->assign("datetimepicker_end",$e_time);
         $this->assign("CurrentPage",'recordList');
         $this->display();
     }
     
     public function recordCount(){
+        $s_time = date("Y-m-d",strtotime("-300 day"))." 00:00:00";
+        $e_time = date("Y-m-d",time())." 23:59:59";
+        $SearchMode = isset($_REQUEST['SearchMode'])?$_REQUEST['SearchMode']:1;
+        
         if(IS_AJAX){
             $sEcho = $_REQUEST['sEcho']; // DataTables 用来生成的信息
             $output['sEcho'] = $sEcho;
-            $start = $_REQUEST['start'];
-            $length = $_REQUEST['length'];
-            $datetimepicker_start = $_REQUEST['datetimepicker_start'];
-            $datetimepicker_end = $_REQUEST['datetimepicker_end'];
-            $SearchMode = $_REQUEST['SearchMode'];
+            $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
+            $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
+            $datetimepicker_start = isset($_REQUEST['datetimepicker_start'])?$_REQUEST['datetimepicker_start']:$s_time;
+            $datetimepicker_end = isset($_REQUEST['datetimepicker_end'])?$_REQUEST['datetimepicker_end']:$e_time;
             
-            //搜索方式及条件
-            $sMode=isset($SearchMode)?$SearchMode:1;
+             
+             
             //如没设定开始日期，则默认为上个月的今天
             $bTime=isset($_POST["bTime"])?$_POST["bTime"]:$lastmonth = date("Y-m-d",mktime(0,0,0,date("m")-1 ,date("d"),date("Y")));
             //如没设定开始日期，则默认为昨天
             $eTime=isset($_POST["eTime"])?$_POST["eTime"]:date("Y-m-d",mktime(0,0,0,date("m") ,date("d")-1,date("Y")));
             
-            $where['D_StartTime'] = array(array('egt',$datetimepicker_start),array('lgt',$datetimepicker_end)) ;
-            $where['D_StopTime'] = array('neq','0000-00-00 00:00:00');
+            $where  = " D_StartTime >= '{$datetimepicker_start}' and D_StartTime <= '{$datetimepicker_end}' ";
+            $where  .= " and D_StopTime != '0000-00-00 00:00:00' ";
             
-            if($SearchMode)
+            if($SearchMode == 1)
             {
-                $field = "*";
-                $cnt = M('rec_cdrinfo')->field("count(*) cnt ")->where($where)->group('N_ChannelID')->find();
-                $total = $cnt['cnt'];
+                
+                $field = "N_ChannelID,Count(N_SN) as 'cAmount',Sum(ABS(TIMESTAMPDIFF(SECOND,D_StartTime,D_StopTime))) as cSecond";
+                $cnt = M('rec_cdrinfo')->field("N_ChannelID ")->where($where)->group('N_ChannelID')->select();
+                $total = count($cnt);
+                
                 $rs = M('rec_cdrinfo')->field($field)->where($where)->group('N_ChannelID')->limit($start,$length)->select();
+                
+                if($rs){
+                    foreach ($rs as $k=>$v){
+                        $rs[$k]['recordtime'] = formatTime($v["csecond"]);
+                        $data = $this->vedioSimpleCount($v['n_channelid'],$where);
+                        $rs[$k]['vtimes'] = $data['vtimes'];
+                        $rs[$k]['vsecond'] = $data['vsecond'];
+                    }
+                }
+               
             }
             else
             {
-                $field = "N_ChannelID,Count(N_SN) as 'cAmount',Sum(ABS(TIMESTAMPDIFF(SECOND,D_StartTime,D_StopTime))) as 'cSecond";
+                
+                $field = "*";
                 $cnt = M('rec_cdrinfo')->field("count(*) cnt ")->where($where)->find();
                 $total = $cnt['cnt'];
                 $rs = M('rec_cdrinfo')->field($field)->where($where)->limit($start,$length)->select();
+               
+                if($rs){
+                    foreach ($rs as $k=>$v){
+                        $rs[$k]['longtime'] = DateDiff($v['d_starttime'],$v['d_stoptime']);
+                        $rs[$k]['n_calldirection'] = $v['n_calldirection']==1?'拨出':'来电';
+                    }
+                }
             }
             
-            
-            
-      
-            
-            $Hash ='3213afd1b3151311313';
-            $out['N_SN'] = 1;
-            $out['N_ChannelID'] = '3';
-            $out['N_ChannelInfo'] = '5号通道';
-            $out['V_Caller'] = '5002';
-            $out['V_Called'] = '8632';
-            $out['V_Called']= '8632';
-            $out['N_CallDirection'] = '主叫';
-            $out['D_StartTime'] = '2018-1-11 15:20:26';
-            $out['D_StopTime'] = '2018-1-11 15:23:28';
-            $out['longtime'] = "20";
-            $out['V_VoiceFile'] = 1;
-            $out['V_VoiceFile'] = 1;
-            $out['V_VoiceFile'] = 1;
-            $out['N_Locker'] = 1;
-            $out['ReMark'] = 1;
-            
-            for($i=1;$i<=12;$i++){
-                $aaData[]=$out;
-                $output['aaData'] = $aaData;
-            }
-            
-            $output['iTotalDisplayRecords'] = 100;    //如果有全局搜索，搜索出来的个数
-            $output['iTotalRecords'] = 100; //总共有几条数据
+            $output['aaData'] = $rs;
+            $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
+            $output['iTotalRecords'] = $total; //总共有几条数据
             echo json_encode($output); //最后把数据以json格式返回
             die;
         }
+        $this->assign("SearchMode",$SearchMode);
+        $this->assign("datetimepicker_start",$s_time);
+        $this->assign("datetimepicker_end",$e_time);
         $this->assign("CurrentPage",'recordCount');
         $this->display();
     }
@@ -255,5 +259,36 @@ class RecordController extends AuthController {
             echo json_encode($output); //最后把数据以json格式返回
             die;
 		}
+	}
+	
+	//查询录象的时长、次数
+	public function vedioSimpleCount($N_ChannelID,$where)
+	{
+	    $sql = "select `recid` from tab_ved_cdrinfo union select `recid` from tab_ved_bakinfo order by `recid` ";
+	    $res = M()->query($sql);
+	    $recid = "";
+	    if($res){
+	        foreach ($res as $v){
+	            if($recid == ""){
+	                $recid = $v['recid'];
+	            }
+	            else
+	            {
+	                $recid = $recid .",".$v['recid'];
+	            }
+	        }
+	    }
+	    $where2 ="";
+	    if(!empty($recid)) $where2 .= " and N_SN in ($recid)";
+	    
+	    $sql="Select N_ChannelID,Count(N_SN) as 'cAmount',";
+	    $sql.="Sum(ABS(TIMESTAMPDIFF(SECOND,D_StartTime,D_StopTime))) as 'cSecond' from tab_rec_bakinfo where ".$where."
+	    AND `N_ChannelID`='$N_ChannelID' {$where2}";
+	    $sql.=" Group by N_ChannelID ";
+	    $rowsSimpleVedio = M()->query($sql);
+	    $data = array();
+	    $data["vtimes"] = $rowsSimpleVedio["cAmount"]==""?'0':$rowsSimpleVedio["cAmount"];
+	    $data["vsecond"] = formatTime($rowsSimpleVedio["cSecond"]);
+	    return $data;
 	}
 }
