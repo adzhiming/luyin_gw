@@ -181,6 +181,16 @@ function getVedioByRecID($id,$type)
    
 }
 
+//MySQL语句格式化，避免特殊字符造成SQL语法错误
+function MySQLFixup($str){
+    if(is_numeric($str)) return $str;
+    if(empty($str)) return;
+    if($str=="") return $str;
+    $str=str_replace("'","''",$str);
+    $str=str_replace("\\","\\\\",$str);
+    return $str;
+}
+
 //比较两个日期之间差别多少秒，
 //参数格式必须为标准时间日期格式，如：2018-3-5 14:50:06
 function DateDiff($d1,$d2){
