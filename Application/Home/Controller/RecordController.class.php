@@ -134,7 +134,7 @@ class RecordController extends AuthController {
             if($rs){ 
                 foreach ($rs as $k=>$v)
                 {
-                    $fileplay ="<i class='fa fa-volume-up video-play' style=\"cursor:pointer\" onclick=\"play('".$v["n_sn"]."','".$v["v_voicefile"]."')\"></i>";
+                    $fileplay ="<i class='fa fa-volume-up ' style=\"cursor:pointer\" onclick=\"play('".$v["n_sn"]."','".$v["v_voicefile"]."')\"></i>";
                     
                     $rs[$k]['n_channelinfo'] = getChannelNameById($v['n_channelid']);
                     $rs[$k]['v_caller'] = getNameByPhoneNum($v['v_caller']);
@@ -290,5 +290,63 @@ class RecordController extends AuthController {
 	    $data["vtimes"] = $rowsSimpleVedio["cAmount"]==""?'0':$rowsSimpleVedio["cAmount"];
 	    $data["vsecond"] = formatTime($rowsSimpleVedio["cSecond"]);
 	    return $data;
+	}
+	
+	//录音播放器
+	public function recordPlayer()
+	{
+	    $listItem=$this->getParam("listItem");
+	    $fileName="";
+	    if($listItem==""){
+	        JS_alert("播放列表为空，请选择要播放的录象");
+	    }
+	    $SelectStr="N_SN,N_RECID,N_RECSEQ,N_ChannelID,D_StartTime,D_StopTime,V_Diverter,V_Diverted";
+	    $SelectStr.=",N_CallDirection,V_Caller,V_Called,V_Ext";
+	    $SelectStr.=",v_path,v_netpath,v_voicefile,(unix_timestamp(D_StopTime)-unix_timestamp(D_StartTime)) AS reclong ";
+	    
+	    $aryItem=explode(",",$listItem);
+	    $rsPlay = array();
+	    $rsPlay_bak = array();
+	    if(count($aryItem)>1){//试听多个录音
+	        $rs = M('rec_cdrinfo')->where("N_SN in($listItem)")->select();
+	        $cnt = count($rs);
+	        $rsPlay = $rs;
+	        
+	        $rs_bak = M('rec_bakinfo')->where("N_SN in($listItem)")->select();
+	        $cnt_bak = count($rs_bak);
+	        $rsPlay_bak = $rs_bak;
+	        
+	        if(($cnt+$cnt_bak)==0){
+	            JS_alert("没找到录象文件，可能已被删除");
+	            //JScript("self.close();");
+	        }
+	    }else{//试听一个录音，根据录音子ID判断是否有相关录音，有则罗列出来一起试听。
+	        $rs = M('rec_cdrinfo')->field("N_RECID")->where("N_SN = '{$listItem}' ")->find();
+	        $recid = "";
+	        if($rs){
+	            $recid = $rs["n_recid"];
+	        }
+	        $rsPlay = M('rec_cdrinfo')->field($SelectStr)->where("N_RECID = '{$recid}' ")->order('N_RECSEQ')->select();
+	        
+	        $fileName=$this->getParam("fname");//加载页面后，首先播放的录音
+	        if(!$rsPlay){
+	            $rsPlay = M('rec_bakinfo')->field($SelectStr)->where("N_RECID = '{$recid}' ")->order('N_RECSEQ')->select();
+	            if(!$rsPlay){	//再次无记录，关闭试听页面
+	                JS_alert("没找到录音文件，可能已被删除");
+	                //JScript("self.close();");
+	            }
+	        }
+	    }
+	    $rsPlayTotal = array_merge($rsPlay,$rsPlay_bak);
+	    if($rsPlayTotal){
+	        foreach ($rsPlayTotal as $k=>$v){
+	            $rsPlayTotal[$k]['field_url'] = "http://local.lyxtgw.com/".$v["v_netpath"].$v["v_voicefile"];
+	            $rsPlayTotal[$k]['fx'] =  fx($v["n_calldirection"]);
+	        }
+	    }
+	    
+	    $this->assign("rsPlayTotal",$rsPlayTotal);
+	    $this->assign("fileName",$fileName);
+	    $this->display();
 	}
 }

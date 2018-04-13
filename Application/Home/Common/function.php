@@ -223,3 +223,22 @@ function formatTime($s){
 function dbNum($i){
     if($i<10){return "0".$i;}else{return $i;}
 }
+
+/*客户端弹出警告信息*/
+function JS_alert($msg){
+    echo"<script type='text/javascript'>alert('$msg');</script>";
+}
+
+
+//返回服务器IP及端口，格式：http://192.168.0.1:8080/
+function host(){
+    return "http://{$_SERVER['SERVER_ADDR']}:{$_SERVER['SERVER_PORT']}/";
+}
+
+function fx($n){
+    if($n!=""){
+        return ($n==1)?"拨出":"来电";
+    }else{
+        return "";
+    }
+}

@@ -99,11 +99,26 @@
                         <!--</form>-->
                         	
                         <!-- panel-heading -->
-                            <div class="table-responsive">
+                        <div style="line-height: 50px;height: 50px;">
+                             <div class="pull-left ">
+	                                <button class="btn btn-primary btn-small " type="button" onclick="play('','')">播放选中录音</button>
+	                          </div> 
+	                          <div class="pull-left ">
+	                                <button class="btn btn-info btn-small video-play" type="button">播放选中录像</button>
+	                          </div>
+                             <div class="pull-left ">
+	                                <button class="btn btn-danger btn-small" type="button">删除选中记录</button>
+	                          </div> 
+	                          <div class="pull-left ">
+	                                <button class="btn btn-success btn-small" type="button">打包下载录音</button>
+	                          </div>
+	                          <div style="clear:both"></div>
+                         </div>
+                         <div class="table-responsive">
                             <table id="basicTable" class="table table-striped table-bordered">
                                 <thead class="">
                                     <tr>
-                                        <td><input type="checkbox"></td>
+                                        <td><input type="checkbox" id="checked_all"></td>
                                         <th>线路号</th>
                                         <th>线路信息</th>
                                         <th>主叫</th>
@@ -255,7 +270,7 @@ CHANNEL_TB = $('#basicTable').dataTable(
             "aoColumns": [  //这个属性下的设置会应用到所有列，按顺序没有是空
             	{"mData": function (mData)
              	   {
-                     return "<input type='checkbox' name='selID' value='"+mData.N_SN+"' />";
+                     return "<input type='checkbox' class='checked_per_pro' name='checked_per_pro'  value='"+mData.n_sn+"' />";
                     }
              	},
                 {"mData": 'n_channelid'},
@@ -328,7 +343,7 @@ $('.search').click(function(){
 	
 	
 	
-	$('#basicTable').on('click', '.video-play',function(e){
+	$('body').on('click', '.video-play',function(e){
 		e.preventDefault();
 		$('#videoPlayMod').modal('show');
 		var $tr = $(e.currentTarget).parents('tr').clone();
@@ -365,6 +380,49 @@ function channelElnSet(arr){
 		$('chkChnl_'+CHANNEL_ARR[i]).prop('checked')
 	}
 }
+
+$("#checked_all").click(function() {
+    var state = $("#checked_all").prop("checked");
+    if(state == true) {
+        $(".checked_per_pro").prop("checked", "checked");
+    } else {
+        $(".checked_per_pro").prop("checked", "");
+    }
+});
+
+
+
+//播放当前选中的录音
+function play(N_SN,fname){
+	//获得窗口的垂直位置 
+    var iTop = (window.screen.availHeight - 30 - 380) / 2; 
+    //获得窗口的水平位置 
+    var iLeft = (window.screen.availWidth - 10 - 450) / 2; 
+    
+	var url="recordPlayer?Rnd="+Math.random()+"&listItem=";
+	if(N_SN!=""){
+         //直接点击某条录音的小喇叭，只播放当前录音
+		var dsc="dialogWidth=450px;dialogHeight=425px;status=no";
+		window.open(url+N_SN+"&fname="+fname,"player","height=380,width=450, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+		
+	}else{
+		//点击播放选中的录音
+		var Items =""
+		 $('input[name="checked_per_pro"]:checked').each(function(){ 
+			 if(Items ==""){
+				 Items = $(this).val()
+			 }
+			 else{
+				 Items = Items +","+ $(this).val()
+			 }
+		}); 
+		if(Items!=""){
+			//window.open(url+Items);
+			window.open(url+Items,"player","height=380,width=450, top="+ iTop + ",left="+ iLeft + ",toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+		}else{alert("请选择要试听的录音");}
+	}
+}
+ 
 </script>        
 		
 		
