@@ -22,7 +22,7 @@ class RecordController extends AuthController {
             $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
             $SearchMode = isset($_REQUEST['SearchMode'])?$_REQUEST['SearchMode']:0;
             $search_key = $_REQUEST['search_key'];
-            $has_vedio = $_REQUEST['has_vedio'];
+            $has_video = $_REQUEST['has_video'];
             $stime = isset($_REQUEST['stime'])?$_REQUEST['stime']:1;
             $InOut = $_REQUEST['InOut'];
             $chk_CN = $_REQUEST['chk_CN'];
@@ -58,7 +58,7 @@ class RecordController extends AuthController {
                     $where .= " and (V_caller like '".$search_key."%' or V_called like '".$search_key."%'  orv_ext like '".$search_key."%')";
                 }
             }
-            if ($has_vedio==1) {//只查有录象的记录
+            if ($has_video==1) {//只查有录象的记录
                 $sql = "select `recid` from tab_ved_cdrinfo union select `recid` from tab_ved_bakinfo order by `recid` ";
                 $res = M()->query($sql);
                 $recid = "";
@@ -75,7 +75,7 @@ class RecordController extends AuthController {
                 }
                 if(!empty($recid)) $where .= " and N_SN in ($recid)";
             }
-            
+            //echo $where;
             //按拨叫方向查询
             if($InOut!=2){
                 $where .= " and N_CallDirection= {$InOut}";
@@ -143,8 +143,8 @@ class RecordController extends AuthController {
                     $rs[$k]['n_calldirection'] = $v['n_calldirection']==1?'拨出':'来电';
                     $rs[$k]['longtime'] = DateDiff($v['d_starttime'],$v['d_stoptime']);
                     $rs[$k]['v_voicefileplay'] = $fileplay;
-                    $rs[$k]['local_video'] = getVedioByRecID($v['n_sn'],0);
-                    $rs[$k]['remote_video'] = getVedioByRecID($v['n_sn'],1);
+                    $rs[$k]['local_video'] = getVideoByRecID($v['n_sn'],0);
+                    $rs[$k]['remote_video'] = getVideoByRecID($v['n_sn'],1);
                 }
             }
 
@@ -201,7 +201,7 @@ class RecordController extends AuthController {
                 if($rs){
                     foreach ($rs as $k=>$v){
                         $rs[$k]['recordtime'] = formatTime($v["csecond"]);
-                        $data = $this->vedioSimpleCount($v['n_channelid'],$where);
+                        $data = $this->videoSimpleCount($v['n_channelid'],$where);
                         $rs[$k]['vtimes'] = $data['vtimes'];
                         $rs[$k]['vsecond'] = $data['vsecond'];
                     }
@@ -262,7 +262,7 @@ class RecordController extends AuthController {
 	}
 	
 	//查询录象的时长、次数
-	public function vedioSimpleCount($N_ChannelID,$where)
+	public function videoSimpleCount($N_ChannelID,$where)
 	{
 	    $sql = "select `recid` from tab_ved_cdrinfo union select `recid` from tab_ved_bakinfo order by `recid` ";
 	    $res = M()->query($sql);
@@ -285,10 +285,10 @@ class RecordController extends AuthController {
 	    $sql.="Sum(ABS(TIMESTAMPDIFF(SECOND,D_StartTime,D_StopTime))) as 'cSecond' from tab_rec_bakinfo where ".$where."
 	    AND `N_ChannelID`='$N_ChannelID' {$where2}";
 	    $sql.=" Group by N_ChannelID ";
-	    $rowsSimpleVedio = M()->query($sql);
+	    $rowsSimpleVideo = M()->query($sql);
 	    $data = array();
-	    $data["vtimes"] = $rowsSimpleVedio["cAmount"]==""?'0':$rowsSimpleVedio["cAmount"];
-	    $data["vsecond"] = formatTime($rowsSimpleVedio["cSecond"]);
+	    $data["vtimes"] = $rowsSimpleVideo["cAmount"]==""?'0':$rowsSimpleVideo["cAmount"];
+	    $data["vsecond"] = formatTime($rowsSimpleVideo["cSecond"]);
 	    return $data;
 	}
 	
@@ -349,4 +349,118 @@ class RecordController extends AuthController {
 	    $this->assign("fileName",$fileName);
 	    $this->display();
 	}
+	
+	public function videoPlayer(){
+	    $listItem=$this->getParam("listItem");
+	    //只保留有录象的选项
+	    $sqlVideo ="select `RecID` from tab_ved_cdrinfo where `RecID` in($listItem) union select `RecID` from tab_ved_bakinfo where `RecID` in($listItem) order by `RecID`";
+	    //echo $sqlVedio;
+	    $rsVideo=M()->query($sqlVideo);
+	    $listVideo="";
+	    foreach ($rsVideo as $v){
+	        if($listVideo == ""){
+	            $listVideo = $v['recid'];
+	        }
+	        else
+	        {
+	            $listVideo = $listVideo .",".$v['recid'];
+	        }
+	    }
+	    
+	    $listItem = $listVideo;
+	    //echo $listItem.'<br/>';
+	    
+	    $fileName="";
+	    if($listItem ==""){
+	        JS_alert("播放列表为空，请选择要播放的录象");
+	        echo "<script type='text/javascript'>window.close();</script>";
+	        exit();
+	    }
+	    
+	    $SelectStr="N_SN,N_RECID,N_RECSEQ,N_ChannelID,D_StartTime,D_StopTime,V_Diverter,V_Diverted";
+	    $SelectStr.=",N_CallDirection,V_Caller,V_Called,V_Ext,V_Path";
+	    $SelectStr.=",v_path,v_netpath,v_voicefile,(unix_timestamp(D_StopTime)-unix_timestamp(D_StartTime)) AS reclong ";
+	    
+	    $aryItem=explode(",",$listItem);
+	    $rsPlay = array();
+	    $rsPlay_bak = array();
+	    if(count($aryItem)>1){//试听多个录音
+	        $sql="select {$SelectStr} from tab_rec_cdrinfo where N_SN in($listItem)";
+	        $rsPlay=M()->query($sql);
+	        $sql="select {$SelectStr} from tab_rec_bakinfo where N_SN in($listItem)";
+	        $rsPlay_bak=M()->query($sql);
+	        $cnt=count($rsPlay);
+	        $cnt1=count($rsPlay_bak);
+	        if(($cnt+$cnt1)==0){
+	            JS_alert("没找到相关文件，可能已被删除");
+	            //JScript("self.close();");
+	        }
+	    }else{
+	        $sql="select {$SelectStr} from tab_rec_cdrinfo where N_SN=$listItem";
+	        //查找录象文件
+	        $sqlVideo="select `RecID`,`LocalFileName`,`RemoteFileName` from tab_ved_cdrinfo where `RecID`='$listItem' union select `RecID`,`LocalFileName`,`RemoteFileName` from tab_ved_bakinfo where `RecID`='$listItem' order by `recid`";//获取录象记录
+	        $rsVideo=M()->query($sqlVideo);
+	        $rowsVideo=$rsVideo[0];
+	        //查找录象文件
+	        $fileSelect=isset($_GET["fname"])?$_GET["fname"]:"";//加载页面后，首先播放的录音
+	        $fileName=($fileSelect==""?"":$rowsVideo[$fileSelect]);
+	        $rsPlay=M()->query($sql);
+	        if(count($rsPlay)==0){
+	            $rsPlay=M()->query(str_replace("tab_rec_cdrinfo","tab_rec_bakinfo",$sql));//录音信息表无相关信息时，查询备份表
+	            if(count($rsPlay)==0){	//再次无记录，关闭试听页面
+	                JS_alert("没找到相关文件，可能已被删除");
+	                //JScript("self.close();");
+	            }
+	        }
+	    }
+	    $rsPlayTotal = array_merge($rsPlay,$rsPlay_bak);
+	    $rows = array();
+	    if($rsPlayTotal){
+	        foreach ($rsPlayTotal as $k=>$v){
+	            $sqlVideo="select `RecID`,`LocalFileName`,`RemoteFileName` from tab_ved_cdrinfo where `RecID`='{$v['n_sn']}' union select `RecID`,`LocalFileName`,`RemoteFileName` from tab_ved_bakinfo where `RecID`='{$v['n_sn']}' order by `recid`";
+	            $rs = M()->query($sqlVideo);
+	            $VideoRs = $rs[0];
+	            //  本地按实际路径读取，远程访问按网络路径读取
+	            if (host()=='http://127.0.0.1:80/'||host()=='http://localhost/') {
+	                $rows[$k]['localurl'] = $v['v_path'].$VideoRs["localfilename"];
+	                $rows[$k]['remoteurl'] = $v['v_path'].$VideoRs["remotefilename"];
+	            }else{
+	                $rows[$k]['localurl'] = host().$v["v_netpath"].$VideoRs["localfilename"];
+	                $rows[$k]['remoteurl'] = host().$v["v_netpath"].$VideoRs["remotefilename"];
+	            }
+	            
+	            if($fileSelect == 'localfilename' && trim($VideoRs["localfilename"]) !='')
+	            {
+	                $rows[$k]['localfilename'] = $VideoRs["localfilename"];
+	                $rows[$k]['remotefilename'] = "";
+	            }
+	            else if($fileSelect == 'remotefilename' && trim($VideoRs["remotefilename"]) !='')
+	            {
+	                $rows[$k]['localfilename'] = "";
+	                $rows[$k]['remotefilename'] = $VideoRs["remotefilename"];
+	            }
+	            else{
+	                $rows[$k]['localfilename'] = $VideoRs["localfilename"];
+	                $rows[$k]['remotefilename'] = $VideoRs["remotefilename"];
+	            }
+	           
+	            $rows[$k]['n_channelid'] = $v["n_channelid"];
+	            $rows[$k]['v_caller'] = $v["v_caller"];
+	            $rows[$k]['v_called'] = $v["v_called"];
+	            $rows[$k]['fx'] =  fx($v["n_calldirection"]);
+	            $rows[$k]['d_starttime'] = $v["d_starttime"];
+	            $rows[$k]['v_ext'] = $v["v_ext"];
+	        }
+	    }
+	    else
+	    {
+	        JS_alert("没找到相关文件，可能已被删除");
+	    }
+	    
+	    $this->assign("rows",$rows);
+	    $this->assign("fileSelect",$fileSelect);
+	    $this->assign("fileName",$fileName);
+	    $this->display();
+	}
+	
 }

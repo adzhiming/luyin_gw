@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>录像播放</title>
+</head>
+<script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
+<body>
+<form name="Form1" method="post" action="MPlayer.asp" id="Form1">
+	<input type="hidden" id="playFirst" value="<?php echo $fileName?>" />
+	<table cellpadding="0" cellspacing="1" style="width:700px; background:#69c;" border="0" align="center">
+		<tr bgcolor="#e8f2fd">
+			<td align="left">
+				<table height="" border="0" align="center" cellpadding="0" cellspacing="0" style="width:100%;">
+					<tr id="cm_huan1">
+						<td id="cm_Player" width="700">
+							<!--播放器 开始-->
+							<object id="cm_Player1" height="450" width="100%" classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" VIEWASTEXT>
+                                                    <param name="AutoStart" value="-1">
+                                                    <!--是否自动播放-->
+                                                    <param name="Balance" value="0">
+                                                    <!--调整左右声道平衡,同上面旧播放器代码-->
+                                                    <param name="enabled" value="-1">
+                                                    <!--播放器是否可人为控制-->
+                                                    <param name="EnableContextMenu" value="-1">
+                                                    <!--是否启用上下文菜单-->
+                                                    <param name="url" value="">
+                                                    <!--播放的文件地址-->
+                                                    <param name="PlayCount" value="1">
+                                                    <!--播放次数控制,为整数-->
+                                                    <param name="rate" value="1">
+                                                    <!--播放速率控制,1为正常,允许小数,1.0-2.0-->
+                                                    <param name="currentPosition" value="0">
+                                                    <!--控件设置:当前位置-->
+                                                    <param name="currentMarker" value="0">
+                                                    <!--控件设置:当前标记-->
+                                                    <param name="defaultFrame" value="">
+                                                    <!--显示默认框架-->
+                                                    <param name="invokeURLs" value="-1">
+                                                    <!--脚本命令设置:是否调用URL-->
+                                                    <param name="baseURL" value="">
+                                                    <!--脚本命令设置:被调用的URL-->
+                                                    <param name="stretchToFit" value="1">
+                                                    <!--是否按比例伸展-->
+                                                    <param name="volume" value="50">
+                                                    <!--默认声音大小0%-100%,50则为50%-->
+                                                    <param name="mute" value="0">
+                                                    <!--是否静音-->
+                                                    <param name="uiMode" value="Full">
+                                                    <!--播放器显示模式:Full显示全部;mini最简化;None不显示播放控制,只显示视频窗口;invisible全部不显示-->
+                                                    <param name="windowlessVideo" value="0">
+                                                    <!--如果是0可以允许全屏,否则只能在窗口中查看-->
+                                                    <param name="fullScreen" value="0">
+                                                    <!--开始播放是否自动全屏-->
+                                                    <param name="enableErrorDialogs" value="0">
+                                                    <!--是否启用错误提示报告-->
+                                                    <param name="SAMIStyle" value="">
+                                                    <!--SAMI样式-->
+                                                    <param name="SAMILang" value="">
+                                                    <!--SAMI语言-->
+                                                    <param name="SAMIFilename" value="">
+                                                    <!--字幕ID-->
+                                                </object>
+							<!--播放器 结束-->
+						</td>
+					</tr>
+					<tr id="cm_huan" style="display:none;" height="450" width="700">
+					<td><img src="/Public/assets/images/huanchong.gif" height="450" width="700"></td>
+					</tr>
+					<tr>
+						<td height="25" bgcolor="#e8f2fd" valign="middle">&nbsp;
+							<img id="imgLast" onClick="Last_OneOK();" style="cursor:hand" alt="前一条录音" 
+								src="/Public/assets/images/tu_music_1.gif" width="54" height="18" border="0">
+							<img id="imgNext" onClick="Next_OneOK();" style="cursor:hand" alt="后一条录音" 
+								src="/Public/assets/images/tu_music_2.gif" width="56" height="18" border="0">
+							<font color="#ff0000">如无法正常播放，请<a href="apps/ffdshow_rev3556_20100902_clsid.exe">下载并安装</a>解码器。</font>
+						</td>
+					</tr>
+					<tr>
+						<td height="28">
+                            <table border="0" cellspacing="1" cellpadding="3"
+                            	 style="font-size:12px; text-align:center; background:#ccc; width:98%;">
+                                <tr bgcolor="#eaeaea">
+                                    <td width="10%" nowrap='nowrap'>通道</td>
+                                    <td width="12%" nowrap='nowrap'>主叫</td>
+                                    <td width="12%" nowrap='nowrap'>被叫</td>
+                                    <td width="12%" nowrap='nowrap'>录音号码</td>
+                                    <td width="12%" nowrap='nowrap'>方向</td>
+                                    <td width="42%" nowrap='nowrap'>开始时间</td>
+                                    
+                                </tr>
+                                <foreach name="rows" item="list" key="k">
+                                     <if condition="$list.localfilename neq ''">
+                                      <tr name='tr_info' id='tr_info_{$k}' style='display:none;background:#fff;'>
+		                                <td>{$list.n_channelid}</td>
+		                                <td>{$list.v_caller}</td>
+		                                <td>{$list.v_called}</td>
+		                                <td>{$list.v_ext}</td>
+		                                <td>{$list.n_calldirection}</td>
+		                                <td>{$list.d_starttime}</td>
+		                              </tr>
+		                             </if>
+		                             <if condition="$list.localfilename neq '' && $list.remotefilename neq ''">
+                                      <tr name='tr_info' id='tr_info_{$k+1}' style='display:none;background:#fff;'>
+		                                <td>{$list.n_channelid}</td>
+		                                <td>{$list.v_caller}</td>
+		                                <td>{$list.v_called}</td>
+		                                <td>{$list.v_ext}</td>
+		                                <td>{$list.n_calldirection}</td>
+		                                <td>{$list.d_starttime}</td>
+		                              </tr>
+		                             </if>
+		                             <if condition="$list.localfilename eq '' && $list.remotefilename neq ''">
+                                      <tr name='tr_info' id='tr_info_{$k}' style='display:none;background:#fff;'>
+		                                <td>{$list.n_channelid}</td>
+		                                <td>{$list.v_caller}</td>
+		                                <td>{$list.v_called}</td>
+		                                <td>{$list.v_ext}</td>
+		                                <td>{$list.n_calldirection}</td>
+		                                <td>{$list.d_starttime}</td>
+		                              </tr>
+		                             </if>  
+                                </foreach>
+                            </table>
+						</td>
+				  </tr>
+			  </table>
+				<br>
+				<table style="width:700px;"height="" border="0" align="center" cellpadding="0" cellspacing="1"
+					bgcolor="#6699cc">
+					<tr>
+						<td height="20" bgcolor="F2F6FB">&nbsp;播放列表</td>
+					</tr>
+					<tr>
+					  <td height="90" valign="top" bgcolor="#fdfcf5">
+							<!--根据传递过来的参数动态生成播放列表-->
+							<!--播放列表需要包含文件路径，文件名称-->
+                            <select name="select" size='6' class='select1' style="width:680px;" id='SongList' onclick='play()'>
+							  <foreach name="rows" item="vlist" key="k">
+							    <if condition="$vlist.localfilename neq ''">
+							    <option value="{$vlist.localurl}"> 
+			                        {$vlist.localfilename}
+			                    </option>
+			                    </if>
+			                    <if condition="$vlist.remotefilename != ''">
+							    <option value="{$vlist.remoteurl}"> 
+			                        {$vlist.remotefilename}
+			                    </option>
+			                    </if>
+                              </foreach>
+							</select>
+						</td>
+					</tr>
+				</table>
+				<br>
+			</td>
+		</tr>
+	</table>
+	<div align="right" ><span onClick="window.close();" style="cursor:pointer;">[关闭窗口]</span></div>
+</form>
+<script type="text/javascript">
+	var TotalSongs;
+	var timer=""
+	var MSIE = navigator.userAgent.indexOf("MSIE"); /* 判断浏览器类型 */
+	var tr_last="";	 /* 上一首播放的曲目 */
+	//播放歌曲
+	function play(){
+		var SongList =$("#SongList");
+		if(SongList.prop('selectedIndex') < 0){
+			alert('请选择你要播放的录象!');
+		}else{
+			//播放歌曲的路径
+			var url = SongList.find("option:selected").val();
+			
+			//var mname = SongList.options[SongList.selectedIndex].text;//播放歌曲的名称
+			
+			if(tr_last!=""){
+				//如果有刚播放完的上一首，则将其相应的录音信息隐藏
+				$(tr_last).css('display','none');
+			}
+			else{
+				$("#tr_info_0").css('display','');
+			}
+			tr_last="#tr_info_"+SongList.prop('selectedIndex')
+			
+			$(tr_last).css('display','');
+			//根据不同的浏览器控制播放器
+			if(MSIE >= -1){
+				var ExO = document.cm_Player1;
+				ExO.style.display = "block";
+				ExO.url = url;
+				ExO.controls.play();
+				showTLab();
+			}
+		}
+	}
+	//控制按钮 上一首
+	function Last_OneOK(){
+		var SongList =$("#SongList");
+		if((SongList.prop('selectedIndex') > 0) && (SongList.prop('selectedIndex') < TotalSongs)){
+			$('#SongList option').eq(SongList.prop('selectedIndex') - 1).attr('selected','selected')
+			play();
+		}
+	}
+
+	//控制按钮 下一首
+	function Next_OneOK(){
+		var SongList =$("#SongList");
+		if(SongList.prop('selectedIndex') >= 0){
+			if(SongList.prop('selectedIndex') < TotalSongs - 1){
+				//SongList.options[SongList.prop('selectedIndex') + 1].selected = true;
+				var sindex = SongList.prop('selectedIndex') + 1
+				$('#SongList').find("option:eq("+sindex+")").attr('selected','selected');
+				//alert($('#SongList').find("option:eq("+sindex+")").val())
+				play();
+			}else{
+				$('#SongList option:first').attr('selected','selected')
+				play();
+			}
+		}
+	}
+
+	//检查是否播放完毕，是则播放下一首；
+	function showTLab(){
+		//1:播放结束;3:正在播放;9:加载文件;10:文件没找到
+		if(document.cm_Player1.playState==9) 
+		{
+			$("#cm_huan1").css('display','none');
+			$("#cm_huan").css('display','block');
+		}
+		else
+		{
+			$("#cm_huan1").css('display','block');
+			$("#cm_huan").css('display','none');
+		}
+		
+		//播放结束(当前歌曲)
+		if(document.cm_Player1.playState == 1){
+			//document.getElementById("spMusicName").innerText="Loading..."
+			Next_OneOK();
+		}
+		if(document.cm_Player1.playState==10){
+			//文件没找到，继续下一条。
+			Next_OneOK();
+		}
+		window.clearTimeout(timer);
+		timer=setTimeout("showTLab()", 1000);
+	}
+	
+
+</script>
+<script type="text/javascript">
+	var myTo =$("#SongList");
+	TotalSongs = $('#SongList option').length;  /* 播放列表长度 */
+	if(TotalSongs > 0){ /* 播放列表大于0 */
+		if(TotalSongs == 1){	 /* 只有一首歌，不显示上一首下一首按钮 */
+			$("#imgLast").css('display','none');
+			$("#imgNext").css('display','none');
+		}
+		myTo.css('display','block');
+		$('#SongList option:first').attr('selected','selected')
+	}else{
+		myTo.css('display','none');
+	}
+	
+	//试听单条录音时，页面加载完毕后，直接选中用户的父页面点击的记录。并显示录音相关信息
+	function t(){
+		if($("playFirst").value!="" && $("#SongList option").length>0){
+			for(var i=0;i<$('#SongList option').length;i++){
+				if($("#playFirst").value==$('#SongList option').get(i).text){
+					myTo.val($("#playFirst").val());
+				}	
+			}
+			try{
+			}catch(e){alert(e.description)}
+		}	
+	}
+	t();
+	play(); /* 页面加载完毕，自动开始播放 */
+</script>
+	</body>
+</html>

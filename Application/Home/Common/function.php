@@ -3,7 +3,7 @@
 /* 获取某天录音录像统计 */
 function getTodayChannelCount($ChannelNo='',$days){
     $returnData['voiceCnt'] = 0;
-    $returnData['vedioCnt'] = 0;
+    $returnData['videoCnt'] = 0;
     $days = empty($days)?date("Y-m-d",time()):$days;
     $where ="DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '{$days}'";
     if($ChannelNo){
@@ -18,7 +18,7 @@ function getTodayChannelCount($ChannelNo='',$days){
     $sql = "select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where {$where}";
     $rs = M()->query($sql);
     if($rs){
-        $returnData['vedioCnt'] = $rs[0]['cnt'];
+        $returnData['videoCnt'] = $rs[0]['cnt'];
     }
     return $returnData;
 }
@@ -27,7 +27,7 @@ function getTodayChannelCount($ChannelNo='',$days){
  * date 2018-03-29 
  *录音录像统计
  */
-function getRecordVedioCount($seachType='day')
+function getRecordVideoCount($seachType='day')
 {
     $channelData = array();
     if($seachType){
@@ -35,7 +35,7 @@ function getRecordVedioCount($seachType='day')
             case 'day':
                 $returnData = array();
                 $returnData['voiceCnt'] = 0;
-                $returnData['vedioCnt'] = 0;
+                $returnData['videoCnt'] = 0;
                 //统计录音
                 $rs = M('rec_cdrinfo')->field("count(*) cnt")->where(" TO_DAYS(D_StartTime) = TO_DAYS(NOW())")->find();
                 if($rs){
@@ -46,7 +46,7 @@ function getRecordVedioCount($seachType='day')
                 $sql = "select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = TO_DAYS(NOW())'";
                 $rs = M()->query($sql);
                 if($rs){
-                    $returnData['vedioCnt'] = $rs[0]['cnt'];
+                    $returnData['videoCnt'] = $rs[0]['cnt'];
                 }
                 return $returnData;
             break;  
@@ -148,36 +148,39 @@ function getNumByName($name){
 }
 
 //根据RecID获取主叫、被叫录象
-function getVedioByRecID($id,$type)
+function getVideoByRecID($id,$type)
 {
     $pre = C('DB_PREFIX');
-    $str_vedio="";
+    $str_video="";
     $field = "RecID,LocalFileName,RemoteFileName";
     $where['RecID'] = $id;
     $retrunData = array(); 
-    $rows = M()->field($field)->table("{$pre}ved_cdrinfo")->union("SELECT {$field} FROM {$pre}ved_bakinfo",true)->where($where)->find();
+    //$rows = M()->field($field)->table("{$pre}ved_cdrinfo")->union("SELECT {$field} FROM {$pre}ved_bakinfo")->where($where)->find();
+    $sql="select {$field} from {$pre}ved_cdrinfo where `RecID`='$id' union select `RecID`,`LocalFileName`,`RemoteFileName` from {$pre}ved_bakinfo where `RecID`='$id'";
+    $rs = M()->query($sql);
+    $rows = $rs[0];
     if($rows)
     {
         if($type == 0){
-            if ($rows['LocalFileName']) {
-                $str_vedio.="<i class='fa fa-volume-up video-play' style=\"cursor:pointer\" onclick=\"vplay('".$rows["recid"]."','LocalFileName')\"></i>";
+            if ($rows['localfilename']) {
+                $str_video="<i class='fa fa-play-circle-o ' style=\"cursor:pointer\" onclick=\"vplay('".$rows["recid"]."','localfilename')\"></i>";
             }else {
-                $str_vedio.="---";
+                $str_video="---";
             }
         }
         if($type == 1){
-            if($rows['RemoteFileName'] ){
-                $str_vedio.="<i class='fa fa-volume-up video-play' style=\"cursor:pointer\" onclick=\"vplay('".$rows["recid"]."','RemoteFileName')\"></i>";
+            if($rows['remotefilename']){
+                $str_video="<i class='fa fa-play-circle-o ' style=\"cursor:pointer\" onclick=\"vplay('".$rows["recid"]."','remotefilename')\"></i>";
             }else {
-                $str_vedio.="---";
+                $str_video="---";
             }
         }
     }
     else
     {
-        $str_vedio.="---";
+        $str_video="---";
     }
-    return $str_vedio;
+    return $str_video;
    
 }
 

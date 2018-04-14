@@ -215,7 +215,7 @@
 	function t(){
 		if($("playFirst").value!="" && $("#SongList option").length>0){
 			for(var i=0;i<$('#SongList option').length;i++){
-				if($("#playFirst").value==$('#SongList option').get(0).text){
+				if($("#playFirst").value==$('#SongList option').get(i).text){
 					myTo.val($("#playFirst").val());
 				}	
 			}

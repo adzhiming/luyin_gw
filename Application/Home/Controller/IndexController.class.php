@@ -42,7 +42,7 @@ class IndexController extends AuthController {
         }
         
         //获取最近30天录音录像记录数
-         $monthCount = getRecordVedioCount($seachType='month');
+         $monthCount = getRecordVideoCount($seachType='month');
          /* echo "<pre>";
          print_r($monthCount);
          echo "</pre>"; */

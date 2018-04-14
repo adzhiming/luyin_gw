@@ -61,7 +61,7 @@
 										        <input name="InOut" value="2" type="radio" aria-label="...">拨出和来电
 										        <input name="InOut" value="1" type="radio" aria-label="...">拨出
 										        <input name="InOut" value="0" type="radio" aria-label="...">来电
-										        <input name="has_vedio" id="has_vedio" value="1" type="checkbox" aria-label="...">有录像
+										        <input name="has_video" id="has_video" value="1" type="checkbox" aria-label="...">有录像
 										      </span>
 									    </div><!-- /input-group -->
 	                                </div>
@@ -104,7 +104,7 @@
 	                                <button class="btn btn-primary btn-small " type="button" onclick="play('','')">播放选中录音</button>
 	                          </div> 
 	                          <div class="pull-left ">
-	                                <button class="btn btn-info btn-small video-play" type="button">播放选中录像</button>
+	                                <button class="btn btn-info btn-small" type="button"  onclick="vplay('','')">播放选中录像</button>
 	                          </div>
                              <div class="pull-left ">
 	                                <button class="btn btn-danger btn-small" type="button">删除选中记录</button>
@@ -203,7 +203,7 @@ var CHANNEL_ARR = new Array();
 var CHANNEL_TB;
 var InOut = 2;
 var SearchMode = 0;
-var has_vedio = 0;
+var has_video = 0;
 $(document).ready( function () {
 	
 	
@@ -222,8 +222,8 @@ CHANNEL_TB = $('#basicTable').dataTable(
                 	$("input:radio[name='SearchMode']:checked").each(function() { 
                 		SearchMode = $(this).val();  // 每一个被选中项的值
                     });
-                	if($('#has_vedio').is(':checked')){
-                		has_vedio = 1;
+                	if($('#has_video').is(':checked')){
+                		has_video = 1;
                 	}
                 	d.chk_CN = String(CHANNEL_ARR);
                 	d.datetimepicker_start=$('#datetimepicker_start').val();
@@ -231,7 +231,7 @@ CHANNEL_TB = $('#basicTable').dataTable(
                 	d.SearchMode=SearchMode;
                 	d.InOut=InOut;
                 	d.search_key=$('#search_key').val();
-                	d.has_vedio=has_vedio;
+                	d.has_video=has_video;
                 	d.stime=$('#stime').val();
                     return d;
 //              	d.chk_CN = CHANNEL_ARR;
@@ -311,8 +311,8 @@ $('.search').click(function(){
 	$("input:radio[name='SearchMode']:checked").each(function() { 
 		SearchMode = $(this).val();  // 每一个被选中项的值
     });
-	if($('#has_vedio').is(':checked')){
-		has_vedio = 1;
+	if($('#has_video').is(':checked')){
+		has_video = 1;
 	}
 	var details = $("input[name='details']").val();
 	
@@ -423,6 +423,41 @@ function play(N_SN,fname){
 	}
 }
  
+ 
+//播放当前选中的录音
+function vplay(N_SN,fname){
+	//获得窗口的垂直位置 
+    var iTop = (window.screen.availHeight - 30 - 700) / 2; 
+    //获得窗口的水平位置 
+    var iLeft = (window.screen.availWidth - 10 - 700) / 2;
+    
+	var url="videoPlayer?Rnd="+Math.random()+"&listItem=";
+	//var dsc="dialogWidth=450px;dialogHeight=400px;status=no";
+	if(N_SN!=""){
+		//直接点击某条录音的小喇叭，只播放当前录音
+		var dsc="dialogWidth=700px;dialogHeight=700px;status=no";
+		window.open(url+N_SN+"&fname="+fname,"player","height=700,width=700, top="+ iTop + ",left="+ iLeft + ",toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+		//模式窗口，需关闭播放器后才能选择其他录音，不方便
+		//window.showModalDialog(url+N_SN+"&fname="+fname,"录音文件试听",dsc);
+		
+	}else{
+		//点击播放选中的录音
+		var Items =""
+		 $('input[name="checked_per_pro"]:checked').each(function(){ 
+			 if(Items ==""){
+				 Items = $(this).val()
+			 }
+			 else{
+				 Items = Items +","+ $(this).val()
+			 }
+		}); 
+		if(Items!=""){
+			//window.open(url+Items);
+			window.open(url+Items,"player","height=700,width=700, top="+ iTop + ",left="+ iLeft + ",toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+			//window.showModalDialog(url+Items,"录音文件试听",dsc);
+		}else{alert("请选择要播放的录象");}
+	}
+}
 </script>        
 		
 		
