@@ -121,7 +121,7 @@ $(document).ready( function () {
 
 	            "aoColumnDefs": [//和aoColums类似，但他可以给指定列附近属性
 	                {"bSortable": false, "aTargets": [1, 3]}, //这句话意思是第1,3,6,7,8,9列（从0开始算） 不能排序
-	                {"bSearchable": false, "aTargets": [1, 2, 3, 4, 5]} //bSearchable 这个属性表示是否可以全局搜索，其实在服务器端分页中是没用的
+	                {"bSearchable": false, "aTargets": [1, 2, 3, 4]} //bSearchable 这个属性表示是否可以全局搜索，其实在服务器端分页中是没用的
 	            ],
 	            "aaSorting": [[2, "desc"]], //默认排序
 	            "fnInitComplete": function (oSettings, json) { //表格初始化完成后调用 在这里和服务器分页没关系可以忽略

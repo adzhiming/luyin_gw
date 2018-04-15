@@ -287,9 +287,10 @@ function Out_ext($ext){
 }
 
 function station($sid){
+    if(empty($sid)){return "";}
     if(is_null($sid)){return "";}
     if($sid==""){return "";}
-    $str="select v_sname from tab_Station where n_sid in(".$sid.")order by v_sname";
+    $str="select v_sname from tab_station where n_sid in(".$sid.")order by v_sname";
     $r1=M()->query($str);
     $str="";
     foreach($r1 as $v){

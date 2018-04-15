@@ -23,7 +23,7 @@ class AccountController extends AuthController {
         $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
         if(IS_AJAX){ 
             $field="v_accountid,v_accountname,v_password,n_afairtype,n_privilege,n_status,n_monitor,v_remark,v_ext,v_sid";
-            $where="  n_status!=0 and V_AccountName<>'op' and  V_AccountName<>'neuron' ";
+            $where="  n_status != 0 and V_AccountName <> 'op' and  V_AccountName <> 'neuron' ";
             $M = M('sys_accountinfo');
             $cnt = $M->field($field)->where($where)->select();
             //echo M()->getLastSql();
@@ -38,13 +38,11 @@ class AccountController extends AuthController {
                     $uid=$v["v_accountid"];
                     $rs[$k]['outcando'] = "<font color='red'>".OutCanDo($v['n_afairtype'])."</font>";
                     $rs[$k]['out_ext'] = Out_ext($v["v_ext"]);
-                    $rs[$k]['out_site'] = station($v["v_sid"]);
+                    $rs[$k]['out_site'] =  station($v["v_sid"]);;
                     $canMng  = substr($_SESSION['uRights'],4,1);//管理权
                     if($canMng==1){
                         $accountidstr = "<a href='userEdit?ACID=$uid'>$uid</a>";
                         $accountstr ="<a href='userEdit?ACID=$uid'>$u</a>";
-                        
-                        
                         $Managestr .= " <a href='userEdit?ACID=$uid'>编辑</a>　|　";
                         if($u !="admin"){
                             $Managestr .= "<a href=\"javascript:del($uid,'{$u}')\">删除</a>";
@@ -59,11 +57,11 @@ class AccountController extends AuthController {
                     }
                     $rs[$k]['out_accountid'] = $accountidstr;
                     $rs[$k]['out_accountname'] = $accountstr;
-                    $rs[$k]['outcando'] =
-                    $rs[$k]['out_ext'] = Out_ext($v["v_ext"]);
                     $rs[$k]['out_manage'] = $Managestr;
+                    
                 }
             }
+           
             $output['aaData'] = $rs;
             $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
             $output['iTotalRecords'] = $total; //总共有几条数据
