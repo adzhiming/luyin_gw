@@ -1,5 +1,5 @@
 <?php
-namespace Common;
+namespace Home\Controller;
 
 /**
  * app返回码不一样，所以多创建一个

@@ -24,7 +24,17 @@ class LoginController extends Controller
 				$rs                = $userModel->where($where)->find();
 				$returnData['url']                   = "/home/index";
 				if($rs) {
+				    session("uAccount",$rs['v_accountid']);//用户ID
+				    session("uName",$rs['v_accountname']);//用户账号
+				    session("uRights",$rs['n_afairtype']);//用户权限
+				    session("uLogTime",date("Y-m-d H:i:s"));//登录时间
+				    session("uPrivilege",$rs['n_privilege']);//有权设备
+				    session("uLogIP",getenv('REMOTE_ADDR'));//登录地址
+				    session("V_Ext",$rs['v_ext']);//有权分机
+				    session("V_SID",$rs['v_sid']);//有权工作站
 				    session("admininfo",$rs);
+				    
+				    
 				    $returnData['msg'] = "登录成功";
 				    $returnData['code'] =1;
 				    
