@@ -40,13 +40,17 @@ class IndexController extends AuthController {
                 $channelData[$k]['vedio_count'] = $tongji['vedioCnt'];
             }
         }
-        
+       
         //获取最近30天录音录像记录数
          $monthCount = getRecordVideoCount($seachType='month');
          /* echo "<pre>";
          print_r($monthCount);
          echo "</pre>"; */
-         $this->assign("monthCount",$monthCount);
+        $this->assign("todayRecordNum",$todayRecordNum);
+        $this->assign("alarmlogNum",$alarmlogNum);
+        $this->assign("channelNum",$channelNum);
+        $this->assign("channelData",$channelData);
+        $this->assign("monthCount",$monthCount);
         $this->assign("CurrentPage",'home');
         $this->display();
     }
