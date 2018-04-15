@@ -262,5 +262,60 @@ function addSysLog($evtContent){
 }
 
 
+//输出用户权限
+function OutCanDo($can){
+    $canStr=array("查询","删除","管理","锁定");
+    $str="";
+    if($can<1000){$can=$can+1000;}//确保权限值为4位数
+    $can=substr($can,0,4);
+    for($i=0;$i<strlen($can);$i++){
+        $str.=((substr($can,$i,1)=="1")?($canStr[$i].","):"");
+    }
+    return substr($str,0,strlen($str)-1);
+}
 
+function Out_ext($ext){
+    if($ext==""){
+        return "全部";
+    }else{
+        if(strlen($ext)>20){
+            return substr($ext,0,20)."……";
+        }else{
+            return $ext;
+        }
+    }
+}
 
+function station($sid){
+    if(is_null($sid)){return "";}
+    if($sid==""){return "";}
+    $str="select v_sname from tab_Station where n_sid in(".$sid.")order by v_sname";
+    $r1=M()->query($str);
+    $str="";
+    foreach($r1 as $v){
+        $str=$str.(($str=="")?"":",").$v["v_sname"];
+        if(strlen($str)>=20){
+            $str.="…";
+            return $str;
+        }
+    }
+    return $str;
+}
+
+//格式化字符串，去除非数字字符，允许逗号(,)
+function formatSTR($str){
+    if($str!=""){
+        $str=str_replace("，",",",$str);//确保逗号都为英文输入法的逗号
+        $str=str_replace(",","+",$str);//将逗号替换为"+"，便于下一步的验证
+        $str=filter_var($str, FILTER_SANITIZE_NUMBER_INT);//过滤器删除数字中所有非法的字符,允许所有数字以及 + -。
+        $str=str_replace("+",",",$str);//再将+替换回,
+        $str=preg_replace("/,{2,}/",",",$str);
+        if(substr($str,0,1)==","){//左侧第一个字符如果是逗号，则去除第一个字符
+            $str=substr($str,1,strlen($str));
+        }
+        if(substr($str,strlen($str)-1,1)==","){//最后一个字符如果是逗号，则去除最后一个字符
+            $str=substr($str,0,strlen($str)-1);
+        }
+    }
+    return $str;
+}

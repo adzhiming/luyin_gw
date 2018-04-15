@@ -39,7 +39,6 @@
                             <table id="basicTable" class="table table-striped table-bordered responsive">
                                 <thead class="">
                                     <tr>
-                                        <td><input type="checkbox"></td>
                                         <th>用户账号</th>
                                         <th>用户名称</th>
                                         <th>用户权限</th>
@@ -111,19 +110,18 @@ $(document).ready( function () {
 	            "bServerSide": true, //开启服务器模式，使用服务器端处理配置datatable。注意：sAjaxSource参数也必须被给予为了给datatable源代码来获取所需的数据对于每个画。 这个翻译有点别扭。开启此模式后，你对datatables的每个操作 每页显示多少条记录、下一页、上一页、排序（表头）、搜索，这些都会传给服务器相应的值。
 //	            "sAjaxSource": '__URL__/serach_nasty', //给服务器发请求的url
 	            "aoColumns": [  //这个属性下的设置会应用到所有列，按顺序没有是空
-	                {"mData": 'v_accountid'},
-	                {"mData": 'v_accountname'},
-	                {"mData": 'n_afairtype'},
-	                {"mData": 'n_privilege'},
-	                {"mData": 'n_status'},
-	                {"mData": 'v_remark'},
-	                {"mData": 'v_ext'}
+	            	{"mData": 'out_accountid'},
+	                {"mData": 'out_accountname'},
+	                {"mData": 'outcando'},
+	                {"mData": 'out_ext'},
+	                {"mData": 'out_site'},
+	                {"mData": 'out_manage'}
 	                 
 	            ],
 
 	            "aoColumnDefs": [//和aoColums类似，但他可以给指定列附近属性
-	                {"bSortable": false, "aTargets": [1, 3, 6]}, //这句话意思是第1,3,6,7,8,9列（从0开始算） 不能排序
-	                {"bSearchable": false, "aTargets": [1, 2, 3, 4, 5, 6]} //bSearchable 这个属性表示是否可以全局搜索，其实在服务器端分页中是没用的
+	                {"bSortable": false, "aTargets": [1, 3]}, //这句话意思是第1,3,6,7,8,9列（从0开始算） 不能排序
+	                {"bSearchable": false, "aTargets": [1, 2, 3, 4, 5]} //bSearchable 这个属性表示是否可以全局搜索，其实在服务器端分页中是没用的
 	            ],
 	            "aaSorting": [[2, "desc"]], //默认排序
 	            "fnInitComplete": function (oSettings, json) { //表格初始化完成后调用 在这里和服务器分页没关系可以忽略
