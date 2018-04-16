@@ -47,7 +47,7 @@
 	                                </div>
 	                               
 	                                <div class="pull-left col-md-2">
-											<button class="btn btn-info btn-large">搜索</button>
+											<button class="btn btn-info btn-large search">搜索</button>
 	                                </div>
 	                                <div class="pull-right col-md-5" style="text-align:right">
 											<a href="./phoneBookAdd" class="btn btn-info btn-large">添加联系人</a>
@@ -97,15 +97,17 @@
 
 
 <script type="text/javascript">
+var CHANNEL_TB;
 $(document).ready( function () {
-	table=$('#basicTable').dataTable(
+	CHANNEL_TB =$('#basicTable').dataTable(
 	        {
 	            "ajax": {  //类似jquery的ajax参数，基本都可以用。
 	                "type": "post",  //后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
 	                "url": '../account/phoneBook',
 	                "dataSrc": "data",  //默认data，也可以写其他的，格式化table的时候取里面的数据
 	                "data": function (d) {  //d 是原始的发送给服务器的数据，默认很长。
-	                    
+	                	d.sName=$('#name').val();
+	                	d.sNum=$('#phone').val();
 	                }
 	            },
 	        
@@ -157,6 +159,13 @@ $(document).ready( function () {
 	            }
 	        });
 })
+
+$('.search').click(function(){
+
+    CHANNEL_TB.fnClearTable();
+    CHANNEL_TB.fnReloadAjax();
+}) 
+
 </script>	
 		      
 		

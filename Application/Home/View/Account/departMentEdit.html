@@ -29,7 +29,7 @@
                     <div class="contentpanel">
                        
                        	<div class="col-md-12">
-                                <form id="basicForm" action="form-validation.html">
+                                <form id="basicForm" action="departMentEdit" method="post">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <div class="panel-btns">
@@ -43,14 +43,15 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">分组名称 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="name" class="form-control" placeholder="分组名称" required />
+                                                    <input type="text" name="depName" id="depName" class="form-control" value="{$rs.deptname}" placeholder="分组名称" required />
+                                                    <input type="hidden" name="depID" id="depID" value="{$rs.deptid}">
                                                 </div>
                                             </div><!-- form-group -->
                                           
                                         </div><!-- row -->
                                         <div class="modal-footer col-sm-6">
 									        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-									        <button type="button" class="btn btn-primary">添加</button>
+									        <button type="submit" class="btn btn-primary">更新</button>
 									    </div>
                                     </div><!-- panel-body -->
                            

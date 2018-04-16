@@ -13,6 +13,12 @@
         <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
         <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
         <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+    <style type="text/css">
+	 .Alertmessage{
+		text-align: center;
+	    color: red;
+	 }
+  </style>
     </head>
 
     <body>
@@ -33,7 +39,8 @@
                              <div class="pull-left col-md-1">
 	                                <a class="btn btn-info btn-large" href="../Account/userAdd">添加用户</a>
 	                          </div> 
-	                          
+	                          <input type="hidden" id="delid" value="">
+	                          <input type="hidden" id="delname" value="">
 	                          <div style="clear:both"></div>
                          </div>   
                             <table id="basicTable" class="table table-striped table-bordered responsive">
@@ -63,7 +70,27 @@
                 </div><!-- mainpanel --><!-- mainpanel -->
             </div><!-- mainwrapper -->
             
-            
+          		<!-- 告警模态框 -->
+		<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myAlert">
+		  <div class="modal-dialog" role="document" style="width:450px">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myAlert" style="text-align: center;">提示</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="inner">
+		        	<h4 class="Alertmessage"> </h4>
+		        </div>
+		        
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		        <button type="button" class="btn btn-primary sureDel">确定</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>  
         </section>
 		
         <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
@@ -128,7 +155,42 @@ $(document).ready( function () {
 	                $("input[aria-controls='DataTables_Table_0']").attr("placeHolder", "请输入高手用户名");
 	            }
 	        });
+	
 })
+
+	function del(id,n){
+		$('#alertModel').modal('show');
+		$('.Alertmessage').html("确定删除用户:"+n+"?") 
+		$('#delid').val(id);
+		$('#delname').val(n);
+		return;
+	}
+	
+	$('.sureDel').click(function(){
+		var delid = $('#delid').val();
+		var delname = $('#delname').val();
+		var url ="userDel"
+		  $.ajax({
+				type:"POST",
+				url:url,
+				data:{
+					username:delname,uid:delid	
+				},
+				success: function(data){
+					if(data.code){
+						$('.Alertmessage').css("color",'#1fb5ad');
+					}
+					else{
+						$('.Alertmessage').css("color",'red');
+					}
+					$('.Alertmessage').html(data.message)
+		   		    $('#alertModel').modal('hide');
+		   		    //alert(data.message)
+		   		    window.location.reload()
+				}
+	     })
+
+	})
 </script>	
 		
     </body>

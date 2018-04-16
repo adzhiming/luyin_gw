@@ -80,19 +80,18 @@ class AccountController extends AuthController {
             $sName = $this->getParam("sName");
             $sNum = $this->getParam("sNum");
             $sName = MySQLFixup($sName);
-            $sNum = MySQLFixup($sNum);
-            $where="1=1";
-            if($sName!=""){
+            $sNum = MySQLFixup($sNum); 
+            $where="1=1 ";
+            if($sName !=""){
                 $where.=" and a.contactname like '%".$sName."%' ";
             }
-            if($sNum!=""){
-                $where.="and (a.Mobile like '%".$sNum."%' or a.OfficeNum like '%".$sNum."%' or a.OtherNum like '%".$sNum."%')";
+            if($sNum !=""){
+                $where.=" and (a.Mobile like '%".$sNum."%' or a.OfficeNum like '%".$sNum."%' or a.OtherNum like '%".$sNum."%')";
             }
             
             $field="a.*,b.deptName";
-            $cnt = M('sys_accountinfo a')->where($where)->select();
-            
-            $total = count($cnt);
+            $cnt = M('phonebook a')->field("count(*) cnt ")->where($where)->find();
+            $total = $cnt['cnt'];
             $rs = M('phonebook a')->join("tab_dept b on a.deptid=b.deptid","left")->field($field)->where($where)->limit($start,$length)->select();
             //echo M()->getLastSql();die;
             $output['aaData'] = $rs;
@@ -180,7 +179,8 @@ class AccountController extends AuthController {
                 $AppResult->data = "";
                 $AppResult->returnJSON();
             }
-            $rs = M('sys_accountinfo')->where("V_AccountId = '{$accountid}'")->save($data);
+           
+            $rs = M('sys_accountinfo')->where("v_accountid = '{$accountid}'")->save($data);
             if(false !== $rs){
                 addSysLog("通过浏览器修改用户:".MySQLFixup($username));
                 $AppResult->code = 1;
@@ -192,11 +192,10 @@ class AccountController extends AuthController {
                 $AppResult->message = "修改用户失败,数据库操作失败";
                 $AppResult->data = "";
             }
-            
             $AppResult->returnJSON();
         }
         $accountid = $this->getParam('ACID');
-        $rs = M('sys_accountinfo')->where(" V_AccountId = '".$accountid."'")->find();
+        $rs = M('sys_accountinfo')->where(" v_accountid = '".$accountid."'")->find();
         if(!$rs){
             JS_alert("非法操作");
         }
@@ -219,6 +218,32 @@ class AccountController extends AuthController {
         $this->assign("CurrentPage",'userManage');
         $this->display();
     }
+    
+    public function userDel(){
+        if(IS_POST){
+            $AppResult = new AppResult();
+            $userID = $this->getParam("uid");
+            $username = $this->getParam("username");
+            
+            if(empty($userID)){
+                $AppResult->code = 0;
+                $AppResult->message = "请选中要删除的用户";
+                $AppResult->data = "";
+            }
+            $data = array();
+            $data['N_Status'] = 0;
+            $rs = M('sys_accountinfo')->where("V_AccountId= '{$userID}'")->save($data);
+            if(false !== $rs){
+                $msg="成功删除用户:".$username;
+                addSysLog($msg);
+                $AppResult->code = 1;
+                $AppResult->message = "删除成功";
+                $AppResult->data = "";
+            }
+            $AppResult->returnJSON();
+        }
+    }
+    
     public function phoneBookAdd(){
         
         $this->assign("CurrentPage",'phoneBook');
@@ -237,17 +262,24 @@ class AccountController extends AuthController {
             $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
             $sName = $this->getParam("sName");
             $sName = MySQLFixup($sName);
-            $where="1=1";
+            $where=" 1=1 ";
             if($sName!=""){
-                $where =" and deptName like '%".MySQLFixup($sName)."%' ";
+                $where .=" and DeptName like '%".MySQLFixup($sName)."%' ";
             }
             
-            $field="deptid,deptname"; 
-            $cnt = M('dept')->where($where)->select();
+            $field="DeptID,DeptName";  
+            $cnt = M('dept')->where($where)->select(false);
             $total = count($cnt);
             
             $rs = M('dept')->field($field)->where($where)->limit($start,$length)->select();
-           
+            if($rs){
+                foreach ($rs as $k=>$v){
+                    $Managestr = "";
+                    $Managestr .= " <a href='departMentEdit?depID={$v['deptid']}'>编辑</a>　|　";
+                    $Managestr .=  "<a href=\"javascript:del('{$v['deptid']}','{$v['deptname']}')\">删除</a>";
+                    $rs[$k]['outManage'] = $Managestr;
+                }
+            }    
             $output['aaData'] = $rs;
             $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
             $output['iTotalRecords'] = $total; //总共有几条数据
@@ -259,13 +291,97 @@ class AccountController extends AuthController {
     }
     
     public function departMentAdd(){
+        if(IS_POST){
+            $AppResult = new AppResult();
+            $departName = $this->getParam("departName");
+            $rs = M('dept')->where("DeptName='".MySQLFixup($departName)."'")->find();
+            if(!$rs){
+                $data = array();
+                $data['DeptName'] = $departName;
+                $rs = M('dept')->add($data);
+                if($rs){
+                    $AppResult->code = 1;
+                    $AppResult->data ="";
+                    $AppResult->message = "分组添加成功";
+                }
+                else
+                {
+                    $AppResult->code = 0;
+                    $AppResult->data ="";
+                    $AppResult->message = "分组添加失败";
+                }
+            }
+            else
+            {
+                $AppResult->code = 0;
+                $AppResult->data ="";
+                $AppResult->message = "已存在同名分组:$departName";
+            }
+            $AppResult->returnJSON();
+        } 
         $this->assign("CurrentPage",'departMent');
         $this->display();
     }
     
     public function departMentEdit(){
+        $depID = $this->getParam("depID");
+        if(empty($depID)){
+            JS_alert("请选中要编辑的部门");
+        }
+        if(IS_POST){
+            $depName = $this->getParam("depName");
+            if(empty($depName)){
+                JS_alert("请部门名称");
+            }
+            $data = array();
+            $data['DeptName'] = $depName;
+            $rs = M('dept')->where("DeptID = '{$depID}'")->save($data);
+            if(false !== $rs){
+                $this->success("更新成功");
+                die;
+            }
+        }
+        $rs = M('dept')->where("DeptID = '{$depID}'")->find();
+        
+        $this->assign("rs",$rs);
         $this->assign("CurrentPage",'departMent');
         $this->display();
+    }
+    
+    public function departMentDel(){
+        $depID = $this->getParam("depID");
+        $AppResult = new AppResult();
+        if(empty($depID)){
+            $AppResult->code = 0;
+            $AppResult->data ="";
+            $AppResult->message = "请选中要编辑的部门";
+            $AppResult->returnJSON();
+        }
+        if(IS_POST){
+            $depName = $this->getParam("depName");
+            $rs = M('phonebook')->where("deptid = '{$depID}'")->find();
+            if(!$rs)
+            {
+                $delrs = M('dept')->where("deptid = '{$depID}'")->delete();
+                if($delrs){
+                    $msg="成功删除分组记录".$depName;
+                    addSysLog($msg);
+                    $AppResult->code = 1;
+                    $AppResult->data ="";
+                    $AppResult->message = $msg;
+                }
+                else{
+                    $AppResult->code = 0;
+                    $AppResult->data ="";
+                    $AppResult->message = "删除失败";
+                }
+            }else{
+                $AppResult->code = 0;
+                $AppResult->data ="";
+                $AppResult->message = "删除失败：分组数据非空";
+            }
+            $AppResult->returnJSON();
+        }
     }
     
     //导出excel
