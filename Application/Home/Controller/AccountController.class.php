@@ -260,8 +260,5 @@ class AccountController extends AuthController {
         $objwriter->save('php://output');
      }
 
-    //导入
-     public function importExcel(){
-
-     }
+ 
 } 
