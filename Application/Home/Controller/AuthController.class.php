@@ -5,6 +5,7 @@ use Common\AppResult;
 class AuthController extends Controller {
     public function __construct(){
         parent::__construct();
+        header("Content-type: text/html; charset=utf-8"); 
         $checkLogin = $this->checkLogin();
         if(!$checkLogin){
             $redirect ="/home/login/index";

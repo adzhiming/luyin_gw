@@ -4,6 +4,7 @@ use Think\Controller;
 use Think\Model;
 use Think\Log;
 use Think\Upload;
+use Home\Controller\AppResult;
 class AccountController extends AuthController {
     public function _initialize() {
         $this->assign("AccountSub",1);
@@ -22,13 +23,45 @@ class AccountController extends AuthController {
         $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
         if(IS_AJAX){ 
             $field="v_accountid,v_accountname,v_password,n_afairtype,n_privilege,n_status,n_monitor,v_remark,v_ext,v_sid";
-            $where="  n_status!=0 and V_AccountName<>'op' and  V_AccountName<>'neuron' ";
+            $where="  n_status != 0 and V_AccountName <> 'op' and  V_AccountName <> 'neuron' ";
             $M = M('sys_accountinfo');
             $cnt = $M->field($field)->where($where)->select();
             //echo M()->getLastSql();
             $total = count($cnt);
             $rs = $M->field($field)->where($where)->limit($start,$length)->select();
-            
+            if($rs){
+                foreach ($rs as $k=>$v){
+                    $Managestr = "";
+                    $accountstr = "";
+                    $accountidstr = "";
+                    $u=$v["v_accountname"];
+                    $uid=$v["v_accountid"];
+                    $rs[$k]['outcando'] = "<font color='red'>".OutCanDo($v['n_afairtype'])."</font>";
+                    $rs[$k]['out_ext'] = Out_ext($v["v_ext"]);
+                    $rs[$k]['out_site'] =  station($v["v_sid"]);;
+                    $canMng  = substr($_SESSION['uRights'],4,1);//管理权
+                    if($canMng==1){
+                        $accountidstr = "<a href='userEdit?ACID=$uid'>$uid</a>";
+                        $accountstr ="<a href='userEdit?ACID=$uid'>$u</a>";
+                        $Managestr .= " <a href='userEdit?ACID=$uid'>编辑</a>　|　";
+                        if($u !="admin"){
+                            $Managestr .= "<a href=\"javascript:del($uid,'{$u}')\">删除</a>";
+                        }else{
+                            $Managestr .= "<span style=\"text-decoration:line-through;\">删除</span>";
+                        }
+                    }else{
+                        $accountidstr = $uid;
+                        $accountstr = $u;
+                        $Managestr .= " <span style=\"text-decoration:line-through;\">编辑</span>　|　";
+                        $Managestr .= "<span style=\"text-decoration:line-through;\">删除</span>";
+                    }
+                    $rs[$k]['out_accountid'] = $accountidstr;
+                    $rs[$k]['out_accountname'] = $accountstr;
+                    $rs[$k]['out_manage'] = $Managestr;
+                    
+                }
+            }
+           
             $output['aaData'] = $rs;
             $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
             $output['iTotalRecords'] = $total; //总共有几条数据
@@ -74,12 +107,115 @@ class AccountController extends AuthController {
     }
     
     public function userAdd(){
-        
+        if(IS_POST){
+            $AppResult = new AppResult();
+            $username = $this->getParam("username");
+            $password = $this->getParam("password");
+            $canItems = $this->getParam("canItems");
+            $privilege = $this->getParam("privilege");
+            $stationid = $this->getParam("stationid");
+            $remark = $this->getParam("remark");
+            $has = M('sys_accountinfo')->where("n_status != 0 and V_AccountName = '".MySQLFixup($username)."'")->find();
+            
+            if($has){
+                $AppResult->code = 0;
+                $AppResult->message = "新增用户失败,系统已存在用户".$username."！";
+                $AppResult->data = "";
+                
+            }else{
+                $data = array();
+                $data['V_AccountName'] = $username;
+                $data['V_Password'] = $password;
+                $data['N_AfairType'] = $canItems;
+                $data['N_Privilege'] = 9;
+                $data['N_Status'] = 1;
+                $data['V_Remark'] = $remark;
+                $data['V_Ext'] = formatSTR($privilege);
+                $data['V_SID'] = $stationid;
+                
+                $rs = M('sys_accountinfo')->add($data);
+                if($rs){
+                    addSysLog("通过浏览器新增用户:".MySQLFixup($username));
+                    $AppResult->code = 1;
+                    $AppResult->message = "成功添加新用户:".$username;
+                    $AppResult->data = "";
+                }
+                else{
+                    $AppResult->code = 0;
+                    $AppResult->message = "新增用户失败,数据库操作失败";
+                    $AppResult->data = "";
+                }
+            }
+            $AppResult->returnJSON();
+        }
+        $rs = M('station')->field("N_SID,V_SNAME,V_RNUM,V_MEMO")->order('V_SNAME')->select();
+         
+        $this->assign("station",$rs);
         $this->assign("CurrentPage",'userManage');
         $this->display();
     }
     public function userEdit(){
-        
+        if(IS_POST){
+            $AppResult = new AppResult();
+            $accountid = $this->getParam("accountid");
+            $username = $this->getParam("username");
+            $password = $this->getParam("password");
+            $canItems = $this->getParam("canItems");
+            $privilege = $this->getParam("privilege");
+            $stationid = $this->getParam("stationid");
+            $remark = $this->getParam("remark");
+            
+            $data = array();
+            $data['V_AccountName'] = $username;
+            $data['V_Password'] = $password;
+            $data['N_AfairType'] = str_replace(",","",str_replace("，",",", $canItems));;
+            $data['N_Privilege'] = 9;
+            $data['N_Status'] = 1;
+            $data['V_Remark'] = $remark;
+            $data['V_Ext'] = formatSTR($privilege);
+            $data['V_SID'] = $stationid;
+            if(empty($accountid)){
+                $AppResult->code = 0;
+                $AppResult->message = "请选择用户更新";
+                $AppResult->data = "";
+                $AppResult->returnJSON();
+            }
+            $rs = M('sys_accountinfo')->where("V_AccountId = '{$accountid}'")->save($data);
+            if(false !== $rs){
+                addSysLog("通过浏览器修改用户:".MySQLFixup($username));
+                $AppResult->code = 1;
+                $AppResult->message = "成功修改用户:".$username;
+                $AppResult->data = "";
+            }
+            else{
+                $AppResult->code = 0;
+                $AppResult->message = "修改用户失败,数据库操作失败";
+                $AppResult->data = "";
+            }
+            
+            $AppResult->returnJSON();
+        }
+        $accountid = $this->getParam('ACID');
+        $rs = M('sys_accountinfo')->where(" V_AccountId = '".$accountid."'")->find();
+        if(!$rs){
+            JS_alert("非法操作");
+        }
+        $stationArr = explode(',', $rs['v_sid']);
+        $rs['chaxun'] = substr($rs['n_afairtype'],0,1);
+        $rs['shanchu'] = substr($rs['n_afairtype'],1,1);
+        $rs['guanli'] = substr($rs['n_afairtype'],2,1);
+        $rs['suoding'] = substr($rs['n_afairtype'],3,1);
+       
+        $rs_station = M('station')->field("N_SID,V_SNAME,V_RNUM,V_MEMO")->order('V_SNAME')->select();
+        foreach ($rs_station as $k=>$v){
+            $rs_station[$k]['selected'] = 0;
+            if(in_array($v['n_sid'], $stationArr)){
+                $rs_station[$k]['selected'] = 1;
+            }
+            
+        }
+        $this->assign("station",$rs_station);
+        $this->assign("accountInfo",$rs);
         $this->assign("CurrentPage",'userManage');
         $this->display();
     }

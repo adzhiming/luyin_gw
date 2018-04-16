@@ -3,7 +3,7 @@
 /* 获取某天录音录像统计 */
 function getTodayChannelCount($ChannelNo='',$days){
     $returnData['voiceCnt'] = 0;
-    $returnData['vedioCnt'] = 0;
+    $returnData['videoCnt'] = 0;
     $days = empty($days)?date("Y-m-d",time()):$days;
     $where ="DATE_FORMAT(a.D_StartTime,'%Y-%m-%d') = '{$days}'";
     if($ChannelNo){
@@ -18,7 +18,7 @@ function getTodayChannelCount($ChannelNo='',$days){
     $sql = "select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where {$where}";
     $rs = M()->query($sql);
     if($rs){
-        $returnData['vedioCnt'] = $rs[0]['cnt'];
+        $returnData['videoCnt'] = $rs[0]['cnt'];
     }
     return $returnData;
 }
@@ -27,7 +27,7 @@ function getTodayChannelCount($ChannelNo='',$days){
  * date 2018-03-29 
  *录音录像统计
  */
-function getRecordVedioCount($seachType='day')
+function getRecordVideoCount($seachType='day')
 {
     $channelData = array();
     if($seachType){
@@ -35,7 +35,7 @@ function getRecordVedioCount($seachType='day')
             case 'day':
                 $returnData = array();
                 $returnData['voiceCnt'] = 0;
-                $returnData['vedioCnt'] = 0;
+                $returnData['videoCnt'] = 0;
                 //统计录音
                 $rs = M('rec_cdrinfo')->field("count(*) cnt")->where(" TO_DAYS(D_StartTime) = TO_DAYS(NOW())")->find();
                 if($rs){
@@ -46,7 +46,7 @@ function getRecordVedioCount($seachType='day')
                 $sql = "select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = TO_DAYS(NOW())'";
                 $rs = M()->query($sql);
                 if($rs){
-                    $returnData['vedioCnt'] = $rs[0]['cnt'];
+                    $returnData['videoCnt'] = $rs[0]['cnt'];
                 }
                 return $returnData;
             break;  
@@ -148,36 +148,39 @@ function getNumByName($name){
 }
 
 //根据RecID获取主叫、被叫录象
-function getVedioByRecID($id,$type)
+function getVideoByRecID($id,$type)
 {
     $pre = C('DB_PREFIX');
-    $str_vedio="";
+    $str_video="";
     $field = "RecID,LocalFileName,RemoteFileName";
     $where['RecID'] = $id;
     $retrunData = array(); 
-    $rows = M()->field($field)->table("{$pre}ved_cdrinfo")->union("SELECT {$field} FROM {$pre}ved_bakinfo",true)->where($where)->find();
+    //$rows = M()->field($field)->table("{$pre}ved_cdrinfo")->union("SELECT {$field} FROM {$pre}ved_bakinfo")->where($where)->find();
+    $sql="select {$field} from {$pre}ved_cdrinfo where `RecID`='$id' union select `RecID`,`LocalFileName`,`RemoteFileName` from {$pre}ved_bakinfo where `RecID`='$id'";
+    $rs = M()->query($sql);
+    $rows = $rs[0];
     if($rows)
     {
         if($type == 0){
-            if ($rows['LocalFileName']) {
-                $str_vedio.="<i class='fa fa-volume-up video-play' style=\"cursor:pointer\" onclick=\"vplay('".$rows["recid"]."','LocalFileName')\"></i>";
+            if ($rows['localfilename']) {
+                $str_video="<i class='fa fa-play-circle-o ' style=\"cursor:pointer\" onclick=\"vplay('".$rows["recid"]."','localfilename')\"></i>";
             }else {
-                $str_vedio.="---";
+                $str_video="---";
             }
         }
         if($type == 1){
-            if($rows['RemoteFileName'] ){
-                $str_vedio.="<i class='fa fa-volume-up video-play' style=\"cursor:pointer\" onclick=\"vplay('".$rows["recid"]."','RemoteFileName')\"></i>";
+            if($rows['remotefilename']){
+                $str_video="<i class='fa fa-play-circle-o ' style=\"cursor:pointer\" onclick=\"vplay('".$rows["recid"]."','remotefilename')\"></i>";
             }else {
-                $str_vedio.="---";
+                $str_video="---";
             }
         }
     }
     else
     {
-        $str_vedio.="---";
+        $str_video="---";
     }
-    return $str_vedio;
+    return $str_video;
    
 }
 
@@ -222,4 +225,98 @@ function formatTime($s){
 //小于10的数，前面加0
 function dbNum($i){
     if($i<10){return "0".$i;}else{return $i;}
+}
+
+/*客户端弹出警告信息*/
+function JS_alert($msg){
+    header("Content-type: text/html; charset=utf-8"); 
+    echo"<script type='text/javascript'>alert('$msg');</script>";
+}
+
+
+//返回服务器IP及端口，格式：http://192.168.0.1:8080/
+function host(){
+    return "http://{$_SERVER['SERVER_ADDR']}:{$_SERVER['SERVER_PORT']}/";
+}
+
+function fx($n){
+    if($n!=""){
+        return ($n==1)?"拨出":"来电";
+    }else{
+        return "";
+    }
+}
+
+//能否删除
+function canDel(){
+    return substr($_SESSION['uRights'],1,1);
+}
+
+
+//添加系统日志
+function addSysLog($evtContent){
+    $sql="insert into tab_Sys_AccountLog(V_AccountId,V_LogIP,D_LogTime,V_Description) ";
+    $sql=$sql."Values(".$_SESSION["uAccount"].",'".$_SESSION['uLogIP']."','".date("Y-m-d H:i:s",time())."','".$evtContent."')";
+    $rs = M()->execute($sql);
+    return true;
+}
+
+
+//输出用户权限
+function OutCanDo($can){
+    $canStr=array("查询","删除","管理","锁定");
+    $str="";
+    if($can<1000){$can=$can+1000;}//确保权限值为4位数
+    $can=substr($can,0,4);
+    for($i=0;$i<strlen($can);$i++){
+        $str.=((substr($can,$i,1)=="1")?($canStr[$i].","):"");
+    }
+    return substr($str,0,strlen($str)-1);
+}
+
+function Out_ext($ext){
+    if($ext==""){
+        return "全部";
+    }else{
+        if(strlen($ext)>20){
+            return substr($ext,0,20)."……";
+        }else{
+            return $ext;
+        }
+    }
+}
+
+function station($sid){
+    if(empty($sid)){return "";}
+    if(is_null($sid)){return "";}
+    if($sid==""){return "";}
+    $str="select v_sname from tab_station where n_sid in(".$sid.")order by v_sname";
+    $r1=M()->query($str);
+    $str="";
+    foreach($r1 as $v){
+        $str=$str.(($str=="")?"":",").$v["v_sname"];
+        if(strlen($str)>=20){
+            $str.="…";
+            return $str;
+        }
+    }
+    return $str;
+}
+
+//格式化字符串，去除非数字字符，允许逗号(,)
+function formatSTR($str){
+    if($str!=""){
+        $str=str_replace("，",",",$str);//确保逗号都为英文输入法的逗号
+        $str=str_replace(",","+",$str);//将逗号替换为"+"，便于下一步的验证
+        $str=filter_var($str, FILTER_SANITIZE_NUMBER_INT);//过滤器删除数字中所有非法的字符,允许所有数字以及 + -。
+        $str=str_replace("+",",",$str);//再将+替换回,
+        $str=preg_replace("/,{2,}/",",",$str);
+        if(substr($str,0,1)==","){//左侧第一个字符如果是逗号，则去除第一个字符
+            $str=substr($str,1,strlen($str));
+        }
+        if(substr($str,strlen($str)-1,1)==","){//最后一个字符如果是逗号，则去除最后一个字符
+            $str=substr($str,0,strlen($str)-1);
+        }
+    }
+    return $str;
 }

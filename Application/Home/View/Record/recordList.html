@@ -9,13 +9,87 @@
 
 	
         <title>录音系统</title>
-
         <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
         <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
         <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
         <link href="__PUBLIC__/assets/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
 		<link href="__PUBLIC__/assets/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 		<link href="__PUBLIC__/assets/bootstrap/css/jquery.audioplayer.css" rel="stylesheet" />
+		
+		<style type="text/css">
+.loadEffect{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+	display:none;
+ }
+ .loadEffect span{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: lightgreen;
+    position: absolute;
+    -webkit-animation: load 1.04s ease infinite;
+ }
+ @-webkit-keyframes load{
+    0%{
+       opacity: 1;
+    }
+    100%{
+       opacity: 0.2;
+    }
+ }
+ .loadEffect span:nth-child(1){
+    left: 0;
+    top: 50%;
+    margin-top:-8px;
+    -webkit-animation-delay:0.13s;
+ }
+ .loadEffect span:nth-child(2){
+    left: 14px;
+    top: 14px;
+    -webkit-animation-delay:0.26s;
+ }
+ .loadEffect span:nth-child(3){
+    left: 50%;
+    top: 0;
+    margin-left: -8px;
+    -webkit-animation-delay:0.39s;
+ }
+ .loadEffect span:nth-child(4){
+    top: 14px;
+    right:14px;
+    -webkit-animation-delay:0.52s;
+ }
+ .loadEffect span:nth-child(5){
+    right: 0;
+    top: 50%;
+    margin-top:-8px;
+    -webkit-animation-delay:0.65s;
+ }
+ .loadEffect span:nth-child(6){
+    right: 14px;
+    bottom:14px;
+    -webkit-animation-delay:0.78s;
+ }
+ .loadEffect span:nth-child(7){
+    bottom: 0;
+    left: 50%;
+    margin-left: -8px;
+    -webkit-animation-delay:0.91s;
+ }
+ .loadEffect span:nth-child(8){
+    bottom: 14px;
+    left: 14px;
+    -webkit-animation-delay:1.04s;
+ }
+ .Alertmessage{
+	text-align: center;
+    color: red;
+ }
+        </style>
     </head>
 
     <body>
@@ -61,7 +135,7 @@
 										        <input name="InOut" value="2" type="radio" aria-label="...">拨出和来电
 										        <input name="InOut" value="1" type="radio" aria-label="...">拨出
 										        <input name="InOut" value="0" type="radio" aria-label="...">来电
-										        <input name="has_vedio" id="has_vedio" value="1" type="checkbox" aria-label="...">有录像
+										        <input name="has_video" id="has_video" value="1" type="checkbox" aria-label="...">有录像
 										      </span>
 									    </div><!-- /input-group -->
 	                                </div>
@@ -99,11 +173,27 @@
                         <!--</form>-->
                         	
                         <!-- panel-heading -->
-                            <div class="table-responsive">
+                        <div style="line-height: 50px;height: 50px;">
+                             <div class="pull-left ">
+	                                <button class="btn btn-primary btn-small " type="button" onclick="play('','')">播放选中录音</button>
+	                          </div> 
+	                          <div class="pull-left ">
+	                                <button class="btn btn-info btn-small" type="button"  onclick="vplay('','')">播放选中录像</button>
+	                          </div>
+                             <div class="pull-left ">
+	                                <button class="btn btn-danger btn-small" type="button" onclick="del(<?php echo canDel(); ?>)"
+                    alt="删除选中记录">删除选中记录</button>
+	                          </div> 
+	                          <div class="pull-left ">
+	                                <button class="btn btn-success btn-small" type="button"  onclick="batDown()" >打包下载录音</button>
+	                          </div>
+	                          <div style="clear:both"></div>
+                         </div>
+                         <div class="table-responsive">
                             <table id="basicTable" class="table table-striped table-bordered">
                                 <thead class="">
                                     <tr>
-                                        <td><input type="checkbox"></td>
+                                        <td><input type="checkbox" id="checked_all"></td>
                                         <th>线路号</th>
                                         <th>线路信息</th>
                                         <th>主叫</th>
@@ -130,12 +220,13 @@
                         </div><!-- panel -->
                         
                         
-                           
+                          <div style="clear:both"></div>   
                            
                         </div><!-- panel -->
+                      <div style="clear:both"></div>  
                       
-                        
                     </div><!-- contentpanel -->
+                <div style="clear:both"></div>      
             </div><!-- mainwrapper -->
             
         </section>
@@ -145,37 +236,53 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">录音播放</h4>
+		        <h4 class="modal-title" id="myModalLabel" style="text-align: center;">正在玩命地打包</h4>
 		      </div>
 		      <div class="modal-body">
 		        <div class="inner">
-		        	<h4 class="videoName"></h4>
-		        	<div class="videoBlock"></div>
-		        	<table class="table table-bordered">
-		        		<tbody></tbody>
-		        	</table>
-		        	<div class="videoList">
-		        		<h5>播放列表</h5>
-		        		<ul class="events-list">
-		        			<li>录音1</li>
-		        			<li>录音2</li>
-		        			<li>录音3</li>
-		        			<li>录音4</li>
-		        			<li>录音5</li>
-		        			<li>录音6</li>
-		        			<li>录音7</li>
-		        		</ul>
-		        	</div>
+		        	<h4 class="downloadName"></h4>
 		        </div>
+		        <div class="loadEffect">
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				</div>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-		        <button type="button" class="btn btn-primary">确定</button>
+		        <!-- <button type="button" class="btn btn-primary">确定</button> -->
 		      </div>
 		    </div>
 		  </div>
 		</div>
 		
+		
+		<!-- 告警模态框 -->
+		<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myAlert">
+		  <div class="modal-dialog" role="document" style="width:450px">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myAlert" style="text-align: center;">提示</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="inner">
+		        	<h4 class="Alertmessage"> </h4>
+		        </div>
+		        
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+		        <!-- <button type="button" class="btn btn-primary">确定</button> -->
+		      </div>
+		    </div>
+		  </div>
+		</div>
         <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/jquery.datatables.min.js"></script>
@@ -188,7 +295,7 @@ var CHANNEL_ARR = new Array();
 var CHANNEL_TB;
 var InOut = 2;
 var SearchMode = 0;
-var has_vedio = 0;
+var has_video = 0;
 $(document).ready( function () {
 	
 	
@@ -207,8 +314,8 @@ CHANNEL_TB = $('#basicTable').dataTable(
                 	$("input:radio[name='SearchMode']:checked").each(function() { 
                 		SearchMode = $(this).val();  // 每一个被选中项的值
                     });
-                	if($('#has_vedio').is(':checked')){
-                		has_vedio = 1;
+                	if($('#has_video').is(':checked')){
+                		has_video = 1;
                 	}
                 	d.chk_CN = String(CHANNEL_ARR);
                 	d.datetimepicker_start=$('#datetimepicker_start').val();
@@ -216,7 +323,7 @@ CHANNEL_TB = $('#basicTable').dataTable(
                 	d.SearchMode=SearchMode;
                 	d.InOut=InOut;
                 	d.search_key=$('#search_key').val();
-                	d.has_vedio=has_vedio;
+                	d.has_video=has_video;
                 	d.stime=$('#stime').val();
                     return d;
 //              	d.chk_CN = CHANNEL_ARR;
@@ -255,7 +362,7 @@ CHANNEL_TB = $('#basicTable').dataTable(
             "aoColumns": [  //这个属性下的设置会应用到所有列，按顺序没有是空
             	{"mData": function (mData)
              	   {
-                     return "<input type='checkbox' name='selID' value='"+mData.N_SN+"' />";
+                     return "<input type='checkbox' class='checked_per_pro' name='checked_per_pro'  value='"+mData.n_sn+"' />";
                     }
              	},
                 {"mData": 'n_channelid'},
@@ -296,8 +403,8 @@ $('.search').click(function(){
 	$("input:radio[name='SearchMode']:checked").each(function() { 
 		SearchMode = $(this).val();  // 每一个被选中项的值
     });
-	if($('#has_vedio').is(':checked')){
-		has_vedio = 1;
+	if($('#has_video').is(':checked')){
+		has_video = 1;
 	}
 	var details = $("input[name='details']").val();
 	
@@ -328,7 +435,7 @@ $('.search').click(function(){
 	
 	
 	
-	$('#basicTable').on('click', '.video-play',function(e){
+	$('body').on('click', '.video-play',function(e){
 		e.preventDefault();
 		$('#videoPlayMod').modal('show');
 		var $tr = $(e.currentTarget).parents('tr').clone();
@@ -365,6 +472,185 @@ function channelElnSet(arr){
 		$('chkChnl_'+CHANNEL_ARR[i]).prop('checked')
 	}
 }
+
+$("#checked_all").click(function() {
+    var state = $("#checked_all").prop("checked");
+    if(state == true) {
+        $(".checked_per_pro").prop("checked", "checked");
+    } else {
+        $(".checked_per_pro").prop("checked", "");
+    }
+});
+
+
+
+//播放当前选中的录音
+function play(N_SN,fname){
+	//获得窗口的垂直位置 
+    var iTop = (window.screen.availHeight - 30 - 380) / 2; 
+    //获得窗口的水平位置 
+    var iLeft = (window.screen.availWidth - 10 - 450) / 2; 
+    
+	var url="recordPlayer?Rnd="+Math.random()+"&listItem=";
+	if(N_SN!=""){
+         //直接点击某条录音的小喇叭，只播放当前录音
+		var dsc="dialogWidth=450px;dialogHeight=425px;status=no";
+		window.open(url+N_SN+"&fname="+fname,"player","height=380,width=450, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+		
+	}else{
+		//点击播放选中的录音
+		var Items =""
+		 $('input[name="checked_per_pro"]:checked').each(function(){ 
+			 if(Items ==""){
+				 Items = $(this).val()
+			 }
+			 else{
+				 Items = Items +","+ $(this).val()
+			 }
+		}); 
+		if(Items!=""){
+			//window.open(url+Items);
+			window.open(url+Items,"player","height=380,width=450, top="+ iTop + ",left="+ iLeft + ",toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+		}else{
+			$('#alertModel').modal('show');
+			$('.Alertmessage').html('请选择要播放的录音') 
+			return;
+		}
+	}
+}
+ 
+ 
+//播放当前选中的录音
+function vplay(N_SN,fname){
+	//获得窗口的垂直位置 
+    var iTop = (window.screen.availHeight - 30 - 700) / 2; 
+    //获得窗口的水平位置 
+    var iLeft = (window.screen.availWidth - 10 - 700) / 2;
+    
+	var url="videoPlayer?Rnd="+Math.random()+"&listItem=";
+	//var dsc="dialogWidth=450px;dialogHeight=400px;status=no";
+	if(N_SN!=""){
+		//直接点击某条录音的小喇叭，只播放当前录音
+		var dsc="dialogWidth=700px;dialogHeight=700px;status=no";
+		window.open(url+N_SN+"&fname="+fname,"player","height=700,width=700, top="+ iTop + ",left="+ iLeft + ",toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+		//模式窗口，需关闭播放器后才能选择其他录音，不方便
+		//window.showModalDialog(url+N_SN+"&fname="+fname,"录音文件试听",dsc);
+		
+	}else{
+		//点击播放选中的录音
+		var Items =""
+		 $('input[name="checked_per_pro"]:checked').each(function(){ 
+			 if(Items ==""){
+				 Items = $(this).val()
+			 }
+			 else{
+				 Items = Items +","+ $(this).val()
+			 }
+		}); 
+		if(Items!=""){
+			//window.open(url+Items);
+			window.open(url+Items,"player","height=700,width=700, top="+ iTop + ",left="+ iLeft + ",toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+			//window.showModalDialog(url+Items,"录音文件试听",dsc);
+		}else{
+			$('#alertModel').modal('show');
+			$('.Alertmessage').html('请选择要播放的录象') 
+			return;
+		}
+	}
+}
+
+
+//删除选中的记录
+function del(flag){
+	if(!flag){
+		$('#alertModel').modal('show');
+		$('.Alertmessage').html('无权操作，请与管理员联系') 
+		return;
+		}
+	//删除选中的录音
+	var toDel =""
+	 $('input[name="checked_per_pro"]:checked').each(function(){ 
+		 if(toDel ==""){
+			 toDel = $(this).val()
+		 }
+		 else{
+			 toDel = toDel +","+ $(this).val()
+		 }
+	}); 
+	if(toDel==""){
+		$('#alertModel').modal('show');
+		$('.Alertmessage').html('请选中要删除的记录') 
+		return;
+	}else{
+		var msg="注意！！\r\n\n此操作将把所选记录(锁定记录除外)及相关录音文件彻底删除";
+		msg+="\r\n\n确定删除所选记录？";
+		var url="delRecord"
+		if(confirm(msg)){
+			$.ajax({
+				type:"POST",
+				url:url,
+				data:{
+					strID:toDel	
+				},
+				success: function(data){
+					console.log(data)
+					if(data.code){
+						alert(data.message);
+					}
+				}
+			})
+		}
+	}
+}
+
+//打包下载
+function batDown(){
+	var Items =""
+	var i =""
+		 $('input[name="checked_per_pro"]:checked').each(function(){ 
+			 if(Items ==""){
+				 Items = $(this).val()
+			 }
+			 else{
+				 Items = Items +","+ $(this).val()
+			 }
+			 i++
+		}); 
+	if(Items==""){
+		$('#alertModel').modal('show');
+		$('.Alertmessage').html('请选择要打包的录像') 
+		return;
+	}
+	if(i>1000){
+		var tips="提示：当前记录总数超过1000条，数量较多，全部打包将有可能失败。\r\n建议区分每页打包下载";
+		tips+="\r\n\r\n点击【确定】继续打包所有记录\r\n点击【取消】重新选择"
+		if(!confirm(tips)){
+			return false;
+		}
+	}
+	$('#videoPlayMod').modal('show');
+	$('.downloadName').css("display","none");
+	var url="recordZip"
+	$.ajax({
+		type:"POST",
+		url:url,
+		data:{
+			strID:Items
+		},
+		beforeSend:function(XMLHttpRequest){ 
+			$('.loadEffect').css("display","block");
+		}, 
+		success: function(data){
+			if(data.code){
+				$('.loadEffect').css("display","none");
+				$('.downloadName').css("display","block");
+				$('.modal-title').html("操作完成");
+				$('.downloadName').html(data.message)
+			}
+		}
+	})
+}
+
 </script>        
 		
 		
