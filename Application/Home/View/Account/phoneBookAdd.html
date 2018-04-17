@@ -13,6 +13,12 @@
         <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
         <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
         <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+        <style type="text/css">
+	 .Alertmessage{
+		text-align: center;
+	    color: red;
+	 }
+  </style>
     </head>
 
     <body>
@@ -43,58 +49,61 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">姓名 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                    <input type="text" id="name" name="name" class="form-control" placeholder="用户名" required />
                                                 </div>
                                             </div><!-- form-group -->
                                           
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">性别 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="email" name="email" class="form-control" placeholder="密码" required />
-                                                </div>
+                                                <select id="sex" data-placeholder="Choose One" class="width100p" required>
+                                                    <option value="0">未知</option>
+                                                    <option value="1">男</option>
+                                                    <option value="2">女</option>
+                                                </select>
+                                            </div>
                                             </div><!-- form-group -->
                                           
                                             <div class="form-group">
                                             <label class="col-sm-2 control-label">所属分组<span class="asterisk">*</span></label>
                                             <div class="col-sm-6">
-                                                <select id="fruits" data-placeholder="Choose One" class="width100p" required>
-                                                    <option value="">Choose One</option>
-                                                    <option value="apple">Apple</option>
-                                                    <option value="orange">Orange</option>
-                                                    <option value="grapes">Grapes</option>
-                                                    <option value="strawberry">Strawberry</option>
+                                                <select id="departMent" data-placeholder="Choose One" class="width100p" required>
+                                                    <option value="0">请选择</option>
+                                                    <foreach name="rs" item="list">
+                                                        <option value="{$list.deptid}">{$list.deptname}</option>
+                                                    </foreach>
                                                 </select>
                                             </div>
                                         </div><!-- form-group -->
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">移动电话 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                    <input type="text" name="phone" id="phone"  class="form-control" placeholder="移动电话" required />
                                                 </div>
                                             </div><!-- form-group -->
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">办公电话 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                    <input type="text" id="officePhone" name="officePhone" class="form-control" placeholder="办公电话" required />
                                                 </div>
                                             </div><!-- form-group -->
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">其它电话 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                    <input type="text" id="otherPhone" name="otherPhone" class="form-control" placeholder="其它电话" required />
                                                 </div>
                                             </div><!-- form-group -->
                                             
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">备注信息<span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <textarea rows="5" class="form-control" placeholder="备注信息" required></textarea>
+                                                    <textarea rows="5" id="remark" name="remark" class="form-control" placeholder="备注信息" required></textarea>
                                                 </div>
                                             </div><!-- form-group -->
                                         </div><!-- row -->
                                         <div class="modal-footer col-sm-6">
 									        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-									        <button type="button" class="btn btn-primary">添加</button>
+									        <button type="button" class="btn btn-primary submit">添加</button>
 									    </div>
                                     </div><!-- panel-body -->
                            
@@ -103,16 +112,36 @@
                                 
                             </div><!-- col-md-6 -->
                            
-                            
+                           
 					      
                         </div><!-- panel -->
                       
-                        
+                         <div style="clear:both"></div>
                     </div><!-- contentpanel -->
                 </div><!-- mainpanel --><!-- mainpanel -->
             </div><!-- mainwrapper -->
             
-        
+        <!-- 告警模态框 -->
+		<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myAlert">
+		  <div class="modal-dialog" role="document" style="width:450px">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myAlert" style="text-align: center;">提示</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="inner">
+		        	<h4 class="Alertmessage"> </h4>
+		        </div>
+		        
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+		        <!-- <button type="button" class="btn btn-primary sureDel">确定</button> -->
+		      </div>
+		    </div>
+		  </div>
+		</div> 
         </section>
 		
         <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
@@ -124,10 +153,57 @@
 <script type="text/javascript">
 $(document).ready( function () {
 	// Validation with select boxes
-    jQuery("#flowers, #fruits").select2({
+    jQuery("#flowers, #sex").select2({
         minimumResultsForSearch: -1
     });
-})     
+    jQuery("#flowers, #departMent").select2({
+        minimumResultsForSearch: -1
+    });
+})
+
+$('.submit').click(function(){
+		var name = $('#name').val();
+		var sex = $('#sex').val();
+		var departMent = $('#departMent').val();
+		var phone = $('#phone').val();
+		var officePhone = $('#officePhone').val();
+		var otherPhone = $('#otherPhone').val();
+		var remark = $('#remark').val();
+		if(name == ""){
+			$('#alertModel').modal('show');
+			$('.Alertmessage').html('请输入用户名') 
+			return;
+		}
+		if(departMent == ""){
+			$('#alertModel').modal('show');
+			$('.Alertmessage').html('请选择部门') 
+			return;
+		}
+		 
+		
+		var url ="phoneBookAdd"
+		  $.ajax({
+				type:"POST",
+				url:url,
+				data:{
+					 name:name,sex:sex,departMent:departMent,phone:phone,officePhone:officePhone,otherPhone:otherPhone,remark:remark 
+				},
+				success: function(data){
+					if(data.code){
+						$('.Alertmessage').css("color",'#1fb5ad');
+					}
+					else{
+						$('.Alertmessage').css("color",'red');
+					}
+					$('#alertModel').modal('show');
+					$('.Alertmessage').html(data.message)
+		   		    //$('#alertModel').modal('hide');
+		   		    //alert(data.message)
+		   		    //window.location.reload()
+				}
+	     })
+
+	})
 </script>        
 		
 		

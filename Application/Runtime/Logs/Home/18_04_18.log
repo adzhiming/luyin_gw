@@ -1,0 +1,1169 @@
+[ 2018-04-18T00:09:25+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.012001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.012001s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.099005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.099005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.007001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2018-04-18T00:09:28+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.1210s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0140s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0240s ]
+
+[ 2018-04-18T00:09:32+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0200s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:09:33+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0190s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:09:55+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-04-18T00:09:56+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0200s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:09:59+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0240s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0020s ]
+
+[ 2018-04-18T00:10:01+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0210s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:10:14+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2018-04-18T00:10:16+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0140s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:11:30+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2018-04-18T00:11:31+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0150s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:21:14+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.007000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.008001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005000s ]
+
+[ 2018-04-18T00:21:15+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0190s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0020s ]
+
+[ 2018-04-18T00:21:27+08:00 ] 127.0.0.1 /home/Account/phoneBookDel
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined index: phoneBookID H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Use of undefined constant phoneBookID - assumed 'phoneBookID' H:\www\luyinxitong_gw\Application\Home\Controller\AccountController.class.php 第 307 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0210s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( pid in ('8,9,10') )  [ RunTime:0.0160s ]
+
+[ 2018-04-18T00:22:18+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-04-18T00:22:20+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0140s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:22:39+08:00 ] 127.0.0.1 /home/Account/phoneBookDel
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: phoneBookID H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Use of undefined constant phoneBookID - assumed 'phoneBookID' H:\www\luyinxitong_gw\Application\Home\Controller\AccountController.class.php 第 307 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( pid in (8) )  [ RunTime:0.0070s ]
+
+[ 2018-04-18T00:23:35+08:00 ] 127.0.0.1 /home/Account/phoneBookDel
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.009000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.008001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009001s ]
+NOTIC: [8] Undefined index: phoneBookID H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Use of undefined constant phoneBookID - assumed 'phoneBookID' H:\www\luyinxitong_gw\Application\Home\Controller\AccountController.class.php 第 307 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0330s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( pid in (8) )  [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:24:22+08:00 ] 127.0.0.1 /home/Account/phoneBookDel
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: phoneBookID H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( pid in (8) )  [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:25:25+08:00 ] 127.0.0.1 /home/Account/phoneBookDel
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: phoneBookID H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0250s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( pid in (8) )  [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:26:23+08:00 ] 127.0.0.1 /home/Account/phoneBookDel
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: phoneBookID H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0230s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( pid in (8) )  [ RunTime:0.0010s ]
+SQL: DELETE FROM `tab_phonebook` WHERE ( pid in(8) ) [ RunTime:0.0110s ]
+SQL: insert into tab_sys_accountlog(V_AccountId,V_LogIP,D_LogTime,V_Description) Values(1,'127.0.0.1','2018-04-18 00:26:23','成功删除号簿记录:') [ RunTime:0.0360s ]
+
+[ 2018-04-18T00:26:31+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0290s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0020s ]
+
+[ 2018-04-18T00:26:32+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0250s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:27:52+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.047003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.047003s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.007000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:27:54+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0180s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0020s ]
+
+[ 2018-04-18T00:28:02+08:00 ] 127.0.0.1 /home/Account/phoneBookDel
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+NOTIC: [8] Undefined index: phoneBookID H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0210s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( pid in (9,10) )  [ RunTime:0.0020s ]
+SQL: DELETE FROM `tab_phonebook` WHERE ( pid in(9,10) ) [ RunTime:0.0010s ]
+SQL: insert into tab_sys_accountlog(V_AccountId,V_LogIP,D_LogTime,V_Description) Values(1,'127.0.0.1','2018-04-18 00:28:02','成功删除号簿记录:') [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:28:04+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:28:06+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0160s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:28:09+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005001s ]
+
+[ 2018-04-18T00:28:11+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0220s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0020s ]
+
+[ 2018-04-18T00:28:15+08:00 ] 127.0.0.1 /home/Account/phoneBookDel
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: phoneBookID H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0260s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( pid in (12) )  [ RunTime:0.0010s ]
+SQL: DELETE FROM `tab_phonebook` WHERE ( pid in(12) ) [ RunTime:0.0000s ]
+SQL: insert into tab_sys_accountlog(V_AccountId,V_LogIP,D_LogTime,V_Description) Values(1,'127.0.0.1','2018-04-18 00:28:15','成功删除号簿记录:lzm123') [ RunTime:0.0000s ]
+
+[ 2018-04-18T00:28:16+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:28:18+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.005000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0290s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0020s ]
+
+[ 2018-04-18T00:29:12+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 85 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2018-04-18T00:29:14+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0190s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:29:18+08:00 ] 127.0.0.1 /home/Account/phoneBookDel
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined index: phoneBookID H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0200s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( pid in (11) )  [ RunTime:0.0010s ]
+SQL: DELETE FROM `tab_phonebook` WHERE ( pid in(11) ) [ RunTime:0.0020s ]
+SQL: insert into tab_sys_accountlog(V_AccountId,V_LogIP,D_LogTime,V_Description) Values(1,'127.0.0.1','2018-04-18 00:29:18','成功删除号簿记录:lzm123') [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:29:20+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 85 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.006000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.006001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006001s ]
+
+[ 2018-04-18T00:29:22+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0220s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:30:01+08:00 ] 127.0.0.1 /home/Account/phoneBookAdd
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `tab_dept` [ RunTime:0.0200s ]
+SQL: SELECT * FROM `tab_dept` ORDER BY DeptID  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\017a9a6407e7b62a0172b29c06e74b46.php 第 85 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-04-18T00:30:15+08:00 ] 127.0.0.1 /home/Account/phoneBookAdd
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: name H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sex H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: departMent H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: phone H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: officePhone H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: otherPhone H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: remark H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0220s ]
+SQL: INSERT INTO `tab_phonebook` (`contactName`,`sex`,`deptid`,`Mobile`,`OfficeNum`,`OtherNum`,`remark`) VALUES ('lzm','1','7','2342423','2343','','') [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:30:19+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 85 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2018-04-18T00:30:21+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0150s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:30:27+08:00 ] 127.0.0.1 /home/Account/phoneBookDel
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined index: phoneBookID H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0180s ]
+SQL: SELECT * FROM `tab_phonebook` WHERE ( pid in (13) )  [ RunTime:0.0010s ]
+SQL: DELETE FROM `tab_phonebook` WHERE ( pid in(13) ) [ RunTime:0.0010s ]
+SQL: insert into tab_sys_accountlog(V_AccountId,V_LogIP,D_LogTime,V_Description) Values(1,'127.0.0.1','2018-04-18 00:30:27','成功删除号簿记录:lzm') [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:30:30+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 85 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2018-04-18T00:30:31+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0270s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0020s ]
+
+[ 2018-04-18T00:30:48+08:00 ] 127.0.0.1 /home/Account/departMent
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\8798520a1bbbb8d7ebec1907bc9bdfb9.php 第 86 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:30:50+08:00 ] 127.0.0.1 /home/account/departMent
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_dept` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `tab_dept` WHERE (  1=1  )  [ RunTime:0.0010s ]
+SQL: SELECT `DeptID`,`DeptName` FROM `tab_dept` WHERE (  1=1  ) LIMIT 0,10   [ RunTime:0.0000s ]
+
+[ 2018-04-18T00:30:51+08:00 ] 127.0.0.1 /home/Account/userManage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\AccountController.class.php 第 20 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\edda0f256a51747e1268b014dabde73d.php 第 85 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:30:52+08:00 ] 127.0.0.1 /home/account/userManage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\AccountController.class.php 第 20 行.
+SQL: SHOW COLUMNS FROM `tab_sys_accountinfo` [ RunTime:0.0370s ]
+SQL: SELECT `v_accountid`,`v_accountname`,`v_password`,`n_afairtype`,`n_privilege`,`n_status`,`n_monitor`,`v_remark`,`v_ext`,`v_sid` FROM `tab_sys_accountinfo` WHERE (   n_status != 0 and V_AccountName <> 'op' and  V_AccountName <> 'neuron'  )  [ RunTime:0.0070s ]
+SQL: SELECT `v_accountid`,`v_accountname`,`v_password`,`n_afairtype`,`n_privilege`,`n_status`,`n_monitor`,`v_remark`,`v_ext`,`v_sid` FROM `tab_sys_accountinfo` WHERE (   n_status != 0 and V_AccountName <> 'op' and  V_AccountName <> 'neuron'  ) LIMIT 0,10   [ RunTime:0.0010s ]
+SQL: select v_sname from tab_station where n_sid in(3)order by v_sname [ RunTime:0.0210s ]
+
+[ 2018-04-18T00:30:55+08:00 ] 127.0.0.1 /home/System/channelParameter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\e80aeda8f57950d778cb1ff225dd74e6.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:31:01+08:00 ] 127.0.0.1 /home/System/systemParameter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\61540ef09f31b1ed50902477c79a51de.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:31:07+08:00 ] 127.0.0.1 /home/System/channelParameter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\e80aeda8f57950d778cb1ff225dd74e6.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2018-04-18T00:31:09+08:00 ] 127.0.0.1 /home/System/systemParameter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\61540ef09f31b1ed50902477c79a51de.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:31:11+08:00 ] 127.0.0.1 /home/System/channelParameter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\e80aeda8f57950d778cb1ff225dd74e6.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003001s ]
+
+[ 2018-04-18T00:31:13+08:00 ] 127.0.0.1 /home/System/systemParameter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\61540ef09f31b1ed50902477c79a51de.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:31:17+08:00 ] 127.0.0.1 /home/System/ipLimint
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\b14fe65e10c932a55b36ae9b044130ca.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:31:29+08:00 ] 127.0.0.1 /home/Account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\f5a59b4e4ef3f4d9100b271ff2549784.php 第 85 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2018-04-18T00:31:30+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0290s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:31:34+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0170s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:31:35+08:00 ] 127.0.0.1 /home/account/phoneBook
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+NOTIC: [8] Undefined index: sNum H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_phonebook` [ RunTime:0.0180s ]
+SQL: SELECT count(*) cnt FROM tab_phonebook a WHERE ( 1=1  ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT a.*,b.deptName FROM tab_phonebook a left JOIN tab_dept b on a.deptid=b.deptid  WHERE ( 1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
+[ 2018-04-18T00:31:51+08:00 ] 127.0.0.1 /home/System/channelParameter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\e80aeda8f57950d778cb1ff225dd74e6.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:31:55+08:00 ] 127.0.0.1 /home/System/systemParameter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\61540ef09f31b1ed50902477c79a51de.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:32:00+08:00 ] 127.0.0.1 /home/System/licenseInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\c326e5ed5e856ed24412b9cb68d3f69f.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.020001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.020001s ]
+
+[ 2018-04-18T00:32:03+08:00 ] 127.0.0.1 /home/System/diskParameter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\438500c61ec2118a1aee713391e7585c.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:32:03+08:00 ] 127.0.0.1 /home/record/diskManerage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\RecordController.class.php 第 243 行.
+
+[ 2018-04-18T00:32:05+08:00 ] 127.0.0.1 /home/System/ipLimint
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\b14fe65e10c932a55b36ae9b044130ca.php 第 72 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005000s ]
+
+[ 2018-04-18T00:32:15+08:00 ] 127.0.0.1 /home/System/diskParameter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: AccountSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\438500c61ec2118a1aee713391e7585c.php 第 73 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:32:15+08:00 ] 127.0.0.1 /home/record/diskManerage
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: sEcho H:\www\luyinxitong_gw\Application\Home\Controller\RecordController.class.php 第 243 行.
+
+[ 2018-04-18T00:32:27+08:00 ] 127.0.0.1 /home/Account/departMent
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: SystemSub H:\www\luyinxitong_gw\Application\Runtime\Cache\Home\8798520a1bbbb8d7ebec1907bc9bdfb9.php 第 86 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2018-04-18T00:32:29+08:00 ] 127.0.0.1 /home/account/departMent
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+NOTIC: [8] Undefined index: sName H:\www\luyinxitong_gw\Application\Home\Controller\AuthController.class.php 第 77 行.
+SQL: SHOW COLUMNS FROM `tab_dept` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `tab_dept` WHERE (  1=1  )  [ RunTime:0.0010s ]
+SQL: SELECT `DeptID`,`DeptName` FROM `tab_dept` WHERE (  1=1  ) LIMIT 0,10   [ RunTime:0.0010s ]
+
