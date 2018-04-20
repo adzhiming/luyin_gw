@@ -184,6 +184,7 @@ function getVideoByRecID($id,$type)
    
 }
 
+
 //MySQL语句格式化，避免特殊字符造成SQL语法错误
 function MySQLFixup($str){
     if(is_numeric($str)) return $str;
@@ -324,4 +325,19 @@ function formatSTR($str){
         }
     }
     return $str;
+}
+
+//输出select控件时，判断默认选中的options
+function selected($v1,$v2){
+    if($v1==$v2){return " selected ";}
+    else{return "";}
+}
+
+//是否允许修改，否则设置控件属性readonly
+function canModify($n){
+    if($n==1){
+        return " readonly ";
+    }else{
+        return "";
+    }
 }
