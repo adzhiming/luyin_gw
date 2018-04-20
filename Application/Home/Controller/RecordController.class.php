@@ -721,4 +721,78 @@ class RecordController extends AuthController {
 	    return $aryReturn;
 	}
 	
+
+    //统计打印
+    public function printPage()
+    {
+        $s_time = date("Y-m-d",strtotime("-300 day"))." 00:00:00";
+        $e_time = date("Y-m-d",time())." 23:59:59";
+        $SearchMode = isset($_REQUEST['SearchMode'])?$_REQUEST['SearchMode']:1;
+        
+        if(IS_AJAX){
+            $sEcho = $_REQUEST['sEcho']; // DataTables 用来生成的信息
+            $output['sEcho'] = $sEcho;
+            $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
+            $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
+            $datetimepicker_start = isset($_REQUEST['datetimepicker_start'])?$_REQUEST['datetimepicker_start']:$s_time;
+            $datetimepicker_end = isset($_REQUEST['datetimepicker_end'])?$_REQUEST['datetimepicker_end']:$e_time;
+            
+             
+             
+            //如没设定开始日期，则默认为上个月的今天
+            $bTime=isset($_POST["bTime"])?$_POST["bTime"]:$lastmonth = date("Y-m-d",mktime(0,0,0,date("m")-1 ,date("d"),date("Y")));
+            //如没设定开始日期，则默认为昨天
+            $eTime=isset($_POST["eTime"])?$_POST["eTime"]:date("Y-m-d",mktime(0,0,0,date("m") ,date("d")-1,date("Y")));
+            
+            $where  = " D_StartTime >= '{$datetimepicker_start}' and D_StartTime <= '{$datetimepicker_end}' ";
+            $where  .= " and D_StopTime != '0000-00-00 00:00:00' ";
+            
+            if($SearchMode == 1)
+            {
+                
+                $field = "N_ChannelID,Count(N_SN) as 'cAmount',Sum(ABS(TIMESTAMPDIFF(SECOND,D_StartTime,D_StopTime))) as cSecond";
+                $cnt = M('rec_cdrinfo')->field("N_ChannelID ")->where($where)->group('N_ChannelID')->select();
+                $total = count($cnt);
+                
+                $rs = M('rec_cdrinfo')->field($field)->where($where)->group('N_ChannelID')->limit($start,$length)->select();
+                
+                if($rs){
+                    foreach ($rs as $k=>$v){
+                        $rs[$k]['recordtime'] = formatTime($v["csecond"]);
+                        $data = $this->videoSimpleCount($v['n_channelid'],$where);
+                        $rs[$k]['vtimes'] = $data['vtimes'];
+                        $rs[$k]['vsecond'] = $data['vsecond'];
+                    }
+                }
+               
+            }
+            else
+            {
+                
+                $field = "*";
+                $cnt = M('rec_cdrinfo')->field("count(*) cnt ")->where($where)->find();
+                $total = $cnt['cnt'];
+                $rs = M('rec_cdrinfo')->field($field)->where($where)->limit($start,$length)->select();
+               
+                if($rs){
+                    foreach ($rs as $k=>$v){
+                        $rs[$k]['longtime'] = DateDiff($v['d_starttime'],$v['d_stoptime']);
+                        $rs[$k]['n_calldirection'] = $v['n_calldirection']==1?'拨出':'来电';
+                    }
+                }
+            }
+            
+            $output['aaData'] = $rs;
+            $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
+            $output['iTotalRecords'] = $total; //总共有几条数据
+            echo json_encode($output); //最后把数据以json格式返回
+            die;
+        }
+        $this->assign("SearchMode",$SearchMode);
+        $this->assign("datetimepicker_start",$s_time);
+        $this->assign("datetimepicker_end",$e_time);
+        $this->assign("CurrentPage",'recordCount');
+        $this->display();
+    }
+    
 }
