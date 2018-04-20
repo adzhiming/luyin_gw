@@ -228,9 +228,14 @@ function dbNum($i){
 }
 
 /*客户端弹出警告信息*/
-function JS_alert($msg){
+function JS_alert($msg,$flag=false){
     header("Content-type: text/html; charset=utf-8"); 
-    echo"<script type='text/javascript'>alert('$msg');</script>";
+    if($flag){
+        echo"<script type='text/javascript'>alert('$msg');</script>";
+    }
+    else{
+        echo"<script type='text/javascript'>alert('$msg');</script>";
+    }
 }
 
 
@@ -255,7 +260,7 @@ function canDel(){
 
 //添加系统日志
 function addSysLog($evtContent){
-    $sql="insert into tab_Sys_AccountLog(V_AccountId,V_LogIP,D_LogTime,V_Description) ";
+    $sql="insert into tab_sys_accountlog(V_AccountId,V_LogIP,D_LogTime,V_Description) ";
     $sql=$sql."Values(".$_SESSION["uAccount"].",'".$_SESSION['uLogIP']."','".date("Y-m-d H:i:s",time())."','".$evtContent."')";
     $rs = M()->execute($sql);
     return true;

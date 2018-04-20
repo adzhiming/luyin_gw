@@ -13,6 +13,12 @@
         <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
         <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
         <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+<style type="text/css">
+ .Alertmessage{
+	text-align: center;
+    color: red;
+ }
+       </style>
     </head>
 
     <body>
@@ -43,14 +49,14 @@
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">分组名称 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="name" class="form-control" placeholder="分组名称" required />
+                                                    <input type="text" name="departName" id="departName" value="" class="form-control" placeholder="分组名称" required />
                                                 </div>
                                             </div><!-- form-group -->
                                           
                                         </div><!-- row -->
                                         <div class="modal-footer col-sm-6">
 									        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-									        <button type="button" class="btn btn-primary">添加</button>
+									        <button type="button" class="btn btn-primary submit">添加</button>
 									    </div>
                                     </div><!-- panel-body -->
                            
@@ -68,7 +74,27 @@
                 </div><!-- mainpanel --><!-- mainpanel -->
             </div><!-- mainwrapper -->
             
-        
+                <!-- 告警模态框 -->
+		<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myAlert">
+		  <div class="modal-dialog" role="document" style="width:450px">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myAlert" style="text-align: center;">提示</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="inner">
+		        	<h4 class="Alertmessage"> </h4>
+		        </div>
+		        
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+		        <!-- <button type="button" class="btn btn-primary">确定</button> -->
+		      </div>
+		    </div>
+		  </div>
+		</div>
         </section>
 		
         <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
@@ -83,7 +109,37 @@ $(document).ready( function () {
     jQuery("#flowers, #fruits").select2({
         minimumResultsForSearch: -1
     });
-})     
+	
+    $('.submit').click(function(){
+ 	   var departName = $('#departName').val()
+        if(departName ==''){
+     	       $('#alertModel').modal('show');
+    		   $('.Alertmessage').html('分组名不能为空') 
+    		   return;
+        }
+         
+       var url = "departMentAdd" 
+ 	  $.ajax({
+ 				type:"POST",
+ 				url:url,
+ 				data:{
+ 					departName:departName
+ 				},
+ 				success: function(data){
+ 					if(data.code){
+ 						$('.Alertmessage').css("color",'#1fb5ad');
+ 					}
+ 					else{
+ 						$('.Alertmessage').css("color",'red');
+ 					}
+ 				    $('#alertModel').modal('show');
+ 		   		    $('.Alertmessage').html(data.message)
+ 				}
+ 	 })
+   })
+})
+
+
 </script>        
 		
 		
