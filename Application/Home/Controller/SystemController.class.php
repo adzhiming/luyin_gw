@@ -100,7 +100,7 @@ class SystemController extends AuthController {
     //高级参数
     public function paramsChannel(){
         $channelid=isset($_GET["channelid"])?$_GET["channelid"]:"9999";
-        $sql = "select a.*,b.n_channeltype,b.n_channelno from tab_Sys_ParamsChannel a,tab_Sys_ChannelConfig b ";
+        $sql = "select a.*,b.n_channeltype,b.n_channelno from tab_sys_paramschannel a,tab_sys_channelconfig b ";
         $sql=$sql."where a.N_ChannelNo=".$channelid." and a.advpara=0 and a.N_ChannelNo=b.N_ChannelNo and a.V_ParamsName !='ChannelPort' order by a.v_paramsnameCH";
         //$sql_="select N_ChannelNo from tab_sys_paramschannel order by N_ChannelNo limit 0,1;";
         $sql=str_replace("a.N_ChannelNo=9999","a.N_ChannelNo=(select N_ChannelNo from tab_sys_paramschannel order by N_ChannelNo limit 0,1)",$sql);//全部通道，显示通道号为0的通道
