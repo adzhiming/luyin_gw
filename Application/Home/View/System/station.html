@@ -8,12 +8,17 @@
         <meta name="author" content="">
 
 	
-        <title>IP限制</title>
+        <title>工作站管理</title>
 
         <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
-        <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />
-        <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">		
+        <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
         <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+    <style type="text/css">
+	 .Alertmessage{
+		text-align: center;
+	    color: red;
+	 }
+  </style>
     </head>
 
     <body>
@@ -30,31 +35,21 @@
                     <div class="contentpanel">
                        
                         <div class="panel panel-title-head">
-                         <div class="search_banner">
-                                <div>
-	                                <!-- <div class="pull-left col-md-1">
-	                                    <h4 class="panel-title">录音查询</h4>
-	                                </div> -->
-	                                <div class="pull-left col-md-3">
-	                                <div class="input-group" style="padding:5px;">
-		                                <lable class="pull-left">新增IP地址：<input id="newIP" name="newIP" style="width:100px" type="text" value="" /></lable><br>
-		                             </div>
-		                             
-	                                </div>
-	                                <div class="pull-left col-md-8">
-											<button class="btn btn-info btn-large addIP">提交</button>
-											支持二级通配符，如：192.168.1.* 和 192.168.*.*都是合法地址
-	                                </div>
-	                                
-                                </div>
-                                <div style="clear:both"></div>
-                            </div><!-- panel-heading -->   
+                        <div class="search_banner">
+                             <div class="pull-left col-md-1">
+	                                <a class="btn btn-info btn-large" href="../System/stationAdd">添加工作站</a>
+	                          </div> 
+	                          <input type="hidden" id="delid" value="">
+	                          <input type="hidden" id="delname" value="">
+	                          <div style="clear:both"></div>
+                         </div>   
                             <table id="basicTable" class="table table-striped table-bordered responsive">
                                 <thead class="">
                                     <tr>
-                                        <td>IP地址</td>
-                                        <th>状态</th>
-                                        <th>操作</th>
+                                        <th>工作站名称</th>
+                                        <th>工作站号码</th>
+                                        <th>备注信息</th>
+                                        <th>管理</th>
                                     </tr>
                                 </thead>
                          
@@ -72,35 +67,51 @@
                     </div><!-- contentpanel -->
                 </div><!-- mainpanel --><!-- mainpanel -->
             </div><!-- mainwrapper -->
+            
+          		<!-- 告警模态框 -->
+		<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myAlert">
+		  <div class="modal-dialog" role="document" style="width:450px">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myAlert" style="text-align: center;">提示</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="inner">
+		        	<h4 class="Alertmessage"> </h4>
+		        </div>
+		        
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		        <button type="button" class="btn btn-primary sureDel">确定</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>  
         </section>
 		
         <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/jquery.datatables.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
-        
-
-
 <script type="text/javascript">
-var CHANNEL_TB
 $(document).ready( function () {
-	CHANNEL_TB=$('#basicTable').dataTable(
+	table=$('#basicTable').dataTable(
 	        {
 	            "ajax": {  //类似jquery的ajax参数，基本都可以用。
 	                "type": "post",  //后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-	                "url": '../System/ipLimint',
+	                "url": '../System/station',
 	                "dataSrc": "data",  //默认data，也可以写其他的，格式化table的时候取里面的数据
 	                "data": function (d) {  //d 是原始的发送给服务器的数据，默认很长。
-	                	d.newIP=$('#newIP').val();
-	                    return d;
-	                    //获取是否是查询,然后置0，0为非搜索查询
+	                    
 	                }
 	            },
 	        
 	            "pagingType": "full_numbers",
 	            //"sPaginationType": "full_numbers", //分页风格，full_number会把所有页码显示出来（大概是，自己尝试）
 	            "sDom": "<'row-fluid inboxHeader'<'span6'<'dt_actions'>l><'span6'f>r>t<'row-fluid inboxFooter'<'span6'i><'span6'p>>", //待补充
-	            "iDisplayLength": 12,  //每页显示10条数据
+	            "iDisplayLength": 10,  //每页显示10条数据
 	            "bAutoWidth": false,  //宽度是否自动，感觉不好使的时候关掉试试
 	            "bLengthChange": false,
 	            "bFilter": false,
@@ -124,83 +135,58 @@ $(document).ready( function () {
 	            "bServerSide": true, //开启服务器模式，使用服务器端处理配置datatable。注意：sAjaxSource参数也必须被给予为了给datatable源代码来获取所需的数据对于每个画。 这个翻译有点别扭。开启此模式后，你对datatables的每个操作 每页显示多少条记录、下一页、上一页、排序（表头）、搜索，这些都会传给服务器相应的值。
 //	            "sAjaxSource": '__URL__/serach_nasty', //给服务器发请求的url
 	            "aoColumns": [  //这个属性下的设置会应用到所有列，按顺序没有是空
-	                {"mData": 'ip'},
-	                {"mData": 'type'},
-	                {"mData": function (mData)
-	              	   {
-	                      return "<a href=\'javascript:del("+mData.id+")\'>删除</a><input type='hidden' name='hid_IP' id='hid_IP' value='"+mData.ip+"'/>";
-	                     }
-	              	}
+	            	{"mData": 'v_sname'},
+	                {"mData": 'v_rnum'},
+	                {"mData": 'v_memo'},
+	                {"mData": 'out_manage'}
 	            ],
 
 	            "aoColumnDefs": [//和aoColums类似，但他可以给指定列附近属性
-	                {"bSortable": false, "aTargets": [0]}, //这句话意思是第1,3,6,7,8,9列（从0开始算） 不能排序
-	                {"bSearchable": false, "aTargets": [0]} //bSearchable 这个属性表示是否可以全局搜索，其实在服务器端分页中是没用的
+	                {"bSortable": false, "aTargets": [1, 2]}, //这句话意思是第1,3,6,7,8,9列（从0开始算） 不能排序
+	                {"bSearchable": false, "aTargets": [1, 2]} //bSearchable 这个属性表示是否可以全局搜索，其实在服务器端分页中是没用的
 	            ],
-	            "aaSorting": [[1, "desc"]], //默认排序
+	            "aaSorting": [[2, "desc"]], //默认排序
 	            "fnInitComplete": function (oSettings, json) { //表格初始化完成后调用 在这里和服务器分页没关系可以忽略
 	                $("input[aria-controls='DataTables_Table_0']").attr("placeHolder", "请输入高手用户名");
 	            }
 	        });
-
-}) 
-
-$('.addIP').click(function(){
-	CHANNEL_TB.fnClearTable();
-    CHANNEL_TB.fnReloadAjax();
+	
 })
 
-//删除选中的记录
-function del(id){
-	if(!id){
+	function del(id,n){
 		$('#alertModel').modal('show');
-		$('.Alertmessage').html('请选中要删除的记录') 
+		$('.Alertmessage').html("确定删除工作站:"+n+"?") 
+		$('#delid').val(id);
+		$('#delname').val(n);
 		return;
 	}
-    var hid_IP = $('#hid_IP').val();
-	var msg="确定删除所选记录？";
-	var url="delIP"
-	if(confirm(msg)){
-		$.ajax({
-			type:"POST",
-			url:url,
-			data:{
-				id:id,hid_IP:hid_IP	
-			},
-			success: function(data){
-				if(data.code){
-					alert(data.message);
-				    window.location.reload()
+	
+	$('.sureDel').click(function(){
+		var delid = $('#delid').val();
+		var delname = $('#delname').val();
+		var url ="stationDel"
+		  $.ajax({
+				type:"POST",
+				url:url,
+				data:{
+					stationName:delname,sid:delid	
+				},
+				success: function(data){
+					if(data.code){
+						$('.Alertmessage').css("color",'#1fb5ad');
+					}
+					else{
+						$('.Alertmessage').css("color",'red');
+					}
+					$('.Alertmessage').html(data.message)
+		   		    $('#alertModel').modal('hide');
+		   		    //alert(data.message)
+		   		    window.location.reload()
 				}
-			}
-		})
-	}
-	 
-}
+	     })
 
-function upd(flag,ip){
-	var updflag = flag;
-	var updip = ip;
-	 
-	var url="updateIP"
-	 
-	$.ajax({
-		type:"POST",
-		url:url,
-		data:{
-			updflag:updflag,updip:updip	
-		},
-		success: function(data){
-			if(data.code){
-				alert(data.message);
-			   // window.location.reload()
-			}
-		}
 	})
-	 
-} 
-</script>        
-		
+</script>	
 		
     </body>
 </html>

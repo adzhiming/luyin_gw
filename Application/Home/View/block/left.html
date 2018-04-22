@@ -29,9 +29,9 @@
                                 <li <if condition="$CurrentPage eq 'license'">class='active'</if> ><a href="/home/System/licenseInfo">注册信息</a></li>
                                 <li <if condition="$CurrentPage eq 'disk'">class='active'</if> ><a href="/home/System/diskParameter">硬盘参数</a></li>
                                 <li <if condition="$CurrentPage eq 'ip'">class='active'</if> ><a href="/home/System/ipLimint">IP限制</a></li>
-                                <li><a href="sliders.html">工作站配置</a></li>
-                                <li><a href="tabs-accordions.html">操作日志</a></li>  
-                                <li><a href="tabs-accordions.html">警告日志</a></li>                              
+                                <li <if condition="$CurrentPage eq 'station'">class='active'</if> ><a href="/home/System/station">工作站配置</a></li>
+                                <li <if condition="$CurrentPage eq 'operationLog'">class='active'</if> ><a href="/home/System/operationLog">操作日志</a></li>  
+                                <li <if condition="$CurrentPage eq 'alarmLog'">class='active'</if> ><a href="/home/System/alarmLog">警告日志</a></li>                              
                             </ul>
                         </li>
 						

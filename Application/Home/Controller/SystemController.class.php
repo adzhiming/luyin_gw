@@ -2,6 +2,7 @@
 namespace Home\Controller;
 use Think\Controller;
 use Think\Model;
+use Think\Db;
 use Think\Log;
 
 class SystemController extends AuthController {
@@ -130,20 +131,427 @@ class SystemController extends AuthController {
         $this->display();
     }
     
+    //注册信息
     public function licenseInfo(){
+        if(IS_POST){
+            //接收到提交表单值，更新注册信息
+            $LicenseKey = $this->getParam("LicenseKey");
+            $N_Stationid = $this->getParam("N_Stationid");
+            $N_Board = $this->getParam("N_Board");
+            if($LicenseKey){
+                $service="";
+                $banka_num=0;$ruanjiangou_num=0;
+                for($i=0;$i<count($LicenseKey);$i++){
+                    $where = array();
+                    $v_licensekey = MySQLFixup($LicenseKey[$i]);
+                    $n_stationid = $N_Stationid[$i];
+                    $n_boardserialno = $N_Board[$i];
+                    $sql ="update tab_sys_license set v_licensekey = '{$v_licensekey}' where  n_stationid = '{$N_Stationid[$i]}' and n_boardserialno = '{$N_Board[$i]}' ";
+                    $upd = M()->execute($sql);
+                    $find = M('sys_license')->where(" n_stationid = '{$N_Stationid[$i]}' and n_boardserialno = '{$N_Board[$i]}' ")->field("N_LicenseType")->find();
+                    if($find['n_licensetype']==0){
+                        $banka_num++;
+                    }else{
+                        $ruanjiangou_num++;
+                    }
+                }
+                if($banka_num>0){
+                    $service.="NEU_TECH_VCR";
+                }
+                if($ruanjiangou_num>0){
+                    $banka_num>0?($service.="、"):'';
+                    $service.="NEU_TECH_MED和NEU_TECH_SIG";
+                }
+                JS_alert("您已经输入注册信息，\\r\\r请重新启动服务管理器里面的".$service."服务，验证您的注册是否合法");
+            }
+          
+        }
+        $where = array();
+        $where['N_ModifyLevel'] = 2;
+        $rs = M('sys_license')->where($where)->select();
+        if($rs){
+            foreach ($rs as $k=>$v)
+            {
+                if($v['n_licenseisvalid'] ==1)
+                {
+                    $rs[$k]['usertype'] = "正式用户";
+                }
+                else
+                {
+                    $rs[$k]['usertype'] = "未注册用户";
+                }
+                if($v['n_licensetype'] ==1)
+                {
+                    $rs[$k]['licensetype'] = "软交换狗";
+                    $cnt = M("sys_paramssystem")->where("V_ParamsName='Sys_IpCh_Count'")->field("V_Value")->find();
+                    $tmpNum=$cnt['v_value'];
+                    
+                    $Vcnt = M("sys_paramssystem")->where("V_ParamsName='Sys_Vedio_Count'")->field("V_Value")->find();
+                    $tmpNum.="/".$Vcnt['v_value']."（录音/录象）";
+                    $rs[$k]['tmpnum'] = $tmpNum;
+                }
+                else
+                {
+                    $rs[$k]['licensetype'] = "板卡";
+                    $Lcnt = M("sys_paramssystem")->where("V_ParamsName='Sys_License_Count'")->field("V_Value")->find();
+                    $tmpNum=$Lcnt['v_value'];
+                    $rs[$k]['tmpnum'] = $tmpNum;
+                   
+                }
+            }
+        }
+        $this->assign("rs",$rs);
         $this->assign("CurrentPage",'license');
         $this->display();
     }
     
     public function diskParameter(){
+        
+        $field=" a.N_StationID,CONCAT(V_RcDiskPath4VPath,DATE_FORMAT(Now(),'%Y%m'),'\\\\',DATE_FORMAT(Now(),'%Y%m%d'),'\\\\') as V_RecordDiskPath ";
+        $rsUsing = M('sys_diskspaceinfo')->field($field)->where("V_RecordDiskPath  like CONCAT(V_DiskVolumeName,'%')")->select();
+         
+        $this->assign("rsUsing",$rsUsing);
         $this->assign("CurrentPage",'disk');
         $this->display();
     }
     
+    
     public function ipLimint(){
+        $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
+        $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
+        $txtSch =$this->getParam("txtSch");
+        $where = array();
+        if($txtSch){
+            $where["txtSch"] = array("like",$txtSch);
+  
+        }
+        if(IS_AJAX){
+            $newIP = $this->getParam("newIP");
+            if($newIP){
+                $has = M('sys_allowip')->where("ip ='{$newIP}'")->find();
+                $addData['IP'] = trim($newIP);
+                $addData['flag'] = 1;
+                if(!$has){
+                  $add = M('sys_allowip')->add($addData);
+                }
+            }
+            $cnt = M('sys_allowip')->where($where)->field("count(*) cnt")->find();
+            $total = $cnt['cnt'];
+            $rs = M('sys_allowip')->where($where)->order('ip')->limit($start,$length)->select();
+            foreach ($rs as $k=>$v)
+            {
+                $selected = "";
+                if($v['flag']){
+                    $selected ="selected";
+                }
+                $ip = base64_encode($v['ip']);
+                $select ="<select onchange=\"upd(this.options[this.selectedIndex].value,'{$ip}')\" name=flag[]>".
+                                "<option value=0 {$selected}>禁止访问</option>".
+                                "<option value=1 {$selected}>允许访问</option>".
+                         "</select>";
+                $rs[$k]['type'] = $select;
+            }
+            $output['aaData'] = $rs;
+            $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
+            $output['iTotalRecords'] = $total; //总共有几条数据
+            echo json_encode($output); //最后把数据以json格式返回
+            die;
+        }
         $this->assign("CurrentPage",'ip');
         $this->display();
     }
+    
+    public function updateIP()
+    {
+        if(IS_POST){
+            $AppResult = new AppResult();
+            $updflag = $this->getParam("updflag");
+            $updip = $this->getParam("updip");
+            $updip = base64_decode($updip);
+            $sql="update tab_sys_allowip set flag='{$updflag}' where ip='{$updip}'";
+            $rs = M()->execute($sql);
+            if(false !== $rs){
+                $msg="修改IP[$updip]权限为：".($updflag?"允许访问":"禁止访问");
+                addSysLog($msg);
+                $AppResult->code = 1;
+                $AppResult->message = "修改成功";
+                $AppResult->data = "";
+            }
+            else{
+                $AppResult->code = 0;
+                $AppResult->message = "修改失败";
+                $AppResult->data = "";
+            }
+            $AppResult->returnJSON();
+        }
+    }
+    
+    public function delIP(){
+        if(IS_POST){
+            $AppResult = new AppResult();
+            $id = $this->getParam("id");
+            $ip = $this->getParam("ip");
+            
+            if(empty($ip)){
+                $AppResult->code = 0;
+                $AppResult->message = "请选中要删除的记录";
+                $AppResult->data = "";
+            }
+            
+            $rs = M('sys_allowip')->where("id= '{$id}'")->delete();
+            if(false !== $rs){
+                addSysLog("通过浏览器删除可访问IP：".base64_decode($ip));
+                $AppResult->code = 1;
+                $AppResult->message = "删除成功";
+                $AppResult->data = "";
+            }
+            $AppResult->returnJSON();
+        }
+    }
+    
+    
+    //工作站管理
+    public function station(){
+        $sEcho = $_REQUEST['sEcho']; // DataTables 用来生成的信息
+        $output['sEcho'] = $sEcho;
+        $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
+        $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
+        if(IS_AJAX){
+            $field="n_sid,v_sname,v_rnum,v_memo";
+            $where=array();
+            $M = M('station');
+            $cnt = $M->field($field)->where($where)->select();
+            //echo M()->getLastSql();
+            $total = count($cnt);
+            $rs = $M->field($field)->where($where)->limit($start,$length)->select();
+            if($rs){
+                foreach ($rs as $k=>$v){
+                    $Managestr = "";
+                    $accountstr = "";
+                    $accountidstr = "";
+ 
+                    $Managestr .= " <a href='stationEdit?N_SID={$v['n_sid']}'>编辑</a>　|　";
+                    $Managestr .= "<a href=\"javascript:del({$v['n_sid']},'{$v['v_sname']}')\">删除</a>";
+                    $rs[$k]['out_manage'] = $Managestr;
+                }
+            }
+            
+            $output['aaData'] = $rs;
+            $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
+            $output['iTotalRecords'] = $total; //总共有几条数据
+            echo json_encode($output); //最后把数据以json格式返回
+            die;
+        }
+        $this->assign("CurrentPage",'station');
+        $this->assign("CurrentPage",'userManage');
+        $this->display();
+    }
+    
+    //添加工作站
+    public function stationAdd(){
+        if(IS_POST){
+            $AppResult = new AppResult();
+            $stationName = $this->getParam("stationName");
+            $recordNum = $this->getParam("recordNum");
+            $remark = $this->getParam("remark");
+            $has = M('station')->where("v_sname = '".MySQLFixup($stationName)."'")->find();
+            
+            if($has){
+                $AppResult->code = 0;
+                $AppResult->message = "添加失败,系统已存在同名工作站".$stationName."！";
+                $AppResult->data = "";
+                
+            }else{
+                $data = array();
+                $data['V_Sname'] = $stationName;
+                $data['V_Rnum'] = $recordNum;
+                $data['V_memo'] = $remark;
+                $rs = M('station')->add($data);
+           
+                if($rs){
+                    addSysLog("通过浏览器新增工作站:".MySQLFixup($stationName));
+                    $AppResult->code = 1;
+                    $AppResult->message = "成功添加工作站:".$stationName;
+                    $AppResult->data = "";
+                }
+                else{
+                    $AppResult->code = 0;
+                    $AppResult->message = "新增失败,数据库操作失败";
+                    $AppResult->data = "";
+                }
+            }
+            $AppResult->returnJSON();
+        }
+        $rs = M('station')->field("N_SID,V_SNAME,V_RNUM,V_MEMO")->order('V_SNAME')->select();
+        
+        $this->assign("station",$rs);
+        $this->assign("CurrentPage",'station');
+        $this->display();
+    }
+    
+    //编辑工作站
+    public function stationEdit(){
+        $AppResult = new AppResult();
+        $n_sid = $this->getParam('N_SID');
+        $has = M('station')->where("N_SID = '".$n_sid."'")->find();
+        
+        if($has){
+            $AppResult->code = 0;
+            $AppResult->message = "非法操作,工作站不存在";
+            $AppResult->data = "";
+            
+        }
+        
+        if(IS_POST){
+            $AppResult = new AppResult();
+            $stationName = $this->getParam("stationName");
+            $recordNum = $this->getParam("recordNum");
+            $remark = $this->getParam("remark");
+            $stationID = $this->getParam('stationID');
+            $where = array();
+            $data = array();
+            $where['N_SID'] = $stationID;
+            $data['V_Sname'] = $stationName;
+            $data['V_Rnum'] = $recordNum;
+            $data['V_memo'] = $remark;
+            $rs = M('station')->where($where)->save($data);
+           
+            if(false !== $rs){
+                addSysLog("通过浏览器编辑工作站:".MySQLFixup($stationName));
+                $AppResult->code = 1;
+                $AppResult->message = "成功编辑工作站:".$stationName;
+                $AppResult->data = "";
+            }
+            else{
+                $AppResult->code = 0;
+                $AppResult->message = "编辑失败,数据库操作失败";
+                $AppResult->data = "";
+            }
+
+            $AppResult->returnJSON();
+        }
+        $rs = M('station')->field("N_SID,V_SNAME,V_RNUM,V_MEMO")->where($where)->order('V_SNAME')->find();
+        
+        $this->assign("station",$rs);
+        $this->assign("CurrentPage",'station');
+        $this->display();
+    }
+    
+   //工作站删除  
+    public function stationDel(){
+        if(IS_POST){
+            $AppResult = new AppResult();
+            $sid = $this->getParam("sid");
+            $stationName = $this->getParam("stationName");
+            
+            if(empty($sid)){
+                $AppResult->code = 0;
+                $AppResult->message = "请选中要删除的工作站";
+                $AppResult->data = "";
+            }
+            
+            $rs = M('station')->where("N_SID= '{$sid}'")->delete();
+            if(false !== $rs){
+                $msg="成功删除工作站:".$stationName;
+                addSysLog($msg);
+                $AppResult->code = 1;
+                $AppResult->message = "删除成功";
+                $AppResult->data = "";
+            }
+            $AppResult->returnJSON();
+        }
+    }
+    
+    //操作日志
+    public function operationLog(){
+        if(IS_AJAX){
+            $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
+            $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
+            $sMode = $this->getParam("sMode");
+            $keyWord = $this->getParam("keyWord");
+            $keyWord = MySQLFixup($keyWord);
+             
+            $where= array();
+            if($keyWord !="" && $sMode !=''){
+                if($sMode=="D_LogTime"){
+                    $where="  D_LogTime between '$keyWord 00:00:00' and  '$keyWord 23:59:59' ";
+                }elseif($sMode=="V_AccountName"){
+                    $where=" V_AccountId in(select V_AccountId from tab_sys_accountinfo where V_AccountName like '%".$keyWord."%')";
+                }else{
+                    $where=" $sMode like '%".$keyWord."%'";
+                }
+            }
+            
+            $cnt = M('sys_accountlog')->field("count(*) cnt ")->where($where)->find();
+            $total = $cnt['cnt'];
+            $rs = M('sys_accountlog')->where($where)->limit($start,$length)->select();
+             
+            $output['aaData'] = $rs;
+            $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
+            $output['iTotalRecords'] = $total; //总共有几条数据
+            echo json_encode($output); //最后把数据以json格式返回
+            die;
+        }
+        
+        $this->assign("CurrentPage",'operationLog');
+        $this->display();
+    }
+    
+    
+    //告警日志  
+    public function alarmLog(){
+        $s_time = date("Y-m-d",strtotime("-300 day"))." 00:00:00";
+        $e_time = date("Y-m-d",time())." 23:59:59";
+        if(IS_AJAX){
+            $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
+            $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
+            $datetimepicker_start = isset($_REQUEST['datetimepicker_start'])?$_REQUEST['datetimepicker_start']:$s_time;
+            $datetimepicker_end = isset($_REQUEST['datetimepicker_end'])?$_REQUEST['datetimepicker_end']:$e_time;
+            $ClearFlag = $this->getParam("ClearFlag",0);
+            $Level = $this->getParam("Level");
+            $toClear = $this->getParam("toClear");
+            
+            $where['D_LogTime'] = array("between","{$datetimepicker_start} , $datetimepicker_end");
+            if($ClearFlag !=-1){
+                $where['N_ClearFlag'] = $ClearFlag;
+            }
+            if($Level != ""){
+                $where['N_Level'] = $Level;
+            }
+            
+            
+            $cnt = M('sys_alarmlog')->field("count(*) cnt ")->where($where)->find();
+           // echo M()->getLastSql();
+            $total = $cnt['cnt'];
+            $rs = M('sys_alarmlog')->where($where)->limit($start,$length)->select();
+            if($rs)
+            {
+                foreach ($rs as $k=>$v){
+                    if($v['n_clearflag'] == 0){
+                        $rs[$k]['n_zt'] = "<a href=\"javascript:cl('{$v['n_sn']}')\" style='color:#f00' title='点击消除告警'>未消除</a>";
+                    }
+                    else{
+                        $rs[$k]['n_zt'] = "已消除";
+                    }
+                    $rs[$k]['n_nr'] = $this->Level($v['n_level']);
+                    $UserInfo = getUserInfo($v['n_clearuserid']);
+                    $rs[$k]['username'] = $UserInfo['v_accountname'];
+                }
+            }
+            $output['aaData'] = $rs;
+            $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
+            $output['iTotalRecords'] = $total; //总共有几条数据
+            echo json_encode($output); //最后把数据以json格式返回
+            die;
+        }
+        
+        $this->assign("datetimepicker_start",$s_time);
+        $this->assign("datetimepicker_end",$e_time);
+        $this->assign("CurrentPage",'alarmLog');
+        $this->display();
+    }
+    
+    
     
     public function getChannelInfoBychannelNo($channelNo,$col)
     {
@@ -280,5 +688,28 @@ class SystemController extends AuthController {
                 $tmp.="name='{$paraName}' value='".$v.canModify($mlv)."' class='w'/>";
         }
         return $tmp;
+    }
+    
+   public function Level($l){
+        switch($l){
+            //case 1:
+            //	return "LOG_EMERG";		// system is unusable
+            //case 2:
+            //	return "LOG_ALERT";		// action must be taken immediately
+            //case 3:
+            //	return "LOG_CRIT";		// critical conditions
+            case 4:
+                return "LOG_ERROR";		// error conditions
+                //case 5:
+                //	return "LOG_WARNING";	// warning conditions
+            case 6:
+                return "LOG_NOTICE";	// normal but significant condition
+            case 7:
+                return "LOG_INFO";		// informational
+                //case 8:
+                //	return "LOG_DEBUG";		// debug-level messages
+            case 0:
+                return "未知";
+        }
     }
 }

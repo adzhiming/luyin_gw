@@ -341,3 +341,19 @@ function canModify($n){
         return "";
     }
 }
+
+//根据用户id获取用户信息
+function getUserInfo($uid){
+    if(is_null($uid)){$uid="";}
+    if($uid!=""){
+        $sql="select * from tab_sys_accountinfo where V_AccountId='{$uid}'";
+        $r1=M()->query($sql);
+        if($r1){
+            return $r1[0];	//用户账号
+        }else{
+            return "已删除用户";
+        }
+    }else{
+        return "";
+    }
+}
