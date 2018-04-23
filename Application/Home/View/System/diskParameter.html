@@ -157,11 +157,12 @@ $(document).ready( function () {
         
 }) 
 
+
 	//模拟“浏览”窗口，浏览服务端文件资源
 	//参数说明：o:接收返回值的控件
 //				showfile:浏览窗口是否显示文件。值为0则只显示文件夹，不显示文件
 //				disk:	允许浏览的磁盘，如果为空则可浏览所有磁盘
-	function SetPath(o,showFile,disk){
+/* 	function SetPath(o,showFile,disk){
 		var p=o.value;
 		if(!disk){disk="";}
 		var aVersion=navigator.appVersion; 
@@ -177,7 +178,23 @@ $(document).ready( function () {
 		if(vReturnValue!="clear"){
 			o.value=vReturnValue;
 		}
-	}
+	} */
+	
+	function SetPath(o,showFile,disk){
+		var p=o.value;
+		//获得窗口的垂直位置 
+	    var iTop = (window.screen.availHeight - 30 - 380) / 2; 
+	    //获得窗口的水平位置 
+	    var iLeft = (window.screen.availWidth - 10 - 450) / 2; 
+	    
+	    var url="selectPath?tamp="+Math.random()+"&t="+showFile+"&p="+p+"&disk="+disk;
+		
+        //直接点击某条录音的小喇叭，只播放当前录音
+		var dsc="dialogWidth=510px;dialogHeight=480px;status=no";
+		window.open(url,"player","height=380,width=450, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+			
+		
+	}	   
 </script>
      	
 		

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>路径选择</title>
+</head>
+<style type="text/css">
+	*{font-size:12px; overflow:hidden;}
+	table{width:500px; height:380px; background:#E0DFE3;}
+	#path{border:1px solid #999; width:280px;}
+	.btn{ border:1px outset #E0DFE3; padding-top:2px;}
+	.border{border:1px solid #ccc;}
+	td{white-space:normal;word-break:break-all;}
+	.file{height:70px; width:78px; float:left; border:1px solid #E0DFE3;
+			text-align:center; margin:5px 5px 0 5px; cursor:pointer; overflow:hidden;}
+	.file:hover{border:1px outset #ccc;}
+	.disk{margin:5px auto; margin:5px;border:1px solid #E0DFE3; text-align:center;cursor:pointer;}
+	.disk:hover{border:1px outset #ccc;}
+	.diskDisabled{margin:5px auto; margin:5px;border:0;text-align:center;}
+	.onsel{height:70px; width:78px; float:left; border:1px solid #09c;
+			text-align:center; margin:5px 5px 0 5px; cursor:pointer; overflow:hidden;}
+	ul{margin:0; padding:0; list-style:none;}
+	ul li{float:left; margin-right:5px;}
+</style>
+<body style="overflow:hidden;">
+<table border="0" align="center" cellpadding="0" cellspacing="5" class="border" style="border-style:outset; width:480px;">
+	<tr>
+    	<td width="80" style="height:25px;text-align:right;white-space:nowrap;">当前位置: </td>
+        <td style="height:25px;vertical-align:middle; width:400px;">
+        	<ul>
+                <li><input type="text" readonly name="path" id="path" value="<?php echo $d; ?>" /></li>
+                <li><img src="__PUBLIC__/assets/images/ico/back.gif" alt="后退" onclick="up()" style="cursor:pointer;" /></li>
+            </ul>
+        	<input type="hidden" id="hid_path" name="hid_path" value="<?php echo $d; ?>" />
+        </td>
+	</tr>
+    <tr>
+    	<td width="80" style="background:#fff; padding:0;" class="border" rowspan="2" valign="top">
+        	<div style="overflow:auto;height:375px; width:80px;text-align:center;">
+        	  <?php
+			//可用磁盘列表
+			if($DiskCanView==""){
+				for($i=0;$i<count($Disks);$i++){
+					$path=$Disks[$i].":\\\\";
+					echo "<div class='disk' onclick=\"to('t={$showFile}&p={$path}','{$path}')\">";
+					echo "<img src='__PUBLIC__/assets/images/ico/disk.gif'><br />",$Disks[$i],"</div>";
+				}
+			}else{
+				for($i=0;$i<count($Disks);$i++){
+					if($Disks[$i]==$DiskCanView){
+						$path=$Disks[$i].":\\\\";
+						echo "<div class='disk' onclick=\"to('t={$showFile}&p={$path}','{$path}')\">";
+						echo "<img src='__PUBLIC__/assets/images/ico/disk.gif'><br />",$Disks[$i],"</div>";
+					}else{
+						echo "<div class='diskDisabled' style>";
+						echo "<img src='__PUBLIC__/assets/images/ico/disk.gif'><br />",$Disks[$i],"</div>";	
+					}
+				}	
+			}
+			?>
+        	</div>
+        </td>
+        <td style="background:#fff; width:320px;" class="border" valign="top">
+        	<div style="height:345px; width:400px;overflow:auto;" id='FileList'>
+				<?php
+				if(isset($Folders)){
+					while (list($key, $val) = each($Folders)){
+						if(is_readable($d."\\{$val}")){
+							if($val!=".." and $val!="."){	
+								//非一级目录时，PHP自动生成“.”和“..”两个路径，分别表示当前路径和上级路径，再次不显示这两个路径
+								//$path=rawurlencode ($d.$val);
+								$path=str_replace("\\","\\\\",$d.$val);
+								echo "<div class='file' name='div_folde' title=\"{$val}\" ";
+								echo "onclick=\"to('t={$showFile}&p={$path}','{$path}')\">";
+								echo "<img src='__PUBLIC__/assets/images/ico/folder.gif'><br />{$val}</div>\r\n";
+							}
+						}
+					}
+				}
+				if(isset($Files) and $showFile==1){
+					while (list($key, $val) = each($Files)){
+						echo "<div class='file' name='div_file' title=\"{$val}\" onclick='onselect(this,\"{$val}\")' ><img src='__PUBLIC__/assets/images/ico/xml.gif'><br />{$val}</div>";
+					}
+				}
+                ?> 
+            </div>
+        </td>
+	</tr>
+    <tr>
+    	<td style="height:30px; text-align:right;">
+        	<input type="button" value="确 定" class="btn" onclick="set(1)" />
+            <input type="button" value="取 消" class="btn" onclick="set(0)" />
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+<script type="text/javascript">
+//根据控件ID，返回控件引用
+function $(objectId) {
+	if(document.getElementById(objectId)) {
+		return document.getElementById(objectId);
+	}else {
+		return false;
+	}
+}
+
+//创建并返回XMLHttp对象
+function createXMLHttps(){
+	var ret = null;
+	try{
+		ret = new ActiveXObject('Msxml2.XMLHTTP');
+	}
+	catch(e){
+		try{
+			ret = new ActiveXObject('Microsoft.XMLHTTP');
+		}
+		catch(ee){
+			ret = null;
+		}
+	}
+	if (!ret && typeof XMLHttpRequest != 'undefined')
+		ret = new XMLHttpRequest();
+	return ret;
+}
+
+//点击文件夹时，进入文件夹
+function to(url,file){
+	if(file.substr(file.length-1,1)!="\\"){
+		file=file+"\\"	;
+	}	
+	loadFileList(url,file);
+}
+
+function up(){
+	var file=$("path").value;
+	var tmp=file.substr(0,file.length-1).lastIndexOf("\\");
+	if(tmp<0){
+		alert("已到最上层目录");
+	}else{
+		var tpath=file.substr(0,tmp+1);
+		var url="t=<?php echo $showFile ?>&p="+tpath;
+		loadFileList(url,tpath);	
+	}	
+}
+//点击文件时，设置路径
+function setpath(filename){
+	$("path").value=$("hid_path").value+filename;
+}
+
+function onselect(f,filename){
+	var div_file=document.getElementsByTagName("DIV");
+	var len=div_file.length;
+	if(len>1){	//当前文件夹有多个文件
+		for(var i=0;i<len;i++){
+			if(div_file[i].className=="onsel"){
+				div_file[i].className="file";
+			}
+				
+		}
+	}
+	setpath(filename);
+	f.className="onsel";
+}
+
+//返回用户选择的路径
+function set(flag){
+	if(flag==0){
+		window.returnValue="clear";
+	}else{
+		window.returnValue=document.getElementById('path').value;	
+	}
+	self.close();
+}
+function loadFileList(url,file){
+	url="getFileList.php?"+url;
+	var ajax=createXMLHttps();
+	ajax.onreadystatechange=function(){
+		if (4==ajax.readyState){
+			$("FileList").innerHTML=ajax.responseText;
+			$("hid_path").value=decodeURIComponent(file);
+			$("path").value=decodeURIComponent(file);
+		}
+	}
+	ajax.open("GET",url,true);
+	ajax.send(null);
+	ajax.close;	
+}
+window.onload=function(){window.returnValue="clear";}
+</script>

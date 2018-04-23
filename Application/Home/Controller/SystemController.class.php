@@ -205,6 +205,7 @@ class SystemController extends AuthController {
         $this->display();
     }
     
+    //磁盘参数
     public function diskParameter(){
         
         //获取当前使用的录音路径及磁盘;
@@ -228,7 +229,68 @@ class SystemController extends AuthController {
         $this->display();
     }
     
-    
+    //选择磁盘
+    public function selectPath(){
+        $showFile=isset($_GET["t"])?$_GET["t"]:0; //=1，列出文件夹和文件。=0，只列出文件夹
+        $DiskCanView=isset($_GET["disk"])?$_GET["disk"]:"";	//有权浏览的磁盘，为空则无限制
+        $d=isset($_GET["p"])?$_GET["p"]:"";						//初始路径，为空时则为当前目录
+        if($d!=""){								//有传递初始路径，判断传入的是一个目录还是一个具体的文件
+            if(strlen($d)==1){					//路径参数只有一个字符时，将其当盘符看待，并在后面增加":/"
+                $d.=":\\";
+            }elseif(strlen($d)==2){
+                $d.="\\"	;
+            }
+            if(!is_dir($d) and !is_file($d)){	//指定的初始路径无效时，则设置路径为当前路径
+                //echo $d;
+                $d=$DiskCanView==""?"C:\\":($DiskCanView.":\\");
+            }
+        }else{
+            $d=$DiskCanView==""?"C:\\":($DiskCanView.":\\");							//无指定参数时，默认打开C盘
+        }
+        if(substr($d,-1,1)!="\\"  and !is_file($d)){//路径最后一个字符不是“\”并且路径所指不是一个文件时，自动加上“\”
+            $d.="\\";
+        }
+        
+        //获取磁盘列表
+        $disk=array("C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+        $n=0;
+        for($i=0;$i<count($disk);$i++){
+            if(is_dir($disk[$i].":\\")){
+                if(is_readable($disk[$i].":\\")){
+                    $Disks[$n++]=$disk[$i];
+                }
+                
+            }
+        }
+        
+        if(!is_file($d)){
+            $fList = scandir($d);//获取文件列表
+        }else{
+            $d=$DiskCanView==""?"C:\\":($DiskCanView.":\\");
+            $fList = scandir($d);//获取文件列表
+        }
+        
+        $i=0;
+        $n=0;
+        while (list($key, $val) = each($fList)){
+            $fType=filetype($d."\\".$val);
+            if($fType=="dir"){
+                $Folders[$n]=$val;
+                $n++;
+            }else{
+                $Files[$i]=$val;
+                $i++;
+            }
+        }
+        
+      $this->assign("showFile",$showFile);
+      $this->assign("Disks",$Disks);
+      $this->assign("DiskCanView",$DiskCanView);
+      $this->assign("d",$d);  
+      $this->display();  
+    }
+   
+    //IP限制
     public function ipLimint(){
         $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
         $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
