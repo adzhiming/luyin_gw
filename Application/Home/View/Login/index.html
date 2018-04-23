@@ -166,7 +166,6 @@ hr.hr20 {
 					    <div class="message">录音管理系统</div>
 					    <div id="darkbannerwrap"></div>
 					    
-					    <form  >
 							<input name="action" value="login" type="hidden">
 							<input name="username" id="username"  placeholder="用户名" required=""  type="text">
 							<hr class="hr15">
@@ -183,10 +182,9 @@ hr.hr20 {
 							     <p class="tips" style="color:#ff0000;text-align:center;display:none "></p>
 							</div>
 							<hr class="hr15">
-							<div class="loginbtn" onclick="submit()">登录</div>
+							<input class="loginbtn"  id="loginbtn"  onclick="login()"  value="登录">
 							<hr class="hr20">
 							<!-- 帮助 <a onClick="alert('请联系管理员')">忘记密码</a> -->
-						</form>
 				</div>
 			   
                 
@@ -200,7 +198,7 @@ hr.hr20 {
 		})
 		
 		//登录
-	function submit(){
+	function login(){
 		$(".tips").hide();
             var username = $("#username").val();
             if ($.trim(username) == "") {
@@ -227,6 +225,11 @@ hr.hr20 {
 			url:"__ROOT__/home/login/login/",
 			async:true,
 			data:{username:username,password:password,captcha:captcha},
+			beforeSend: function () {
+		        // 禁用按钮防止重复提交，发送前响应
+		        $("#loginbtn").attr({ disabled: "disabled" });
+		        $("#loginbtn").css("background-color","#dee1e2");
+		    },
 			success:function(data){
 				 console.log(data)
 			    if(data.code){
@@ -234,7 +237,8 @@ hr.hr20 {
 					$(".tips").show();
 					location.href=data.url;
 				}else{
-				   
+					$("#loginbtn").removeAttr("disabled");
+			        $("#loginbtn").css("background-color","#27A9E3");
 					$(".tips").text(data.msg);
                 	$(".tips").show();
                 	getAgain();

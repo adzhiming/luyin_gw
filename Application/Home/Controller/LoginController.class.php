@@ -19,10 +19,10 @@ class LoginController extends Controller
 		    $where = array();
 		    if($this->check_verify($captcha)==true){
 				$userModel = M("sys_accountinfo");
-				$where['password'] = $_REQUEST['password'];
-				$where['username'] = $_REQUEST['username'];
+				$where['V_Password'] = $_REQUEST['password'];
+				$where['V_AccountName'] = $_REQUEST['username'];
 				$rs                = $userModel->where($where)->find();
-				$returnData['url']                   = "/home/index";
+				
 				if($rs) {
 				    session("uAccount",$rs['v_accountid']);//用户ID
 				    session("uName",$rs['v_accountname']);//用户账号
@@ -34,20 +34,20 @@ class LoginController extends Controller
 				    session("V_SID",$rs['v_sid']);//有权工作站
 				    session("admininfo",$rs);
 				    
-				    
+				    $returnData['url']                   = "/home/index";
 				    $returnData['msg'] = "登录成功";
 				    $returnData['code'] =1;
 				    
 				}
 				else{
 				    $returnData['msg'] = "密码错误";
-				    $returnData['code'] =1;
+				    $returnData['code'] =0;
 				}
 			}
 			else
 			{
 			    $returnData['msg'] = "验证码错误";
-			    $returnData['code'] =1;
+			    $returnData['code'] =0;
 			}
 			//$returnData = (object) $returnData;
 			$this->ajaxReturn($returnData);
