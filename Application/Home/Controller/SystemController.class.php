@@ -207,9 +207,22 @@ class SystemController extends AuthController {
     
     public function diskParameter(){
         
+        //获取当前使用的录音路径及磁盘;
+        $CurrentStation=isset($_POST["SelStationID"])?$_POST["SelStationID"]:"";		//当前查看(设置)的工作站编号
         $field=" a.N_StationID,CONCAT(V_RcDiskPath4VPath,DATE_FORMAT(Now(),'%Y%m'),'\\\\',DATE_FORMAT(Now(),'%Y%m%d'),'\\\\') as V_RecordDiskPath ";
-        $rsUsing = M('sys_diskspaceinfo')->field($field)->where("V_RecordDiskPath  like CONCAT(V_DiskVolumeName,'%')")->select();
+        $rsUsing = M('sys_diskspaceinfo')->join("tab_rec_RecordDiskCfg a")->field($field)->where("V_RecordDiskPath  like CONCAT(V_DiskVolumeName,'%')")->select();
          
+        //获取当前工作站的磁盘列表
+        if($CurrentStation==""){$CurrentStation=$rsUsing[0]['n_stationid'];}
+        $rsDisk = M("sys_diskspaceinfo")->where("N_StationId='{$CurrentStation}'")->select();
+        foreach ($rsDisk as $k=>$v){
+            $rsDisk[$k]['diskval'] = substr($v["v_diskvolumename"],0,1);
+            $rsDisk[$k]['yiyong'] = (100-round($v["n_freespace"]/$v["n_totalspace"]*100,2));
+            $rsDisk[$k]['shenxia'] = round($v["n_freespace"]/$v["n_totalspace"]*100,2);
+            $rsDisk[$k]['keyong'] = $v["n_freespace"]/1000;
+        }
+        
+        $this->assign("rsDisk",$rsDisk);
         $this->assign("rsUsing",$rsUsing);
         $this->assign("CurrentPage",'disk');
         $this->display();

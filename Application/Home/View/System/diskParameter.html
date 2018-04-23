@@ -44,7 +44,31 @@
                                         <th>磁盘预留空间数</th>
                                     </tr>
                                 </thead>
-                                <tbody></tbody>
+                                <tbody>
+                                    <foreach name="rsDisk" item="list">
+                                      <tr>
+                                        <td><label style="display:block; margin:0 !important"><input data-id="{$list.diskval}" type="radio" name="disk"></label></td>
+                                        <td>{$list.v_diskvolumename}</td>
+                                        <td>
+	                                        <div class="barblock"><div class="bar" style="width:{$list.yiyong}%"></div></div>
+	                                        <div>可用{$list.shenxia}%({$list.keyong}GB)</div>
+                                        </td>
+                                        <td> 			
+				                <input type='text' style='width:80%;'   name="path[]" readonly 
+				                  id="path_{$list.diskval}" value="{$list.v_rcdiskpath4vpath}"
+				 onclick="SetPath(this,0,'{$list.diskval}')" />
+				 <a href="javascript:setEmpty('{$list.diskval}')" style='color:#00f;' title='删除此路径'>清除</a>
+				 <input type='hidden' name="hid_path[]" value="{$list.v_rcdiskpath4vpath}" />
+				 </td> 
+                                        <td><input type='hidden' name='hid_LessFreeSpace[]' value='{$list.n_lessfreespace}' /> 
+				 <select name="N_LessFreeSpace[]">
+				      <option value='256' <if condition="$list.n_lessfreespace eq '256'">selected </if>>256</option> 
+				      <option value='512' <if condition="$list.n_lessfreespace eq '512'">selected </if>>512</option>";
+				      <option value='1024' <if condition="$list.n_lessfreespace eq '1024'">selected </if>>1024</option>";
+				 </select>MB</td>
+                                      </tr>
+                                    </foreach>
+                                </tbody>
                             </table>
                         </div><!-- panel -->
                         
@@ -126,60 +150,34 @@
 
 <script type="text/javascript">
 $(document).ready( function () {
-table=$('#basicTable').dataTable(
-        {
-            "ajax": {  //类似jquery的ajax参数，基本都可以用。
-                "type": "post",  //后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
-                "url": '../record/diskManerage',
-                "dataSrc": "data",  //默认data，也可以写其他的，格式化table的时候取里面的数据
-                "data": function (d) {  //d 是原始的发送给服务器的数据，默认很长。
-                	console.log(d)
-                    d.extra_search = $('#reportrange span').html();
-                    d.is_search = $('#is_search').val();
-                    $('#is_search').val(0);
-                    //获取是否是查询,然后置0，0为非搜索查询
-                }
-            },
-            "bAutoWidth": false,  //宽度是否自动，感觉不好使的时候关掉试试
-            "bLengthChange": false,
-            "bFilter": false,
-            
-            "bProcessing": true, //开启读取服务器数据时显示正在加载中……特别是大数据量的时候，开启此功能比较好
-            "bServerSide": true, //开启服务器模式，使用服务器端处理配置datatable。注意：sAjaxSource参数也必须被给予为了给datatable源代码来获取所需的数据对于每个画。 这个翻译有点别扭。开启此模式后，你对datatables的每个操作 每页显示多少条记录、下一页、上一页、排序（表头）、搜索，这些都会传给服务器相应的值。
-//            "sAjaxSource": '__URL__/serach_nasty', //给服务器发请求的url
-            "aoColumns": [  //这个属性下的设置会应用到所有列，按顺序没有是空
-                {"mData": function(data){
-                	return '<label style="display:block; margin:0 !important"><input data-id="'+data.D_id+'" type="radio" name="disk"></label>';
-                }},
-                {"mData": 'D_name'},
-                {"mData": function(data){
-//              	var box = '<div />';
-					var prc = (data.D_used / data.D_total).toFixed(2);
-					var bar = '<div class="barblock"><div class="bar" style="width:'+prc*100+'%"></div></div>';
-					var txt = '<div>可用'+prc*100+'%('+data.D_total+'GB)</div>';
-					return bar + txt;
-                }},
-                {"mData": function(data){
-                	var el = '<a data-toggle="modal" data-target="#pathMod"><div>'+data.D_path+'</div></a>'
-                	return el
-                }},
-                {"mData": function(data){
-                	var s = '<select class=""form-control><option>'+data.D_space+'</option></select> MB';
-                	return s;
-                }},
-                
-                
-            ],
-
-
-        });
-        
     $('#pathMod').on('show.bs.modal',function(e){
     	var r = e.relatedTarget;
     	
     })
         
-})     
+}) 
+
+	//模拟“浏览”窗口，浏览服务端文件资源
+	//参数说明：o:接收返回值的控件
+//				showfile:浏览窗口是否显示文件。值为0则只显示文件夹，不显示文件
+//				disk:	允许浏览的磁盘，如果为空则可浏览所有磁盘
+	function SetPath(o,showFile,disk){
+		var p=o.value;
+		if(!disk){disk="";}
+		var aVersion=navigator.appVersion; 
+		var version=parseInt(aVersion.split("MSIE")[1]); 
+		
+		var url="SelectPath/index.php?tamp="+Math.random()+"&t="+showFile+"&p="+p+"&disk="+disk;
+		var dsc="dialogWidth=510px;dialogHeight=480px;status=no";
+		
+		if(version >= 7 || aVersion.indexOf("MSIE")==-1){
+			dsc="dialogWidth=510px;dialogHeight=430px;status=no";
+		}
+		var vReturnValue=window.showModalDialog(url,"选择路径",dsc);
+		if(vReturnValue!="clear"){
+			o.value=vReturnValue;
+		}
+	}
 </script>
      	
 		
