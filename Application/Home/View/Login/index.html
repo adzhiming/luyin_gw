@@ -191,7 +191,9 @@ hr.hr20 {
         </section>
 		
         <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
-
+        <!--[if IE 8]>
+         <script type="text/javascript" src="__PUBLIC__/assets/bootstrap/js/jquery-1.9.1.min.js"></script>
+        <![endif]-->
 		<script type="text/javascript">
 		$('.identimg').click(function (){
 			  $('#verify').attr('src','__ROOT__/home/login/get_verify_png?t='+new Date().getTime());
@@ -231,7 +233,6 @@ hr.hr20 {
 		        $("#loginbtn").css("background-color","#dee1e2");
 		    },
 			success:function(data){
-				 console.log(data)
 			    if(data.code){
 				    $(".tips").text(data.msg);
 					$(".tips").show();
