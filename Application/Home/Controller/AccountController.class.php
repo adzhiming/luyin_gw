@@ -93,7 +93,19 @@ class AccountController extends AuthController {
             $cnt = M('phonebook a')->field("count(*) cnt ")->where($where)->find();
             $total = $cnt['cnt'];
             $rs = M('phonebook a')->join("tab_dept b on a.deptid=b.deptid","left")->field($field)->where($where)->limit($start,$length)->select();
-            //echo M()->getLastSql();die;
+            if($rs){
+                foreach ($rs as $k=>$v){
+                    if($v['sex'] == 1){
+                        $rs[$k]['xingbie'] = '男';
+                    }
+                    elseif($v['sex'] == 2){
+                        $rs[$k]['xingbie'] = '女';
+                    }
+                    else{
+                        $rs[$k]['xingbie'] = '未知';
+                    }
+                }
+            }
             $output['aaData'] = $rs;
             $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
             $output['iTotalRecords'] = $total; //总共有几条数据
@@ -245,7 +257,40 @@ class AccountController extends AuthController {
     }
     
     public function phoneBookAdd(){
-        
+        if(IS_POST)
+        {
+            $AppResult = new AppResult();
+            $name = $this->getParam("name");
+            $sex = $this->getParam("sex");
+            $departMent = $this->getParam("departMent");
+            $phone = $this->getParam("phone");
+            $officePhone = $this->getParam("officePhone");
+            $otherPhone = $this->getParam("otherPhone");
+            $remark = $this->getParam("remark");
+            $data = array();
+            $data['contactName'] = $name;
+            $data['sex'] = $sex;
+            $data['deptid'] = $departMent;
+            $data['Mobile'] = $phone;
+            $data['OfficeNum'] = $officePhone;
+            $data['OtherNum'] = $otherPhone;
+            $data['remark'] = $remark;
+            
+            $rs = M("phonebook")->add($data);
+            if($rs){
+                $AppResult->code = 1;
+                $AppResult->message = "添加成功";
+                $AppResult->data = "";
+            }
+            else{
+                $AppResult->code = 0;
+                $AppResult->message = "添加失败";
+                $AppResult->data = "";
+            }
+            $AppResult->returnJSON();
+        }
+        $rs = M('dept')->order("DeptID")->select();
+        $this->assign("rs",$rs);
         $this->assign("CurrentPage",'phoneBook');
         $this->display();
     }
@@ -254,6 +299,46 @@ class AccountController extends AuthController {
         
         $this->assign("CurrentPage",'phoneBook');
         $this->display();
+    }
+    
+    public function phoneBookDel(){
+        $phoneBookID = $this->getParam("phoneBookID");
+        $AppResult = new AppResult();
+        if(empty($phoneBookID)){
+            $AppResult->code = 0;
+            $AppResult->data ="";
+            $AppResult->message = "请选中要删除的记录";
+            $AppResult->returnJSON();
+        }
+        if(IS_POST){
+            $rs = M('phonebook')->where("pid in ({$phoneBookID})")->select();
+            if($rs)
+            {
+                $delName = '';
+                foreach ($rs as $v){
+                    if($delName == ""){
+                        $delName = $v['contactname'];
+                    }
+                    else{
+                        $delName = $delName .",".$v['contactname'];
+                    }
+                }
+                $delrs = M('phonebook')->where("pid in({$phoneBookID})")->delete();
+                if($delrs){
+                    $msg="成功删除号簿记录:".$delName;
+                    addSysLog($msg);
+                    $AppResult->code = 1;
+                    $AppResult->data ="";
+                    $AppResult->message = $msg;
+                }
+                else{
+                    $AppResult->code = 0;
+                    $AppResult->data ="";
+                    $AppResult->message = "删除失败";
+                }
+            }
+            $AppResult->returnJSON();
+        }
     }
     
     public function departMent(){
@@ -268,7 +353,7 @@ class AccountController extends AuthController {
             }
             
             $field="DeptID,DeptName";  
-            $cnt = M('dept')->where($where)->select(false);
+            $cnt = M('dept')->where($where)->select();
             $total = count($cnt);
             
             $rs = M('dept')->field($field)->where($where)->limit($start,$length)->select();

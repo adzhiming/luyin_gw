@@ -8,7 +8,7 @@
         <meta name="author" content="">
 
 	
-        <title>系统参数</title>
+        <title>高级参数</title>
 
         <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
         <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
@@ -31,19 +31,25 @@
                         <div class="panel panel-title-head">
                         <div class="search_banner">
                              <div class="pull-left col-md-1">
-	                                <a class="btn btn-info btn-large" href="../Account/userAdd">导出配置</a>
+	                                <a class="btn btn-info btn-large" href="/home/System/channelParameter">普通参数</a>
 	                          </div> 
 	                          <div class="pull-left col-md-1">
-	                                <a class="btn btn-info btn-large" href="../Account/userAdd">恢复配置</a>
+	                                <a class="btn btn-info btn-large active" href="/home/System/paramsChannel">高级参数</a>
+	                          </div>
+                             <div class="pull-left col-md-1">
+	                                <a class="btn btn-info btn-large" href="#">导出配置</a>
+	                          </div> 
+	                          <div class="pull-left col-md-1">
+	                                <a class="btn btn-info btn-large" href="#">恢复配置</a>
 	                          </div>
 	                          <div style="clear:both"></div>
                          </div>   
                             <table id="basicTable" class="table table-striped table-bordered responsive">
                                 <thead class="">
                                     <tr>
-                                        <th>参数名称</th>
-                                        <th>参数取值</th>
-                                        <th>参数描述</th>
+                                        <th>动作名称</th>
+                                        <th>配置参数</th>
+                                        <th>相关描述</th>
                                     </tr>
                                 </thead>
                          
@@ -58,11 +64,11 @@
                                 </tbody>
                             </table>
                         </div><!-- panel -->
-                        
                         <div class="col-md-3">
 	                                <input class="btn btn-info btn-large" type="button" value="提交修改">
 	                                <input class="btn btn-info btn-large" type="button" value="恢复默认值">
-	                    </div>
+	                    </div> 
+	                    
                             
                            
                         </div><!-- panel -->
@@ -78,36 +84,7 @@
         <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
+	
+
     </body>
-    <script>
-	//数据有效性检测
-	function check(obj,pn){
-		var pv=obj.value.replace(/\ /g,"");
-		if(pv==""){
-			alert("参数值禁止为空!");
-			obj.focus();
-			return false;
-		}
-		var rv=getRegEx(pn);			//获取参数预定正则表达式，用于验证用户输入是否非法
-		//alert(rv);
-		if(rv.reg==""){return true;}	//未定验证规则，不做验证
-		re = new RegExp(rv.reg);
-		//alert(re);
-		var tmp=pv.match(re);
-		if(tmp==null){
-			alert(rv.msg);
-			obj.focus();
-			return false;
-		}else{
-			tmp=tmp.toString().split(",")[0];
-			if(tmp==pv){
-				return true;
-			}else{
-				alert(rv.msg);
-				obj.focus();
-				return false;	
-			}	
-		}
-	}
-	</script>
 </html>

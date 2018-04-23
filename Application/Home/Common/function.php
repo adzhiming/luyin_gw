@@ -184,6 +184,7 @@ function getVideoByRecID($id,$type)
    
 }
 
+
 //MySQL语句格式化，避免特殊字符造成SQL语法错误
 function MySQLFixup($str){
     if(is_numeric($str)) return $str;
@@ -324,4 +325,35 @@ function formatSTR($str){
         }
     }
     return $str;
+}
+
+//输出select控件时，判断默认选中的options
+function selected($v1,$v2){
+    if($v1==$v2){return " selected ";}
+    else{return "";}
+}
+
+//是否允许修改，否则设置控件属性readonly
+function canModify($n){
+    if($n==1){
+        return " readonly ";
+    }else{
+        return "";
+    }
+}
+
+//根据用户id获取用户信息
+function getUserInfo($uid){
+    if(is_null($uid)){$uid="";}
+    if($uid!=""){
+        $sql="select * from tab_sys_accountinfo where V_AccountId='{$uid}'";
+        $r1=M()->query($sql);
+        if($r1){
+            return $r1[0];	//用户账号
+        }else{
+            return "已删除用户";
+        }
+    }else{
+        return "";
+    }
 }

@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+	
+        <title>工作站管理</title>
+
+        <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
+        <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
+        <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+        <style type="text/css">
+ .Alertmessage{
+	text-align: center;
+    color: red;
+ }
+       </style>
+    </head>
+
+    <body>
+        <block name="header">
+           <include file="block/header"/>
+        </block>
+        <section>
+            <div class="mainwrapper">
+			   <block name="left">
+			   <include file="block/left" />
+               </block>
+                
+                <div class="mainpanel">
+                    <div class="contentpanel">
+                       
+                       	<div class="col-md-12">
+                                <form id="basicForm" method="post" action="userAdd">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <div class="panel-btns">
+                                            <a href="#" class="panel-minimize tooltips" data-toggle="tooltip" title="Minimize Panel"><i class="fa fa-minus"></i></a>
+                                            <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
+                                        </div><!-- panel-btns -->
+                                        <h4 class="panel-title">工作站编辑</h4>
+                                    </div><!-- panel-heading -->
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">工作站名称 <span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" id="stationName" name="stationName" value="{$station.v_sname}" <if condition="$station.v_sname neq ''">readonly </if>  class="form-control" placeholder="用户名" required />
+                                                </div>
+                                            </div><!-- form-group -->
+                                            
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">录音号码<span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <textarea rows="5" id="recordNum" name="recordNum" class="form-control" placeholder="有权号码，指用户有权查看录音的号码。此项留空则可查看所有号码的录音。 
+多个号码用逗号隔开，系统将自动过滤非数字字符。" required>{$station.v_rnum}</textarea>
+                                                </div>
+                                            </div><!-- form-group -->
+                                            
+                                             
+                                            
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">备注信息<span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <textarea rows="5" id="remark" name="remark" class="form-control" placeholder="备注信息" required>{$station.v_memo}</textarea>
+                                                </div>
+                                            </div><!-- form-group -->
+                                        </div><!-- row -->
+                                        <div class="modal-footer col-sm-6">
+                                           <input type="hidden" name="stationID" id="stationID" value="{$station.n_sid}">
+									        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+									        <button type="button" class="btn btn-primary update">修改</button>
+									    </div>
+                                    </div><!-- panel-body -->
+                           
+                                </div><!-- panel -->
+                                </form>
+                                
+                            </div><!-- col-md-6 -->
+                           
+                            
+					      
+                        </div><!-- panel -->
+                      
+                        <div style="clear:both"></div>
+                    </div><!-- contentpanel -->
+                </div><!-- mainpanel --><!-- mainpanel -->
+            </div><!-- mainwrapper -->
+            
+        <!-- 告警模态框 -->
+		<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myAlert">
+		  <div class="modal-dialog" role="document" style="width:450px">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myAlert" style="text-align: center;">提示</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="inner">
+		        	<h4 class="Alertmessage"> </h4>
+		        </div>
+		        
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+		        <!-- <button type="button" class="btn btn-primary">确定</button> -->
+		      </div>
+		    </div>
+		  </div>
+		</div>
+        </section>
+		
+        <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
+        
+
+
+<script type="text/javascript">
+$(document).ready( function () {
+  $('.update').click(function(){
+	   var stationID = $('#stationID').val()
+	   var stationName = $('#stationName').val()
+	   var recordNum = $('#recordNum').val();
+	   var remark = $('#remark').val();
+      
+       if(stationName ==''){
+    	   $('#alertModel').modal('show');
+   		   $('.Alertmessage').html('工作名不能为空') 
+   		   return;
+       }
+       if(recordNum ==''){
+    	   $('#alertModel').modal('show');
+   		   $('.Alertmessage').html('录音号码不能为空') 
+   		   return;
+       }
+      var url = "stationEdit" 
+	  $.ajax({
+				type:"POST",
+				url:url,
+				data:{
+					stationID:stationID,stationName:stationName,recordNum:recordNum,remark:remark	
+				},
+				success: function(data){
+					if(data.code){
+						$('.Alertmessage').css("color",'#1fb5ad');
+					}
+					else{
+						$('.Alertmessage').css("color",'red');
+					}
+				    $('#alertModel').modal('show');
+		   		    $('.Alertmessage').html(data.message)
+				}
+	 })
+  })
+
+  $("#checkSiteAll").click(function() {
+	    var state = $("#checkSiteAll").prop("checked");
+	    if(state == true) {
+	        $(".selectStation").prop("checked", "checked");
+	    } else {
+	        $(".selectStation").prop("checked", "");
+	    }
+	});
+  
+})     
+</script>        
+		
+		
+    </body>
+</html>
