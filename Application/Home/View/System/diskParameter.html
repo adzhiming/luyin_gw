@@ -42,12 +42,14 @@
                                         <th>磁盘状态</th>
                                         <th>声音文件存放目录</th>
                                         <th>磁盘预留空间数</th>
+                                        <input type="hidden" id="txtName" name="txtName" value="" />
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <foreach name="rsDisk" item="list">
                                       <tr>
-                                        <td><label style="display:block; margin:0 !important"><input data-id="{$list.diskval}" type="radio" name="disk"></label></td>
+                                        <td><label style="display:block; margin:0 !important"><input data-id="{$list.diskval}" type="radio" name='UsingDisk'
+                                        id='UsingDisk_{$list.diskval}' <if condition="$useingstation eq $list.currentdisk ">checked </if>></label></td>
                                         <td>{$list.v_diskvolumename}</td>
                                         <td>
 	                                        <div class="barblock"><div class="bar" style="width:{$list.yiyong}%"></div></div>
@@ -59,6 +61,7 @@
 				 onclick="SetPath(this,0,'{$list.diskval}')" />
 				 <a href="javascript:setEmpty('{$list.diskval}')" style='color:#00f;' title='删除此路径'>清除</a>
 				 <input type='hidden' name="hid_path[]" value="{$list.v_rcdiskpath4vpath}" />
+				 
 				 </td> 
                                         <td><input type='hidden' name='hid_LessFreeSpace[]' value='{$list.n_lessfreespace}' /> 
 				 <select name="N_LessFreeSpace[]">
@@ -181,17 +184,16 @@ $(document).ready( function () {
 	} */
 	
 	function SetPath(o,showFile,disk){
-		var p=o.value;
+		var p=$(o).val();
 		//获得窗口的垂直位置 
 	    var iTop = (window.screen.availHeight - 30 - 380) / 2; 
 	    //获得窗口的水平位置 
 	    var iLeft = (window.screen.availWidth - 10 - 450) / 2; 
 	    
 	    var url="selectPath?tamp="+Math.random()+"&t="+showFile+"&p="+p+"&disk="+disk;
-		
+		 
         //直接点击某条录音的小喇叭，只播放当前录音
-		var dsc="dialogWidth=510px;dialogHeight=480px;status=no";
-		window.open(url,"player","height=380,width=450, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+		window.open(url,"player","height=450,width=550, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
 			
 		
 	}	   

@@ -32,6 +32,7 @@
                 <li><img src="__PUBLIC__/assets/images/ico/back.gif" alt="后退" onclick="up()" style="cursor:pointer;" /></li>
             </ul>
         	<input type="hidden" id="hid_path" name="hid_path" value="<?php echo $d; ?>" />
+        	
         </td>
 	</tr>
     <tr>
@@ -42,14 +43,14 @@
 			if($DiskCanView==""){
 				for($i=0;$i<count($Disks);$i++){
 					$path=$Disks[$i].":\\\\";
-					echo "<div class='disk' onclick=\"to('t={$showFile}&p={$path}','{$path}')\">";
+					echo "<div class='disk' onclick=\"to('t=$showFile&p=$path','$path')\">";
 					echo "<img src='__PUBLIC__/assets/images/ico/disk.gif'><br />",$Disks[$i],"</div>";
 				}
 			}else{
 				for($i=0;$i<count($Disks);$i++){
 					if($Disks[$i]==$DiskCanView){
 						$path=$Disks[$i].":\\\\";
-						echo "<div class='disk' onclick=\"to('t={$showFile}&p={$path}','{$path}')\">";
+						echo "<div class='disk' onclick=\"to('t=$showFile&p=$path','$path')\">";
 						echo "<img src='__PUBLIC__/assets/images/ico/disk.gif'><br />",$Disks[$i],"</div>";
 					}else{
 						echo "<div class='diskDisabled' style>";
@@ -62,27 +63,8 @@
         </td>
         <td style="background:#fff; width:320px;" class="border" valign="top">
         	<div style="height:345px; width:400px;overflow:auto;" id='FileList'>
-				<?php
-				if(isset($Folders)){
-					while (list($key, $val) = each($Folders)){
-						if(is_readable($d."\\{$val}")){
-							if($val!=".." and $val!="."){	
-								//非一级目录时，PHP自动生成“.”和“..”两个路径，分别表示当前路径和上级路径，再次不显示这两个路径
-								//$path=rawurlencode ($d.$val);
-								$path=str_replace("\\","\\\\",$d.$val);
-								echo "<div class='file' name='div_folde' title=\"{$val}\" ";
-								echo "onclick=\"to('t={$showFile}&p={$path}','{$path}')\">";
-								echo "<img src='__PUBLIC__/assets/images/ico/folder.gif'><br />{$val}</div>\r\n";
-							}
-						}
-					}
-				}
-				if(isset($Files) and $showFile==1){
-					while (list($key, $val) = each($Files)){
-						echo "<div class='file' name='div_file' title=\"{$val}\" onclick='onselect(this,\"{$val}\")' ><img src='__PUBLIC__/assets/images/ico/xml.gif'><br />{$val}</div>";
-					}
-				}
-                ?> 
+				{$FoldersHtml}
+				{$FilesHtml}
             </div>
         </td>
 	</tr>
@@ -95,15 +77,9 @@
 </table>
 </body>
 </html>
+<script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript">
-//根据控件ID，返回控件引用
-function $(objectId) {
-	if(document.getElementById(objectId)) {
-		return document.getElementById(objectId);
-	}else {
-		return false;
-	}
-}
+ 
 
 //创建并返回XMLHttp对象
 function createXMLHttps(){
@@ -133,7 +109,7 @@ function to(url,file){
 }
 
 function up(){
-	var file=$("path").value;
+	var file=$("#path").val();
 	var tmp=file.substr(0,file.length-1).lastIndexOf("\\");
 	if(tmp<0){
 		alert("已到最上层目录");
@@ -145,7 +121,8 @@ function up(){
 }
 //点击文件时，设置路径
 function setpath(filename){
-	$("path").value=$("hid_path").value+filename;
+	alert($("#hid_path").val()+filename)
+	$("#path").val($("#hid_path").val()+filename);
 }
 
 function onselect(f,filename){
@@ -165,26 +142,32 @@ function onselect(f,filename){
 
 //返回用户选择的路径
 function set(flag){
+	var txtName = window.opener.document.getElementById("txtName");//获取父窗口中元素，也可以获取父窗体中的值
+    txtName.value = 22;//将子窗体中的值传递到父窗体中去
+    
 	if(flag==0){
 		window.returnValue="clear";
 	}else{
-		window.returnValue=document.getElementById('path').value;	
+		window.returnValue=$("#path").val();	
 	}
 	self.close();
 }
 function loadFileList(url,file){
-	url="getFileList.php?"+url;
-	var ajax=createXMLHttps();
-	ajax.onreadystatechange=function(){
-		if (4==ajax.readyState){
-			$("FileList").innerHTML=ajax.responseText;
-			$("hid_path").value=decodeURIComponent(file);
-			$("path").value=decodeURIComponent(file);
+	url="getFileList?"+url;
+	$.ajax({
+		type:"POST",
+		url:url,
+		data:{
+			id:1 
+		},
+		 
+		success: function(data){
+			$("#FileList").html(data);
+			$("#hid_path").val(decodeURIComponent(file));
+			$("#path").val(decodeURIComponent(file));
 		}
-	}
-	ajax.open("GET",url,true);
-	ajax.send(null);
-	ajax.close;	
+	})
+	 
 }
 window.onload=function(){window.returnValue="clear";}
 </script>

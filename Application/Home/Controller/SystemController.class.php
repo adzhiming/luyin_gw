@@ -211,7 +211,7 @@ class SystemController extends AuthController {
         //获取当前使用的录音路径及磁盘;
         $CurrentStation=isset($_POST["SelStationID"])?$_POST["SelStationID"]:"";		//当前查看(设置)的工作站编号
         $field=" a.N_StationID,CONCAT(V_RcDiskPath4VPath,DATE_FORMAT(Now(),'%Y%m'),'\\\\',DATE_FORMAT(Now(),'%Y%m%d'),'\\\\') as V_RecordDiskPath ";
-        $rsUsing = M('sys_diskspaceinfo')->join("tab_rec_RecordDiskCfg a")->field($field)->where("V_RecordDiskPath  like CONCAT(V_DiskVolumeName,'%')")->select();
+        $rsUsing = M('sys_diskspaceinfo')->join("tab_rec_recorddiskcfg a")->field($field)->where("V_RecordDiskPath  like CONCAT(V_DiskVolumeName,'%')")->select();
          
         //获取当前工作站的磁盘列表
         if($CurrentStation==""){$CurrentStation=$rsUsing[0]['n_stationid'];}
@@ -221,16 +221,20 @@ class SystemController extends AuthController {
             $rsDisk[$k]['yiyong'] = (100-round($v["n_freespace"]/$v["n_totalspace"]*100,2));
             $rsDisk[$k]['shenxia'] = round($v["n_freespace"]/$v["n_totalspace"]*100,2);
             $rsDisk[$k]['keyong'] = $v["n_freespace"]/1000;
+            $rsDisk[$k]['currentdisk'] = substr($v["v_rcdiskpath4vpath"],0,3);
         }
+      
         
         $this->assign("rsDisk",$rsDisk);
         $this->assign("rsUsing",$rsUsing);
+        $this->assign("useingstation",substr($rsUsing[0]['v_recorddiskpath'],0,3));
         $this->assign("CurrentPage",'disk');
         $this->display();
     }
     
     //选择磁盘
     public function selectPath(){
+        header("Content-type: text/html; charset=utf-8");
         $showFile=isset($_GET["t"])?$_GET["t"]:0; //=1，列出文件夹和文件。=0，只列出文件夹
         $DiskCanView=isset($_GET["disk"])?$_GET["disk"]:"";	//有权浏览的磁盘，为空则无限制
         $d=isset($_GET["p"])?$_GET["p"]:"";						//初始路径，为空时则为当前目录
@@ -262,7 +266,7 @@ class SystemController extends AuthController {
                 
             }
         }
-        
+        $d = iconv("utf-8","gbk",$d);
         if(!is_file($d)){
             $fList = scandir($d);//获取文件列表
         }else{
@@ -273,6 +277,7 @@ class SystemController extends AuthController {
         $i=0;
         $n=0;
         while (list($key, $val) = each($fList)){
+            $val = iconv("gbk","utf-8",$val);
             $fType=filetype($d."\\".$val);
             if($fType=="dir"){
                 $Folders[$n]=$val;
@@ -282,7 +287,32 @@ class SystemController extends AuthController {
                 $i++;
             }
         }
+        $FoldersHtml ="";
+        $FilesHtml ="";
+        if(isset($Folders)){
+            while (list($key, $val) = each($Folders)){
+                $val = iconv("gbk","utf-8",$val);
+                if(is_readable($d."\\{$val}")){
+                    if($val!=".." and $val!="."){
+                        //非一级目录时，PHP自动生成“.”和“..”两个路径，分别表示当前路径和上级路径，再次不显示这两个路径
+                        //$path=rawurlencode ($d.$val);
+                        $path=str_replace("\\","\\\\",$d.$val);
+                        $FoldersHtml .= "<div class='file' name='div_folde' title=\"{$val}\" ";
+                        $FoldersHtml .=  "onclick=\"to('t=$showFile&p=$path','$path')\">";
+                        $FoldersHtml .=  "<img src='/Public/assets/images/ico/folder.gif'><br />{$val}</div>\r\n";
+                    }
+                }
+            }
+        }
+        if(isset($Files) and $showFile==1){
+            while (list($key, $val) = each($Files)){
+                $val = iconv("gbk","utf-8",$val);
+                $FilesHtml = "<div class='file' name='div_file' title=\"{$val}\" onclick='onselect(this,\"{$val}\")' ><img src='/Public/assets/images/ico/xml.gif'><br />{$val}</div>";
+            }
+        }
         
+      $this->assign("FoldersHtml",$FoldersHtml);
+      $this->assign("FilesHtml",$FilesHtml);
       $this->assign("showFile",$showFile);
       $this->assign("Disks",$Disks);
       $this->assign("DiskCanView",$DiskCanView);
@@ -290,6 +320,72 @@ class SystemController extends AuthController {
       $this->display();  
     }
    
+    
+    //列出文件
+    public function getFileList(){
+        header("Content-type: text/html; charset=utf-8");
+        header("Pragma: no-cache");
+        flush();
+        $d=isset($_GET["p"])?$_GET["p"]:"";						//初始路径，为空时则为当前目录
+        $showFile=isset($_GET["t"])?$_GET["t"]:0; 				//=1，列出文件夹和文件。=0，只列出文件夹
+        
+        if($d!=""){								//有传递初始路径，判断传入的是一个目录还是一个具体的文件
+            if(strlen($d)==1){					//路径参数只有一个字符时，将其当盘符看待，并在后面增加":/"
+                $d.=":\\";
+            }elseif(strlen($d)==2){
+                $d.="\\"	;
+            }
+            if(!is_dir($d) and !is_file($d)){	//指定的初始路径无效时，则设置路径为当前路径
+                $d="C:\\";
+            }
+        }else{
+            $d="C:\\";							//无指定参数时，默认打开C盘
+        }
+        if(substr($d,-1,1)!="\\"){
+            $d.="\\";
+        }
+      
+        $d = iconv("utf-8","gbk",$d);
+        if(is_dir($d)){
+            if($dire = scandir($d)){
+                foreach($dire as $val){
+                    $val = iconv("gbk","utf-8",$val);
+                      $fType=filetype($d."\\".$val);
+                    if($fType=="dir"){
+                        $val = iconv("utf-8","gb2312",$val);
+                        $Folders[$n]=$val;
+                        $n++;
+                    }else{
+                        $Files[$i]=$val;
+                        $i++;
+                    }  
+                }
+            }
+        }
+        
+        if(isset($Folders)){
+            while (list($key, $val) = each($Folders)){
+                $val = iconv("utf-8","gb2312",$val);
+                if(is_readable($d."\\{$val}")){
+                    if($val!=".." and $val!="."){
+                        //非一级目录时，PHP自动生成“.”和“..”两个路径，分别表示当前路径和上级路径，再次不显示这两个路径
+                        $path=rawurlencode ($d.$val);
+                        $path=str_replace("\\","\\\\",$d.$val);
+                        echo "<div class='file' name='div_folde' title=\"{$val}\" ";
+                        echo "onclick=\"to('t={$showFile}&p={$path}','{$path}')\">";
+                        echo "<img src='/Public/assets/images/ico/folder.gif'><br />{$val}</div>\r\n";
+                    }
+                }
+                
+            }
+        }
+        if(isset($Files) and $showFile==1){
+            while (list($key, $val) = each($Files)){
+                echo "<div class='file' name='div_file' title=\"{$val}\" onclick='onselect(this,\"{$val}\")' ><img src='/Public/assets/images/ico/xml.gif'><br />{$val}</div>";
+            }
+        }				
+    }
+    
     //IP限制
     public function ipLimint(){
         $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
