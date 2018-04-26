@@ -36,9 +36,9 @@
                         </li>
 						
                         <li class="parent"><a href="#"><i class="fa fa-file-text"></i> <span>相关下载</span></a>
-                            <ul class="children">
-                                <li><a href="notfound.html">备份录音下载</a></li>
-                                <li><a href="blank.html">录音软件</a></li>
+                            <ul class="children"  <if condition="$CurrentPage eq 'download'">style="display:block"</if>>
+                                <li <if condition="$CurrentPage eq 'download'">class='active'</if> ><a href="/home/Other/download">备份录音下载</a></li>
+                                <li><a href="/Uploads/apps/RecordPlayer.exe">录音软件</a></li>
                             </ul>
                         </li>
                        <li><a href="/home/Login/login_out"><i class="fa fa-sign-out"></i> <span>退出系统</span></a></li> 
