@@ -525,7 +525,7 @@ class AccountController extends AuthController {
         header("Content-Type: application/download");
         header('Content-Type: application/vnd.ms-excel');
         $filename= $title."_".$date.".xls";
-        
+        $filename = iconv('utf-8', "gb2312", $filename);
         $objwriter = \PHPExcel_IOFactory::createWriter($excel,'Excel5');
         $objwriter->save($filename);
         exit;
