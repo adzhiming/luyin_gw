@@ -471,15 +471,16 @@ class AccountController extends AuthController {
     
     //导出excel
     public function downloadPhoneExcel(){
-        Vendor("excel.PHPExcel");
-        Vendor("excel.PHPExcel.Reader.Excel2007.php");
-        Vendor("excel.PHPExcel.Reader.Excel5");
-        Vendor("excel.PHPExcel.IOFactory");
+        header("Content-type: text/html; charset=utf-8");
+        Vendor("PHPExcel.PHPExcel");
+        Vendor("PHPExcel.PHPExcel.Reader.Excel2007.php");
+        Vendor("PHPExcel.PHPExcel.Reader.Excel5");
+        Vendor("PHPExcel.PHPExcel.IOFactory");
         
         $excel = new \PHPExcel();
         
         //指定工作簿
-        $Excel->setActiveSheetIndex(0); 
+        $excel->setActiveSheetIndex(0); 
         //设置列宽
         $excel->getActiveSheet()->getColumnDimension('A')->setWidth('15');
         $excel->getActiveSheet()->getColumnDimension('B')->setWidth('15');
@@ -489,7 +490,7 @@ class AccountController extends AuthController {
         $excel->getActiveSheet()->getColumnDimension('F')->setWidth('15');
         
         
-        $excel->getActiveSheet()->setTitle('交班报表'); //excel标题
+        $excel->getActiveSheet()->setTitle('电话号簿'); //excel标题
         //设置行标题
         $excel->getActiveSheet()->setCellValue("A1", "姓名");         
         $excel->getActiveSheet()->setCellValue("B1", "性别");
@@ -502,27 +503,33 @@ class AccountController extends AuthController {
         //获取并填充数据
         $rs = M('phonebook')->order('contactname')->select();
         
-        $i=2;
-        foreach ($variable as $key => $value) {
-            $Excel->getActiveSheet()->setCellValue("A".$i,$value["contactname"]);
-            $Excel->getActiveSheet()->setCellValue("B".$i,$value["sex"]);
-            $Excel->getActiveSheet()->setCellValue("C".$i,$value["mobile"]);
-            $Excel->getActiveSheet()->setCellValue("D".$i,$value["officenum"]);
-            $Excel->getActiveSheet()->setCellValue("E".$i,$value["othernum"]);
-            $Excel->getActiveSheet()->setCellValue("F".$i,$value["remark"]);
-            $i++;
+        
+        if($rs){
+            $i=1;
+            foreach ($rs as $key => $value) {
+                $i++;
+                $excel->getActiveSheet()->setCellValue("A".$i,$value["contactname"]);
+                $excel->getActiveSheet()->setCellValue("B".$i,$value["sex"]);
+                $excel->getActiveSheet()->setCellValue("C".$i,$value["mobile"]);
+                $excel->getActiveSheet()->setCellValue("D".$i,$value["officenum"]);
+                $excel->getActiveSheet()->setCellValue("E".$i,$value["othernum"]);
+                $excel->getActiveSheet()->setCellValue("F".$i,$value["remark"]);
+            }
         } 
         
       
-        $title ='交班报表';
-        $date = date('Y-m-d');
+        $title ='电话号簿';
+        $date = date('Y-m-d',time());
         header("Content-Type: application/force-download");
         header("Content-Type: application/octet-stream");
         header("Content-Type: application/download");
         header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment;filename="'.$title.'_'.urlencode($date).'".xls');
+        $filename= $title."_".$date.".xls";
+        
         $objwriter = \PHPExcel_IOFactory::createWriter($excel,'Excel5');
-        $objwriter->save('php://output');
+        $objwriter->save($filename);
+        exit;
+
      }
 
  
