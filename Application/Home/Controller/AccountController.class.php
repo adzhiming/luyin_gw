@@ -520,15 +520,15 @@ class AccountController extends AuthController {
       
         $title ='电话号簿';
         $date = date('Y-m-d',time());
-        header("Content-Type: application/force-download");
-        header("Content-Type: application/octet-stream");
-        header("Content-Type: application/download");
-        header('Content-Type: application/vnd.ms-excel');
-        $filename="Uploads/phoneBook/". $title."_".$date.".xls";
-        $filename = iconv('utf-8', "gb2312", $filename);
+        
+        $data = array();
+        $fileurl = "Uploads/phoneBook/". $title."_".$date.".xls";
+       
+        $filename = iconv('utf-8', "gb2312", $fileurl);
+        
         $objwriter = \PHPExcel_IOFactory::createWriter($excel,'Excel5');
         $objwriter->save($filename);
-        return 1;
+        $this->returnJSON(1,'导出成功',"/".$fileurl);
 
      }
 

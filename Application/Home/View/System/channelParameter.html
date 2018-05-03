@@ -27,7 +27,7 @@
                 
                 <div class="mainpanel">
                     <div class="contentpanel">
-                       
+                       <form name="form1" action="" method="post">
                         <div class="panel panel-title-head">
                         <div class="search_banner">
                              <div class="pull-left col-md-1">
@@ -59,52 +59,71 @@
                                         <th>通道编号</th>
                                         <foreach name="rsTitle" item="titlelist">
                                            <th>{$titlelist.v_paramsnamech}</th>
+                                           <input name="clo_name[]" type="hidden" value="{$titlelist.v_paramsname}" />
                                         </foreach>
                                     </tr>
                                 </thead>
                          
                                 <tbody>
-                                <foreach name="rs" item="list">
+                                <foreach name="rs" item="list" key="k">
                                   <tr role="row" class="odd">
                                   <if condition="$channeltype eq 33">
                                        <td>{$list.n_channelno}</td>
+                                       <input name="n_channelno[]" type="hidden" value="{$list.n_channelno}" />
 	                                   <td>{$list.ChnName.v_value}</td>
-	                                   <td><input type="text" value="{$list.ExtPhoneNumber.v_value}"></td>
+	                                   <td>
+	                                   	<input name="{$list.ExtPhoneNumber.v_paramsname}[]"  type="text" value="{$list.ExtPhoneNumber.v_value}">
+	                                   	<input name="hid_{$list.ExtPhoneNumber.v_paramsname}[]" type="hidden" value="{$list.ExtPhoneNumber.v_value}">
+	                                   </td>
 	                                   <td>
 	                                   <div class="ckbox ckbox-primary">  
-                                          <input type="checkbox" value="1" <?php if($list['IsVideoChannel']['v_value'] == '1'){echo 'checked';}  ?> id="int_{$list.n_channelno}" name="can">
+                                          <input type="checkbox"  name="{$list.IsVideoChannel.v_paramsname}_{$k}" value="1" <?php if($list['IsVideoChannel']['v_value'] == '1'){echo 'checked';}  ?> id="int_{$list.n_channelno}" />
                                           <label for="int_{$list.n_channelno}"></label>
                                        </div>
+                                       <input name="hid_{$list.IsVideoChannel.v_paramsname}_{$k}" type="hidden" value="{$list.IsVideoChannel.v_value}">
 	                                   </td>
                                   <else/>
 	                                     <td>{$list.n_channelno}</td>
+	                                     <input name="n_channelno[]" type="hidden" value="{$list.n_channelno}" />
 	                                     <td>{$list.ChnName.v_value}</td>
-	                                     <td><input type="text" value="{$list.ExtPhoneNumber.v_value}"></td>
-	                                     <td><input type="text" value="{$list.CircuitNo.v_value}"></td>
-	                                     <td><input type="text" value="{$list.ExtPhoneNumber2.v_value}"></td>
+	                                     <td>
+	                                     	<input type="text" name="{$list.ExtPhoneNumber.v_paramsname}[]" value="{$list.ExtPhoneNumber.v_value}">
+  <input name="hid_{$list.ExtPhoneNumber.v_paramsname}[]" type="hidden" value="{$list.ExtPhoneNumber.v_value}">
+	                                     </td>
+	                                     <td>
+	                                     	<input type="text" name="{$list.CircuitNo.v_paramsname}[]" value="{$list.CircuitNo.v_value}">
+<input name="hid_{$list.CircuitNo.v_paramsname}[]" type="hidden" value="{$list.CircuitNo.v_value}">
+	                                     </td>
+	                                     <td>
+	                                     	<input type="text" name="{$list.ExtPhoneNumber2.v_paramsname}[]" value="{$list.ExtPhoneNumber2.v_value}">
+<input name="hid_{$list.ExtPhoneNumber2.v_paramsname}[]" type="hidden" value="{$list.ExtPhoneNumber2.v_value}">
+	                                     </td>
 	                                     <td><input type="text" value="{$list.CircuitNo2.v_value}"></td>
 	                                     <td>
-		                                     <select>
-		                                        <option value="1" <if condition="$list.IsChkDTMF.v_value eq '1'">selected </if>>检测</option>
-		                                        <option value="0" <if condition="$list.IsChkDTMF.v_value eq '0'">selected </if>>不检测</option>
+		                                     <select name="{$list.IsChkDTMF.v_paramsname}[]">
+		                                        <option value="1" <?php if($list['IsChkDTMF']['v_value'] == '1'){ echo 'selected'; }?>>检测</option>
+		                                        <option value="0" <?php if($list['IsChkDTMF']['v_value'] == '0'){ echo 'selected'; }?>>不检测</option>
 		                                     </select>
+		                                     <input name="hid_{$list.IsChkDTMF.v_paramsname}[]" type="hidden" value="{$list.IsChkDTMF.v_value}">
 	                                     </td>
 	                                     <td>
-		                                     <select>
-		                                        <option value="0" <if condition="$list.RecordMode.v_value eq '0'">selected </if>>无</option>
-		                                        <option value="1" <if condition="$list.RecordMode.v_value eq '1'">selected </if>>声控</option>
-		                                        <option value="2" <if condition="$list.RecordMode.v_value eq '2'">selected </if>>压控</option>
-		                                        <option value="3" <if condition="$list.RecordMode.v_value eq '3'">selected </if>>CTI</option>
-		                                        <option value="4" <if condition="$list.RecordMode.v_value eq '4'">selected </if>>DRCU</option>
-		                                        <option value="5" <if condition="$list.RecordMode.v_value eq '5'">selected </if>>软交换</option>
-		                                        <option value="11" <if condition="$list.RecordMode.v_value eq '11'">selected </if>>CDR</option>
+		                                     <select name="{$list.RecordMode.v_paramsname}[]">
+		                                        <option value="0" <?php if($list['RecordMode']['v_value'] == '0'){ echo 'selected'; }?>>无</option>
+		                                        <option value="1" <?php if($list['RecordMode']['v_value'] == '1'){ echo 'selected'; }?>>声控</option>
+		                                        <option value="2" <?php if($list['RecordMode']['v_value'] == '2'){ echo 'selected'; }?>>压控</option>
+		                                        <option value="3" <?php if($list['RecordMode']['v_value'] == '3'){ echo 'selected'; }?>>CTI</option>
+		                                        <option value="4" <?php if($list['RecordMode']['v_value'] == '4'){ echo 'selected'; }?>>DRCU</option>
+		                                        <option value="5" <?php if($list['RecordMode']['v_value'] == '5'){ echo 'selected'; }?>>软交换</option>
+		                                        <option value="11" <?php if($list['RecordMode']['v_value'] == '11'){ echo 'selected'; }?>>CDR</option>
 		                                     </select>
+		                                     <input name="hid_{$list.RecordMode.v_paramsname}[]" type="hidden" value="{$list.RecordMode.v_value}">
 	                                     </td>
 	                                     <td>
-		                                     <select>
-		                                        <option value="1" <if condition="$list.ChannelUserDisable.v_value eq '1'">selected </if>>启用</option>
-		                                        <option value="0" <if condition="$list.ChannelUserDisable.v_value eq '0'">selected </if>>禁用</option>
+		                                     <select name="{$list.ChannelUserDisable.v_paramsname}[]">
+		                                        <option value="1" <?php if($list['ChannelUserDisable']['v_value'] == '1'){ echo 'selected'; }?>>启用</option>
+		                                        <option value="0" <?php if($list['ChannelUserDisable']['v_value'] == '0'){ echo 'selected'; }?>>禁用</option>
 		                                     </select>
+		                                     <input name="hid_{$list.ChannelUserDisable.v_paramsname}[]" type="hidden" value="{$list.ChannelUserDisable.v_value}">
 	                                     </td>
 	                               </if>      
                                   </tr>
@@ -114,10 +133,10 @@
                             
                         </div><!-- panel -->
                         <div class=" col-md-12">
-	                                <input class="btn btn-info btn-large" type="button" value="提交参数">
+	                                <input class="btn btn-info btn-large" type="submit" value="提交参数">
 	                    </div> 
                         
-                            
+                        </form>    
                            
                         </div><!-- panel -->
                       

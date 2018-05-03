@@ -16,6 +16,46 @@ class SystemController extends AuthController {
     //通道参数
     public function channelParameter(){
         $ChannelType = $this->getParam("type");
+        if(IS_POST){
+            //var_dump($_REQUEST);
+            $n_channelno = $this->getParam("n_channelno"); 
+            $clo_name = $this->getParam("clo_name");
+            $k = count($n_channelno);
+            $i = 0;
+            foreach ($clo_name as $key => $value) {
+                 $data = array();
+                 $data[$value] = $this->getParam($value);
+                 $data["hid_".$value] = $this->getParam("hid_".$value);
+
+                 for($i=0;$i<$k;$i++){
+                     
+                    
+                    if($data[$value][$i] != $data["hid_".$value][$i]){
+                        $update = array();
+                       
+                        
+                        
+                        $update['V_Value'] = $data[$value][$i];
+                        
+                        $rs = M('sys_paramschannel')
+                              ->where("N_ChannelNo='".$n_channelno[$i]."' and V_ParamsName = '".$value."' ")
+                              ->save($update);
+                              // echo M()->getLastSql()."<br>"; 
+
+                    }
+                     $IsVideoChannel = $this->getParam("IsVideoChannel_{$i}",0);
+                     //echo $IsVideoChannel."<br>"; 
+                     $update2 = array();
+                     $update2['V_Value'] = $IsVideoChannel;
+                     $rs = M('sys_paramschannel')
+                              ->where("N_ChannelNo='".$n_channelno[$i]."' and V_ParamsName = 'IsVideoChannel' ")
+                              ->save($update2);
+                               
+                 }
+            }
+            echo "<script>alert('修改成功');window.location.href='channelParameter'</script>";
+            
+        }
         //如果没第一条“设为录象通道”数据，则插入
         $rs = M('sys_paramschannel')->where("N_ChannelNo=10000 and V_ParamsName='IsVideoChannel'")->find();
         if (!$rs) {
@@ -85,10 +125,11 @@ class SystemController extends AuthController {
         foreach ($channeltypelist as $k=>$v){
             $type = M("sys_channeltype")->where("V_TypeID = '{$v['n_channeltype']}'")->find();
             $channeltypelist[$k]['typename'] = $type['v_typename'];
+
         }
-       /*   echo "<pre>";
-        print_r($rsTitle);
-        echo "</pre>";  */ 
+       /* echo "<pre>";
+        print_r($rs);
+        echo "</pre>";*/
         
         $this->assign("channeltype",$ChannelType);
         $this->assign("channeltypelist",$channeltypelist);
@@ -101,17 +142,104 @@ class SystemController extends AuthController {
     //高级参数
     public function paramsChannel(){
         $channelid=isset($_GET["channelid"])?$_GET["channelid"]:"9999";
+        $todo=isset($_POST["todo"])?$_POST["todo"]:"";
+        if(IS_POST){
+            if($todo=="update"){
+                $msg="";
+                $paraList=$this->getParam('paraList');                                   //参数名称列表;
+                $paraList=explode(",",$paraList);
+                for($i=0;$i<count($paraList);$i++){
+                    $paraValue[$i]=$_POST[$paraList[$i]];
+                }
+                if($channelid==9999){
+                    $channeltype=9999;
+                }else
+                {
+                    $rs = M('sys_channelconfig')->field('N_channeltype')->where("n_channelno='{$channelid}'")->find();
+                    $channeltype=$rs['n_channeltype'];
+                }
+                if($channeltype==3){
+                    $msg="成功修改参数设置，请重新启动服务管理器里面的NEU_TECH_VCR服务";
+                }elseif($channeltype==33)
+                {
+                    $msg="成功修改参数设置，请重新启动服务管理器里面的NEU_TECH_MED和NEU_TECH_SIG服务";
+                }else
+                {
+                    $msg="成功修改参数设置，请重新启动服务管理器里面的NEU_TECH_VCR、NEU_TECH_MED和NEU_TECH_SIG服务";
+                }                               //更新设置
+                for($i=0;$i<count($paraList);$i++){                         //遍历所有参数
+                    $sql="update tab_Sys_ParamsChannel set V_Value='".MySQLFixup($paraValue[$i])."',";
+                    $sql=$sql." N_Change=1";                            //被修改的参数，将修改标识改为1
+                    $sql=$sql." where V_ParamsName ='".$paraList[$i]."' and n_channelno=".$channelid;
+                    $sql=str_replace(" and n_channelno=9999","",$sql);  //所有通道，取消通道号条件
+                    //echo $sql."<br />";
+                    if(!mysql_query($sql)){
+                        $msg=$msg."修改参数[".$paraList[$i]."]时发生错误，操作失败。\\n";
+                    }else{
+                        if($paraValue[$i] != $_POST["hid".$paraList[$i]]){        //参数值发生了改变
+                            if($channelid=9999){
+                                addSysLog("通过浏览器成功修改所有通道参数".$paraList[$i]."=".MySQLFixup($paraValue[$i]));
+                            }else{
+                                addSysLog("通过浏览器成功修改通道".$channelid."参数".$paraList[$i]."=".MySQLFixup($paraValue[$i]));
+                            }
+                        }               
+                    }
+                }
+             }
+             else
+             {
+                if($channelid==9999)
+                {
+                    $channeltype=9999;
+                }
+                else
+                {
+                    $rs = M('sys_channelconfig')->field('N_channeltype')->where("n_channelno='{$channelid}'")->find();
+                    $channeltype=$rs['n_channeltype'];
+                }                                                       //恢复默认设置
+                $msg="恢复默认值成功，";
+                if($channeltype==3){
+                    $msg.="请重新启动服务管理器的NEU_TECH_VCR服务";
+                }elseif($channeltype==33)
+                {
+                    $msg.="请重新启动服务管理器里面的NEU_TECH_MED和NEU_TECH_SIG服务";
+                }else
+                {
+                    $msg.="请重新启动服务管理器里面的NEU_TECH_VCR、NEU_TECH_MED和NEU_TECH_SIG服务";
+                }
+                for($i=0;$i<count($paraList);$i++){
+                    $sql="update tab_Sys_ParamsChannel set V_Value=V_DefaultValue where V_ParamsName ='".$paraList[$i]."'";
+                    $log="通过浏览器恢复通道参数".$paraList[$i]."默认值（所有通道）";
+                    if($channelid!=9999){
+                        $sql=$sql." and n_channelno=".$channelid;
+                        $log="通过浏览器恢复通道".$channelid."参数".$paraList[$i]."默认值";
+                    }
+                    //echo $sql."<br />";
+                    if(!mysql_query($sql)){
+                        $msg=$msg."参数[".$paraList[$i]."]恢复默认值时发生错误，操作失败。\\n";
+                    }else{
+                        addSysLog($log);
+                    }
+                }
+             } 
+
+             JS_alert($msg);  
+        }
+        
         $sql = "select a.*,b.n_channeltype,b.n_channelno from tab_sys_paramschannel a,tab_sys_channelconfig b ";
         $sql=$sql."where a.N_ChannelNo=".$channelid." and a.advpara=0 and a.N_ChannelNo=b.N_ChannelNo and a.V_ParamsName !='ChannelPort' order by a.v_paramsnameCH";
         //$sql_="select N_ChannelNo from tab_sys_paramschannel order by N_ChannelNo limit 0,1;";
         $sql=str_replace("a.N_ChannelNo=9999","a.N_ChannelNo=(select N_ChannelNo from tab_sys_paramschannel order by N_ChannelNo limit 0,1)",$sql);//全部通道，显示通道号为0的通道
         $rs = M()->query($sql);
         if($rs){
+            $strParaName = "";
             foreach ($rs as $k=>$v)
             {
                 $rs[$k]['paramsset'] = $this->getInput($v["v_paramsname"],$v["v_value"],$v["n_modifylevel"],$v["v_verify"]);
+                $strParaName=$strParaName.($strParaName==""?"":",").$v["v_paramsname"];
             }
         }
+        $this->assign("strParaName",$strParaName);
         $this->assign("rs",$rs);
         $this->assign("CurrentPage",'channel');
         $this->display();

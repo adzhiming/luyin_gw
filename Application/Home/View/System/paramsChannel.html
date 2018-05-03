@@ -27,7 +27,7 @@
                 
                 <div class="mainpanel">
                     <div class="contentpanel">
-                       
+                     <form name="form1" action="paramsChannel.php?channelid={$channelid}" method="post">
                         <div class="panel panel-title-head">
                         <div class="search_banner">
                              <div class="pull-left col-md-1">
@@ -57,7 +57,9 @@
                                   <foreach name="rs" item="list">
 	                                  <tr role="row">
 	                                     <td>{$list.v_paramsnamech}</td>
-	                                     <td>{$list.paramsset}</td>
+	                                     <td>{$list.paramsset}
+                                            <input type="hidden" name="hid{$list.v_paramsname}" value="{$list.v_value}" />
+                                         </td>
 	                                     <td>{$list.v_describe}</td>
 	                                  </tr>
                                   </foreach>
@@ -65,12 +67,13 @@
                             </table>
                         </div><!-- panel -->
                         <div class="col-md-3">
-	                                <input class="btn btn-info btn-large" type="button" value="提交修改">
-	                                <input class="btn btn-info btn-large" type="button" value="恢复默认值">
+                                <input type="hidden" value="{$strParaName}" name="paraList" />
+                                <input type="hidden" value="" name="todo" id="todo" />
+	                            <input class="btn btn-info btn-large" type="button" value="提交修改" onclick="formSub('update')">
+	                            <input class="btn btn-info btn-large" type="button" value="恢复默认值" onclick="formSub('default')">
 	                    </div> 
-	                    
+	                   </form>
                             
-                           
                         </div><!-- panel -->
                       
                         
@@ -85,6 +88,101 @@
         <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
 	
+    <script type="text/javascript">
+    function MM_jumpMenu(targ,selObj,restore){ //v3.0
+      eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+      if (restore) selObj.selectedIndex=0;
+    }
+    //提交表单
+    function formSub(todo){
+        var v1="";
+        var v2="";
+        if(document.forms[0].StartRecKey){
+        //有码控启动字头参数，验证格式0~9、*#
+            v1=document.forms[0].StartRecKey.value;
+            if(v1!=""){
+                if(!Vchar(v1)){
+                    alert("输入错误：码控启动字头包含非法字符，合法字符包括:0123456789*#");
+                    document.forms[0].StartRecKey.focus();
+                    return false;
+                }
+            }
+        }
+        if(document.forms[0].StopRecKey){
+        //有码控停止字头参数，验证格式0~9、*#
+            v2=document.forms[0].StopRecKey.value;
+            if(v2!=""){
+                if(!Vchar(v2)){
+                    alert("输入错误：码控停止字头包含非法字符，合法字符包括:0123456789*#");
+                    document.forms[0].StopRecKey.focus();
+                    return false;
+                }
+            }
+        }
+        if(v1!="" && v1==v2){
+            alert("码控启动字头与码控停止字头不能相同，请重新设置");
+            return false;
+        }
+        var v3="";
+        var v4="";
+        if(document.forms[0].NoSoundDtrmTime){
+            v3=document.forms[0].NoSoundDtrmTime.value;
+            if(v3!=""){
+                if(!isNum(v3)){
+                    alert("输入错误：声控静音判定时长只能输入数字！");
+                    document.forms[0].NoSoundDtrmTime.focus();
+                    return false;
+                }
+            }
+        }
+        
+        if(document.forms[0].ChannelPort){
+            v4=document.forms[0].ChannelPort.value;
+            if(v4!=""){
+                if(!isNum(v4)){
+                    alert("输入错误：通道端口只能输入数字！");
+                    document.forms[0].ChannelPort.focus();
+                    return false;
+                }
+            }
+        }
+        $("#todo").val('todo');
+        if(document.form1.paraList.value==""){  
+        //当前所选通道无参数可设置
+            alert("当前所选通道无参数可设置,请选择需要配置的通道");
+            return false;   
+        }
+        document.forms[0].submit();
+    }
+    
+    function Vchar(v){
+        if(v!=""){
+            var V_char="0123456789*#,";
+            //有效字符串:0123456789*#,","为多个码控启动字头分隔符
+            for(var i=0;i<v.length;i++){
+                var temp=v.substr(i,1);
+                if(V_char.indexOf(temp)<0){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    function isNum(str){
+        if(str=="")return true;
+        //var re = new RegExp("[0-9]{1,15}","g");
+        //var arr = str.match(re);
+        str=str.toUpperCase();  
+        //忽略大小写转换为大写再判断
+        var compare=/^[0-9]+$/;
+
+        if(!compare.test(str)){
+            return false;
+        }
+        return true;
+    }
+</script>
 
     </body>
 </html>

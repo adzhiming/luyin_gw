@@ -341,10 +341,11 @@ $('.downloadPhone').click(function(){
 				$('.loadEffect').css("display","block");
 			}, 
 			success: function(data){
+				console.log(data)
 				$('.loadEffect').css("display","none");
-					$('.downloadName').css("display","block");
-					$('.modal-title').html("操作完成");
-					$('.downloadName').html(data.message)
+				$('.downloadName').css("display","block");
+				$('.modal-title').html("操作完成");
+				$('.Alertmessage').html("成功生成号簿文件：<a href='"+data.data+"'>点击下载</a>")
 			}
 		})
 	})

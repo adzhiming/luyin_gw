@@ -1,7 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-use Common\AppResult;
+use Home\Controller\AppResult;
 class AuthController extends Controller {
     public function __construct(){
         parent::__construct();
