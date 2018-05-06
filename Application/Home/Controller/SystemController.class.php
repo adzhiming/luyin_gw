@@ -167,13 +167,19 @@ class SystemController extends AuthController {
                 {
                     $msg="成功修改参数设置，请重新启动服务管理器里面的NEU_TECH_VCR、NEU_TECH_MED和NEU_TECH_SIG服务";
                 }                               //更新设置
-                for($i=0;$i<count($paraList);$i++){                         //遍历所有参数
-                    $sql="update tab_Sys_ParamsChannel set V_Value='".MySQLFixup($paraValue[$i])."',";
-                    $sql=$sql." N_Change=1";                            //被修改的参数，将修改标识改为1
-                    $sql=$sql." where V_ParamsName ='".$paraList[$i]."' and n_channelno=".$channelid;
-                    $sql=str_replace(" and n_channelno=9999","",$sql);  //所有通道，取消通道号条件
-                    //echo $sql."<br />";
-                    if(!mysql_query($sql)){
+                for($i=0;$i<count($paraList);$i++){                        
+                    //遍历所有参数
+                    $where = array();
+                    $update = array();
+                    $where['V_ParamsName'] = $paraList[$i];
+                    if($channelid != 9999){
+                        $where['N_ChannelNo'] = $channelid;
+                    }
+                    $update['V_Value'] = MySQLFixup($paraValue[$i]);
+                    $update['N_Change'] =1;
+                    $rs = M('sys_paramschannel')->where($where)->save($update);
+                      
+                    if(false === $rs){
                         $msg=$msg."修改参数[".$paraList[$i]."]时发生错误，操作失败。\\n";
                     }else{
                         if($paraValue[$i] != $_POST["hid".$paraList[$i]]){        //参数值发生了改变
@@ -185,6 +191,7 @@ class SystemController extends AuthController {
                         }               
                     }
                 }
+               
              }
              else
              {
@@ -208,22 +215,29 @@ class SystemController extends AuthController {
                     $msg.="请重新启动服务管理器里面的NEU_TECH_VCR、NEU_TECH_MED和NEU_TECH_SIG服务";
                 }
                 for($i=0;$i<count($paraList);$i++){
-                    $sql="update tab_Sys_ParamsChannel set V_Value=V_DefaultValue where V_ParamsName ='".$paraList[$i]."'";
+                    $where = array();
+                    $update = array();
+                    $where['V_ParamsName'] = $paraList[$i];
+                    $update['V_Value'] = 'V_DefaultValue';
+                    
+
+                    
                     $log="通过浏览器恢复通道参数".$paraList[$i]."默认值（所有通道）";
                     if($channelid!=9999){
-                        $sql=$sql." and n_channelno=".$channelid;
+                        $where['N_ChannelNo'] = $channelid;
                         $log="通过浏览器恢复通道".$channelid."参数".$paraList[$i]."默认值";
                     }
+                    $rs = M('sys_paramschannel')->where($where)->save($update);
                     //echo $sql."<br />";
-                    if(!mysql_query($sql)){
+                    if(false === $rs){
                         $msg=$msg."参数[".$paraList[$i]."]恢复默认值时发生错误，操作失败。\\n";
                     }else{
                         addSysLog($log);
                     }
                 }
              } 
-
-             JS_alert($msg);  
+             $url ="/home/System/paramsChannel/channelid/{$channelid}";
+             JS_alert($msg,$url,true); exit; 
         }
         
         $sql = "select a.*,b.n_channeltype,b.n_channelno from tab_sys_paramschannel a,tab_sys_channelconfig b ";
@@ -239,6 +253,11 @@ class SystemController extends AuthController {
                 $strParaName=$strParaName.($strParaName==""?"":",").$v["v_paramsname"];
             }
         }
+        $sql="select distinct N_ChannelNo from tab_sys_paramschannel order by N_ChannelNo";
+        $channelist = M()->query($sql);
+
+        $this->assign('channelid',$channelid);
+        $this->assign("channelist",$channelist);
         $this->assign("strParaName",$strParaName);
         $this->assign("rs",$rs);
         $this->assign("CurrentPage",'channel');
@@ -247,13 +266,78 @@ class SystemController extends AuthController {
     
     //系统参数
     public function systemParameter(){
+        $todo=isset($_POST["todo"])?$_POST["todo"]:"";
+        if(IS_POST){
+            if($todo=="update"){
+                $pName=explode(",",$_POST["strPname"]);//参数列表，分解成数组；
+                for($i=0;$i<count($pName);$i++){
+                    $p=$pName[$i];
+                    //当提交过来的值为0时，不能使用字符过滤函数，否则0边空值。
+                    $pv=MySQLFixup($_POST[$p]);
+                    $hidpv=MySQLFixup($_POST["hid".$p]);
+                    if($pv!=$hidpv){
+                        $update = array();
+                        $where = array();
+                        $where['V_ParamsName'] = $p;
+                        $update['N_Change'] = -1;
+                        $update['V_Value'] = $pv;
+                        $rs = M("sys_paramssystem")->where($where)->save($update);
+                         
+                        if(false === $rs){
+                            $errMsg=$errMsg.(($errMsg=="")?"":"\\n")."提交参数[".$p."]发生未知错误，操作失败!";
+                        }else{
+                            if($p=="Sys_AutoBakDir"){//修改自动备份目录，则即时更新备份目录的虚拟路径(修改apache配置文件)
+                                $tmp=str_replace("\\\\","\\",$pv);
+                                if(substr($tmp,-1,1)=="\\"){
+                                    $tmp=substr($tmp,0,(strlen($tmp)-1));
+                                }
+                                $rp1=array(":","\\");
+                                $rp2=array("_","_");
+                                $netPath="STD1_".str_replace($rp1,$rp2,$tmp);
+                                //确定
+                                //echo $netPath;
+                                CreatNetPath($netPath,$tmp);
+                            }
+                            addSysLog("通过浏览器成修改系统参数:".$p."=".$pv);
+                            $errMsg="修改成功";
+                        }
+                    }
+                }
+            }
+            elseif($todo=="setDefault"){
+                $update = array();
+                $where = array();
+                $where['V_ParamsName'] = 'Sys_License_Count';
+                $where['N_ModifyLevel'] = 0;
+                $update['N_Change'] = -1;
+                $update['V_Value'] = 'V_DefaultValue';
+                $rs = M("sys_paramssystem")->where($where)->save($update);
+
+             
+                if(false === $rs){
+                    $errMsg="发生未知错误，操作失败!";
+                }
+                if($errMsg==""){
+                    addSysLog("系统参数恢复默认值");
+                    $errMsg="成功恢复参数默认设置";
+                } 
+            }
+
+            $url ="/home/System/systemParameter";
+            JS_alert($errMsg,$url,true); exit; 
+       }
+    
+        $strPname = "";
         $rs = M("sys_paramssystem")->where("N_ModifyLevel< 2")->order("V_ParamsNameCh")->select();
         if($rs){
             foreach ($rs as $k=>$v)
             {
                 $rs[$k]['paramsset'] = $this->showParaObj($v["v_paramsname"],$v["v_value"],$v["n_modifylevel"]);
+                $strPname=$strPname.(($strPname=="")?"":",").$v['v_paramsname'];
             }
         }
+
+        $this->assign("strPname",$strPname);
         $this->assign("rs",$rs);
         $this->assign("CurrentPage",'system');
         $this->display();
@@ -333,14 +417,14 @@ class SystemController extends AuthController {
         $this->display();
     }
     
-    //磁盘参数
+    //磁盘参数Sys_AutoBakDir
     public function diskParameter(){
         
         //获取当前使用的录音路径及磁盘;
         $CurrentStation=isset($_POST["SelStationID"])?$_POST["SelStationID"]:"";		//当前查看(设置)的工作站编号
         $field=" a.N_StationID,CONCAT(V_RcDiskPath4VPath,DATE_FORMAT(Now(),'%Y%m'),'\\\\',DATE_FORMAT(Now(),'%Y%m%d'),'\\\\') as V_RecordDiskPath ";
         $rsUsing = M('sys_diskspaceinfo')->join("tab_rec_recorddiskcfg a")->field($field)->where("V_RecordDiskPath  like CONCAT(V_DiskVolumeName,'%')")->select();
-         
+        
         //获取当前工作站的磁盘列表
         if($CurrentStation==""){$CurrentStation=$rsUsing[0]['n_stationid'];}
         $rsDisk = M("sys_diskspaceinfo")->where("N_StationId='{$CurrentStation}'")->select();
@@ -352,7 +436,7 @@ class SystemController extends AuthController {
             $rsDisk[$k]['currentdisk'] = substr($v["v_rcdiskpath4vpath"],0,3);
         }
       
-        
+         
         $this->assign("rsDisk",$rsDisk);
         $this->assign("rsUsing",$rsUsing);
         $this->assign("useingstation",substr($rsUsing[0]['v_recorddiskpath'],0,3));
@@ -870,7 +954,7 @@ class SystemController extends AuthController {
         $i=0;
         switch($pn){
             case "Sys_AutoBakData"://自动备份周期(天)
-                $obj="<select name='.$pn.' class='w'>";
+                $obj="<select name='{$pn}' id='{$pn}' class='w'>";
                 for(;;){
                     $i=$i+5;
                     if($i>60){break;}
@@ -879,7 +963,7 @@ class SystemController extends AuthController {
                 $obj.="</select>";
                 break;
             case "Sys_AutoBakPeriod":
-                $obj="<select name=".$pn."  class='w'>";
+                $obj="<select name='{$pn}' id='{$pn}'  class='w'>";
                 for(;;){
                     $i=$i+5;
                     if($i>60){break;}
@@ -888,7 +972,7 @@ class SystemController extends AuthController {
                 $obj.="</select>";
                 break;
             case "Sys_EnableBackup":		//是否允许自动备份,是否允许删除已经锁定的文件
-                $obj="<select name=".$pn." class='w'>";
+                $obj="<select name='{$pn}' id='{$pn}' class='w'>";
                 $obj.="<option value='0'".selected(0,$pv).">不允许</option>";
                 $obj.="<option value='1'".selected(1,$pv).">允许</option>";
                 $obj.="</select>";
@@ -898,7 +982,7 @@ class SystemController extends AuthController {
                 //$obj="<input type='text' onblur=\"check(this,'{$pn}')\" ";
                 //已禁止直接输入路径，可确保路径格式，无需再次检查
                 $obj="<input type='text' readonly  class='txtBox w' ";
-                $obj.=" value=".$pv." name='.$pn.' ";
+                $obj.=" value=".$pv." name='{$pn}' id='{$pn}' ";
                 if($mlv==0){//只读参数，则不允许修改。点击控件时不弹出路径选择
                     $obj.=" onclick=\"SetPath(this,0)\"";
                 }else{
@@ -907,13 +991,13 @@ class SystemController extends AuthController {
                 $obj.=" />";
                 break;
             case "Sys_EnableDelLockFile":	//是否允许自动备份,是否允许删除已经锁定的文件
-                $obj="<select name=".$pn." class='w'>";
+                $obj="<select name='{$pn}' id='{$pn}' class='w'>";
                 $obj.="<option value='0'".selected(0,$pv).">不允许</option>";
                 $obj.="<option value='1'".selected(1,$pv).">允许</option>";
                 $obj.="</select>";
                 break;
             case "Sys_AutoBakClock":	//自动备份时间，只允许选择凌晨3点至5点备份
-                $obj="<select name=".$pn." class='w'>";
+                $obj="<select name='{$pn}' id='{$pn}' class='w'>";
                 $obj.="<option value='3:00'".selected("3:00",$pv).">03:00</option>";
                 $obj.="<option value='4:00'".selected("4:00",$pv).">04:00</option>";
                 $obj.="<option value='5:00'".selected("5:00",$pv).">05:00</option>";
@@ -922,7 +1006,7 @@ class SystemController extends AuthController {
             default:
                 //$obj="<input type='text' onblur=\"check(this,'{$pn}','".$arr[$pn]["Regex"]."','".$arr[$pn]["ErrMsg"]."')\" ";
                 $obj="<input type='text' maxlength='20' onblur=\"check(this,'{$pn}')\"  class='txtBox' ";
-                $obj.=" value='{$pv}' name=".$pn.canModify($mlv)." class='w'/>";
+                $obj.=" value='{$pv}' name=".$pn.canModify($mlv)." id=".$pn.canModify($mlv)." class='w'/>";
                 //				.$arr["Sys_AutoBakClock"]["ErrMsg"]."','".$arr["Sys_AutoBakClock"]["ErrMsg"].
         }
         return $obj;

@@ -27,7 +27,7 @@
                 
                 <div class="mainpanel">
                     <div class="contentpanel">
-                     <form name="form1" action="paramsChannel.php?channelid={$channelid}" method="post">
+                     <form name="form1" action="paramsChannel/channelid/{$channelid}" method="post">
                         <div class="panel panel-title-head">
                         <div class="search_banner">
                              <div class="pull-left col-md-1">
@@ -43,7 +43,26 @@
 	                                <a class="btn btn-info btn-large" href="#">恢复配置</a>
 	                          </div>
 	                          <div style="clear:both"></div>
-                         </div>   
+                         </div>
+                         <div  style="background-color: #f7f7f7; display:block;line-height: 30px;margin-top: 5px;  margin-bottom: 5px;">
+                            <label for="inputPassword" class="col-md-1 control-label">请选择通道</label>
+                           <div class="col-md-1">
+                                <select name="channelid" id="channelid" onchange="MM_jumpMenu(this)">
+                                    <option value="paramsChannel/channelid/9999">全部</option>
+                                    <foreach name="channelist" item="rsList">
+                                        <?php if(trim($channelid) == trim($rsList['n_channelno'])){?>
+                                           <option value="/home/System/paramsChannel/channelid/{$rsList.n_channelno}" selected="selected">
+                                        <?php }else{ ?>
+                                           <option value="/home/System/paramsChannel/channelid/{$rsList.n_channelno}" >
+                                        <?php }?>
+                                        {$rsList.n_channelno}
+                                        </option>
+                                    </foreach>
+                                </select>
+                            </div>
+                            <label  class="col-md-3 control-label">（如果选择全部，则操作对所有通道起作用）</label>
+                            
+                        </div>   
                             <table id="basicTable" class="table table-striped table-bordered responsive">
                                 <thead class="">
                                     <tr>
@@ -89,9 +108,11 @@
         <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
 	
     <script type="text/javascript">
-    function MM_jumpMenu(targ,selObj,restore){ //v3.0
-      eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
-      if (restore) selObj.selectedIndex=0;
+    function MM_jumpMenu(obj){ //v3.0
+        var url = $(obj).val()
+         window.location.href=  url
+     // eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+     // if (restore) selObj.selectedIndex=0;
     }
     //提交表单
     function formSub(todo){
@@ -146,12 +167,13 @@
                 }
             }
         }
-        $("#todo").val('todo');
+        $("#todo").val(todo);
         if(document.form1.paraList.value==""){  
         //当前所选通道无参数可设置
             alert("当前所选通道无参数可设置,请选择需要配置的通道");
             return false;   
         }
+         
         document.forms[0].submit();
     }
     

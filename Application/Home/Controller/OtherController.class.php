@@ -42,8 +42,8 @@ class OtherController extends AuthController {
                     }
                 }
             }
+            $list = array();
             if($RecList){
-                $list = array();
                 $i=0;
                 $str = "";
                 foreach ($RecList as $kl=>$vl){
@@ -62,6 +62,7 @@ class OtherController extends AuthController {
                     $i++;
                 }
             }
+            
             $output['aaData'] = $list;
             $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
             $output['iTotalRecords'] = $total; //总共有几条数据

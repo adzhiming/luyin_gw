@@ -14,11 +14,18 @@ function getTodayChannelCount($ChannelNo='',$days){
     if($rs){
         $returnData['voiceCnt'] = $rs['cnt'];
     }
+    else{
+       $returnData['voiceCnt'] = '0'; 
+    }
     //统计录像
     $sql = "select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where {$where}";
     $rs = M()->query($sql);
+
     if($rs){
-        $returnData['videoCnt'] = $rs[0]['cnt'];
+        $returnData['videoCnt'] = empty($rs[0]['cnt'])?'0':$rs[0]['cnt'];
+    }
+    else{
+       $returnData['videoCnt'] = '0'; 
     }
     return $returnData;
 }
@@ -229,10 +236,10 @@ function dbNum($i){
 }
 
 /*客户端弹出警告信息*/
-function JS_alert($msg,$flag=false){
+function JS_alert($msg,$url,$flag=false){
     header("Content-type: text/html; charset=utf-8"); 
     if($flag){
-        echo"<script type='text/javascript'>alert('$msg');</script>";
+        echo"<script type='text/javascript'>alert('$msg');window.location.href='{$url}'</script>";
     }
     else{
         echo"<script type='text/javascript'>alert('$msg');</script>";
@@ -356,4 +363,36 @@ function getUserInfo($uid){
     }else{
         return "";
     }
+}
+
+//编辑apache配置文件httpd.conf，创建虚拟目录实现远程文件试听
+//入参：$netPath:虚拟目录名称；$vpath:虚拟目录指向的物理路径
+//返回值: 0:创建失败
+//        1:创建路径成功；
+//        2:虚拟目录已经存在，无需创建
+//add by lzh @2009-8-3
+function CreatNetPath($netPath,$vpath){
+    if(substr($vpath,-1,1)=="\\"){  //去除路径右侧的斜杠\
+        $vpath=substr($vpath,0,strlen($vpath)-1);
+    }
+    $filename="C:\\NeuTech\\Apache2.2\\conf\\httpd.conf";//默认apache配置文件路径
+    //$filename="C:\\Program Files\\Apache Software Foundation\\Apache2.2\\conf\\httpd.conf";
+    $ArrConf=file($filename);
+
+    //判断配置文件里是否已经存在同名虚拟路径
+    while (list($key, $val) = each($ArrConf)) {
+        if(substr_count($ArrConf[$key],"Alias '/{$netPath}' '{$vpath}'")){
+            //echo "虚拟路径已经存在",$ArrConf[$key],"Alias /{$netPath} '{$vpath}'";
+            return 2;
+            break;
+        }
+    }
+    unset($ArrConf);
+    $f=fopen($filename,"a+");   
+    fwrite($f,"\r\nAlias '/{$netPath}' '{$vpath}'\r\n");
+    fwrite($f,"<Directory '{$vpath}'>\r\n");
+    fwrite($f,"\tOrder allow,deny\r\n");
+    fwrite($f,"\tAllow from all\r\n");
+    fwrite($f,"</Directory>\r\n");
+    fclose($f);
 }

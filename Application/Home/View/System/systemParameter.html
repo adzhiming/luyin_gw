@@ -26,6 +26,7 @@
                </block>
                 
                 <div class="mainpanel">
+                	<form action="" method="post" enctype="application/x-www-form-urlencoded">
                     <div class="contentpanel">
                        
                         <div class="panel panel-title-head">
@@ -51,8 +52,9 @@
                                   <foreach name="rs" item="list">
 	                                  <tr role="row">
 	                                     <td>{$list.v_paramsnamech}</td>
-	                                     <td>{$list.paramsset}</td>
-	                                     <td>{$list.v_describe}</td>
+	                                     <td>{$list.paramsset}
+	                                     </td>
+	                                     <td>{$list.v_describe}<input type='hidden' name="hid{$list.v_paramsname}" value="{$list.v_value}"></td>
 	                                  </tr>
                                   </foreach>
                                 </tbody>
@@ -60,13 +62,15 @@
                         </div><!-- panel -->
                         
                         <div class="col-md-3">
-	                                <input class="btn btn-info btn-large" type="button" value="提交修改">
-	                                <input class="btn btn-info btn-large" type="button" value="恢复默认值">
+                        	<input type="hidden" name="strPname" value="<?php echo $strPname; ?>" />
+                            <input type="hidden" name="todo" id="todo"  />
+	                        <input class="btn btn-info btn-large" type="button" value="提交修改" onclick="formSub('update')">
+	                        <input class="btn btn-info btn-large" type="button" value="恢复默认值"  onclick="formSub('setDefault')">
 	                    </div>
                             
                            
                         </div><!-- panel -->
-                      
+                      </form>
                         
                     </div><!-- contentpanel -->
                 </div><!-- mainpanel --><!-- mainpanel -->
@@ -80,6 +84,46 @@
         <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
     </body>
     <script>
+	function formSub(todo){
+		$("#todo").val(todo);
+		if(todo=="setDefault"){
+			if(!confirm("确定将所有参数恢复默认值？")){
+				return false;	
+			}
+		}else{
+			var c;
+			if(document.forms[0].Sys_AutoBakDir){
+			//有录音自动备份路径时，禁止使用中文路径
+				c=document.forms[0].Sys_AutoBakDir;
+				if(/.*[\u4e00-\u9fa5]+.*$/.test(c.value)){    
+					alert("发生错误！\r\n系统不支持包含中文的录音路径！");
+					c.select();
+					return false;    
+				} 
+			}
+			//跨局代答码验证:
+			if(document.forms[0].ExchangeNumber){
+				c=document.forms[0].ExchangeNumber;
+				var v=c.value;
+				if(v!=""){
+					var V_char="0123456789*#";
+					for(var i=0;i<v.length;i++){
+						var temp=v.substr(i,1);
+						if(V_char.indexOf(temp)<0){
+							alert("输入错误：代答码包含非法字符，仅允许使用:"+V_char);
+							c.focus();
+							return false;
+						}
+					}
+				}
+			}
+			if(!confirm("确定修改系统参数？")){
+				return false;	
+			}
+		}
+		document.forms[0].submit();
+	}
+
 	//数据有效性检测
 	function check(obj,pn){
 		var pv=obj.value.replace(/\ /g,"");
@@ -108,6 +152,70 @@
 				return false;	
 			}	
 		}
+	}
+
+		function SetPath(o,showFile,disk){
+		var p=$(o).val();
+		//获得窗口的垂直位置 
+	    var iTop = (window.screen.availHeight - 30 - 380) / 2; 
+	    //获得窗口的水平位置 
+	    var iLeft = (window.screen.availWidth - 10 - 450) / 2; 
+	    
+	    var url="selectPath?tamp="+Math.random()+"&t="+showFile+"&p="+p+"&disk="+disk;
+		 
+        //直接点击某条录音的小喇叭，只播放当前录音
+		window.open(url,"player","height=450,width=550, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+			
+		
+	}
+
+		//设置参数对应的正则表达式，根据此规则进行数据验证
+	function getRegEx(pn){
+		var o = { reg:"", msg:""};
+		switch(pn){
+			case "Sys_AutoBakClock"	:
+				o={
+					reg : /(([01][0-9])|2[0-3]):([0-5][0-9])/,
+					msg : "时间格式错误！请重新输入。"
+				};break;
+			case "Sys_AutoBakDir":			//数据库自动备份路径
+			case "Sys_AutoBakDataPath":		//录音自动备份目录
+				o={
+					reg : /[c-zC-Z]\:(\\[^\/:*?"<>|]{1,})/,	//文件夹名称禁止出现的字符（\/:*?"<>|）
+					msg : "备份路径格式错误！文件夹名称禁止使用“/:*?\"<>|”等字符\r\n请重新输入。"
+				};break;
+			case "Sys_AutoBakPeriodSpace":	//字段备份周期，单位(天)
+			case "Sys_DelShorterThan":		//字段删除，少于多少秒的录音
+			case "Sys_License_Count":		//可用通道参数
+			case "Sys_RecordFileStoreDays"://文件过期时间，0表示不过期。过期则删除
+				o={
+					reg : /\d{1,4}/,
+					msg : "输入错误！请输入一个正整数。"
+				};break;
+			case "Sys_DivFileTime"://分割时间
+				o={
+					reg : /\d{1,4}/,
+					msg : "输入错误！请输入一个正整数。"
+				};break;
+			case "Sys_IpCh_Count"://录音通道号
+				o={
+					//reg : /\d{1,4}/,
+					reg : /^(0|\d{1,2}|1[0-2][0-8])$/,
+					msg : "输入错误！请输入小于128的正整数。"
+				};break;
+			case "Sys_Vedio_Count"://录象通道号
+				o={
+					//reg : /\d{1,4}/,
+					reg : /^(0|\d{1}|1[0-6])$/,
+					msg : "输入错误！请输入小于16的正整数。"
+				};break;	
+			default:
+				o={
+					reg : "",
+					msg : ""
+				};
+		}
+		return o;
 	}
 	</script>
 </html>

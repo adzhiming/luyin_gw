@@ -231,6 +231,8 @@ hr.hr20 {
 		        // 禁用按钮防止重复提交，发送前响应
 		        $("#loginbtn").attr({ disabled: "disabled" });
 		        $("#loginbtn").css("background-color","#dee1e2");
+                $(".tips").text("正在登录...");
+                $(".tips").show();
 		    },
 			success:function(data){
 			    if(data.code){
