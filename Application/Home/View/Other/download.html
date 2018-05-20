@@ -40,7 +40,7 @@
                         <div class="search_banner">
                               <div class="pull-left col-md-3">
 	                                <div class="input-group" style="padding:5px;">
-		                                <lable class="pull-left">备份时间：<input name="datetimepicker_start" id="datetimepicker_start" type="text" value="{$datetimepicker_start}" /></lable><br>
+		                                <lable class="pull-left">备份时间：<input name="datetimepicker_start" id="datetimepicker_start" type="text" value="{$datetimepicker_start}" data-date-format="yyyy-mm-dd" /></lable><br>
 		                             </div>
 	                           </div>
 	                           <div class="pull-left col-md-2">
@@ -199,7 +199,14 @@ $(document).ready( function () {
 
 	})
 	
-	jQuery('#datetimepicker_start').datetimepicker();
+
+
+  $('#datetimepicker_start').datetimepicker({
+    format: 'yyyy-mm-dd',//显示格式
+    minView: "month",//设置只显示到月份
+    autoclose: 1//选择后自动关闭
+  });
+
 </script>	
 		
     </body>

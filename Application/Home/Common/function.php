@@ -396,3 +396,33 @@ function CreatNetPath($netPath,$vpath){
     fwrite($f,"</Directory>\r\n");
     fclose($f);
 }
+
+//创建物理路径,支持多级,$path必须为绝对路径
+//add by lzh @2009-8-3
+function CreatDir($path){
+    if(strlen($path)>3){    //最短有效路径长度，如：D:\a
+        $ArrDir=explode("\\",$path);
+        $l=count($ArrDir);
+        $tmpdir=$ArrDir[0];
+        for($i=1;$i<$l;$i++){
+            if(!is_dir($tmpdir."\\".$ArrDir[$i])){
+                if(!@mkdir($tmpdir."\\".$ArrDir[$i],0777)){
+                    // "创建路径失败".$tmpdir."\\".$ArrDir[$i];
+                    return 0;
+                };
+            }
+            $tmpdir.="\\".$ArrDir[$i];
+            //echo $tmpdir."<br />";
+        }
+    }
+    return 1;
+}
+
+function formatNetPath($p){
+    $p=str_replace(":","_",$p);
+    $p=str_replace("\\","_",$p);
+    $p=str_replace(" ","_",$p);
+    $p=substr($p,0,strlen($p)-1);
+//echo $p;
+    return $p;
+}

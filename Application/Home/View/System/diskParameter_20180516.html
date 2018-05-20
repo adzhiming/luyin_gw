@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+	
+        <title>硬盘参数</title>
+
+        <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
+        <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
+        <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+		
+    </head>
+
+    <body>
+        <block name="header">
+           <include file="block/header"/>
+        </block>
+        <section>
+            <div class="mainwrapper">
+			   <block name="left">
+			   <include file="block/left" />
+               </block>
+                
+                <div class="mainpanel">
+                    <div class="contentpanel">
+                       
+                        <div class="panel panel-title-head">
+                            <div class="search_banner">
+                                <h5 class="text-primary">当前录音路径: D:\\</h5>
+                                <p>当前所有空间小于预留空间时,会存到下个盘</p>
+                            </div><!-- panel-heading -->
+                            <table id="basicTable" class="table table-striped table-bordered responsive">
+                                <thead class="">
+                                    <tr>
+                                        <th>当前磁盘</th>
+                                        <th>驱动器</th>
+                                        <th>磁盘状态</th>
+                                        <th>声音文件存放目录</th>
+                                        <th>磁盘预留空间数</th>
+                                        <input type="hidden" id="txtName" name="txtName" value="" />
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <foreach name="rsDisk" item="list">
+                                      <tr>
+                                        <td><label style="display:block; margin:0 !important"><input data-id="{$list.diskval}" type="radio" name='UsingDisk'
+                                        id='UsingDisk_{$list.diskval}' <if condition="$useingstation eq $list.currentdisk ">checked </if>></label></td>
+                                        <td>{$list.v_diskvolumename}</td>
+                                        <td>
+	                                        <div class="barblock"><div class="bar" style="width:{$list.yiyong}%"></div></div>
+	                                        <div>可用{$list.shenxia}%({$list.keyong}GB)</div>
+                                        </td>
+                                        <td> 			
+				                <input type='text' style='width:80%;'   name="path[]" readonly 
+				                  id="path_{$list.diskval}" value="{$list.v_rcdiskpath4vpath}"
+				 onclick="SetPath(this,0,'{$list.diskval}')" />
+				 <a href="javascript:setEmpty('{$list.diskval}')" style='color:#00f;' title='删除此路径'>清除</a>
+				 <input type='hidden' name="hid_path[]" value="{$list.v_rcdiskpath4vpath}" />
+				 
+				 </td> 
+                                        <td><input type='hidden' name='hid_LessFreeSpace[]' value='{$list.n_lessfreespace}' /> 
+				 <select name="N_LessFreeSpace[]">
+				      <option value='256' <if condition="$list.n_lessfreespace eq '256'">selected </if>>256</option> 
+				      <option value='512' <if condition="$list.n_lessfreespace eq '512'">selected </if>>512</option>";
+				      <option value='1024' <if condition="$list.n_lessfreespace eq '1024'">selected </if>>1024</option>";
+				 </select>MB</td>
+                                      </tr>
+                                    </foreach>
+                                </tbody>
+                            </table>
+                        </div><!-- panel -->
+                        
+                        
+                            
+                           
+                        </div><!-- panel -->
+                      
+                        
+                    </div><!-- contentpanel -->
+                </div><!-- mainpanel --><!-- mainpanel -->
+            </div><!-- mainwrapper -->
+        </section>
+		
+		<div class="modal fade" id="pathMod" tabindex="-1" role="dialog" >
+		  <div class="modal-dialog" role="document">
+
+		  </div>
+		</div>
+		
+        <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/jquery.datatables.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
+
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#pathMod').on('show.bs.modal',function(e){
+    	var r = e.relatedTarget;
+    	
+    })
+        
+}) 
+
+
+	//模拟“浏览”窗口，浏览服务端文件资源
+	//参数说明：o:接收返回值的控件
+//				showfile:浏览窗口是否显示文件。值为0则只显示文件夹，不显示文件
+//				disk:	允许浏览的磁盘，如果为空则可浏览所有磁盘
+/* 	function SetPath(o,showFile,disk){
+		var p=o.value;
+		if(!disk){disk="";}
+		var aVersion=navigator.appVersion; 
+		var version=parseInt(aVersion.split("MSIE")[1]); 
+		
+		var url="SelectPath/index.php?tamp="+Math.random()+"&t="+showFile+"&p="+p+"&disk="+disk;
+		var dsc="dialogWidth=510px;dialogHeight=480px;status=no";
+		
+		if(version >= 7 || aVersion.indexOf("MSIE")==-1){
+			dsc="dialogWidth=510px;dialogHeight=430px;status=no";
+		}
+		var vReturnValue=window.showModalDialog(url,"选择路径",dsc);
+		if(vReturnValue!="clear"){
+			o.value=vReturnValue;
+		}
+	} */
+	
+	function SetPath(o,showFile,disk){
+		var p=$(o).val();
+		//获得窗口的垂直位置 
+	    var iTop = (window.screen.availHeight - 30 - 380) / 2; 
+	    //获得窗口的水平位置 
+	    var iLeft = (window.screen.availWidth - 10 - 450) / 2; 
+	    
+	    var url="selectPath?tamp="+Math.random()+"&t="+showFile+"&p="+p+"&disk="+disk;
+		 
+        //直接点击某条录音的小喇叭，只播放当前录音
+		window.open(url,"player","height=450,width=550, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+			
+		
+	}	   
+</script>
+     	
+		
+    </body>
+</html>

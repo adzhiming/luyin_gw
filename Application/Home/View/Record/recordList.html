@@ -89,7 +89,13 @@
 	text-align: center;
     color: red;
  }
+
+ #basicTable_length{
+        float: right;
+        margin-right: 10px;
+ }
         </style>
+ }
     </head>
 
     <body>
@@ -185,8 +191,23 @@
                     alt="删除选中记录">删除选中记录</button>
 	                          </div> 
 	                          <div class="pull-left ">
-	                                <button class="btn btn-success btn-small" type="button"  onclick="batDown()" >打包下载录音</button>
+	                                <button class="btn btn-warning btn-small" type="button"  onclick="batDown()" >打包下载录音</button>
 	                          </div>
+                              <div class="pull-left ">
+                                    <button class="btn btn-success btn-small" type="button"  onclick="batDownExcel()" >导出录音EXCEL</button>
+                              </div>
+                            <!--   <div class="pull-right ">
+                                    <label>每页显示</label>
+                                    <select name="pageSize" id="pageSize" onchange="changeSearch()">
+                                        <option value="10">10条</option>
+                                        <option value="20">20条</option>
+                                        <option value="50">50条</option>
+                                        <option value="100">100条</option>
+                                        <option value="200">200条</option>
+                                        <option value="500">500条</option>
+                                        <option value="1000">1000条</option>
+                                    </select>
+                              </div> -->
 	                          <div style="clear:both"></div>
                          </div>
                             <table id="basicTable" class="table table-striped table-bordered" >
@@ -282,6 +303,7 @@
         <script src="__PUBLIC__/assets/bootstrap/js/jquery.audioplayer.js"></script>
 <script type="text/javascript">
 
+
 var CHANNEL_ARR = new Array();
 var CHANNEL_TB;
 var InOut = 2;
@@ -308,6 +330,7 @@ CHANNEL_TB = $('#basicTable').dataTable(
                 	if($('#has_video').is(':checked')){
                 		has_video = 1;
                 	}
+                    console.log($('#pageSize').val())
                 	d.chk_CN = String(CHANNEL_ARR);
                 	d.datetimepicker_start=$('#datetimepicker_start').val();
                 	d.datetimepicker_end=$('#datetimepicker_end').val();
@@ -327,9 +350,11 @@ CHANNEL_TB = $('#basicTable').dataTable(
             "pagingType": "full_numbers",
             //"sPaginationType": "full_numbers", //分页风格，full_number会把所有页码显示出来（大概是，自己尝试）
             "sDom": "<'row-fluid inboxHeader'<'span6'<'dt_actions'>l><'span6'f>r>t<'row-fluid inboxFooter'<'span6'i><'span6'p>>", //待补充
+            "aLengthMenu": [[10, 20, 50,100,500,1000], [10, 20, 50,100,500,1000]],
             "iDisplayLength": 10,  //每页显示10条数据
             "bAutoWidth": false,  //宽度是否自动，感觉不好使的时候关掉试试
-            "bLengthChange": false,
+            "bLengthChange": true,
+            
             "bFilter": false,
             "oLanguage": {  //下面是一些汉语翻译
                 "sSearch": "搜索",
@@ -369,8 +394,7 @@ CHANNEL_TB = $('#basicTable').dataTable(
                 {"mData": 'local_video'},
                 {"mData": 'remote_video'},
                 {"mData": 'n_lock'},
-                {"mData": 'remark'},
-               
+                {"mData": 'remark'}
             ],
 
             "aoColumnDefs": [//和aoColums类似，但他可以给指定列附近属性
@@ -386,25 +410,8 @@ CHANNEL_TB = $('#basicTable').dataTable(
         
 $('.search').click(function(){
 
-	var datetimepicker_start = $("input[name='datetimepicker_start']").val();
-	var datetimepicker_end = $("input[name='datetimepicker_end']").val();
-	$("input:radio[name='InOut']:checked").each(function() { 
-		InOut = $(this).val();  // 每一个被选中项的值
-    });	
-	$("input:radio[name='SearchMode']:checked").each(function() { 
-		SearchMode = $(this).val();  // 每一个被选中项的值
-    });
-	if($('#has_video').is(':checked')){
-		has_video = 1;
-	}
-	var details = $("input[name='details']").val();
-	
-    //console.log(CHANNEL_TB)
-
     CHANNEL_TB.fnClearTable();
     CHANNEL_TB.fnReloadAjax();
- 
-
      
 }) 
 
@@ -448,6 +455,10 @@ $('.search').click(function(){
 
 })  
 
+function changeSearch(){
+     CHANNEL_TB.fnClearTable();
+    CHANNEL_TB.fnReloadAjax();
+}
 function channelArrSet(){
 	CHANNEL_ARR = [];
 	$('#channelblock').find('[type=checkbox]').each(function(){
@@ -587,6 +598,7 @@ function del(flag){
 					console.log(data)
 					if(data.code){
 						alert(data.message);
+                        window.location.href="/home/record/recordList"
 					}
 				}
 			})
@@ -642,6 +654,50 @@ function batDown(){
 	})
 }
 
+
+function batDownExcel(){
+        $("input:radio[name='InOut']:checked").each(function() { 
+            InOut = $(this).val();  // 每一个被选中项的值
+        }); 
+        $("input:radio[name='SearchMode']:checked").each(function() { 
+            SearchMode = $(this).val();  // 每一个被选中项的值
+        });
+        if($('#has_video').is(':checked')){
+            has_video = 1;
+        }
+   
+        chk_CN = String(CHANNEL_ARR);
+        datetimepicker_start=$('#datetimepicker_start').val();
+        datetimepicker_end=$('#datetimepicker_end').val();
+        SearchMode=SearchMode;
+        InOut=InOut;
+        search_key=$('#search_key').val();
+        has_video=has_video;
+        stime=$('#stime').val();
+
+
+        $('#videoPlayMod').modal('show');
+        $('.downloadName').css("display","none");
+        var url="downloadRecordExcel"
+        $.ajax({
+            type:"POST",
+            url:url,
+            data:{
+                InOut:InOut,SearchMode:SearchMode,has_video:has_video,chk_CN:chk_CN,datetimepicker_start:datetimepicker_start,datetimepicker_end:datetimepicker_end,search_key:search_key
+            },
+            beforeSend:function(XMLHttpRequest){ 
+                $('.loadEffect').css("display","block");
+            }, 
+            success: function(data){
+                $('.loadEffect').css("display","none");
+                $('.downloadName').css("display","block");
+                $('.modal-title').html("操作完成");
+                $('.downloadName').html("成功导出录音记录文件：<a href='"+data.data+"'>点击下载</a>")
+
+                
+            }
+        })
+    }
 </script>        
 		
 		

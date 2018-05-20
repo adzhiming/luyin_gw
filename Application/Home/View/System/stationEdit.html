@@ -107,7 +107,7 @@
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-		        <!-- <button type="button" class="btn btn-primary">确定</button> -->
+		        <button type="button" class="btn btn-primary ok">确定</button>
 		      </div>
 		    </div>
 		  </div>
@@ -153,7 +153,7 @@ $(document).ready( function () {
 						$('.Alertmessage').css("color",'red');
 					}
 				    $('#alertModel').modal('show');
-		   		    $('.Alertmessage').html(data.message)
+		   		  $('.Alertmessage').html(data.message)
 				}
 	 })
   })
@@ -167,7 +167,12 @@ $(document).ready( function () {
 	    }
 	});
   
-})     
+}) 
+
+$('.ok').click(function(){
+   $('#alertModel').modal('hide');
+   window.location.href="/home/System/station"
+})    
 </script>        
 		
 		

@@ -99,11 +99,11 @@
                                         <div class="panel-icon icon-gavel"><i class="fa  fa-hdd-o"></i></div>
                                         <div class="media-body">                                           
                                             <div class="progress" style="background-color:#babbbe">
-												<div class="progress-bar" role="progressbar" aria-valuenow="60"
-													 aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+												<div class="progress-bar" role="progressbar" aria-valuenow="{$yiyong}"
+													 aria-valuemin="0" aria-valuemax="100" style="width: {$yiyong}%;  background-color: #57A1E7;">
 												</div>
 											</div>
-											 <h5 class="md-title nomargin" style="margin-top:10px;">当前录音磁盘已使用40% </h5> 
+											 <h5 class="md-title nomargin" style="margin-top:10px;">当前录音磁盘:{$curDiskNum}盘。已使用{$yiyong}% </h5> 
                                         </div><!-- media-body -->
                                     </div><!-- panel-body -->
                                 </div><!-- panel -->
@@ -122,7 +122,7 @@
                                     </div>panel-body
                                     
                                 </div>panel -->
-                                <div id="container" style="min-width:600px; height:250px;"></div>
+                                <div id="container" style="min-width:600px; height:300px;"></div>
                             </div>
                         </div><!-- row -->
                         <br>
@@ -131,7 +131,7 @@
 						    
                             <div class="col-md-12">
                              
-                                <div id="container2" style="min-width:600px; height:250px;"></div>
+                                <div id="container2" style="min-width:600px; height:300px;"></div>
                             </div>
                         </div><!-- row -->
                
@@ -163,6 +163,7 @@
  		<script>
 
  		$(function() {
+
  			$('#container').highcharts({
  		        title: {
  		            text: '数据统计'
@@ -180,7 +181,7 @@
  		            scrollbar: {
  		                enabled: true
  		            },
- 		           categories: ['1001通道(电路)', ' 1002通道(电路)', '1003通道(电路)', '1004通道(电路)', '1005通道(电路)'],
+ 		           categories: {$channelCat},
  		            tickLength: 0
  		        },
  		       yAxis: {
@@ -199,11 +200,11 @@
  		        series: [{
  		            type: 'column',
  		            name: '录音',
- 		            data: [30, 200, 300, 300, 40]
+ 		            data: {$voice_count},
  		        }, {
  		            type: 'column',
  		            name: '录像',
- 		            data: [20, 0, 500, 700, 60]
+ 		            data: {$video_count},
  		        }]
  		    });
  			
@@ -212,56 +213,45 @@
 
  		
  		
+ 	var chart = Highcharts.chart('container2', {
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: '月平均气温'
+    },
+    subtitle: {
+        text: '数据来源: WorldClimate.com'
+    },
+    xAxis: {
+        categories: {$days}
+    },
+    yAxis: {
+        title: {
+            text: '录音统计'
+        }
+    },
+    plotOptions: {
+        line: {
+            dataLabels: {
+                // 开启数据标签
+                enabled: true          
+            },
+            // 关闭鼠标跟踪，对应的提示框、点击事件会失效
+            enableMouseTracking: false
+        }
+    },
+    series: [{
+        name: '录音',
+        data: {$voice_day_count}
+    }, {
+        name: '录像',
+        data: {$video_day_count}
+    }]
+});
  		
  		
- 		
- 		var chart = Highcharts.chart('container2', {
- 		    title: {
- 		        text: '数据统计'
- 		    },
- 		    subtitle: {
- 		        text: '最近一个月录音录像数据统计'
- 		    },
- 		    yAxis: {
- 		        title: {
- 		            text: '数据记录（条）'
- 		        }
- 		    },
- 		    legend: {
- 		        layout: 'vertical',
- 		        align: 'right',
- 		        verticalAlign: 'middle'
- 		    },
- 		    plotOptions: {
- 		        series: {
- 		            label: {
- 		                connectorAllowed: false
- 		            },
- 		            pointStart: 10
- 		        }
- 		    },
- 		    series: [{
- 		        name: '录音',
- 		        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
- 		    }, {
- 		        name: '录像',
- 		        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
- 		    }],
- 		    responsive: {
- 		        rules: [{
- 		            condition: {
- 		                maxWidth: 500
- 		            },
- 		            chartOptions: {
- 		                legend: {
- 		                    layout: 'horizontal',
- 		                    align: 'center',
- 		                    verticalAlign: 'bottom'
- 		                }
- 		            }
- 		        }]
- 		    }
- 		});
+ 	
  		
 		</script>
 		

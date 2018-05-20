@@ -1,173 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>路径选择</title>
-</head>
-<style type="text/css">
-	*{font-size:12px; overflow:hidden;}
-	table{width:500px; height:380px; background:#E0DFE3;}
-	#path{border:1px solid #999; width:280px;}
-	.btn{ border:1px outset #E0DFE3; padding-top:2px;}
-	.border{border:1px solid #ccc;}
-	td{white-space:normal;word-break:break-all;}
-	.file{height:70px; width:78px; float:left; border:1px solid #E0DFE3;
-			text-align:center; margin:5px 5px 0 5px; cursor:pointer; overflow:hidden;}
-	.file:hover{border:1px outset #ccc;}
-	.disk{margin:5px auto; margin:5px;border:1px solid #E0DFE3; text-align:center;cursor:pointer;}
-	.disk:hover{border:1px outset #ccc;}
-	.diskDisabled{margin:5px auto; margin:5px;border:0;text-align:center;}
-	.onsel{height:70px; width:78px; float:left; border:1px solid #09c;
-			text-align:center; margin:5px 5px 0 5px; cursor:pointer; overflow:hidden;}
-	ul{margin:0; padding:0; list-style:none;}
-	ul li{float:left; margin-right:5px;}
-</style>
-<body style="overflow:hidden;">
-<table border="0" align="center" cellpadding="0" cellspacing="5" class="border" style="border-style:outset; width:480px;">
-	<tr>
-    	<td width="80" style="height:25px;text-align:right;white-space:nowrap;">当前位置: </td>
-        <td style="height:25px;vertical-align:middle; width:400px;">
-        	<ul>
-                <li><input type="text" readonly name="path" id="path" value="<?php echo $d; ?>" /></li>
-                <li><img src="__PUBLIC__/assets/images/ico/back.gif" alt="后退" onclick="up()" style="cursor:pointer;" /></li>
-            </ul>
-        	<input type="hidden" id="hid_path" name="hid_path" value="<?php echo $d; ?>" />
-        	
-        </td>
-	</tr>
-    <tr>
-    	<td width="80" style="background:#fff; padding:0;" class="border" rowspan="2" valign="top">
-        	<div style="overflow:auto;height:375px; width:80px;text-align:center;">
-        	  <?php
-			//可用磁盘列表
-			if($DiskCanView==""){
-				for($i=0;$i<count($Disks);$i++){
-					$path=$Disks[$i].":\\\\";
-					echo "<div class='disk' onclick=\"to('t=$showFile&p=$path','$path')\">";
-					echo "<img src='__PUBLIC__/assets/images/ico/disk.gif'><br />",$Disks[$i],"</div>";
-				}
-			}else{
-				for($i=0;$i<count($Disks);$i++){
-					if($Disks[$i]==$DiskCanView){
-						$path=$Disks[$i].":\\\\";
-						echo "<div class='disk' onclick=\"to('t=$showFile&p=$path','$path')\">";
-						echo "<img src='__PUBLIC__/assets/images/ico/disk.gif'><br />",$Disks[$i],"</div>";
-					}else{
-						echo "<div class='diskDisabled' style>";
-						echo "<img src='__PUBLIC__/assets/images/ico/disk.gif'><br />",$Disks[$i],"</div>";	
-					}
-				}	
-			}
-			?>
-        	</div>
-        </td>
-        <td style="background:#fff; width:320px;" class="border" valign="top">
-        	<div style="height:345px; width:400px;overflow:auto;" id='FileList'>
-				{$FoldersHtml}
-				{$FilesHtml}
-            </div>
-        </td>
-	</tr>
-    <tr>
-    	<td style="height:30px; text-align:right;">
-        	<input type="button" value="确 定" class="btn" onclick="set(1)" />
-            <input type="button" value="取 消" class="btn" onclick="set(0)" />
-        </td>
-    </tr>
-</table>
-</body>
-</html>
-<script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <div class="search_input_group" style="float: left;width: 70%">
+				      <span class="search_input-group-addon">
+				        	当前位置：
+				      </span>
+				      <input type="text" name="path" id="path" class="search_form-control" value="{$d}">
+			    </div>
+			    <div style="line-height: 30px;margin-left: 10px;display: block;" onclick="up()"><img src="/Public/assets/images/ico/back.gif"></div> 
+		      </div>
+		      <div class="modal-body">
+		      	<div class="row">
+		      		<div class="col-xs-3">
+		      			<div class="diskWrap">
+		      				
+		      		<!-- 可用磁盘列表 -->
+		      		<foreach name="Disks" item="list">
+		      				   <if condition="$list eq $DiskCanView">
+                                   <div class="item active" onclick="to('t=0&p={$list}:\\','{$list}:\\')">
+			      					<em class="disk-ico"></em>
+			      					<div class="name">{$list}</div>
+			      				   </div>
+		      				   	<else/>
+                                   <div class="item" style="cursor:not-allowed;">
+			      					<em class="disk-ico"></em>
+			      					<div class="name">{$list}</div>
+			      				   </div>
+		      				   </if>
+		      				  
+                         </foreach>	
+			 
+		      			</div>
+		      		</div>
+		      		<div class="col-xs-9">
+		      			<div class="fileWrap clearfix" style="max-height: 400px;overflow-y: scroll">
+		      				 
+		      			{$FoldersHtml}
  
-
-//创建并返回XMLHttp对象
-function createXMLHttps(){
-	var ret = null;
-	try{
-		ret = new ActiveXObject('Msxml2.XMLHTTP');
-	}
-	catch(e){
-		try{
-			ret = new ActiveXObject('Microsoft.XMLHTTP');
-		}
-		catch(ee){
-			ret = null;
-		}
-	}
-	if (!ret && typeof XMLHttpRequest != 'undefined')
-		ret = new XMLHttpRequest();
-	return ret;
-}
-
-//点击文件夹时，进入文件夹
-function to(url,file){
-	if(file.substr(file.length-1,1)!="\\"){
-		file=file+"\\"	;
-	}	
-	loadFileList(url,file);
-}
-
-function up(){
-	var file=$("#path").val();
-	var tmp=file.substr(0,file.length-1).lastIndexOf("\\");
-	if(tmp<0){
-		alert("已到最上层目录");
-	}else{
-		var tpath=file.substr(0,tmp+1);
-		var url="t=<?php echo $showFile ?>&p="+tpath;
-		loadFileList(url,tpath);	
-	}	
-}
-//点击文件时，设置路径
-function setpath(filename){
-	alert($("#hid_path").val()+filename)
-	$("#path").val($("#hid_path").val()+filename);
-}
-
-function onselect(f,filename){
-	var div_file=document.getElementsByTagName("DIV");
-	var len=div_file.length;
-	if(len>1){	//当前文件夹有多个文件
-		for(var i=0;i<len;i++){
-			if(div_file[i].className=="onsel"){
-				div_file[i].className="file";
-			}
-				
-		}
-	}
-	setpath(filename);
-	f.className="onsel";
-}
-
-//返回用户选择的路径
-function set(flag){
-	var txtName = window.opener.document.getElementById("txtName");//获取父窗口中元素，也可以获取父窗体中的值
-    txtName.value = 22;//将子窗体中的值传递到父窗体中去
-    
-	if(flag==0){
-		window.returnValue="clear";
-	}else{
-		window.returnValue=$("#path").val();	
-	}
-	self.close();
-}
-function loadFileList(url,file){
-	url="getFileList?"+url;
-	$.ajax({
-		type:"POST",
-		url:url,
-		data:{
-			id:1 
-		},
-		 
-		success: function(data){
-			$("#FileList").html(data);
-			$("#hid_path").val(decodeURIComponent(file));
-			$("#path").val(decodeURIComponent(file));
-		}
-	})
-	 
-}
-window.onload=function(){window.returnValue="clear";}
-</script>
+		      			</div>
+		      		</div>
+		      	</div>
+		      </div>
+		      <div class="modal-footer">
+		      	<input type="hidden" id="selectID" name="selectID" value="{$DiskCanView}">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		        <button type="button" class="btn btn-primary" onclick="selectok()">确定</button>
+		      </div>
+		    </div>

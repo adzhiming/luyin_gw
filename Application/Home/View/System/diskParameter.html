@@ -28,10 +28,10 @@
                 
                 <div class="mainpanel">
                     <div class="contentpanel">
-                       
+                       <form name="form1" method="post" action="" enctype="application/x-www-form-urlencoded">
                         <div class="panel panel-title-head">
                             <div class="search_banner">
-                                <h5 class="text-primary">当前录音路径: D:\\</h5>
+                                <h5 class="text-primary">当前录音路径:{$useingstation}</h5>
                                 <p>当前所有空间小于预留空间时,会存到下个盘</p>
                             </div><!-- panel-heading -->
                             <table id="basicTable" class="table table-striped table-bordered responsive">
@@ -46,11 +46,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <foreach name="rsDisk" item="list">
+                                    <foreach name="rsDisk" item="list"	
+                                    >
                                       <tr>
                                         <td><label style="display:block; margin:0 !important"><input data-id="{$list.diskval}" type="radio" name='UsingDisk'
-                                        id='UsingDisk_{$list.diskval}' <if condition="$useingstation eq $list.currentdisk ">checked </if>></label></td>
-                                        <td>{$list.v_diskvolumename}</td>
+                                        id='UsingDisk_{$list.diskval}' value="{$list.diskval}" <if condition="$useingstation eq $list.currentdisk ">checked </if>></label></td>
+                                        <td>
+                                        	{$list.v_diskvolumename}
+                                        	<input type="hidden" name="DrvName[]" value="{$list.diskval}:"  />
+                                        </td>
                                         <td>
 	                                        <div class="barblock"><div class="bar" style="width:{$list.yiyong}%"></div></div>
 	                                        <div>可用{$list.shenxia}%({$list.keyong}GB)</div>
@@ -73,9 +77,14 @@
                                     </foreach>
                                 </tbody>
                             </table>
+
                         </div><!-- panel -->
-                        
-                        
+                        <input type="hidden" name="SelStationID" id="SelStationID" value="{$CurrentStation}" /> 
+                        <input type="hidden" name="todo" id="todo" />
+                        <input type="hidden" name="hid_UsingPath" value="{$UsingPath}" />
+                        <input type="hidden" name="newDisk_path" id="newDisk_path" value="{$UsingPath}" />
+                        <div style="text-align: center;"><input class="btn btn-info btn-large" type="button" onclick="formSub('changePath');" value="确定修改"></div>
+                     </form>   
                             
                            
                         </div><!-- panel -->
@@ -87,62 +96,8 @@
         </section>
 		
 		<div class="modal fade" id="pathMod" tabindex="-1" role="dialog" >
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <div class="search_input_group">
-				      <span class="search_input-group-addon">
-				        	当前位置：
-				      </span>
-				      <input type="text" name="path"  class="search_form-control" value="C:/">
-			    </div>
-		      </div>
-		      <div class="modal-body">
-		      	<div class="row">
-		      		<div class="col-xs-3">
-		      			<div class="diskWrap">
-		      				<div class="item active">
-		      					<em class="disk-ico"></em>
-		      					<div class="name">C:/</div>
-		      				</div>
-		      				<div class="item">
-		      					<em class="disk-ico"></em>
-		      					<div class="name">D:/</div>
-		      				</div>
-		      				<div class="item">
-		      					<em class="disk-ico"></em>
-		      					<div class="name">E:/</div>
-		      				</div>
-		      				<div class="item">
-		      					<em class="disk-ico"></em>
-		      					<div class="name">F:/</div>
-		      				</div>
-		      			</div>
-		      		</div>
-		      		<div class="col-xs-9">
-		      			<div class="fileWrap clearfix">
-		      				<div class="item active">
-		      					<em class="file-ico"></em>
-		      					<div class="name">video</div>
-		      				</div>
-		      				<div class="item">
-		      					<em class="file-ico"></em>
-		      					<div class="name">video</div>
-		      				</div>
-		      				<div class="item">
-		      					<em class="file-ico"></em>
-		      					<div class="name">video</div>
-		      				</div>
-		      			</div>
-		      		</div>
-		      	</div>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
-		      </div>
-		    </div>
+		  <div class="modal-dialog" role="document" id="selectcontent">
+
 		  </div>
 		</div>
 		
@@ -152,14 +107,92 @@
         <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
 
 <script type="text/javascript">
-$(document).ready( function () {
-    $('#pathMod').on('show.bs.modal',function(e){
-    	var r = e.relatedTarget;
-    	
-    })
-        
-}) 
+ 	function formSub(todo){
+		$("#todo").val(todo);
+		if(todo=="changePath"){
+			Obj_path=document.getElementsByName("path[]");
+			if(Obj_path.length>1){
+				for(var i=0;i<Obj_path.length;i++){
+					if(/.*[\u4e00-\u9fa5]+.*$/.test(Obj_path[i].value)){    
+						alert("发生错误！\r\n系统不支持包含中文的录音路径！");
+						Obj_path[i].select();
+						return false;    
+					}else if(Obj_path[i].value.length==3){
+//						如果不允许设置“C:\”格式(则磁盘根目录，不指定文件夹)的路径，则取消此段注释
+						//var msg="录音保存路径错误！"
+//						msg+="\r\n\n不能设置为磁盘的根目录，必须指定一个文件夹"
+//						msg+="\r\n\n请重新选择录音保存路径"
+//						alert(msg);
+//						Obj_path[i].select();
+//						return false;	
+					}	
+				}
+			}else{
+				if(/.*[\u4e00-\u9fa5]+.*$/.test(Obj_path.value)){    
+					alert("发生错误！\r\n系统不支持包含中文的录音路径！");
+					Obj_path.select();
+					return false;    
+				} 
+			}
+		}
+		if(!DiskIsEmpty()){return false;}
+		document.forms[0].submit();
+	}
+	
+	//判断当前选中磁盘是否设置了路径,否则返回FALSE。
+	function DiskIsEmpty(){
+		var Radios=$("input[name='UsingDisk']");
+		var dLen=Radios.length;
+		if(dLen>1){
+			for(var i=0;i<dLen;i++){
+				var oid=Radios[i].getAttribute("id");
+				var pid=oid.replace("UsingDisk","path");//所选项对应的路径框的ID属性
+				if(Radios[i].checked){
+					if($("#"+pid).val().length<4){
+						var msg="所选磁盘未设置录音保存路径或者路径不正确！"
+						msg+="\r\n\n不能设置为某个磁盘的根目录，必须指定一个文件夹"
+						msg+="\r\n\n请重新选择录音保存路径"
+						alert(msg);
+						$("#"+pid).focus();
+						return false;
+					}else{
+						$("#newDisk_path").val($("#"+pid).val());//
+					}
+					break;
+				}
+			}	
+		}
+		return true;
+	}
 
+
+	//获取当前选中的磁盘
+	function getUsingDisk(){
+		var DiskList=$("input[name='UsingDisk']");
+		var len=DiskList.length;
+//		var usingDisk=document.forms[0].hid_UsingPath.value.substr(0,1);//当前使用盘
+		if(len>1){
+			for(var i=0;i<len;i++){
+				if(DiskList[i].checked){
+					usingDisk=DiskList.eq(i).val();	
+					 
+				}
+			}
+		}else{
+			usingDisk=DiskList.val()
+		 
+		}
+		return usingDisk;
+	}
+
+	function setEmpty(id){
+		var UsingDisk=getUsingDisk();
+		if(UsingDisk.substr(0,1)==id){
+			alert("当使用磁盘不允许设置为空。");	
+		}else{
+			$("#path_"+id).val("");
+		}
+	}
 
 	//模拟“浏览”窗口，浏览服务端文件资源
 	//参数说明：o:接收返回值的控件
@@ -184,7 +217,7 @@ $(document).ready( function () {
 	} */
 	
 	function SetPath(o,showFile,disk){
-		var p=$(o).val();
+/*		var p=$(o).val();
 		//获得窗口的垂直位置 
 	    var iTop = (window.screen.availHeight - 30 - 380) / 2; 
 	    //获得窗口的水平位置 
@@ -193,10 +226,71 @@ $(document).ready( function () {
 	    var url="selectPath?tamp="+Math.random()+"&t="+showFile+"&p="+p+"&disk="+disk;
 		 
         //直接点击某条录音的小喇叭，只播放当前录音
-		window.open(url,"player","height=450,width=550, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
-			
-		
-	}	   
+		window.open(url,"player","height=450,width=550, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");*/
+		var url="selectPath";
+		var currentdisk = $(o).val();
+        $.ajax({
+		type:"POST",
+		dataType:"html",
+		url:url,
+		data:{
+			disk:disk,currentdisk:currentdisk,t:0 
+		},
+		 
+		success: function(data){
+		  $('#selectcontent').html("");
+		  $('#selectcontent').html(data);
+		  $('#pathMod').modal('show');
+		}
+	})
+	}
+
+	//点击文件夹时，进入文件夹
+function to(url,file){
+	if(file.substr(file.length-1,1)!="\\"){
+		file=file+"\\"	;
+	}
+	loadFileList(url,file);
+}
+
+function up(){
+	var file=$("#path").val();
+	var tmp=file.substr(0,file.length-1).lastIndexOf("\\");
+	if(tmp<0){
+		alert("已到最上层目录");
+	}else{
+		var tpath=file.substr(0,tmp+1);
+		var url="t=<?php echo $showFile ?>&p="+tpath;
+		loadFileList(url,tpath);	
+	}	
+}
+
+function loadFileList(url,file){
+	url="getFileList?"+url;
+	$.ajax({
+		type:"POST",
+		url:url,
+		data:{
+			id:1 
+		},	 
+		success: function(data){
+			$('.fileWrap').html("");
+			$('.fileWrap').html(data);
+			$("#hid_path").val(decodeURIComponent(file));
+			$("#path").val(decodeURIComponent(file));
+		}
+	})
+	 
+}
+
+function selectok(){
+	var disk = $('#selectID').val(); 
+	var id = "path_"+disk
+	var selectpath = $('#path').val()
+	$("#"+id).val(selectpath)
+	$('#pathMod').modal('hide');
+}
+ 	   
 </script>
      	
 		

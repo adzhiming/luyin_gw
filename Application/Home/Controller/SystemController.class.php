@@ -53,7 +53,7 @@ class SystemController extends AuthController {
                                
                  }
             }
-            echo "<script>alert('修改成功');window.location.href='channelParameter'</script>";
+            echo "<script>alert('修改成功');window.location.href='/home/System/channelParameter'</script>";
             
         }
         //如果没第一条“设为录象通道”数据，则插入
@@ -419,9 +419,149 @@ class SystemController extends AuthController {
     
     //磁盘参数Sys_AutoBakDir
     public function diskParameter(){
-        
+        $CurrentStation=isset($_POST["SelStationID"])?$_POST["SelStationID"]:"";        //当前查看(设置)的工作站编号
+        if(IS_POST){
+            //var_dump($_POST["hid_UsingPath"]);
+            $aryDisk=$_POST["DrvName"];             //磁盘列表
+            $aryOldPath=$_POST["hid_path"];         //各磁盘录音保存路路径(修改后)
+            $aryNewPath=$_POST["path"];             //各磁盘录音保存路路径(修改前)
+            $oldSpace=$_POST["hid_LessFreeSpace"];  //磁盘预留空间(修改前)
+            $newSpace=$_POST["N_LessFreeSpace"];    //磁盘预留空间(修改后)
+            $newDisk=$_POST["newDisk_path"];        //新选中使用的磁盘
+            $UsingPath=$_POST["hid_UsingPath"];     //提交修改前使用的录音路径。
+            $RestartVCR="0";                        //是否需要重启VCR服务，弹出告警信息
+            $DiskIsChange=(substr($newDisk,0,2)==substr($UsingPath,0,2))?0:1;//修改使用的磁盘时，$DiskIsChange=1
+            $msg1="";
+            for($i=0;$i<count($aryNewPath);$i++){
+                //修改磁盘预留空间
+                if($oldSpace[$i]!=$newSpace[$i]){
+                    $update = array();
+                    $update['N_LessFreeSpace'] = $newSpace[$i];
+                    $rs = M('sys_diskspaceinfo')->where("V_DiskVolumeName='{$aryDisk[$i]}' and N_StationId='{$CurrentStation}'")->save($update);
+                   
+                    if(false !== $rs){
+                        addSysLog("通过浏览器修改".$aryDisk[$i]."盘预留空间为".$newSpace[$i]."MB");
+                        $msg1.="\\n成功修改".$aryDisk[$i]."盘预留空间为".$newSpace[$i]."MB";
+                    }
+                }
+                //修改文件保存路径
+                if($aryNewPath[$i]!=$aryOldPath[$i]){//修改了路径
+                    $p=$aryNewPath[$i];         //新路径
+                    $st=($p=="")?"-2":"-1";     //路径为空，状态设置为-2，非空并且已经修改，状态设置为-1
+                    if($aryDisk[$i]!=substr($p,0,2) && ($p!="")){
+                        JS_alert($aryDisk[$i]."盘路径错误，请在".$aryDisk[$i]."盘选择保存路径");
+                        JS_tourl("MSQL_disk_paramConfig.php");
+                        exit(0);
+                    }else{             
+                        if(strlen($p)<3 &&(substr($_POST["hid_UsingPath"],0,2)==$aryDisk[$i])){
+                            JS_alert("当前使用磁盘不能设置为空");
+                            JS_tourl("MSQL_disk_paramConfig.php");
+                            exit(0);
+                        }else{
+                            if(substr($p,strlen($p)-1,1)!="\\" &&$p!=""){$p=$p."\\";}   //确保路径末尾带有“\”
+
+                            if(CreatDir($p)){   //CreatDir：判断路径是否存在，不存在则尝试创建，创建成功返回1；失败则返回0。
+                                
+                                if($p!=""){ 
+                                    $netpath="STD".$CurrentStation."_".formatNetPath($p);
+                                }else{$netpath="";}
+                                if($p!=""){ 
+                                    CreatNetPath($netpath,$p);  //修改某个磁盘的保存路径时，创建虚拟目录 add by lzh @2009-8-4
+                                    if(substr($UsingPath,0,1)==substr($p,0,1)){
+                                        //修改的路径是当前使用路径，需要将路径同步到tab_rec_recorddiskcfg
+                                        $netpath="STD".$CurrentStation."_".formatNetPath($newDisk);
+                           
+                                        $del = M('rec_recorddiskcfg')->where('1')->delete();
+                                        if(false !== $del){
+                                            $insert = array();
+                                            $insert['N_StationID'] = $CurrentStation;
+                                            $insert['V_RecordDiskPath'] = $newDisk;
+                                            $insert['V_NetPath'] = $netpath;
+                                            $insert['N_UsingState'] = 1;
+                                            $rs = M('rec_recorddiskcfg')->add($insert);
+
+                                            if($rs){
+                                                $tmp="通过浏览器修改当前使用磁盘为：".substr($newDisk,0,1);
+                                                $RestartVCR=1;  //修改了录音磁盘，提示重启VCR服务
+                                                addSysLog($tmp);
+                                                $msg1.="\\r\\n".$tmp;
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                $p=str_replace("\\","\\\\",$p);
+                                $upd = array();
+                                $upd['V_RcDiskPath4VPath'] = $p;
+                                $upd['N_RcWavPathState'] = $st;
+                                $upd['V_RcVPath'] = $netpath;
+                                 
+ 
+                                $uprs = M('sys_diskspaceinfo')
+                                      ->where("V_DiskVolumeName='".$aryDisk[$i]."' and N_StationId='".$CurrentStation."'")
+                                      ->save($upd);
+                                 //echo M()->getLastSql(); 
+                                if(false !== $uprs){
+                                
+                                    if($p!=""){
+                                    addSysLog("通过浏览器修改".$aryDisk[$i]."盘录音保存路径为".$p);
+                                    $RestartVCR=1;  //修改了录音磁盘，提示重启VCR服务
+                                    $msg1=$msg1."\\n成功修改".$aryDisk[$i]."盘录音保存路径为".$p;
+                                    }else{
+                                        addSysLog("通过浏览器清空".$aryDisk[$i]."盘录音保存路径");
+                                        $msg1=$msg1."\\n成功清空".$aryDisk[$i]."盘录音保存路径";
+                                    }
+                                } 
+                            }else{ 
+                                JS_alert("创建路径【{$p}】失败，请重新设置路径");
+                            }
+                        }
+                        
+                    }
+                }
+            }
+            //修改录音文件保存磁盘
+            if($DiskIsChange==1){
+
+            //修改了文件保存磁盘，判断选用的磁盘是否设置了路径
+                $netpath="STD".$CurrentStation."_".formatNetPath($newDisk);
+                $del = M('rec_recorddiskcfg')->where('1')->delete();
+                if(false !== $del){
+                    $insert = array();
+                    $insert['N_StationID'] = $CurrentStation;
+                    $insert['V_RecordDiskPath'] = $newDisk;
+                    $insert['V_NetPath'] = $netpath;
+                    $insert['N_UsingState'] = 1;
+                    $rs = M('rec_recorddiskcfg')->add($insert); 
+                   
+                    
+                    if($rs){
+                        $tmp="通过浏览器修改当前使用磁盘为：".substr($newDisk,0,1);
+                        $RestartVCR=1;
+                        addSysLog($tmp);
+                        $msg1.="\\r\\n".$tmp;
+                    }
+                }
+                //echo $sql;
+            }
+            
+            if($msg1!=""){
+                if($RestartVCR==1){
+                    $service="";
+                    $nSQL="select count(N_ChannelNo) from tab_sys_channelconfig where N_Channeltype=3";
+                    //echo $nSQL;
+                    $rsGaozu=mysql_query($nSQL);
+                    if(mysql_result($rsGaozu,0,0)>0){
+                        $service.="NEU_TECH_VCR、";
+                    }
+                    $msg1.="\\r\\r\\n【重启系统".$service."NEU_TECH_MED和NEU_TECH_SIG服务后生效】";
+                }
+                JS_alert($msg1);    
+            }
+        }
+
         //获取当前使用的录音路径及磁盘;
-        $CurrentStation=isset($_POST["SelStationID"])?$_POST["SelStationID"]:"";		//当前查看(设置)的工作站编号
+        
         $field=" a.N_StationID,CONCAT(V_RcDiskPath4VPath,DATE_FORMAT(Now(),'%Y%m'),'\\\\',DATE_FORMAT(Now(),'%Y%m%d'),'\\\\') as V_RecordDiskPath ";
         $rsUsing = M('sys_diskspaceinfo')->join("tab_rec_recorddiskcfg a")->field($field)->where("V_RecordDiskPath  like CONCAT(V_DiskVolumeName,'%')")->select();
         
@@ -434,22 +574,30 @@ class SystemController extends AuthController {
             $rsDisk[$k]['shenxia'] = round($v["n_freespace"]/$v["n_totalspace"]*100,2);
             $rsDisk[$k]['keyong'] = $v["n_freespace"]/1000;
             $rsDisk[$k]['currentdisk'] = substr($v["v_rcdiskpath4vpath"],0,3);
+            if(1){
+
+            }
         }
-      
-         
+        
+        
+        $this->assign("CurrentStation",$CurrentStation);
         $this->assign("rsDisk",$rsDisk);
-        $this->assign("rsUsing",$rsUsing);
+        $this->assign("rsUsing",$rsUsing); 
+        $this->assign("UsingPath",$rsUsing[0]['v_recorddiskpath']);
         $this->assign("useingstation",substr($rsUsing[0]['v_recorddiskpath'],0,3));
         $this->assign("CurrentPage",'disk');
         $this->display();
     }
     
+
     //选择磁盘
     public function selectPath(){
+
         header("Content-type: text/html; charset=utf-8");
-        $showFile=isset($_GET["t"])?$_GET["t"]:0; //=1，列出文件夹和文件。=0，只列出文件夹
-        $DiskCanView=isset($_GET["disk"])?$_GET["disk"]:"";	//有权浏览的磁盘，为空则无限制
-        $d=isset($_GET["p"])?$_GET["p"]:"";						//初始路径，为空时则为当前目录
+        $showFile=isset($_REQUEST["t"])?$_REQUEST["t"]:0; //=1，列出文件夹和文件。=0，只列出文件夹
+        $DiskCanView=isset($_REQUEST["disk"])?$_REQUEST["disk"]:"";	//有权浏览的磁盘，为空则无限制
+        $d=isset($_REQUEST["currentdisk"])?$_REQUEST["currentdisk"]:"";		//初始路径，为空时则为当前目录
+        $Disk = $DiskCanView;
         if($d!=""){								//有传递初始路径，判断传入的是一个目录还是一个具体的文件
             if(strlen($d)==1){					//路径参数只有一个字符时，将其当盘符看待，并在后面增加":/"
                 $d.=":\\";
@@ -509,9 +657,11 @@ class SystemController extends AuthController {
                         //非一级目录时，PHP自动生成“.”和“..”两个路径，分别表示当前路径和上级路径，再次不显示这两个路径
                         //$path=rawurlencode ($d.$val);
                         $path=str_replace("\\","\\\\",$d.$val);
-                        $FoldersHtml .= "<div class='file' name='div_folde' title=\"{$val}\" ";
-                        $FoldersHtml .=  "onclick=\"to('t=$showFile&p=$path','$path')\">";
-                        $FoldersHtml .=  "<img src='/Public/assets/images/ico/folder.gif'><br />{$val}</div>\r\n";
+                  
+                        $FoldersHtml .=  "<div  class=\"item active\"  title=\"{$val}\" onclick=\"to('t=$showFile&p=$path','$path')\">";
+                        $FoldersHtml .=    "<em class='file-ico'></em>";
+                        $FoldersHtml .=    "<div class='name'>{$val}</div>";
+                        $FoldersHtml .=  "</div>";
                     }
                 }
             }
@@ -522,14 +672,15 @@ class SystemController extends AuthController {
                 $FilesHtml = "<div class='file' name='div_file' title=\"{$val}\" onclick='onselect(this,\"{$val}\")' ><img src='/Public/assets/images/ico/xml.gif'><br />{$val}</div>";
             }
         }
-        
+      
       $this->assign("FoldersHtml",$FoldersHtml);
       $this->assign("FilesHtml",$FilesHtml);
       $this->assign("showFile",$showFile);
       $this->assign("Disks",$Disks);
       $this->assign("DiskCanView",$DiskCanView);
       $this->assign("d",$d);  
-      $this->display();  
+      $content =  $this->fetch('/System/selectPath'); 
+      echo $content;exit;
     }
    
     
@@ -576,6 +727,7 @@ class SystemController extends AuthController {
         }
         
         if(isset($Folders)){
+            $FoldersHtml = "";
             while (list($key, $val) = each($Folders)){
                 $val = iconv("utf-8","gb2312",$val);
                 if(is_readable($d."\\{$val}")){
@@ -583,9 +735,15 @@ class SystemController extends AuthController {
                         //非一级目录时，PHP自动生成“.”和“..”两个路径，分别表示当前路径和上级路径，再次不显示这两个路径
                         $path=rawurlencode ($d.$val);
                         $path=str_replace("\\","\\\\",$d.$val);
-                        echo "<div class='file' name='div_folde' title=\"{$val}\" ";
+                        /*echo "<div class='file' name='div_folde' title=\"{$val}\" ";
                         echo "onclick=\"to('t={$showFile}&p={$path}','{$path}')\">";
-                        echo "<img src='/Public/assets/images/ico/folder.gif'><br />{$val}</div>\r\n";
+                        echo "<img src='/Public/assets/images/ico/folder.gif'><br />{$val}</div>\r\n";*/
+
+                        $FoldersHtml .=  "<div  class=\"item active\"  title=\"{$val}\" onclick=\"to('t=$showFile&p=$path','$path')\">";
+                        $FoldersHtml .=    "<em class='file-ico'></em>";
+                        $FoldersHtml .=    "<div class='name'>{$val}</div>";
+                        $FoldersHtml .=  "</div>";
+                       // 
                     }
                 }
                 
@@ -593,9 +751,10 @@ class SystemController extends AuthController {
         }
         if(isset($Files) and $showFile==1){
             while (list($key, $val) = each($Files)){
-                echo "<div class='file' name='div_file' title=\"{$val}\" onclick='onselect(this,\"{$val}\")' ><img src='/Public/assets/images/ico/xml.gif'><br />{$val}</div>";
+               $FoldersHtml .=  "<div class='file' name='div_file' title=\"{$val}\" onclick='onselect(this,\"{$val}\")' ><img src='/Public/assets/images/ico/xml.gif'><br />{$val}</div>";
             }
-        }				
+        }
+        echo $FoldersHtml;				
     }
     
     //IP限制

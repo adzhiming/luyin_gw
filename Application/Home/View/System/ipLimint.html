@@ -146,10 +146,63 @@ $(document).ready( function () {
 }) 
 
 $('.addIP').click(function(){
+	var newIP=$("#newIP").val();
+	if(newIP==""){
+			alert("IP地址不能为空");
+			$("#newIP").focus();
+			return false;
+		}
+	if(!isIP(newIP)){
+			alert("IP格式错误，添加失败！");
+			$("#newIP").focus();
+			return false;
+	} 
+
 	CHANNEL_TB.fnClearTable();
     CHANNEL_TB.fnReloadAjax();
 })
 
+	function  isIP(str){
+		var str1=str.split(".");
+		if (str1.length!=4){	//IPv4格式，必须有4个段
+			return false;
+		}
+		var temp=/^(\d+)\.(\d+)\.(\d{0,3}|\*+)\.(\d|\*+)/;
+		if(!temp.test(str)){
+			return false;
+			}
+		else{
+			if(isNaN(str1[0])){
+				return false;
+			}else{
+				if(parseInt(str1[0])>255 || parseInt(str1[0])<1){
+					return false;	
+				}	
+			}
+			if(isNaN(str1[1])){
+				return false;
+			}else if(parseInt(str1[1])>255){
+				return false;	
+			}
+			if(str1[2]!="*"){
+				if(isNaN(str1[2])){
+					return false;
+				}else if(parseInt(str1[2])>255){
+					return false;	
+				}
+			}
+			if(str1[3]!="*"){
+				if(isNaN(str1[3])){
+					return false;
+				}else if(parseInt(str1[3])>255){
+					return false;	
+				}
+			}
+
+		}
+		return true;
+  	}
+  	
 //删除选中的记录
 function del(id){
 	if(!id){
