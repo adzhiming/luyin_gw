@@ -329,8 +329,14 @@ class RecordController extends AuthController {
 	        }
 	        $rsPlay = M('rec_cdrinfo')->field($SelectStr)->where("N_RECID = '{$recid}' ")->order('N_RECSEQ')->select();
 	        
-	        $fileName=$this->getParam("fname");//加载页面后，首先播放的录音
+	        $fileName=$this->getParam("fname");
+            //加载页面后，首先播放的录音
 	        if(!$rsPlay){
+                $rs = M('rec_bakinfo')->field("N_RECID")->where("N_SN = '{$listItem}' ")->find();
+                $recid = "";
+                if($rs){
+                    $recid = $rs["n_recid"];
+                }
 	            $rsPlay = M('rec_bakinfo')->field($SelectStr)->where("N_RECID = '{$recid}' ")->order('N_RECSEQ')->select();
 	            if(!$rsPlay){	//再次无记录，关闭试听页面
 	                JS_alert("没找到录音文件，可能已被删除");
@@ -341,7 +347,7 @@ class RecordController extends AuthController {
 	    $rsPlayTotal = array_merge($rsPlay,$rsPlay_bak);
 	    if($rsPlayTotal){
 	        foreach ($rsPlayTotal as $k=>$v){
-	            $rsPlayTotal[$k]['field_url'] = "http://local.lyxtgw.com/".$v["v_netpath"].$v["v_voicefile"];
+	            $rsPlayTotal[$k]['field_url'] = host().$v["v_netpath"].$v["v_voicefile"];
 	            $rsPlayTotal[$k]['fx'] =  fx($v["n_calldirection"]);
 	        }
 	    }
@@ -795,4 +801,208 @@ class RecordController extends AuthController {
         $this->display();
     }
     
+    public function downloadRecordExcel(){
+        $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
+        $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
+
+        $SearchMode = isset($_REQUEST['SearchMode'])?$_REQUEST['SearchMode']:0;
+        $search_key = $_REQUEST['search_key'];
+        $has_video = $_REQUEST['has_video'];
+        $stime = isset($_REQUEST['stime'])?$_REQUEST['stime']:1;
+        $InOut = $_REQUEST['InOut'];
+        $chk_CN = $_REQUEST['chk_CN'];
+        $datetimepicker_start = isset($_REQUEST['datetimepicker_start'])?$_REQUEST['datetimepicker_start']:$s_time;
+        $datetimepicker_end = isset($_REQUEST['datetimepicker_end'])?$_REQUEST['datetimepicker_end']:$e_time;
+
+        $m = M("rec_cdrinfo");
+        $m_bak = M("rec_bakinfo");
+        
+        $field="N_SN,N_ChannelID,D_StartTime,D_StopTime,V_VoiceFile,N_FileFormat,";
+        $field.="N_CallDirection,V_Caller,V_Called,V_Ext,N_BackUp,N_Lock,N_Alarm,";
+        $field.="N_AvoidRec,N_DeleteFlag,N_Locker,V_Path,V_NetPath,";
+        $field.="V_Diverter,V_Diverted,N_IsTalk,ReMark ";
+        
+        
+        $where  .=  " D_StartTime between '{$datetimepicker_start}' and '$datetimepicker_end' ";
+        
+        if(!empty($chk_CN)){
+            $where  .= " and N_ChannelID in ($chk_CN)";
+        }
+       
+        if($search_key != ""){//通话号码(姓名)的取值，0则号码，1则姓名
+            if($SearchMode==0){
+                $key=getNumByName($search_key);
+                if($key==""){
+                    $where .= ' and N_SN = -1';//姓名没匹配到号码，直接设置一个不成立的条件
+                }else{
+                    $where .= " and (V_caller in ('{$key}') or V_called in('{$key}') or v_ext in('{$key}')) ";
+                }
+            }else{
+                $where .= " and (V_caller like '".$search_key."%' or V_called like '".$search_key."%'  orv_ext like '".$search_key."%')";
+            }
+        }
+        if ($has_video==1) {//只查有录象的记录
+            $sql = "select `recid` from tab_ved_cdrinfo union select `recid` from tab_ved_bakinfo order by `recid` ";
+            $res = M()->query($sql);
+            $recid = "";
+            if($res){
+                foreach ($res as $v){
+                    if($recid == ""){
+                        $recid = $v['recid'];
+                    }
+                    else 
+                    {
+                        $recid = $recid .",".$v['recid'];
+                    } 
+                }
+            }
+            if(!empty($recid)) $where .= " and N_SN in ($recid)";
+        }
+        
+        //按拨叫方向查询
+        if($InOut!=2){
+            $where .= " and N_CallDirection= {$InOut}";
+        }
+        $where.=" and  (unix_timestamp(D_StopTime)-unix_timestamp(D_StartTime))>=$stime ";
+        $CntNoBackup=$m->field("count(*) cnt")->where($where)->find();  //未备份部分数据
+        $CntNoBackup=$CntNoBackup['cnt'];
+        $CntBackup = $m_bak->field("count(*) cnt")->where($where)->find();  //已备份部分数据
+        $CntBackup=$CntBackup['cnt'];
+        $total = (int)$CntNoBackup + (int)$CntBackup;
+        $rs = array();
+        if($CntBackup==0)
+        {
+            //无已备份数据，读取未备份数据即可
+            $rs= $m->field($field)->where($where)->select();
+        }
+        else
+        {
+            if($CntNoBackup==0)
+            {
+                //有已备份数据，无未备份数据。读取已备份份数据即可
+                $rs= $m_bak->field($field)->where($where)->select();
+            }
+            else 
+            {
+                //未备份和已备份都有，需要读取两张表
+                //计算未备份数据有多少页$NotBak_pagecnt
+                if($CntNoBackup % $length==0){
+                    $NotBak_pagecnt=($CntNoBackup / $length);
+                }else{
+                    $NotBak_pagecnt=(int)($CntNoBackup/$length)+1;
+                } 
+                $NumNotShowed = $CntNoBackup - $start;  //未备份数据还有多少条未显示
+                
+                if($NumNotShowed>0){
+                    if($NumNotShowed >$length || $NumNotShowed == $length)
+                    {
+                        $rs= $m->field($field)->where($where)->select();
+                    }
+                    else
+                    {
+                        //未备份数据不足一页的数据，需要同时读取备份与未备份数据
+                        $rsNoBak= $m->field($field)->where($where)->select();
+                        $rsBak= $m_bak->field($field)->where($where)->select();
+                        $rs= array_merge($rsNoBak,$rsBak); 
+                    }
+               }
+               else
+               {
+                   //$NumNotShowed=0或者$NumNotShowed<0,则未备份录音已经显示完毕，仅查询备份表(tab_rec_bakinfo)即可
+                   $rs= $m_bak->field($field)->where($where)->select();
+               }
+            }    
+        }
+       
+        if($rs){ 
+            foreach ($rs as $k=>$v)
+            {
+                $fileplay ="<i class='fa fa-volume-up ' style=\"cursor:pointer\" onclick=\"play('".$v["n_sn"]."','".$v["v_voicefile"]."')\"></i>";
+                
+                $rs[$k]['n_channelinfo'] = getChannelNameById($v['n_channelid']);
+                $rs[$k]['v_caller'] = getNameByPhoneNum($v['v_caller']);
+                $rs[$k]['v_called'] = getNameByPhoneNum($v['v_called']);
+                $rs[$k]['v_ext'] = getNameByPhoneNum($v['v_ext']);
+                $rs[$k]['n_calldirection'] = $v['n_calldirection']==1?'拨出':'来电';
+                $rs[$k]['longtime'] = DateDiff($v['d_starttime'],$v['d_stoptime']);
+                $rs[$k]['v_voicefileplay'] = $fileplay;
+                $rs[$k]['local_video'] = getVideoByRecID($v['n_sn'],0);
+                $rs[$k]['remote_video'] = getVideoByRecID($v['n_sn'],1);
+            }
+        }
+        header("Content-type: text/html; charset=utf-8");
+        Vendor("PHPExcel.PHPExcel");
+        Vendor("PHPExcel.PHPExcel.Reader.Excel2007.php");
+        Vendor("PHPExcel.PHPExcel.Reader.Excel5");
+        Vendor("PHPExcel.PHPExcel.IOFactory");
+        
+        $excel = new \PHPExcel();
+        
+        //指定工作簿
+        $excel->setActiveSheetIndex(0); 
+        //设置列宽
+        $excel->getActiveSheet()->getColumnDimension('A')->setWidth('5');
+        $excel->getActiveSheet()->getColumnDimension('B')->setWidth('5');
+        $excel->getActiveSheet()->getColumnDimension('C')->setWidth('10');
+        $excel->getActiveSheet()->getColumnDimension('D')->setWidth('10');
+        $excel->getActiveSheet()->getColumnDimension('E')->setWidth('10');
+        $excel->getActiveSheet()->getColumnDimension('F')->setWidth('10');
+        $excel->getActiveSheet()->getColumnDimension('G')->setWidth('5');
+        $excel->getActiveSheet()->getColumnDimension('H')->setWidth('10');
+        $excel->getActiveSheet()->getColumnDimension('I')->setWidth('10');
+        $excel->getActiveSheet()->getColumnDimension('J')->setWidth('10');
+        $excel->getActiveSheet()->getColumnDimension('K')->setWidth('5');
+        $excel->getActiveSheet()->getColumnDimension('L')->setWidth('5');
+        
+        
+        $excel->getActiveSheet()->setTitle('录音记录'); //excel标题
+        //设置行标题
+        $excel->getActiveSheet()->setCellValue("A1", "ID");         
+        $excel->getActiveSheet()->setCellValue("B1", "线路号");
+        $excel->getActiveSheet()->setCellValue("C1", "线路信息");
+        $excel->getActiveSheet()->setCellValue("D1", "主叫");
+        $excel->getActiveSheet()->setCellValue("E1", "被叫");
+        $excel->getActiveSheet()->setCellValue("F1", "录音号码");
+        $excel->getActiveSheet()->setCellValue("G1", "方向");
+        $excel->getActiveSheet()->setCellValue("H1", "开始时间");
+        $excel->getActiveSheet()->setCellValue("I1", "结束时间");
+        $excel->getActiveSheet()->setCellValue("J1", "时长");
+        $excel->getActiveSheet()->setCellValue("K1", "锁定");
+        $excel->getActiveSheet()->setCellValue("L1", "备注");
+
+         
+        //获取并填充数据
+        if($rs){
+            $i=1;
+            foreach ($rs as $key => $value) {
+                $i++;
+                $excel->getActiveSheet()->setCellValue("A".$i,$value["n_sn"]);
+                $excel->getActiveSheet()->setCellValue("B".$i,$value["n_channelid"]);
+                $excel->getActiveSheet()->setCellValue("C".$i,$value["n_channelinfo"]);
+                $excel->getActiveSheet()->setCellValue("D".$i,$value["v_caller"]);
+                $excel->getActiveSheet()->setCellValue("E".$i,$value["v_called"]);
+                $excel->getActiveSheet()->setCellValue("F".$i,$value["v_ext"]);
+                $excel->getActiveSheet()->setCellValue("G".$i,$value["n_calldirection"]);
+                $excel->getActiveSheet()->setCellValue("H".$i,$value["d_starttime"]);
+                $excel->getActiveSheet()->setCellValue("I".$i,$value["d_stoptime"]);
+                $excel->getActiveSheet()->setCellValue("J".$i,$value["longtime"]);
+                $excel->getActiveSheet()->setCellValue("K".$i,$value["n_lock"]);
+                $excel->getActiveSheet()->setCellValue("K".$i,$value["remark"]);
+            }
+        } 
+        
+      
+        $title ='录音记录';
+        $date = date('Y-m-d',time());
+        
+        $data = array();
+        $fileurl = "Uploads/records/". $title."_".$date.".xls";
+       
+        $filename = iconv('utf-8', "gb2312", $fileurl);
+        
+        $objwriter = \PHPExcel_IOFactory::createWriter($excel,'Excel5');
+        $objwriter->save($filename);
+        $this->returnJSON(1,'导出成功',"/".$fileurl);
+
+    }
 }
