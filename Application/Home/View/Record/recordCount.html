@@ -122,6 +122,8 @@ table=$('#basicTable').dataTable(
                 "url": '../record/recordCount',
                 "dataSrc": "data",  //默认data，也可以写其他的，格式化table的时候取里面的数据
                 "data": function (d) {  //d 是原始的发送给服务器的数据，默认很长。
+                    d.datetimepicker_start = $('#datetimepicker_start').val();
+                    d.datetimepicker_end = $('#datetimepicker_end').val();
                     d.SearchMode = SearchMode;
                    
                     //获取是否是查询,然后置0，0为非搜索查询
@@ -184,6 +186,8 @@ else
 	                "url": '../record/recordCount',
 	                "dataSrc": "data",  //默认data，也可以写其他的，格式化table的时候取里面的数据
 	                "data": function (d) {  //d 是原始的发送给服务器的数据，默认很长。
+                         d.datetimepicker_start = $('#datetimepicker_start').val();
+                         d.datetimepicker_end = $('#datetimepicker_end').val();
 	                	 d.SearchMode = SearchMode;
 	                    //获取是否是查询,然后置0，0为非搜索查询
 	                }

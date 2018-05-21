@@ -170,6 +170,8 @@ class RecordController extends AuthController {
     public function recordCount(){
         $s_time = date("Y-m-d",strtotime("-300 day"))." 00:00:00";
         $e_time = date("Y-m-d",time())." 23:59:59";
+        $datetimepicker_start = isset($_REQUEST['datetimepicker_start'])?$_REQUEST['datetimepicker_start']:$s_time;
+        $datetimepicker_end = isset($_REQUEST['datetimepicker_end'])?$_REQUEST['datetimepicker_end']:$e_time;
         $SearchMode = isset($_REQUEST['SearchMode'])?$_REQUEST['SearchMode']:1;
         
         if(IS_AJAX){
@@ -177,8 +179,7 @@ class RecordController extends AuthController {
             $output['sEcho'] = $sEcho;
             $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
             $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
-            $datetimepicker_start = isset($_REQUEST['datetimepicker_start'])?$_REQUEST['datetimepicker_start']:$s_time;
-            $datetimepicker_end = isset($_REQUEST['datetimepicker_end'])?$_REQUEST['datetimepicker_end']:$e_time;
+            
             
              
              
@@ -198,7 +199,7 @@ class RecordController extends AuthController {
                 $total = count($cnt);
                 
                 $rs = M('rec_cdrinfo')->field($field)->where($where)->group('N_ChannelID')->limit($start,$length)->select();
-                
+                //echo M()->getLastSql();
                 if($rs){
                     foreach ($rs as $k=>$v){
                         $rs[$k]['recordtime'] = formatTime($v["csecond"]);
@@ -232,8 +233,8 @@ class RecordController extends AuthController {
             die;
         }
         $this->assign("SearchMode",$SearchMode);
-        $this->assign("datetimepicker_start",$s_time);
-        $this->assign("datetimepicker_end",$e_time);
+        $this->assign("datetimepicker_start",$datetimepicker_start);
+        $this->assign("datetimepicker_end",$datetimepicker_end);
         $this->assign("CurrentPage",'recordCount');
         $this->display();
     }
@@ -869,6 +870,7 @@ class RecordController extends AuthController {
         $CntBackup = $m_bak->field("count(*) cnt")->where($where)->find();  //已备份部分数据
         $CntBackup=$CntBackup['cnt'];
         $total = (int)$CntNoBackup + (int)$CntBackup;
+       
         $rs = array();
         if($CntBackup==0)
         {
@@ -886,34 +888,13 @@ class RecordController extends AuthController {
             {
                 //未备份和已备份都有，需要读取两张表
                 //计算未备份数据有多少页$NotBak_pagecnt
-                if($CntNoBackup % $length==0){
-                    $NotBak_pagecnt=($CntNoBackup / $length);
-                }else{
-                    $NotBak_pagecnt=(int)($CntNoBackup/$length)+1;
-                } 
-                $NumNotShowed = $CntNoBackup - $start;  //未备份数据还有多少条未显示
-                
-                if($NumNotShowed>0){
-                    if($NumNotShowed >$length || $NumNotShowed == $length)
-                    {
-                        $rs= $m->field($field)->where($where)->select();
-                    }
-                    else
-                    {
-                        //未备份数据不足一页的数据，需要同时读取备份与未备份数据
-                        $rsNoBak= $m->field($field)->where($where)->select();
-                        $rsBak= $m_bak->field($field)->where($where)->select();
-                        $rs= array_merge($rsNoBak,$rsBak); 
-                    }
-               }
-               else
-               {
-                   //$NumNotShowed=0或者$NumNotShowed<0,则未备份录音已经显示完毕，仅查询备份表(tab_rec_bakinfo)即可
-                   $rs= $m_bak->field($field)->where($where)->select();
-               }
+                //未备份数据不足一页的数据，需要同时读取备份与未备份数据
+                $rsNoBak= $m->field($field)->where($where)->select();
+                $rsBak= $m_bak->field($field)->where($where)->select();
+                $rs= array_merge($rsNoBak,$rsBak); 
             }    
         }
-       
+      
         if($rs){ 
             foreach ($rs as $k=>$v)
             {
