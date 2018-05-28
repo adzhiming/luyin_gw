@@ -13,6 +13,76 @@
         <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
         <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
         <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+                <style type="text/css">
+        .loadEffect{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto;
+	display:none;
+ }
+ .loadEffect span{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: lightgreen;
+    position: absolute;
+    -webkit-animation: load 1.04s ease infinite;
+ }
+ @-webkit-keyframes load{
+    0%{
+       opacity: 1;
+    }
+    100%{
+       opacity: 0.2;
+    }
+ }
+ .loadEffect span:nth-child(1){
+    left: 0;
+    top: 50%;
+    margin-top:-8px;
+    -webkit-animation-delay:0.13s;
+ }
+ .loadEffect span:nth-child(2){
+    left: 14px;
+    top: 14px;
+    -webkit-animation-delay:0.26s;
+ }
+ .loadEffect span:nth-child(3){
+    left: 50%;
+    top: 0;
+    margin-left: -8px;
+    -webkit-animation-delay:0.39s;
+ }
+ .loadEffect span:nth-child(4){
+    top: 14px;
+    right:14px;
+    -webkit-animation-delay:0.52s;
+ }
+ .loadEffect span:nth-child(5){
+    right: 0;
+    top: 50%;
+    margin-top:-8px;
+    -webkit-animation-delay:0.65s;
+ }
+ .loadEffect span:nth-child(6){
+    right: 14px;
+    bottom:14px;
+    -webkit-animation-delay:0.78s;
+ }
+ .loadEffect span:nth-child(7){
+    bottom: 0;
+    left: 50%;
+    margin-left: -8px;
+    -webkit-animation-delay:0.91s;
+ }
+ .loadEffect span:nth-child(8){
+    bottom: 14px;
+    left: 14px;
+    -webkit-animation-delay:1.04s;
+ }
+</style>
     </head>
 
     <body>
@@ -32,10 +102,10 @@
                         <div class="panel panel-title-head">
                         <div class="search_banner">
                              <div class="pull-left col-md-1">
-	                                <a class="btn btn-info btn-large" href="../Account/userAdd">导出配置</a>
+	                                <span class="btn btn-info btn-large downloadPeizhi">导出配置</span>
 	                          </div> 
 	                          <div class="pull-left col-md-1">
-	                                <a class="btn btn-info btn-large" href="../Account/userAdd">恢复配置</a>
+	                                <span class="btn btn-info btn-large downloadPeizhi2">恢复配置</span>
 	                          </div>
 	                          <div style="clear:both"></div>
                          </div>   
@@ -52,8 +122,7 @@
                                   <foreach name="rs" item="list">
 	                                  <tr role="row">
 	                                     <td>{$list.v_paramsnamech}</td>
-	                                     <td>{$list.paramsset}
-	                                     </td>
+	                                     <td>{$list.paramsset}</td>
 	                                     <td>{$list.v_describe}<input type='hidden' name="hid{$list.v_paramsname}" value="{$list.v_value}"></td>
 	                                  </tr>
                                   </foreach>
@@ -78,7 +147,43 @@
             
             
         </section>
-		
+		         <!-- 告警模态框 -->
+		<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myAlert">
+		  <div class="modal-dialog" role="document" style="width:450px">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myAlert" style="text-align: center;">提示</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="inner">
+		        	<h4 class="Alertmessage"> </h4>
+		        </div>
+		        <div class="loadEffect">
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				     <span></span>
+				</div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		        <button type="button" class="btn btn-primary sureDel" data-dismiss="modal">确定</button>
+		      </div>
+		    </div>
+		  </div>
+		</div> 
+
+
+		<div class="modal fade" id="pathMod" tabindex="-1" role="dialog" >
+		  <div class="modal-dialog" role="document" id="selectcontent">
+
+		  </div>
+		</div>
         <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
@@ -154,8 +259,9 @@
 		}
 	}
 
-		function SetPath(o,showFile,disk){
-		var p=$(o).val();
+	
+	function SetPath(o,showFile,disk){
+/*		var p=$(o).val();
 		//获得窗口的垂直位置 
 	    var iTop = (window.screen.availHeight - 30 - 380) / 2; 
 	    //获得窗口的水平位置 
@@ -164,10 +270,71 @@
 	    var url="selectPath?tamp="+Math.random()+"&t="+showFile+"&p="+p+"&disk="+disk;
 		 
         //直接点击某条录音的小喇叭，只播放当前录音
-		window.open(url,"player","height=450,width=550, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
-			
-		
+		window.open(url,"player","height=450,width=550, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");*/
+		var url="selectPath";
+		var currentdisk = $(o).val();
+        $.ajax({
+		type:"POST",
+		dataType:"html",
+		url:url,
+		data:{
+			disk:disk,currentdisk:currentdisk,t:0 
+		},
+		 
+		success: function(data){
+		  $('#selectcontent').html("");
+		  $('#selectcontent').html(data);
+		  $('#pathMod').modal('show');
+		}
+	})
 	}
+
+
+	//点击文件夹时，进入文件夹
+function to(url,file){
+	if(file.substr(file.length-1,1)!="\\"){
+		file=file+"\\"	;
+	}
+	loadFileList(url,file);
+}
+
+function up(){
+	var file=$("#path").val();
+	var tmp=file.substr(0,file.length-1).lastIndexOf("\\");
+	if(tmp<0){
+		alert("已到最上层目录");
+	}else{
+		var tpath=file.substr(0,tmp+1);
+		var url="t=<?php echo $showFile ?>&p="+tpath;
+		loadFileList(url,tpath);	
+	}	
+}
+
+function loadFileList(url,file){
+	url="getFileList?"+url;
+	$.ajax({
+		type:"POST",
+		url:url,
+		data:{
+			id:1 
+		},	 
+		success: function(data){
+			$('.fileWrap').html("");
+			$('.fileWrap').html(data);
+			$("#hid_path").val(decodeURIComponent(file));
+			$("#path").val(decodeURIComponent(file));
+		}
+	})
+	 
+}
+
+function selectok(){
+ 
+	var selectpath = $('#path').val()
+	$("#Sys_AutoBakDir").val(selectpath)
+	$('#pathMod').modal('hide');
+}
+
 
 		//设置参数对应的正则表达式，根据此规则进行数据验证
 	function getRegEx(pn){
@@ -217,5 +384,30 @@
 		}
 		return o;
 	}
+
+
+	$('.downloadPeizhi').click(function(){
+		$('#alertModel').modal('show');
+		$('.downloadName').css("display","none");
+		var url="down_systemParameter"
+		var Items
+		$.ajax({
+			type:"POST",
+			url:url,
+			data:{
+				strID:Items
+			},
+			beforeSend:function(XMLHttpRequest){ 
+				$('.loadEffect').css("display","block");
+			}, 
+			success: function(data){
+				console.log(data)
+				$('.loadEffect').css("display","none");
+				$('.downloadName').css("display","block");
+				$('.modal-title').html("操作完成");
+				$('.Alertmessage').html("成功生成号簿文件：<a href='"+data.data+"'>点击下载</a>")
+			}
+		})
+	})
 	</script>
 </html>

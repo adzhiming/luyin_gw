@@ -16,7 +16,7 @@
 		      				
 		      		<!-- 可用磁盘列表 -->
 		      		<foreach name="Disks" item="list">
-		      				   <if condition="$list eq $DiskCanView">
+		      				   <if condition="$list eq $DiskCanView || $DiskCanView eq ''">
                                    <div class="item active" onclick="to('t=0&p={$list}:\\','{$list}:\\')">
 			      					<em class="disk-ico"></em>
 			      					<div class="name">{$list}</div>

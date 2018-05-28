@@ -343,6 +343,73 @@ class SystemController extends AuthController {
         $this->display();
     }
     
+
+    //导出系统配置
+    public function down_systemParameter(){
+        header("Content-type: text/html; charset=utf-8");
+        Vendor("PHPExcel.PHPExcel");
+        Vendor("PHPExcel.PHPExcel.Reader.Excel2007.php");
+        Vendor("PHPExcel.PHPExcel.Reader.Excel5");
+        Vendor("PHPExcel.PHPExcel.IOFactory");
+        
+        $excel = new \PHPExcel();
+        
+        //指定工作簿
+        $excel->setActiveSheetIndex(0); 
+        //设置列宽
+        $excel->getActiveSheet()->getColumnDimension('A')->setWidth('15');
+        $excel->getActiveSheet()->getColumnDimension('B')->setWidth('15');
+        $excel->getActiveSheet()->getColumnDimension('C')->setWidth('15');
+        $excel->getActiveSheet()->getColumnDimension('D')->setWidth('15');
+        $excel->getActiveSheet()->getColumnDimension('E')->setWidth('15');
+        $excel->getActiveSheet()->getColumnDimension('F')->setWidth('15');
+        
+        
+        $excel->getActiveSheet()->setTitle('系统配置'); //excel标题
+        //设置行标题
+        $excel->getActiveSheet()->setCellValue("A1", "V_ParamsName");         
+        $excel->getActiveSheet()->setCellValue("B1", "V_ParamsNameCh");
+        $excel->getActiveSheet()->setCellValue("C1", "V_Value");
+        $excel->getActiveSheet()->setCellValue("D1", "N_Change");
+        $excel->getActiveSheet()->setCellValue("E1", "V_DefaultValue");
+        $excel->getActiveSheet()->setCellValue("F1", "V_Describe");
+        $excel->getActiveSheet()->setCellValue("G1", "N_ModifyLevel");
+        $excel->getActiveSheet()->setCellValue("H1", "V_Verify");
+
+        $selStr="V_ParamsName,V_ParamsNameCh,V_Value,N_Change,V_DefaultValue,V_Describe,N_ModifyLevel,V_Verify";
+        //$sql="select ".$selStr." from tab_sys_paramssystem where N_ModifyLevel=0";    //将所有用户可修改的参数导出
+       // $sql="select ".$selStr." from tab_sys_paramssystem where N_ModifyLevel=0";  //将所有用户参数导出
+        $rs = M('sys_paramssystem')->field($selStr)->where("N_ModifyLevel = 0")->select();
+        if($rs){
+            $i=1;
+            foreach ($rs as $k => $v)
+            {
+                $i++;
+                $excel->getActiveSheet()->setCellValue("A".$i,str_replace("\r\n","",str_replace(",","，",$v["v_paramsname"])));
+                $excel->getActiveSheet()->setCellValue("B".$i,str_replace("\r\n","",str_replace(",","，",$v["v_paramsnamech"])));
+                $excel->getActiveSheet()->setCellValue("C".$i,str_replace("\r\n","",str_replace(",","，",$v["v_value"])));
+                $excel->getActiveSheet()->setCellValue("D".$i,$v["n_change"]);
+                $excel->getActiveSheet()->setCellValue("E".$i,str_replace("\r\n","",str_replace(",","，",$v["v_defaultvalue"])));
+                $excel->getActiveSheet()->setCellValue("F".$i,str_replace("\r\n","",str_replace(",","，",$v["v_describe"])));
+                $excel->getActiveSheet()->setCellValue("G".$i,$v["n_modifylevel"]);
+                $excel->getActiveSheet()->setCellValue("H".$i,str_replace("\r\n","",str_replace(",","，",$v["v_verify"])));
+
+            }
+        }
+        $title ='系统配置';
+        $date = date('Y-m-d',time());
+        
+        $data = array();
+        $fileurl = "Uploads/phoneBook/". $title."_".$date.".xls";
+       
+        $filename = iconv('utf-8', "gb2312", $fileurl);
+        
+        $objwriter = \PHPExcel_IOFactory::createWriter($excel,'Excel5');
+        $objwriter->save($filename);
+        $this->returnJSON(1,'导出成功',"/".$fileurl);
+    }
+
+
     //注册信息
     public function licenseInfo(){
         if(IS_POST){
