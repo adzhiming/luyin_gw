@@ -340,6 +340,11 @@ function selected($v1,$v2){
     else{return "";}
 }
 
+function checked($v1,$v2){
+    if($v1==$v2){return " checked ";}
+    else{return "";}
+}
+
 //是否允许修改，否则设置控件属性readonly
 function canModify($n){
     if($n==1){

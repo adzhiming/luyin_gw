@@ -86,9 +86,41 @@ class SystemController extends AuthController {
               ->group("a.N_ChannelNo")->select();
         
         $channelNo = array();
-        if($rs){
+        
+       if($rs){
             foreach ($rs as $k=>$v){
                 $channelNo = $v['n_channelno'];
+                $where = array();
+                $where['N_ChannelNo'] = $channelNo;
+                $where['advPara'] = array("gt",0);
+                $rsTitle = M('sys_paramschannel')->field("v_paramsname,V_ParamsNameCh")->where($where)->order('advPara')->select();
+                if($rsTitle){
+                    $checkbox=0;//录象通道checkbox变量
+                    foreach($rsTitle as $kl=> $vl){ 
+
+                         if (($ChannelType != 33 && $vl["v_paramsname"] == 'IsVideoChannel')
+                            || ($vl["v_paramsname"] == "ChannelUserDisable" && $ChannelType == '33')
+                            || ($vl["v_paramsname"]=="DefaultRoute")
+                            || ($vl["v_paramsname"]=="n_channelno")
+                            )
+                         {
+                            continue;
+                         } 
+                         else{
+                            $rs[$k][$vl["v_paramsname"]] = $this->getChannelInfoBychannelNo($channelNo,$vl["v_paramsname"]);
+                          //echo $vl["v_paramsname"]."==". $rs[$k][$vl["v_paramsname"]]['v_value']."<br>";
+                          $rs[$k][$vl["v_paramsname"]]["input"] = $this->parame_input($vl["v_paramsname"]."[]",$rs[$k][$vl["v_paramsname"]]['v_value'],$checkbox);
+
+                          $checkbox++;
+
+                         }
+                          
+                    }
+                   
+                }   
+
+                 
+               /*               
                 $rs[$k]['ChnName'] = $this->getChannelInfoBychannelNo($channelNo,"ChnName");
                 $rs[$k]['ExtPhoneNumber'] = $this->getChannelInfoBychannelNo($channelNo,"ExtPhoneNumber");
                 $rs[$k]['CircuitNo'] = $this->getChannelInfoBychannelNo($channelNo,"CircuitNo");
@@ -98,8 +130,19 @@ class SystemController extends AuthController {
                 $rs[$k]['IsVideoChannel'] = $this->getChannelInfoBychannelNo($channelNo,"IsVideoChannel");
                 $rs[$k]['RecordMode'] = $this->getChannelInfoBychannelNo($channelNo,"RecordMode");
                 $rs[$k]['ChannelUserDisable'] = $this->getChannelInfoBychannelNo($channelNo,"ChannelUserDisable");
+                */
             }
         } 
+
+       /*echo "<pre>";
+        print_r($rs);
+        echo "</pre>";*/ 
+       /*foreach ($rs as $key => $value) {
+             foreach ($value as $k => $v) {
+                 //echo $k."==".$v."<br>";
+                 var_dump($v)."<br>";
+             }
+        }*/
         
         //查找标题
         $where = array();
@@ -409,6 +452,14 @@ class SystemController extends AuthController {
         $this->returnJSON(1,'导出成功',"/".$fileurl);
     }
 
+   //恢复备份配置
+    public function backupUpload(){
+         if(IS_POST){
+
+         }
+         $this->assign("CurrentPage",'system');
+         $this->display();
+    }
 
     //注册信息
     public function licenseInfo(){
@@ -1093,7 +1144,7 @@ class SystemController extends AuthController {
             
             $cnt = M('sys_accountlog')->field("count(*) cnt ")->where($where)->find();
             $total = $cnt['cnt'];
-            $rs = M('sys_accountlog')->where($where)->limit($start,$length)->select();
+            $rs = M('sys_accountlog')->where($where)->order("N_LogID desc")->limit($start,$length)->select();
              
             $output['aaData'] = $rs;
             $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
@@ -1321,4 +1372,57 @@ class SystemController extends AuthController {
                 return "未知";
         }
     }
+
+
+//根据参数名称，生成文本框或者下拉框 //,$V_Verify
+public function parame_input($paraName,$v,$checkbox){
+    $tmp="";
+    global $vedioMaxCount;
+    switch($paraName){
+        case "IsChkDTMF[]":
+            $tmp="<select name=\"".$paraName."\">";
+            $tmp=$tmp."<option value=\"1\" ".selected($v,"1").">检测</option>";
+            $tmp=$tmp."<option value=\"0\" ".selected($v,"0").">不检测</option>";
+            $tmp=$tmp."</select><input name=\"hid_{$paraName}\" type='hidden' value=\"{$v}\">";
+            break;
+        case "ChannelUserDisable[]":
+            $tmp="<select name=\"".$paraName."\">";
+            $tmp=$tmp."<option value=\"1\" ".selected($v,"1").">禁用</option>";
+            $tmp=$tmp."<option value=\"0\" ".selected($v,"0").">启用</option>";
+            $tmp=$tmp."</select><input name=\"hid_{$paraName}\" type='hidden' value=\"{$v}\">";
+            break;
+        case "IsVideoChannel[]"://录象通道参数处理 处理原理：用'checkbox'.$paraName存储当前状态，通过点击修改checkbox框修改其值，'hid'.$paraName存储初始状态
+            $tmp="<input type='checkbox' name=\"".$paraName."\"  ".checked($v,"1")." value='$v'  onclick=\"Checkbox('$paraName',$checkbox,$vedioMaxCount);\"/>";
+            $tmp.="<input name=\"hid_{$paraName}\" type='hidden' value=\"{$v}\">";//checkbox".$paraName为checkbox修改后的隐藏变量
+            break;  
+        case "RecordMode[]":
+//          RM_SIGNAL = 0,  //信令，用户数字中继监控录音
+//          RM_BARGEIN = 1, //声控，模拟声控
+//          RM_PICKUP = 2,  //压控，模拟压控
+//          RM_CTI = 3,     //CTI，交换机CTI控制，泛指华谱，包括模拟和数字复接卡
+//          RM_DRCU = 4,    //DRCU，广哈DRCU板，DTMF协议控制
+//          RM_SOFTIP = 5,  //软交换IP录音
+//          RM_CDR = 11,    //CDR，交换机CDR控制
+
+            $tmp=$tmp."<select name=\"".$paraName."\" >";
+            $tmp=$tmp."<option value=\"0\" ".selected($v,"0").">无</option>";
+            $tmp=$tmp."<option value=\"1\" ".selected($v,"1").">声控</option>";
+            $tmp=$tmp."<option value=\"2\" ".selected($v,"2").">压控</option>";
+            $tmp=$tmp."<option value=\"3\" ".selected($v,"3").">CTI</option>";
+            $tmp=$tmp."<option value=\"4\" ".selected($v,"4").">DRCU</option>";
+            $tmp=$tmp."<option value=\"5\" ".selected($v,"5").">软交换</option>";
+            $tmp=$tmp."<option value=\"11\" ".selected($v,"11").">CDR</option></select><input name=\"hid_{$paraName}\" type='hidden' value=\"{$v}\">";
+            break;
+        default:
+        
+        if($paraName=="ExtPhoneNumber[]"){
+            $len=12;//通道号码仅能使用12位
+        }else{$len=20;}
+        $tmp="<input type=\"text\" maxlength='".$len."' class='txtBox w' name=\"".$paraName."\" value=\"".$v."\" />
+        <input name=\"hid_{$paraName}\" type='hidden' value=\"{$v}\">";
+    }
+    return $tmp;
+}
+
+
 }
