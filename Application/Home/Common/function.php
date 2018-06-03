@@ -249,7 +249,7 @@ function JS_alert($msg,$url,$flag=false){
 
 //返回服务器IP及端口，格式：http://192.168.0.1:8080/
 function host(){
-    return "http://{$_SERVER['SERVER_ADDR']}:{$_SERVER['SERVER_PORT']}/";
+    return "http://{$_SERVER['SERVER_NAME']}:{$_SERVER['SERVER_PORT']}/";
 }
 
 function fx($n){
