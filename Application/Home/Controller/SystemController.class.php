@@ -4,6 +4,7 @@ use Think\Controller;
 use Think\Model;
 use Think\Db;
 use Think\Log;
+use Think\upload;
 
 class SystemController extends AuthController {
     public function _initialize() {
@@ -149,6 +150,7 @@ class SystemController extends AuthController {
         $where['N_ChannelNo'] = array("in",$channelNo);
         $where['advPara'] = array("gt",0);
         $rsTitle = M('sys_paramschannel')->field("v_paramsname,V_ParamsNameCh")->where($where)->order('advPara')->select();
+        
         foreach ($rsTitle as $k=>$v){
             if ($ChannelType != 33 && $v["v_paramsname"] == 'IsVideoChannel')
             {
@@ -162,7 +164,7 @@ class SystemController extends AuthController {
                 unset($rsTitle[$k]);
             }
         }
-         
+        
         //录音类型
         $channeltypelist = M("sys_channelconfig")->field("distinct N_channeltype")->order("N_Channeltype")->select();
         foreach ($channeltypelist as $k=>$v){
@@ -455,11 +457,193 @@ class SystemController extends AuthController {
    //恢复备份配置
     public function backupUpload(){
          if(IS_POST){
+             $type=isset($_POST["type"])?$_POST["type"]:"system";
+             $file = $_FILES; 
+             //上传
+             $filePath = $this->uploadFile($file);
+              
+             //读取excel
+             Vendor("PHPExcel.PHPExcel");
+             Vendor("PHPExcel.PHPExcel.Reader.Excel2007.php");
+             Vendor("PHPExcel.PHPExcel.Reader.Excel5");
+             Vendor("PHPExcel.PHPExcel.IOFactory");
+         
+             if(empty($filePath) or !file_exists($filePath)){die('file not exists');}
+             $PHPReader = new \PHPExcel_Reader_Excel2007();        //建立reader对象
+             if(!$PHPReader->canRead($filePath)){
+                 $PHPReader = new \PHPExcel_Reader_Excel5();
+                 if(!$PHPReader->canRead($filePath)){
+                      echo 'no Excel';
+                     return ;
+                }
+             }
+             
+            $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+            $objPHPExcel = $objReader->load($filePath,$encode='utf-8');
+            $sheet = $objPHPExcel->getSheet(0);
+            $highestRow = $sheet->getHighestRow(); // 取得总行数
+            $highestColumn = $sheet->getHighestColumn(); // 取得总列数
+            
+            if($type == 'system'){
+                $m = M('sys_paramssystem');
+                //删除原有数据
+                $ParaStr="V_ParamsName,V_ParamsNameCh,V_Value,N_Change,V_DefaultValue,V_Describe,N_ModifyLevel,V_Verify";
+                $tbName="tab_sys_paramssystem"; //系统参数表
+                $del = M('sys_paramssystem')->where("N_ModifyLevel=0")->delete();
+                }
+            else{
+                $m = M('sys_paramschannel');
+                $ParaStr="N_ChannelNo,V_ParamsName,V_ParamsNameCh,V_Value,N_Change,V_DefaultValue,V_Describe,N_ModifyLevel,advPara,V_Verify";
+                $tbName="tab_sys_paramschannel";//通道参数表
+                $del = M('sys_paramschannel')->where("N_ModifyLevel=0 or advPara=0")->delete(); 
+            }
+            
 
+            $cols=explode(",",$ParaStr);//字段名数组
+ 
+            $msg = "";
+            if(false !== $del){
+                for($i=1;$i<$highestRow+1;$i++){
+                    $insert = array();
+
+                    for($currentColumn = 'A';$currentColumn<= $highestColumn; $currentColumn++){
+                        if($i ==1){
+                            $val = $objPHPExcel->getActiveSheet()->getCell($currentColumn.$i)->getValue(); 
+                            
+                            if(!in_array($val,$cols)){
+                                 $this->error("文件内容格式错误！请确保导入文件的正确性。");
+                            }
+                        }
+                        else
+                        {
+                            $val = $objPHPExcel->getActiveSheet()->getCell($currentColumn.'1')->getValue();
+                            $v = MySQLFixup(str_replace("，",",",$objPHPExcel->getActiveSheet()->getCell($currentColumn.$i)->getValue()));
+                            $v = empty($v)?'':$v;
+                            $insert[$val] = $v;
+                             
+                        }
+                    }
+                    if($i !=1){
+                        $rs = $m->add($insert);
+                        $sql = M()->getLastSql();
+                        if(false ==$rs){
+                            $msg .= "第{$i}行发生错误：".mysql_error()."<br>";
+                        }
+                        else{
+                            $msg .= "第{$i}行恢复成功！;<br>";
+                        }
+                    }
+                   
+                }
+            }
+            
+             $this->success($msg,'',5);
+             exit;
+         }   
+         $type = empty($_REQUEST['type'])?'system':$_REQUEST['type'];
+         if($type == 'system'){
+             $title = "恢复系统参数设置";
+             $this->assign("CurrentPage",'system');
          }
-         $this->assign("CurrentPage",'system');
+         else{
+            $title = "恢复通道参数设置";
+            $this->assign("CurrentPage",'channel');
+         }
+         $this->assign("title",$title);
+         $this->assign("type",$type);
+         
          $this->display();
     }
+
+
+    //导出通道参数配置
+    public function down_channelParameter(){
+        header("Content-type: text/html; charset=utf-8");
+        Vendor("PHPExcel.PHPExcel");
+        Vendor("PHPExcel.PHPExcel.Reader.Excel2007.php");
+        Vendor("PHPExcel.PHPExcel.Reader.Excel5");
+        Vendor("PHPExcel.PHPExcel.IOFactory");
+        
+        $excel = new \PHPExcel();
+        
+        //指定工作簿
+        $excel->setActiveSheetIndex(0); 
+        //设置列宽
+        $excel->getActiveSheet()->getColumnDimension('A')->setWidth('15');
+        $excel->getActiveSheet()->getColumnDimension('B')->setWidth('15');
+        $excel->getActiveSheet()->getColumnDimension('C')->setWidth('15');
+        $excel->getActiveSheet()->getColumnDimension('D')->setWidth('15');
+        $excel->getActiveSheet()->getColumnDimension('E')->setWidth('15');
+        $excel->getActiveSheet()->getColumnDimension('F')->setWidth('15');
+        
+        
+        $excel->getActiveSheet()->setTitle('通道参数配置'); //excel标题
+        //设置行标题
+        $excel->getActiveSheet()->setCellValue("A1", "N_ChannelNo");         
+        $excel->getActiveSheet()->setCellValue("B1", "V_ParamsName");
+        $excel->getActiveSheet()->setCellValue("C1", "V_ParamsNameCh");
+        $excel->getActiveSheet()->setCellValue("D1", "V_Value");
+        $excel->getActiveSheet()->setCellValue("E1", "N_Change");
+        $excel->getActiveSheet()->setCellValue("F1", "V_DefaultValue");
+        $excel->getActiveSheet()->setCellValue("G1", "V_Describe");
+        $excel->getActiveSheet()->setCellValue("H1", "N_ModifyLevel");
+        $excel->getActiveSheet()->setCellValue("I1", "advPara");
+        $excel->getActiveSheet()->setCellValue("J1", "V_Verify");
+
+        $selStr="N_ChannelNo,V_ParamsName,V_ParamsNameCh,V_Value,N_Change,V_DefaultValue,V_Describe,N_ModifyLevel,advPara,V_Verify";
+        //$sql="select ".$selStr." from tab_sys_paramssystem where N_ModifyLevel=0";    //将所有用户可修改的参数导出
+       // $sql="select ".$selStr." from tab_sys_paramssystem where N_ModifyLevel=0";  //将所有用户参数导出
+        $rs = M('sys_paramschannel')->field($selStr)->order("N_ChannelNo,V_ParamsName")->select();
+        if($rs){
+            $i=1;
+            foreach ($rs as $k => $v)
+            {
+                $i++;
+                $excel->getActiveSheet()->setCellValue("A".$i,str_replace("\r\n","",str_replace(",","，",$v["n_channelno"])));
+                $excel->getActiveSheet()->setCellValue("B".$i,str_replace("\r\n","",str_replace(",","，",$v["v_paramsname"])));
+                $excel->getActiveSheet()->setCellValue("C".$i,str_replace("\r\n","",str_replace(",","，",$v["v_paramsnamech"])));
+                $excel->getActiveSheet()->setCellValue("D".$i,str_replace("\r\n","",str_replace(",","，",$v["v_value"])));
+                $excel->getActiveSheet()->setCellValue("E".$i,$v["n_change"]);
+                $excel->getActiveSheet()->setCellValue("F".$i,str_replace("\r\n","",str_replace(",","，",$v["v_defaultvalue"])));
+                $excel->getActiveSheet()->setCellValue("G".$i,str_replace("\r\n","",str_replace(",","，",$v["v_describe"])));
+                $excel->getActiveSheet()->setCellValue("H".$i,$v["n_modifylevel"]);
+                $excel->getActiveSheet()->setCellValue("I".$i,$v["advpara"]);
+                $excel->getActiveSheet()->setCellValue("J".$i,str_replace("\r\n","",str_replace(",","，",$v["v_verify"])));
+
+            }
+        }
+        $title ='通道参数配置';
+        $date = date('Y-m-d',time());
+        
+        $data = array();
+        $fileurl = "Uploads/phoneBook/". $title."_".$date.".xls";
+       
+        $filename = iconv('utf-8', "gb2312", $fileurl);
+        
+        $objwriter = \PHPExcel_IOFactory::createWriter($excel,'Excel5');
+        $objwriter->save($filename);
+        $this->returnJSON(1,'导出成功',"/".$fileurl);
+    }
+
+
+
+    //上传
+ public function uploadFile(){
+         $upload = new \Think\Upload();
+         $upload->maxSize = 314572800 ;// 设置附件上传大小
+         $upload->exts = array('jpg', 'gif', 'png', 'jpeg', 'xls');// 设置附件上传类型
+         $upload->rootPath = './Uploads/'; // 设置附件上传根目录
+         $upload->savePath = ''; // 设置附件上传（子）目录
+         $upload->subName  = array('date','Ymd');
+         // 上传文件
+         $info = $upload->upload();
+         $info = $info['PZfile'];
+         if(!$info) {
+            // 上传错误提示错误信息
+            $this->error($upload->getError());
+         }
+    return  './Uploads/' . $info['savepath'] . $info['savename'];
+ }
 
     //注册信息
     public function licenseInfo(){
@@ -1418,8 +1602,8 @@ public function parame_input($paraName,$v,$checkbox){
         if($paraName=="ExtPhoneNumber[]"){
             $len=12;//通道号码仅能使用12位
         }else{$len=20;}
-        $tmp="<input type=\"text\" maxlength='".$len."' class='txtBox w' name=\"".$paraName."\" value=\"".$v."\" />
-        <input name=\"hid_{$paraName}\" type='hidden' value=\"{$v}\">";
+        $tmp="<input type=\"text\" maxlength='".$len."' style='width: 150px;' class='txtBox w' name=\"".$paraName."\" value=\"".$v."\" />
+        <input name=\"hid_{$paraName}\"  type='hidden' value=\"{$v}\">";
     }
     return $tmp;
 }

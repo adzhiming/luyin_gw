@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+	
+        <title>恢复系统参数设置</title>
+
+        <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
+        <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
+        <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
+<style type="text/css">
+ .Alertmessage{
+	text-align: center;
+    color: red;
+ }
+       </style>
+    </head>
+
+    <body>
+        <block name="header">
+           <include file="block/header"/>
+        </block>
+        <section>
+            <div class="mainwrapper">
+			   <block name="left">
+			   <include file="block/left" />
+               </block>
+                
+                <div class="mainpanel">
+                    <div class="contentpanel">
+                       
+                       	<div class="col-md-12">
+                                
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="panel-btns">
+                                                <a href="#" class="panel-minimize tooltips" data-toggle="tooltip" title="Minimize Panel"><i class="fa fa-minus"></i></a>
+                                                <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
+                                            </div><!-- panel-btns -->
+                                            <h4 class="panel-title">{$title}</h4>
+                                        </div><!-- panel-heading -->
+                                        <form name="form1" id="form1" method="POST" action="" enctype="multipart/form-data">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">选中恢复备份文件 <span class="asterisk">*</span></label>
+                                                    <div class="col-sm-6">
+                                                        <input type="file" name="PZfile" id="PZfile">
+                                                    </div> 
+                                                </div><!-- form-group -->
+                                                <div class="col-sm-6">
+                                                       <ul style="list-style: none;color: red;">
+                                                           <li>1.请选择原来通过系统导出的参数备份文件</li> 
+                                                           <li>2.请确保导出的备份文件未经修改。</li>
+                                                           <li>3.此操作将覆盖现有的参数设置，请谨慎操作。</li>
+                                                       </ul>
+                                                    </div>
+                                            </div><!-- row -->
+                                            <div class="modal-footer col-sm-6">
+                                                <input type="hidden" name="type" id="type" value="{$type}">
+    									        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+    									        <button type="submit" class="btn btn-primary ">确定恢复</button>
+    									    </div>
+                                        </div><!-- panel-body -->
+                                       </form>
+                                    </div><!-- panel -->
+                                
+                                
+                            </div><!-- col-md-6 -->
+                           
+                            
+					      
+                        </div><!-- panel -->
+                      
+                        
+                    </div><!-- contentpanel -->
+                </div><!-- mainpanel --><!-- mainpanel -->
+            </div><!-- mainwrapper -->
+            
+                <!-- 告警模态框 -->
+		<div class="modal fade" id="alertModel" tabindex="-1" role="dialog" aria-labelledby="myAlert">
+		  <div class="modal-dialog" role="document" style="width:450px">
+		    <div class="modal-content" >
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myAlert" style="text-align: center;">提示</h4>
+		      </div>
+		      <div class="modal-body">
+		        <div class="inner">
+		        	<h4 class="Alertmessage"> </h4>
+		        </div>
+		        
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+		        <!-- <button type="button" class="btn btn-primary">确定</button> -->
+		      </div>
+		    </div>
+		  </div>
+		</div>
+        </section>
+		
+        <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/select2.min.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready( function () {
+	// Validation with select boxes
+    jQuery("#flowers, #fruits").select2({
+        minimumResultsForSearch: -1
+    });
+	
+   
+})
+
+
+</script>        
+		
+		
+    </body>
+</html>

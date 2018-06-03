@@ -269,7 +269,7 @@ function canDel(){
 //添加系统日志
 function addSysLog($evtContent){
     $sql="insert into tab_sys_accountlog(V_AccountId,V_LogIP,D_LogTime,V_Description) ";
-    $sql=$sql."Values(".$_SESSION["uAccount"].",'".$_SESSION['uLogIP']."','".date("Y-m-d H:i:s",time())."','".$evtContent."')";
+    $sql=$sql."Values(".$_SESSION["uAccount"].",'".$_SESSION['uLogIP']."','".date("Y-m-d H:i:s",time())."','".MySQLFixup($evtContent)."')";
     $rs = M()->execute($sql);
     return true;
 }
@@ -431,3 +431,4 @@ function formatNetPath($p){
 //echo $p;
     return $p;
 }
+

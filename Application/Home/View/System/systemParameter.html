@@ -104,8 +104,8 @@
                              <div class="pull-left col-md-1">
 	                                <span class="btn btn-info btn-large downloadPeizhi">导出配置</span>
 	                          </div> 
-	                          <div class="pull-left col-md-1">
-	                                <span class="btn btn-info btn-large downloadPeizhi2">恢复配置</span>
+	                          <div class="pull-left col-md-1"> 
+	                                <a class="btn btn-info btn-large" href="{:U('home/System/backupUpload/type/system')}">恢复配置</a>
 	                          </div>
 	                          <div style="clear:both"></div>
                          </div>   
@@ -389,7 +389,7 @@ function selectok(){
 	$('.downloadPeizhi').click(function(){
 		$('#alertModel').modal('show');
 		$('.downloadName').css("display","none");
-		var url="down_systemParameter"
+		var url="{:U('home/System/down_systemParameter')}"
 		var Items
 		$.ajax({
 			type:"POST",
@@ -405,7 +405,7 @@ function selectok(){
 				$('.loadEffect').css("display","none");
 				$('.downloadName').css("display","block");
 				$('.modal-title').html("操作完成");
-				$('.Alertmessage').html("成功生成号簿文件：<a href='"+data.data+"'>点击下载</a>")
+				$('.Alertmessage').html("成功导出配置：<a href='"+data.data+"'>点击下载</a>")
 			}
 		})
 	})
