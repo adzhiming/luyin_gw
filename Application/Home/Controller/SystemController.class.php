@@ -87,7 +87,7 @@ class SystemController extends AuthController {
               ->group("a.N_ChannelNo")->select();
         
         $channelNo = array();
-        
+        $checkbox=0;//录象通道checkbox变量
        if($rs){
             foreach ($rs as $k=>$v){
                 $channelNo = $v['n_channelno'];
@@ -96,7 +96,7 @@ class SystemController extends AuthController {
                 $where['advPara'] = array("gt",0);
                 $rsTitle = M('sys_paramschannel')->field("v_paramsname,V_ParamsNameCh")->where($where)->order('advPara')->select();
                 if($rsTitle){
-                    $checkbox=0;//录象通道checkbox变量
+                   
                     foreach($rsTitle as $kl=> $vl){ 
 
                          if (($ChannelType != 33 && $vl["v_paramsname"] == 'IsVideoChannel')
@@ -110,9 +110,9 @@ class SystemController extends AuthController {
                          else{
                             $rs[$k][$vl["v_paramsname"]] = $this->getChannelInfoBychannelNo($channelNo,$vl["v_paramsname"]);
                           //echo $vl["v_paramsname"]."==". $rs[$k][$vl["v_paramsname"]]['v_value']."<br>";
-                          $rs[$k][$vl["v_paramsname"]]["input"] = $this->parame_input($vl["v_paramsname"]."[]",$rs[$k][$vl["v_paramsname"]]['v_value'],$checkbox);
+                           $rs[$k][$vl["v_paramsname"]]["input"] = $this->parame_input($vl["v_paramsname"],$rs[$k][$vl["v_paramsname"]]['v_value'],$checkbox,$channelNo);
 
-                          $checkbox++;
+                          
 
                          }
                           
@@ -132,6 +132,7 @@ class SystemController extends AuthController {
                 $rs[$k]['RecordMode'] = $this->getChannelInfoBychannelNo($channelNo,"RecordMode");
                 $rs[$k]['ChannelUserDisable'] = $this->getChannelInfoBychannelNo($channelNo,"ChannelUserDisable");
                 */
+                $checkbox++;
             }
         } 
 
@@ -1559,27 +1560,33 @@ class SystemController extends AuthController {
 
 
 //根据参数名称，生成文本框或者下拉框 //,$V_Verify
-public function parame_input($paraName,$v,$checkbox){
+public function parame_input($paraName,$v,$checkbox,$channelNo){
     $tmp="";
     global $vedioMaxCount;
     switch($paraName){
-        case "IsChkDTMF[]":
-            $tmp="<select name=\"".$paraName."\">";
+        case "IsChkDTMF":
+            $tmp="<select name=\"".$paraName."[]\">";
             $tmp=$tmp."<option value=\"1\" ".selected($v,"1").">检测</option>";
             $tmp=$tmp."<option value=\"0\" ".selected($v,"0").">不检测</option>";
-            $tmp=$tmp."</select><input name=\"hid_{$paraName}\" type='hidden' value=\"{$v}\">";
+            $tmp=$tmp."</select><input name=\"hid_{$paraName}[]\" type='hidden' value=\"{$v}\">";
             break;
-        case "ChannelUserDisable[]":
-            $tmp="<select name=\"".$paraName."\">";
+        case "ChannelUserDisable":
+            $tmp="<select name=\"".$paraName."[]\">";
             $tmp=$tmp."<option value=\"1\" ".selected($v,"1").">禁用</option>";
             $tmp=$tmp."<option value=\"0\" ".selected($v,"0").">启用</option>";
-            $tmp=$tmp."</select><input name=\"hid_{$paraName}\" type='hidden' value=\"{$v}\">";
+            $tmp=$tmp."</select><input name=\"hid_{$paraName}[]\" type='hidden' value=\"{$v}\">";
             break;
-        case "IsVideoChannel[]"://录象通道参数处理 处理原理：用'checkbox'.$paraName存储当前状态，通过点击修改checkbox框修改其值，'hid'.$paraName存储初始状态
-            $tmp="<input type='checkbox' name=\"".$paraName."\"  ".checked($v,"1")." value='$v'  onclick=\"Checkbox('$paraName',$checkbox,$vedioMaxCount);\"/>";
-            $tmp.="<input name=\"hid_{$paraName}\" type='hidden' value=\"{$v}\">";//checkbox".$paraName为checkbox修改后的隐藏变量
+        case "IsVideoChannel"://录象通道参数处理 处理原理：用'checkbox'.$paraName存储当前状态，通过点击修改checkbox框修改其值，'hid'.$paraName存储初始状态
+           // $tmp="<input type='checkbox' name=\"".$paraName."\"  ".checked($v,"1")." value='$v'  onclick=\"Checkbox('$paraName',$checkbox,$vedioMaxCount);\"/>";
+           // $tmp.="<input name=\"hid_{$paraName}\" type='hidden' value=\"{$v}\">";//checkbox".$paraName为checkbox修改后的隐藏变量
+
+            $tmp="<div class='ckbox ckbox-primary'>";  
+            $tmp.="<input type='checkbox'  name='{$paraName}_{$checkbox}'  ".checked($v,"1")." value='1' id='int_{$channelNo}' />";
+            $tmp.="<label for='int_{$channelNo}'></label></div>";
+            $tmp.="<input name='hid_{$paraName}_{$checkbox}' type='hidden' value='{$v}'>";
+
             break;  
-        case "RecordMode[]":
+        case "RecordMode":
 //          RM_SIGNAL = 0,  //信令，用户数字中继监控录音
 //          RM_BARGEIN = 1, //声控，模拟声控
 //          RM_PICKUP = 2,  //压控，模拟压控
@@ -1588,22 +1595,22 @@ public function parame_input($paraName,$v,$checkbox){
 //          RM_SOFTIP = 5,  //软交换IP录音
 //          RM_CDR = 11,    //CDR，交换机CDR控制
 
-            $tmp=$tmp."<select name=\"".$paraName."\" >";
+            $tmp=$tmp."<select name=\"".$paraName."[]\" >";
             $tmp=$tmp."<option value=\"0\" ".selected($v,"0").">无</option>";
             $tmp=$tmp."<option value=\"1\" ".selected($v,"1").">声控</option>";
             $tmp=$tmp."<option value=\"2\" ".selected($v,"2").">压控</option>";
             $tmp=$tmp."<option value=\"3\" ".selected($v,"3").">CTI</option>";
             $tmp=$tmp."<option value=\"4\" ".selected($v,"4").">DRCU</option>";
             $tmp=$tmp."<option value=\"5\" ".selected($v,"5").">软交换</option>";
-            $tmp=$tmp."<option value=\"11\" ".selected($v,"11").">CDR</option></select><input name=\"hid_{$paraName}\" type='hidden' value=\"{$v}\">";
+            $tmp=$tmp."<option value=\"11\" ".selected($v,"11").">CDR</option></select><input name=\"hid_{$paraName}[]\" type='hidden' value=\"{$v}\">";
             break;
         default:
         
-        if($paraName=="ExtPhoneNumber[]"){
+        if($paraName=="ExtPhoneNumber"){
             $len=12;//通道号码仅能使用12位
         }else{$len=20;}
-        $tmp="<input type=\"text\" maxlength='".$len."' style='width: 150px;' class='txtBox w' name=\"".$paraName."\" value=\"".$v."\" />
-        <input name=\"hid_{$paraName}\"  type='hidden' value=\"{$v}\">";
+        $tmp="<input type=\"text\" maxlength='".$len."' style='width: 150px;' class='txtBox w' name=\"".$paraName."[]\" value=\"".$v."\" />
+        <input name=\"hid_{$paraName}[]\"  type='hidden' value=\"{$v}\">";
     }
     return $tmp;
 }
