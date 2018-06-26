@@ -769,6 +769,7 @@ class SystemController extends AuthController {
                                     $netpath="STD".$CurrentStation."_".formatNetPath($p);
                                 }else{$netpath="";}
                                 if($p!=""){ 
+                                   // echo $UsingPath."==".$p;die;
                                     CreatNetPath($netpath,$p);  //修改某个磁盘的保存路径时，创建虚拟目录 add by lzh @2009-8-4
                                     if(substr($UsingPath,0,1)==substr($p,0,1)){
                                         //修改的路径是当前使用路径，需要将路径同步到tab_rec_recorddiskcfg
@@ -833,7 +834,7 @@ class SystemController extends AuthController {
                     $insert = array();
                     $insert['N_StationID'] = $CurrentStation;
                     $insert['V_RecordDiskPath'] = $newDisk;
-                    $insert['V_NetPath'] = $netpath;
+                    $insert['V_NetPath'] = $netpath."/";
                     $insert['N_UsingState'] = 1;
                     $rs = M('rec_recorddiskcfg')->add($insert); 
                    
@@ -1529,7 +1530,7 @@ class SystemController extends AuthController {
                 $tmp.="</select>";
                 break;
             default:
-                $tmp="<input type='text' maxlength='20' class='txtBox' title='".$V_Verify."' onblur='CheckVerify(this)'";
+                $tmp="<input type='text' maxlength='20' class='txtBox' title='{$V_Verify}' onblur='CheckVerify(this)'";
                 $tmp.="name='{$paraName}' value='".$v.canModify($mlv)."' class='w'/>";
         }
         return $tmp;

@@ -32,6 +32,7 @@ class IndexController extends AuthController {
         if($curDisk){
              $diskinfo = M('sys_diskspaceinfo')->where("V_DiskVolumeName = '{$curDisk}'")->find();
              $yiyong = (100-round($diskinfo["n_freespace"]/$diskinfo["n_totalspace"]*100,2));
+             $yiyong = round($yiyong,2);
         }
         //当日各通道录音录像统计
         $channelData = array();
@@ -57,16 +58,19 @@ class IndexController extends AuthController {
         $days = array();
         $voice_day_count = array();
         $video_day_count = array();
-         $monthCount = getRecordVideoCount($seachType='month');
-         foreach ($monthCount as $kl => $vl) {
-              $days[] = $kl;
-              $voice_day_count[] = $kl['voiceCnt'];
-              $video_day_count[] = $kl['videoCnt'];
-         }
-       /* echo "<pre>";
+        $monthCount = getRecordVideoCount($seachType='month');
+        /*echo "<pre>";
         print_r($monthCount);
         echo "</pre>";*/
-
+         foreach ($monthCount as $kl => $vl) {
+              $days[] = $kl;
+              $voice_day_count[] = $vl['voiceCnt'];
+              $video_day_count[] = $vl['videoCnt'];
+         }
+        /*echo "<pre>";
+        print_r($voice_day_count);
+        echo "</pre>";*/
+       
         $this->assign("channelCat",json_encode($channelCat));
         $this->assign("voice_count",json_encode($voice_count));
         $this->assign("video_count",json_encode($video_count));

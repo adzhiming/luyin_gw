@@ -91,14 +91,14 @@ class RecordController extends AuthController {
             if($CntBackup==0)
             {
                 //无已备份数据，读取未备份数据即可
-                $rs= $m->field($field)->where($where)->limit($start,$length)->select();
+                $rs= $m->field($field)->where($where)->limit($start,$length)->order("D_StartTime desc")->select();
             }
             else
             {
                 if($CntNoBackup==0)
                 {
                     //有已备份数据，无未备份数据。读取已备份份数据即可
-                    $rs= $m_bak->field($field)->where($where)->limit($start,$length)->select();
+                    $rs= $m_bak->field($field)->where($where)->limit($start,$length)->order("D_StartTime desc")->select();
                 }
                 else 
                 {
@@ -114,20 +114,20 @@ class RecordController extends AuthController {
                     if($NumNotShowed>0){
                         if($NumNotShowed >$length || $NumNotShowed == $length)
                         {
-                            $rs= $m->field($field)->where($where)->limit($start,$length)->select();
+                            $rs= $m->field($field)->where($where)->limit($start,$length)->order("D_StartTime desc")->select();
                         }
                         else
                         {
                             //未备份数据不足一页的数据，需要同时读取备份与未备份数据
-                            $rsNoBak= $m->field($field)->where($where)->limit($start,$length)->select();
-                            $rsBak= $m_bak->field($field)->where($where)->limit(0,($length-$NumNotShowed))->select();
+                            $rsNoBak= $m->field($field)->where($where)->limit($start,$length)->order("D_StartTime desc")->select();
+                            $rsBak= $m_bak->field($field)->where($where)->limit(0,($length-$NumNotShowed))->order("D_StartTime desc")->select();
                             $rs= array_merge($rsNoBak,$rsBak); 
                         }
                    }
                    else
                    {
                        //$NumNotShowed=0或者$NumNotShowed<0,则未备份录音已经显示完毕，仅查询备份表(tab_rec_bakinfo)即可
-                       $rs= $m_bak->field($field)->where($where)->limit($start-$CntNoBackup,$length)->select();
+                       $rs= $m_bak->field($field)->where($where)->limit($start-$CntNoBackup,$length)->order("D_StartTime desc")->select();
                    }
                 }    
             }

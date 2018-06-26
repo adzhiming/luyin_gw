@@ -11,21 +11,50 @@ function getTodayChannelCount($ChannelNo='',$days){
     }
     //统计录音
     $rs = M('rec_cdrinfo a')->field("count(*) cnt")->where($where)->find();
+    $rs_bak = M('rec_bakinfo a')->field("count(*) cnt")->where($where)->find();
+    $cnt_bak = isset($rs_bak['cnt'])?$rs_bak['cnt']:0;
+    $cnt_bak = empty($cnt_bak)?0:$cnt_bak;
     if($rs){
-        $returnData['voiceCnt'] = $rs['cnt'];
+        $returnData['voiceCnt'] = $rs['cnt']+$cnt_bak;
     }
     else{
-       $returnData['voiceCnt'] = '0'; 
+       $returnData['voiceCnt'] = 0+$cnt_bak; 
     }
-    //统计录像
-    $sql = "select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where {$where}";
-    $rs = M()->query($sql);
 
-    if($rs){
-        $returnData['videoCnt'] = empty($rs[0]['cnt'])?'0':$rs[0]['cnt'];
+    //统计录像
+        $sql = "select `recid` from tab_ved_cdrinfo union select `recid` from tab_ved_bakinfo order by `recid` ";
+        $res = M()->query($sql);
+        $recid = "";
+        if($res){
+            foreach ($res as $v){
+                if($recid == ""){
+                    $recid = $v['recid'];
+                }
+                else
+                {
+                    $recid = $recid .",".$v['recid'];
+                }
+            }
+        }
+        $where2 ="";
+        if(!empty($recid)){
+            $where2 .= " and a.N_SN in ($recid)";
+        }
+        else{
+            $where2 .= " and a.N_SN = -1";
+        }
+        $sql="Select Count(N_SN) as cnt from tab_rec_cdrinfo a where ".$where." {$where2} limit 1";
+        $rsVideo = M()->query($sql);
+
+        $sql="Select Count(N_SN) as cnt from tab_rec_bakinfo a where ".$where." {$where2} limit 1";
+        $rsVideo_bak = M()->query($sql);
+        $cnt_bak = isset($rsVideo_bak[0]['cnt'])?$rsVideo_bak[0]['cnt']:0;
+        $cnt_bak = empty($cnt_bak)?0:$cnt_bak;
+    if($rsVideo){
+        $returnData['videoCnt'] = $rsVideo[0]['cnt']+$cnt_bak;
     }
     else{
-       $returnData['videoCnt'] = '0'; 
+       $returnData['videoCnt'] = 0+$cnt_bak; 
     }
     return $returnData;
 }
@@ -50,7 +79,7 @@ function getRecordVideoCount($seachType='day')
                 }
                 
                 //统计录像
-                $sql = "select count(b.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = TO_DAYS(NOW())'";
+                $sql = "select count(a.VID) cnt from tab_rec_cdrinfo a left join tab_ved_bakinfo b on a.N_RECID = b.RecID where TO_DAYS(a.D_StartTime) = TO_DAYS(NOW())'";
                 $rs = M()->query($sql);
                 if($rs){
                     $returnData['videoCnt'] = $rs[0]['cnt'];
@@ -60,7 +89,7 @@ function getRecordVideoCount($seachType='day')
             
             case 'week':
                 $returnData = array();
-                for($i=-7;$i<0;$i++){
+                for($i=-6;$i<1;$i++){
                     $dates = date('Y-m-d', strtotime("{$i} days"));
                     $statistics = getTodayChannelCount($ChannelNo='',$dates);
                     $returnData[$dates] = $statistics;
@@ -70,8 +99,8 @@ function getRecordVideoCount($seachType='day')
             
             case 'month':
                 $returnData = array();
-                for($i=-30;$i<0;$i++){
-                    $dates = date('Y-m-d', strtotime("{$i} days"));
+                for($i=-29;$i<1;$i++){
+                    $dates = date('Y-m-d', strtotime("{$i} days"));                   
                     $statistics = getTodayChannelCount($ChannelNo='',$dates);
                     $returnData[$dates] = $statistics;
                 }
@@ -380,24 +409,27 @@ function CreatNetPath($netPath,$vpath){
     if(substr($vpath,-1,1)=="\\"){  //去除路径右侧的斜杠\
         $vpath=substr($vpath,0,strlen($vpath)-1);
     }
+    $vpath = str_replace("\\", "/", $vpath);
     $filename="C:\\NeuTech\\Apache2.2\\conf\\httpd.conf";//默认apache配置文件路径
     //$filename="C:\\Program Files\\Apache Software Foundation\\Apache2.2\\conf\\httpd.conf";
     $ArrConf=file($filename);
 
     //判断配置文件里是否已经存在同名虚拟路径
     while (list($key, $val) = each($ArrConf)) {
-        if(substr_count($ArrConf[$key],"Alias '/{$netPath}' '{$vpath}'")){
+        if(substr_count($ArrConf[$key],"Alias /{$netPath} '{$vpath}'")){
             //echo "虚拟路径已经存在",$ArrConf[$key],"Alias /{$netPath} '{$vpath}'";
             return 2;
             break;
         }
     }
+ 
     unset($ArrConf);
     $f=fopen($filename,"a+");   
-    fwrite($f,"\r\nAlias '/{$netPath}' '{$vpath}'\r\n");
+    fwrite($f,"\r\nAlias  /{$netPath} '{$vpath}'\r\n");
     fwrite($f,"<Directory '{$vpath}'>\r\n");
-    fwrite($f,"\tOrder allow,deny\r\n");
-    fwrite($f,"\tAllow from all\r\n");
+    fwrite($f,"\tOptions Indexes MultiViews\r\n");
+    fwrite($f,"\tAllowOverride None\r\n");
+    fwrite($f,"\tRequire all granted\r\n");
     fwrite($f,"</Directory>\r\n");
     fclose($f);
 }

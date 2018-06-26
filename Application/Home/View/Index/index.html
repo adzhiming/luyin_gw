@@ -30,7 +30,7 @@
                         
                         <div class="col-md-2">
                                 <div class="panel noborder">
-                                    <div class="panel-heading noborder">
+                                    <div class="panel-heading noborder" style="max-height: 100px;">
                                         <div class="panel-btns">
                                             <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
                                         </div><!-- panel-btns -->
@@ -44,7 +44,7 @@
                             </div><!-- col-md-3 -->
 						    <div class="col-md-2">
                                 <div class="panel noborder">
-                                    <div class="panel-heading noborder">
+                                    <div class="panel-heading noborder" style="max-height: 100px;">
                                         <div class="panel-btns">
                                             <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
                                         </div><!-- panel-btns -->
@@ -61,7 +61,7 @@
 							
                             <div class="col-md-2">
                                 <div class="panel noborder">
-                                    <div class="panel-heading noborder">
+                                    <div class="panel-heading noborder" style="max-height: 100px;">
                                         <div class="panel-btns">
                                             <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
                                         </div><!-- panel-btns -->
@@ -92,7 +92,7 @@
                             
                             <div class="col-md-6">
                                 <div class="panel noborder">
-                                    <div class="panel-heading noborder">
+                                    <div class="panel-heading noborder" style="max-height: 100px;">
                                         <div class="panel-btns">
                                             <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
                                         </div><!-- panel-btns -->
@@ -161,8 +161,40 @@
         <script src="__PUBLIC__/assets/bootstrap/js/hightstock/highcharts-zh_CN.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script> 
  		<script>
+  
+      var arr = {$voice_count};  
+     
+     var voice_count=new Array();
+for(var i=0;i<arr.length;i++)
+{
+        voice_count[i]= Number(arr[i]);
+}
 
- 		$(function() {
+    var arr = {$video_count};  
+     
+     var video_count=new Array();
+for(var i=0;i<arr.length;i++)
+{
+        video_count[i]= Number(arr[i]);
+}
+ 
+     var arr = {$voice_day_count};  
+     
+     var voice_day_count=new Array();
+for(var i=0;i<arr.length;i++)
+{
+        voice_day_count[i]= Number(arr[i]);
+}
+    var   videoarr = {$video_day_count};
+     var video_day_count=new Array();
+for(var i=0;i<videoarr.length;i++)
+{
+        video_day_count[i]= Number(videoarr[i]);
+}
+
+
+
+     		$(function() {
 
  			$('#container').highcharts({
  		        title: {
@@ -177,7 +209,7 @@
  		                text: null
  		            },
  		            min: 0,
- 		            max: 4,
+ 		            max: 8,
  		            scrollbar: {
  		                enabled: true
  		            },
@@ -186,7 +218,7 @@
  		        },
  		       yAxis: {
 		            min: 0,
-		            max: 800,
+		            max: 200,
 		            title: {
 		                text: '录音记录',
 		                align: 'high'
@@ -200,11 +232,11 @@
  		        series: [{
  		            type: 'column',
  		            name: '录音',
- 		            data: {$voice_count},
+ 		            data: voice_count,
  		        }, {
  		            type: 'column',
  		            name: '录像',
- 		            data: {$video_count},
+ 		            data: video_count,
  		        }]
  		    });
  			
@@ -212,7 +244,7 @@
  		});
 
  		
- 		
+ 	
  	var chart = Highcharts.chart('container2', {
     chart: {
         type: 'line'
@@ -243,10 +275,10 @@
     },
     series: [{
         name: '录音',
-        data: {$voice_day_count}
+        data: voice_day_count
     }, {
         name: '录像',
-        data: {$video_day_count}
+        data: video_day_count
     }]
 });
  		

@@ -132,4 +132,3 @@ jQuery(document).ready(function() {
 		});
 	}
 });
-
