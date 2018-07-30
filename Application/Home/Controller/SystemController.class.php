@@ -315,6 +315,7 @@ class SystemController extends AuthController {
         $todo=isset($_POST["todo"])?$_POST["todo"]:"";
         if(IS_POST){
             if($todo=="update"){
+                $errMsg="修改成功";
                 $pName=explode(",",$_POST["strPname"]);//参数列表，分解成数组；
                 for($i=0;$i<count($pName);$i++){
                     $p=$pName[$i];
@@ -1189,7 +1190,7 @@ class SystemController extends AuthController {
             die;
         }
         $this->assign("CurrentPage",'station');
-        $this->assign("CurrentPage",'userManage');
+        
         $this->display();
     }
     
@@ -1311,6 +1312,7 @@ class SystemController extends AuthController {
     //操作日志
     public function operationLog(){
         if(IS_AJAX){
+
             $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
             $length = isset($_REQUEST['length'])?$_REQUEST['length']:10;
             $sMode = $this->getParam("sMode");
@@ -1320,18 +1322,21 @@ class SystemController extends AuthController {
             $where= array();
             if($keyWord !="" && $sMode !=''){
                 if($sMode=="D_LogTime"){
-                    $where="  D_LogTime between '$keyWord 00:00:00' and  '$keyWord 23:59:59' ";
+                    $where="  a.D_LogTime between '$keyWord 00:00:00' and  '$keyWord 23:59:59' ";
                 }elseif($sMode=="V_AccountName"){
-                    $where=" V_AccountId in(select V_AccountId from tab_sys_accountinfo where V_AccountName like '%".$keyWord."%')";
+                    $where=" a.V_AccountId in(select V_AccountId from tab_sys_accountinfo where V_AccountName like '%".$keyWord."%')";
                 }else{
                     $where=" $sMode like '%".$keyWord."%'";
                 }
             }
             
-            $cnt = M('sys_accountlog')->field("count(*) cnt ")->where($where)->find();
-            $total = $cnt['cnt'];
-            $rs = M('sys_accountlog')->where($where)->order("N_LogID desc")->limit($start,$length)->select();
+            $cnt = M('sys_accountlog')->alias('a')->join("tab_sys_accountinfo b on a.V_AccountId = b.V_AccountId","left")
+                   ->field("count(a.V_AccountId) cnt ")->where($where)->find();
              
+            $total = $cnt['cnt'];
+            $rs = M('sys_accountlog')->alias('a')->join("tab_sys_accountinfo b on a.V_AccountId = b.V_AccountId","left")
+                 ->field("a.*,b.V_AccountName")->where($where)->order("a.N_LogID desc")->limit($start,$length)->select();
+            
             $output['aaData'] = $rs;
             $output['iTotalDisplayRecords'] = $total;    //如果有全局搜索，搜索出来的个数
             $output['iTotalRecords'] = $total; //总共有几条数据
@@ -1346,7 +1351,7 @@ class SystemController extends AuthController {
     
     //告警日志  
     public function alarmLog(){
-        $s_time = date("Y-m-d",strtotime("-300 day"))." 00:00:00";
+        $s_time = date("Y-m-d",strtotime("-1 day"))." 00:00:00";
         $e_time = date("Y-m-d",time())." 23:59:59";
         if(IS_AJAX){
             $start = isset($_REQUEST['start'])?$_REQUEST['start']:0;
@@ -1357,7 +1362,7 @@ class SystemController extends AuthController {
             $Level = $this->getParam("Level");
             $toClear = $this->getParam("toClear");
             
-            $where['D_LogTime'] = array("between","{$datetimepicker_start} , $datetimepicker_end");
+            $where['D_LogTime'] = array("between","$datetimepicker_start, $datetimepicker_end");
             if($ClearFlag !=-1){
                 $where['N_ClearFlag'] = $ClearFlag;
             }
@@ -1614,6 +1619,37 @@ public function parame_input($paraName,$v,$checkbox,$channelNo){
         <input name=\"hid_{$paraName}[]\"  type='hidden' value=\"{$v}\">";
     }
     return $tmp;
+}
+
+
+public function clearAlarm(){
+    $id = $this->getParam("id");
+    $AppResult = new AppResult();
+    if(empty($id)){
+        $AppResult->code =0;
+        $AppResult->message = '请选择要告警日志';
+        $AppResult->data = "";
+    }
+    else
+    {
+        $save = array();
+        $save['N_ClearFlag'] = 1;
+        $save['N_ClearUserID'] = $_SESSION['uAccount'];
+        $save['D_ClearTime'] = date("Y-m-d H:i:s");
+         
+        $rs = M("sys_alarmlog")->where("N_SN in(".$id.")")->save($save);
+       
+        if(false !== $rs){
+            $AppResult->code =1;
+            $AppResult->message = '操作成功';
+            $AppResult->data = "";
+        }else{
+            $AppResult->code =0;
+            $AppResult->message = '操作失败';
+            $AppResult->data = "";
+        }
+    }
+   $AppResult->returnJSON();
 }
 
 

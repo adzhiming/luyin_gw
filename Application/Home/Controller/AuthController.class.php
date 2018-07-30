@@ -1,6 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+use Think\Model;
 use Home\Controller\AppResult;
 class AuthController extends Controller {
     public function __construct(){
@@ -12,6 +13,8 @@ class AuthController extends Controller {
             $this->error('未登陆，请登陆！', $redirect);
             die;
         }
+        $this->assign("admininfo",session("admininfo"));
+         
     }
     public function index(){
         

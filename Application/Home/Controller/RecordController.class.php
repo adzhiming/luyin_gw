@@ -15,7 +15,7 @@ class RecordController extends AuthController {
     
 
     public function recordList(){
-        $s_time = date("Y-m-d",strtotime("-300 day"))." 00:00:00";
+        $s_time = date("Y-m-d",time())." 00:00:00";
         $e_time = date("Y-m-d",time())." 23:59:59";
          
         if(IS_AJAX){
@@ -48,7 +48,7 @@ class RecordController extends AuthController {
             }
            
             if($search_key != ""){//通话号码(姓名)的取值，0则号码，1则姓名
-                if($SearchMode==0){
+                if($SearchMode ==1){
                     $key=getNumByName($search_key);
                     if($key==""){
                         $where .= ' and N_SN = -1';//姓名没匹配到号码，直接设置一个不成立的条件
@@ -56,10 +56,11 @@ class RecordController extends AuthController {
                         $where .= " and (V_caller in ('{$key}') or V_called in('{$key}') or v_ext in('{$key}')) ";
                     }
                 }else{
-                    $where .= " and (V_caller like '".$search_key."%' or V_called like '".$search_key."%'  orv_ext like '".$search_key."%')";
+                    $where .= " and (V_caller like '".$search_key."%' or V_called like '".$search_key."%'  or v_ext like '".$search_key."%')";
                 }
+                //echo $where;die;
             }
-            if ($has_video==1) {//只查有录象的记录
+            if ($has_video==1) {//只查有录象的记录 
                 $sql = "select `recid` from tab_ved_cdrinfo union select `recid` from tab_ved_bakinfo order by `recid` ";
                 $res = M()->query($sql);
                 $recid = "";
@@ -74,12 +75,17 @@ class RecordController extends AuthController {
                         } 
                     }
                 }
-                if(!empty($recid)) $where .= " and N_SN in ($recid)";
+                if(!empty($recid)){
+                   $where .= " and N_SN in ($recid)"; 
+                }
+                else{
+                   $where .= " and N_SN = -1 ";
+                }                 
             }
             //echo $where;
             //按拨叫方向查询
-            if($InOut!=2){
-                $where .= " and N_CallDirection= {$InOut}";
+            if($InOut != 2){
+                $where .= " and N_CallDirection = '{$InOut}' ";
             }
             $where.=" and  (unix_timestamp(D_StopTime)-unix_timestamp(D_StartTime))>=$stime ";
             $CntNoBackup=$m->field("count(*) cnt")->where($where)->find();	//未备份部分数据
@@ -168,7 +174,7 @@ class RecordController extends AuthController {
     }
     
     public function recordCount(){
-        $s_time = date("Y-m-d",strtotime("-300 day"))." 00:00:00";
+        $s_time = date("Y-m-d",time())." 00:00:00";
         $e_time = date("Y-m-d",time())." 23:59:59";
         $datetimepicker_start = isset($_REQUEST['datetimepicker_start'])?$_REQUEST['datetimepicker_start']:$s_time;
         $datetimepicker_end = isset($_REQUEST['datetimepicker_end'])?$_REQUEST['datetimepicker_end']:$e_time;

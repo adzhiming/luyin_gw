@@ -171,6 +171,7 @@ hr.hr20 {
 							<hr class="hr15">
 							<input name="password"  id="password" placeholder="密码" required="" type="password">
 							<hr class="hr15">
+                            <!--
 							<div>
 								<div style="width:60%;float:left">
 								<input name="captcha"  id="captcha" placeholder="验证码" required="" type="text" style="width:100%">
@@ -179,8 +180,10 @@ hr.hr20 {
 							    <img  id="verify" src="__ROOT__/home/login/get_verify_png" alt="点击刷新" style="width:100%;height: 49px;"/>
 							   
 							    </div>
-							     <p class="tips" style="color:#ff0000;text-align:center;display:none "></p>
+							     
 							</div>
+                        -->
+                            <p class="tips" style="color:#ff0000;text-align:center;display:none "></p>
 							<hr class="hr15">
 							<input type="button" class="loginbtn"  id="loginbtn"  onclick="login()"  value="登录">
 							<hr class="hr20">
@@ -195,6 +198,15 @@ hr.hr20 {
          <script type="text/javascript" src="__PUBLIC__/assets/bootstrap/js/jquery-1.9.1.min.js"></script>
         <![endif]-->
 		<script type="text/javascript">
+
+      $(document).keydown(function (event) {
+        if (event.keyCode == 13) {
+           login();
+        }
+      });
+
+
+
 		$('.identimg').click(function (){
 			  $('#verify').attr('src','__ROOT__/home/login/get_verify_png?t='+new Date().getTime());
 		})
@@ -215,11 +227,11 @@ hr.hr20 {
                 return;
 			}
             var captcha = $("#captcha").val();
-            if ($.trim(captcha) == "") {
+            /*if ($.trim(captcha) == "") {
                 $(".tips").text("请输入验证码");
                 $(".tips").show();
                 return;
-			}
+			}*/
 
 	
 		$.ajax({

@@ -42,16 +42,16 @@
 	                                <!-- <div class="pull-left col-md-1">
 	                                    <h4 class="panel-title">录音查询</h4>
 	                                </div> -->
-	                                <div class="pull-left col-md-3">
+	                                <div class="pull-left col-md-4">
 	                                <div class="input-group">
 	                                <span class="search_input-group-addon">
 										        告警状态：
-									        :<select name="ClearFlag">
+									        :<select name="ClearFlag" id="ClearFlag" style="width: 100px;">
 						            			<option value="-1">所有状态</option>
 						                        <option value="0">未消除</option>
 						                        <option value="1">已消除</option>
 						                    </select>
-						                    <select name='Level'>
+						                    <select name='Level' id='Level' style="width: 125px;">
 						                    	<option value=''>所有级别</option>
 						                    	<option value="4">LOG_ERROR</option>
 						                        <option value="6">LOG_NOTICE</option>
@@ -60,7 +60,7 @@
 									</span>
 		                            </div>
 	                                </div>
-	                                <div class="pull-left " style="width: 55%;">
+	                                <div class="pull-left " style="width: 45%;">
 	                                <div class="input-group pull-left" style="padding:5px;">
 		                                <lable class="pull-left">开始时间：<input name="datetimepicker_start" id="datetimepicker_start" type="text" value="{$datetimepicker_start}" /></lable>
 		                                <lable class="pull-left">结束时间：<input name="datetimepicker_end" id="datetimepicker_end" type="text" value="{$datetimepicker_end}" /></lable>
@@ -170,7 +170,9 @@ $(document).ready( function () {
 	                "type": "post",  //后台指定了方式，默认get，外加datatable默认构造的参数很长，有可能超过get的最大长度。
 	                "url": '../System/alarmLog',
 	                "dataSrc": "data",  //默认data，也可以写其他的，格式化table的时候取里面的数据
-	                "data": function (d) {  //d 是原始的发送给服务器的数据，默认很长。
+	                "data": function (d) {  //d 是原始的发送给服务器的数据，默认很长。Level
+	                	d.ClearFlag = $("#ClearFlag").val();
+	                	d.Level = $("#Level").val();
 	                	d.datetimepicker_start=$('#datetimepicker_start').val();
 	                	d.datetimepicker_end=$('#datetimepicker_end').val();
 	                }
@@ -205,7 +207,7 @@ $(document).ready( function () {
 	            "aoColumns": [  //这个属性下的设置会应用到所有列，按顺序没有是空
 	            	{"mData": function (mData)
 	              	   {
-	                      return "<input type='checkbox' class='checked_per_pro' name='checked_per_pro'  value='"+mData.n_sn+"' />";
+	                      return "<input type='checkbox' class='checked_per_pro' name='checked_per_pro'  value='"+mData.n_sn+"' />"+mData.n_sn;
 	                     }
 	              	},
 	                {"mData": 'v_modulename'},
@@ -282,7 +284,58 @@ function del(){
 	}
 }
 
+	//消除告警
+	function cl(id){ 
+		if(id==""){
+			alert("请选择要消除的告警");	
+			return false;
+		}
+		var url = "clearAlarm";
+		if(confirm("确定消除所选告警？")){
+	  		$.ajax({
+				type:"POST",
+				url:url,
+				data:{
+					id:id	
+				},
+				success: function(data){
+					$('#alertModel').modal('show');
+					$('.Alertmessage').html(data.message)
+		   		   // $('#alertModel').modal('hide');
+		   		   // alert(data.message)
+		   		   // window.location.reload()
+				}
+			})
 
+		}else{
+			if(id!=""){
+			//点击单条告警后取消操作，如果有多选记录，则将toClear值恢复为所选ID，否则设置为空
+				sum(document.form1.N_SN,document.form1.toClear);
+			}
+		}
+	}
+
+$(".sureDel").click(function(){
+	$('#alertModel').modal('hide');
+	 CHANNEL_TB.fnClearTable();
+    CHANNEL_TB.fnReloadAjax();
+})
+
+	//统计指定复选框所选中的值，并把值保存到一个hidden控件
+function sum(co,ho){
+	var vStr="";
+	if(!co){return vStr;}
+	if(co.length>1){
+		for(var i=0;i<co.length;i++){
+			if(co[i].checked){
+				vStr+=((vStr=="")?"":",")+co[i].value;
+			}
+		}
+	}else{
+		vStr=co.checked?co.value:"";
+	}
+	ho.value=vStr;
+}
 </script>	
 		      
 		

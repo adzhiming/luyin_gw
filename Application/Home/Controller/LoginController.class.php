@@ -17,7 +17,8 @@ class LoginController extends Controller
 		if(IS_POST){
 		    $captcha = I('post.captcha');
 		    $where = array();
-		    if($this->check_verify($captcha)==true){
+		   // if($this->check_verify($captcha)==true){
+		    if(1){	
 				$userModel = M("sys_accountinfo");
 				$where['V_Password'] = $_REQUEST['password'];
 				$where['V_AccountName'] = $_REQUEST['username'];
@@ -34,7 +35,7 @@ class LoginController extends Controller
 				    session("V_SID",$rs['v_sid']);//有权工作站
 				    session("admininfo",$rs);
 				    
-				    $returnData['url']                   = "/home/index";
+				    $returnData['url']                   = "/home/record/recordList";
 				    $returnData['msg'] = "登录成功";
 				    $returnData['code'] =1;
 				    
