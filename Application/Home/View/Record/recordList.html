@@ -14,6 +14,7 @@
         <link href="__PUBLIC__/assets/bootstrap/css/jquery.dataTables.min.css" rel="stylesheet">
         <link href="__PUBLIC__/assets/bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
 		<link href="__PUBLIC__/assets/bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <link href="__PUBLIC__/assets/bootstrap/css/bootstrap-multiselect.css" rel="stylesheet">
 		<link href="__PUBLIC__/assets/bootstrap/css/jquery.audioplayer.css" rel="stylesheet" />
 		
 		<style type="text/css">
@@ -94,6 +95,12 @@
         float: right;
         margin-right: 10px;
  }
+
+ .multiselect-native-select  ul{
+    max-height: 450px;
+    overflow: auto;
+    width: 250px;
+}
         </style>
  
     </head>
@@ -152,11 +159,17 @@
 										      </span>
 										      <input type="text" name="stime" id="stime"  class="search_form-control" value="1">
 									    </div>
+                                        <label for="id_select"></label>
+                                            <select id="channels_sel" multiple="multiple" data-size="5">
+                                                 <foreach name="rsChno" item="chnolist">
+                                                      <option value="{$chnolist.chno}">{$chnolist.channelname}</option>
+                                                 </foreach>
+                                            </select> 
 	                                </div>
 	                                <div class="col-md-3">
-	                                	<div class="col-xs-6">
-										    <button data-toggle="dropdown" class="btn dropdown-toggle">通道选择 <span class="caret"></span></button>
-										    <div class="dropdown-menu dropdown-menu-right">
+	                                	 
+										       
+										    <!-- <div class="dropdown-menu dropdown-menu-right">
 											  	<div class="dropdown-menu-floatlist">
 											  		<div id="channelblock" class="labelblock">
 												  		<foreach name="rsChno" item="chnolist">
@@ -168,8 +181,8 @@
 											  			<p class="tip pull-right text-primary">提示:查找所有通道时可全不选中</p>
 											  		</div>
 											  	</div>
-									    	</div>
-									    </div>
+									    	</div> -->
+									     
 								    	<div class="col-xs-6">
 								    		<div class="btn btn-info btn-large search">开始搜索</div>
 										</div>
@@ -301,6 +314,7 @@
         <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/jquery.datatables.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/bootstrap-datetimepicker.js"></script>
+        <script src="__PUBLIC__/assets/bootstrap/js/bootstrap-multiselect.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/custom.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/jquery.audioplayer.js"></script>
 <script type="text/javascript">
@@ -312,7 +326,12 @@ var InOut = 2;
 var SearchMode = 0;
 var has_video = 0;
 $(document).ready( function () {
-	
+	$('#channels_sel').multiselect({
+            includeSelectAllOption: true,
+            enableFiltering: true,
+            buttonWidth: '200px'
+        });
+
 	
 CHANNEL_TB = $('#basicTable').dataTable(
         {
@@ -332,8 +351,8 @@ CHANNEL_TB = $('#basicTable').dataTable(
                 	if($('#has_video').is(':checked')){
                 		has_video = 1;
                 	}
-                    console.log($('#pageSize').val())
-                	d.chk_CN = String(CHANNEL_ARR);
+                    console.log($('#channels_sel').val())
+                	d.chk_CN = String($('#channels_sel').val());
                 	d.datetimepicker_start=$('#datetimepicker_start').val();
                 	d.datetimepicker_end=$('#datetimepicker_end').val();
                 	d.SearchMode=SearchMode;

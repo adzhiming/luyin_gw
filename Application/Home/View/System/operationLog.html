@@ -40,7 +40,7 @@
 	                                <!-- <div class="pull-left col-md-1">
 	                                    <h4 class="panel-title">录音查询</h4>
 	                                </div> -->
-	                                <div class="pull-left col-md-5">
+	                                <div class="pull-left col-md-4">
 	                                
 	                                <div class="input-group">
 	                                <span class="search_input-group-addon">
@@ -53,9 +53,9 @@
 		                             </div>
 		                             
 	                                </div>
-	                                <div class="pull-left col-md-2">
+	                                <div class="pull-left col-md-4">
 	                                 	<div class="input-group" style="padding:5px;">
-		                                <lable class="pull-left">关键字：<input id="keyWord"  style="width:100px" type="text" value="" /></lable>                     
+		                                <lable class="pull-left">关键字：<input id="keyWord"  style="width:200px" type="text" value="" /></lable>                     
 	                                 </div>
 	                                </div>
 	                               
@@ -169,7 +169,7 @@ $(document).ready( function () {
 	            "bServerSide": true, //开启服务器模式，使用服务器端处理配置datatable。注意：sAjaxSource参数也必须被给予为了给datatable源代码来获取所需的数据对于每个画。 这个翻译有点别扭。开启此模式后，你对datatables的每个操作 每页显示多少条记录、下一页、上一页、排序（表头）、搜索，这些都会传给服务器相应的值。
 //	            "sAjaxSource": '__URL__/serach_nasty', //给服务器发请求的url
 	            "aoColumns": [  //这个属性下的设置会应用到所有列，按顺序没有是空
-	                {"mData": 'v_accountid'},
+	                {"mData": 'v_accountname'},
 	                {"mData": 'v_logip'},
 	                {"mData": 'd_logtime'},
 	                {"mData": 'v_description'}

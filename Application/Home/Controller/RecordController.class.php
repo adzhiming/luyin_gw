@@ -164,7 +164,12 @@ class RecordController extends AuthController {
         }
         
         //列出所有通道
-        $rsChno = M('sys_paramschannel')->order('N_ChannelNo')->field("distinct N_ChannelNo")->select();
+        $rsChno = M('drcu_circfg')->order('dispchno')->field("distinct chno")->select();
+        if($rsChno){
+            foreach ($rsChno as $key => $value) {
+                 $rsChno[$key]['channelname'] = $this->getIDByName($value['chno']);
+            }
+        }
         $this->assign("rsChno",$rsChno);
         
         $this->assign("datetimepicker_start",$s_time);
@@ -173,6 +178,18 @@ class RecordController extends AuthController {
         $this->display();
     }
     
+   public function getIDByName($id){
+        $rs = M("sys_paramschannel")->field("V_Value")->where("N_ChannelNo='{$id}' and V_ParamsName ='ChnName'")->find();
+        if($rs){
+            $str = empty($rs["v_value"])?$id:$rs["v_value"];
+        }
+        else{
+            $str = $id;
+        }
+        return $str;
+    
+    }
+
     public function recordCount(){
         $s_time = date("Y-m-d",time())." 00:00:00";
         $e_time = date("Y-m-d",time())." 23:59:59";
@@ -330,23 +347,32 @@ class RecordController extends AuthController {
 	        }
 	    }else{//试听一个录音，根据录音子ID判断是否有相关录音，有则罗列出来一起试听。
 	        $rs = M('rec_cdrinfo')->field("N_RECID")->where("N_SN = '{$listItem}' ")->find();
+			 
 	        $recid = "";
-	        if($rs){
+			$rsPlay = false;
+	        if(!empty($rs["n_recid"])){
+				 
 	            $recid = $rs["n_recid"];
+				$rsPlay = M('rec_cdrinfo')->field($SelectStr)->where("N_RECID = '{$recid}' ")->order('N_RECSEQ')->select();
 	        }
-	        $rsPlay = M('rec_cdrinfo')->field($SelectStr)->where("N_RECID = '{$recid}' ")->order('N_RECSEQ')->select();
 	        
+	         
 	        $fileName=$this->getParam("fname");
             //加载页面后，首先播放的录音
 	        if(!$rsPlay){
+				
                 $rs = M('rec_bakinfo')->field("N_RECID")->where("N_SN = '{$listItem}' ")->find();
+				$rsPlay = false;
                 $recid = "";
-                if($rs){
+                if(!empty($rs["n_recid"])){
                     $recid = $rs["n_recid"];
+					 
+					$rsPlay = M('rec_bakinfo')->field($SelectStr)->where("N_RECID = '{$recid}' ")->order('N_RECSEQ')->select();
                 }
-	            $rsPlay = M('rec_bakinfo')->field($SelectStr)->where("N_RECID = '{$recid}' ")->order('N_RECSEQ')->select();
+	             
 	            if(!$rsPlay){	//再次无记录，关闭试听页面
 	                JS_alert("没找到录音文件，可能已被删除");
+					exit;
 	                //JScript("self.close();");
 	            }
 	        }
