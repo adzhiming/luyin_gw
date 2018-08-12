@@ -86,15 +86,21 @@ class AccountController extends AuthController {
                 $where.=" and a.contactname like '%".$sName."%' ";
             }
             if($sNum !=""){
-                $where.=" and (a.Mobile like '%".$sNum."%' or a.OfficeNum like '%".$sNum."%' or a.OtherNum like '%".$sNum."%')";
+                $where.=" and (a.Mobile like '%".$sNum."%' or a.OfficeNum like '%".$sNum."%'
+                 or a.phone1 like '%".$sNum."%' or a.phone2 like '%".$sNum."%' or a.phone3 like '%".$sNum."%' or a.phone4 like '%".$sNum."%'
+                 or a.phone5 like '%".$sNum."%' or a.phone6 like '%".$sNum."%' or a.phone7 like '%".$sNum."%' or a.phone8 like '%".$sNum."%'
+                 or a.phone9 like '%".$sNum."%' or a.phone10 like '%".$sNum."%'
+                )";
             }
             
-            $field="a.*,b.deptName";
+            $field="a.*,concat(a.phone1,',',a.phone2,',',a.phone3,',',a.phone4,',',a.phone5,',',a.phone6,',',a.phone7,',',a.phone8,',',a.phone9,',',a.phone10) as  phones ,b.deptName";
             $cnt = M('phonebook a')->field("count(*) cnt ")->where($where)->find();
             $total = $cnt['cnt'];
             $rs = M('phonebook a')->join("tab_dept b on a.deptid=b.deptid","left")->field($field)->where($where)->limit($start,$length)->select();
+            //echo M()->getLastSql();
             if($rs){
                 foreach ($rs as $k=>$v){
+
                     if($v['sex'] == 1){
                         $rs[$k]['xingbie'] = '男';
                     }
@@ -115,6 +121,62 @@ class AccountController extends AuthController {
         
         $this->assign("CurrentPage",'phoneBook');
         $this->display();
+    }
+
+    //同步号簿
+    public function synPhoneBook(){ 
+        if(IS_POST){
+            $AppResult = new AppResult();
+            $rs = M("new_phonebook")->where('is_update = 0')->order('name')->select();
+            if($rs){
+                foreach ($rs as $k => $v) {
+                    $upd = array();
+                    $arr = explode(",",$v['number']);
+                    foreach ($arr as $key => $val) {
+                        $i = $key+1;
+                        $index = "phone".$i;
+                        $upd[$index] = $val;
+
+                    }
+                    
+                     //先判断部门
+                    $dep = $v['district'].$v['category'].$v['unit'];
+                    if($dep){
+                        $find = M("dept")->where("DeptName = '{$dep}'")->find();
+                        if($find)
+                        {
+                            $fp = M('phonebook')->where("deptid ='{$find['deptid']}' and contactName ='{$v['name']}'")->find();
+                            if($fp)
+                            {
+                                $rs = M('phonebook')->where("deptid ='{$find['deptid']}' and contactName ='{$v['name']}'")->save($upd);
+                            }
+                            else
+                            {
+                               $upd['sex'] = 1; 
+                               $upd['deptid'] = $find['deptid'];
+                               $upd['contactName'] = $v['name'];
+                               $rs = M('phonebook')->add($upd); 
+                            }    
+                        }
+                        else
+                        {
+                           $add = M("dept")->add(array('DeptName'=>$dep));
+                           if($add){
+                              $upd['sex'] = 1;
+                              $upd['deptid'] = $add;
+                              $upd['contactName'] = $v['name'];
+                              $rs = M('phonebook')->add($upd);
+                           }
+                        }
+                    }
+                }
+            }
+            $AppResult->code = 1;
+            $AppResult->message = "号簿同步成功";
+            $AppResult->data = "";
+            $AppResult->returnJSON();
+        }
+        die;
     }
     
     public function userAdd(){
