@@ -411,7 +411,12 @@ CHANNEL_TB = $('#basicTable').dataTable(
                 {"mData": 'd_starttime'},
                 {"mData": 'd_stoptime'},
                 {"mData": 'longtime'},
-                {"mData": 'v_voicefileplay'},
+                {"mData": function(mData){
+                    if(mData.translate !=''){
+                        return mData.v_voicefileplay+"<a>查看翻译</a>";
+                    }
+                    return mData.v_voicefileplay;
+                }},
                 {"mData": 'local_video'},
                 {"mData": 'remote_video'},
                 {"mData": 'n_lock'},

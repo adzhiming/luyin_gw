@@ -9,11 +9,13 @@ class LoginController extends Controller
 {
 	public function index()
 	{
+		 
 		$this->assign("CurrentPage",'home');
         $this->display();
 	}
 	
 	public function login(){
+	  
 		if(IS_POST){
 		    $captcha = I('post.captcha');
 		    $where = array();
@@ -22,7 +24,18 @@ class LoginController extends Controller
 				$userModel = M("sys_accountinfo");
 				$where['V_Password'] = $_REQUEST['password'];
 				$where['V_AccountName'] = $_REQUEST['username'];
-				$rs                = $userModel->where($where)->find();
+				//检测是否从monitor登录，如果有则从HID_INAME接收用户名
+				if(isset($_POST["HID_INAME"])){	
+					if($_POST["HID_INAME"]!=""){
+						$where['V_AccountName'] =$_POST["HID_INAME"];
+					}
+				}
+				$upwd=isset($_POST["IPASSWORD"])?$_POST["IPASSWORD"]:"";
+
+				if($upwd != ''){
+                    $where['V_Password'] = $_REQUEST['password'];
+				}
+				$rs  = $userModel->where($where)->find();
 				
 				if($rs) {
 				    session("uAccount",$rs['v_accountid']);//用户ID
@@ -83,5 +96,59 @@ class LoginController extends Controller
 	public function check_verify($code, $id = ''){
 		$verify = new  Verify();
 		return $verify->check($code, $id);
+	}
+
+    public function uploadtest(){
+
+       $this->assign("CurrentPage",'home');
+        $this->display();
+    }
+
+	public function upload_translate(){
+		$upload = new \Think\Upload();// 实例化上传类
+	    $upload->maxSize   =     31457280 ;// 设置附件上传大小
+	    $upload->exts      =     array('txt');// 设置附件上传类型
+	    $upload->rootPath  =     './Uploads/'; // 设置附件上传根目录
+	    $upload->savePath  =     ''; // 设置附件上传（子）目录
+	    $upload->saveName = ''; //保持文件名不变
+	    $upload->autoSub = true;
+	    $upload->replace = true;
+        $upload->subName = array('date','Ymd');
+	    // 上传文件 
+	    $info   =   $upload->upload();
+	    $returnData = array();
+	    if(!$info) {// 上传错误提示错误信息 
+	        $returnData['msg'] = $upload->getError();
+			$returnData['code'] =0;
+	    }else{// 上传成功
+	    	//获取文件内容
+	       foreach($info as $file){               
+	    	 	$FilePath = $file['savepath'].$file['savename'];
+           }
+            $fileurl = './Uploads/'.$FilePath;
+            if(file_exists($fileurl)){ 
+               $houzhui = substr(strrchr($file['savename'], '.'), 1);
+               $fileid = basename($file['savename'],".".$houzhui); 
+               $content = file_get_contents($fileurl);
+               $content = trim($content);
+               $rs = M("mgrid","cr_")->where("mgrid = '{$fileid}'")->save(array('contents'=>$content));
+               if(false !== $rs){
+                  $returnData['msg'] = "上传成功!";
+			      $returnData['code'] =1;
+               }
+               else{
+               	  $returnData['msg'] = "文件上传成功,翻译内容保存失败";
+			      $returnData['code'] =0;
+               }
+            }
+            else
+            {
+                $returnData['msg'] = "文件上传成功,翻译内容保存失败";
+			    $returnData['code'] =0;
+            }
+	    	
+	        
+	    }
+	    $this->ajaxReturn($returnData);
 	}
 }

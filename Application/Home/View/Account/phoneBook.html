@@ -123,7 +123,7 @@
 	                                <div class="pull-left col-md-2">
 											<button class="btn btn-info btn-large search">搜索</button>
 	                                </div>
-	                                <div class="pull-right col-md-5" style="text-align:right">
+	                                <div class="pull-right col-md-6" style="text-align:right">
 											<a href="./phoneBookAdd" class="btn btn-info btn-large">添加联系人</a>
 											<button class="btn btn-danger btn-large" onclick="del()">删除联系人</button>
 											<button class="btn btn-warning btn-large downloadPhone">导出号簿</button>
@@ -141,8 +141,13 @@
                                         <th>姓名</th>
                                         <th>性别</th>
                                         <th>分组</th>
-                                        <th>电话</th>
+                                        <th>本地电话1</th>
+                                        <th>本地电话2</th>
+                                        <th>本地电话3</th>
+                                        <th>本地电话4</th>
+                                        <th>调度台电话</th>
                                         <th>备注信息</th>
+                                        <th>操作</th>
                                     </tr>
                                 </thead>
                          
@@ -251,8 +256,16 @@ $(document).ready( function () {
 	                {"mData": 'contactname'},
 	                {"mData": 'xingbie'},
 	                {"mData": 'deptname'},
+	                {"mData": 'mobile'},
+	                {"mData": 'officenum'},
+	                {"mData": 'homenum'},
+	                {"mData": 'othernum'},
 	                {"mData": 'phones'},
-	                {"mData": 'remark'}
+	                {"mData": 'remark'},
+	                {"mData":function(mData){
+	                	return "<a href='./phoneBookEdit/id/"+mData.pid+"'>编辑</a>";
+	                 }
+	               }
 	                 
 	            ],
 
@@ -264,6 +277,7 @@ $(document).ready( function () {
 	            "fnInitComplete": function (oSettings, json) { //表格初始化完成后调用 在这里和服务器分页没关系可以忽略
 	                $("input[aria-controls='DataTables_Table_0']").attr("placeHolder", "请输入高手用户名");
 	            }
+	                 
 	        });
 })
 

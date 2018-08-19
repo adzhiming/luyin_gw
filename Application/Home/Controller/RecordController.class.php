@@ -43,10 +43,10 @@ class RecordController extends AuthController {
             
             $where  .=  " D_StartTime between '{$datetimepicker_start}' and '$datetimepicker_end' ";
             
-            if(!empty($chk_CN)){
+            if(!empty($chk_CN) && $chk_CN != 'null'){
                 $where  .= " and N_ChannelID in ($chk_CN)";
             }
-           
+          
             if($search_key != ""){//通话号码(姓名)的取值，0则号码，1则姓名
                 if($SearchMode ==1){
                     $key=getNumByName($search_key);
@@ -152,6 +152,7 @@ class RecordController extends AuthController {
                     $rs[$k]['v_voicefileplay'] = $fileplay;
                     $rs[$k]['local_video'] = getVideoByRecID($v['n_sn'],0);
                     $rs[$k]['remote_video'] = getVideoByRecID($v['n_sn'],1);
+                    $rs[$k]['translate'] = get_translate($v['n_recid']);
                 }
             }
 

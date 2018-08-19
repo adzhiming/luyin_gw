@@ -464,3 +464,13 @@ function formatNetPath($p){
     return $p;
 }
 
+function get_translate($recid){
+   if(empty($recid)){
+       return "";
+   }
+  $rs = M("mgrid","cr_")->where("recid = '{$recid}'")->find();
+  if($rs){
+    return $rs['contents'];
+  }
+  return "";
+}

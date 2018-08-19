@@ -53,7 +53,7 @@
                                                 </div>
                                             </div><!-- form-group -->
                                           
-                                            <div class="form-group">
+                                           <!--  <div class="form-group">
                                                 <label class="col-sm-2 control-label">性别 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
                                                 <select id="sex" data-placeholder="Choose One" class="width100p" required>
@@ -61,7 +61,7 @@
                                                     <option value="1">男</option>
                                                     <option value="2">女</option>
                                                 </select>
-                                            </div>
+                                            </div> -->
                                             </div><!-- form-group -->
                                           
                                             <div class="form-group">
@@ -76,21 +76,27 @@
                                             </div>
                                         </div><!-- form-group -->
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">移动电话 <span class="asterisk">*</span></label>
+                                                <label class="col-sm-2 control-label">本地电话1 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="phone" id="phone"  class="form-control" placeholder="移动电话" required />
+                                                    <input type="text" name="phone" id="phone"  class="form-control" placeholder="本地电话1" required />
                                                 </div>
                                             </div><!-- form-group -->
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">办公电话 <span class="asterisk">*</span></label>
+                                                <label class="col-sm-2 control-label">本地电话2 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" id="officePhone" name="officePhone" class="form-control" placeholder="办公电话" required />
+                                                    <input type="text" id="officePhone" name="officePhone" class="form-control" placeholder="本地电话2" required />
                                                 </div>
                                             </div><!-- form-group -->
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">其它电话 <span class="asterisk">*</span></label>
+                                                <label class="col-sm-2 control-label">本地电话3 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" id="otherPhone" name="otherPhone" class="form-control" placeholder="其它电话" required />
+                                                    <input type="text" id="homenum" name="homenum" class="form-control" placeholder="本地电话3" required />
+                                                </div>
+                                            </div><!-- form-group -->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">本地电话4 <span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" id="otherPhone" name="otherPhone" class="form-control" placeholder="本地电话4" required />
                                                 </div>
                                             </div><!-- form-group -->
                                             
@@ -168,6 +174,7 @@ $('.submit').click(function(){
 		var phone = $('#phone').val();
 		var officePhone = $('#officePhone').val();
 		var otherPhone = $('#otherPhone').val();
+        var homenum =$('#homenum').val();
 		var remark = $('#remark').val();
 		if(name == ""){
 			$('#alertModel').modal('show');
@@ -186,7 +193,7 @@ $('.submit').click(function(){
 				type:"POST",
 				url:url,
 				data:{
-					 name:name,sex:sex,departMent:departMent,phone:phone,officePhone:officePhone,otherPhone:otherPhone,remark:remark 
+					 name:name,sex:sex,departMent:departMent,phone:phone,officePhone:officePhone,otherPhone:otherPhone,homenum:homenum,remark:remark 
 				},
 				success: function(data){
 					if(data.code){

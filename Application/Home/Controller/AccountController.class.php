@@ -323,18 +323,20 @@ class AccountController extends AuthController {
         {
             $AppResult = new AppResult();
             $name = $this->getParam("name");
-            $sex = $this->getParam("sex");
+           // $sex = $this->getParam("sex");
             $departMent = $this->getParam("departMent");
             $phone = $this->getParam("phone");
             $officePhone = $this->getParam("officePhone");
             $otherPhone = $this->getParam("otherPhone");
+            $homenum = $this->getParam("homenum");
             $remark = $this->getParam("remark");
             $data = array();
             $data['contactName'] = $name;
-            $data['sex'] = $sex;
+            //$data['sex'] = $sex;
             $data['deptid'] = $departMent;
             $data['Mobile'] = $phone;
             $data['OfficeNum'] = $officePhone;
+            $data['HomeNum'] = $homenum;
             $data['OtherNum'] = $otherPhone;
             $data['remark'] = $remark;
             
@@ -358,7 +360,45 @@ class AccountController extends AuthController {
     }
     
     public function phoneBookEdit(){
-        
+        $phoneBookID = $this->getParam("id");
+        if(empty($phoneBookID)){
+           $this->error("请选中要编辑的号簿");exit;
+        }
+        $rs = M('phonebook')->field("*,concat(phone1,',',phone2,',',phone3,',',phone4,',',phone5,',',phone6,',',phone7,',',phone8,',',phone9,',',phone10) as  phones")
+            ->where("pid = '{$phoneBookID}' ")->find();
+        if(empty($rs)){
+           $this->error("非法操作");exit;
+        }
+       
+        if(IS_POST || IS_AJAX){ 
+           $contactname = $this->getParam("contactname");
+           $pid = $this->getParam("pid");
+           $deptid = $this->getParam("deptid");
+           $mobile = $this->getParam("mobile");
+           $officenum = $this->getParam("officenum");
+           $homenum = $this->getParam("homenum"); 
+           $othernum = $this->getParam("othernum");
+           $remark = $this->getParam("remark");
+           $upd['contactName'] = trim($contactname);
+           $upd['deptid'] = trim($deptid);
+           $upd['Mobile'] = trim($mobile);
+           $upd['OfficeNum'] = trim($officenum);
+           $upd['HomeNum'] = trim($homenum);
+           $upd['OtherNum'] = trim($othernum);
+           $upd['remark'] = trim($remark);
+           $rs = M("phonebook")->where("pid = '{$pid}'")->save($upd);
+           if(false !== $rs){
+               $this->success("更新成功");
+           }
+           else
+           {
+               $this->success("更新失败");
+           }
+           exit;
+        }
+        $dept = M("dept")->order('DeptID')->select();
+        $this->assign("dept",$dept);
+        $this->assign("rs",$rs);
         $this->assign("CurrentPage",'phoneBook');
         $this->display();
     }

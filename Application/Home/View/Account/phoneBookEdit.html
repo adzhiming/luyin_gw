@@ -8,7 +8,7 @@
         <meta name="author" content="">
 
 	
-        <title>添加联系人</title>
+        <title>编辑联系人</title>
 
         <link href="__PUBLIC__/assets/bootstrap/css/style.default.css" rel="stylesheet">
         <link href="__PUBLIC__/assets/bootstrap/css/select2.css" rel="stylesheet" />		
@@ -29,72 +29,77 @@
                     <div class="contentpanel">
                        
                        	<div class="col-md-12">
-                                <form id="basicForm" action="form-validation.html">
+                                <form id="basicForm" action="" method="post">
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <div class="panel-btns">
                                             <a href="#" class="panel-minimize tooltips" data-toggle="tooltip" title="Minimize Panel"><i class="fa fa-minus"></i></a>
                                             <a href="#" class="panel-close tooltips" data-toggle="tooltip" title="Close Panel"><i class="fa fa-times"></i></a>
                                         </div><!-- panel-btns -->
-                                        <h4 class="panel-title">联系人添加</h4>
+                                        <h4 class="panel-title">编辑联系人</h4>
                                     </div><!-- panel-heading -->
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">姓名 <span class="asterisk">*</span></label>
+                                                <label class="col-sm-2 control-label">名称 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                    <input type="text" name="contactname" class="form-control" placeholder="用户名" value="{$rs.contactname}" required />
+                                                    <input type="text" name="pid" class="form-control"  value="{$rs.pid}"  />
                                                 </div>
                                             </div><!-- form-group -->
                                           
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label">性别 <span class="asterisk">*</span></label>
-                                                <div class="col-sm-6">
-                                                    <input type="email" name="email" class="form-control" placeholder="密码" required />
-                                                </div>
-                                            </div><!-- form-group -->
+                                            
                                           
                                             <div class="form-group">
                                             <label class="col-sm-2 control-label">所属分组<span class="asterisk">*</span></label>
                                             <div class="col-sm-6">
-                                                <select id="fruits" data-placeholder="Choose One" class="width100p" required>
-                                                    <option value="">Choose One</option>
-                                                    <option value="apple">Apple</option>
-                                                    <option value="orange">Orange</option>
-                                                    <option value="grapes">Grapes</option>
-                                                    <option value="strawberry">Strawberry</option>
+                                                <select id="fruits" data-placeholder="Choose One" name="deptid" class="width100p" required> 
+                                                    <foreach name="dept" item="list">
+                                                        <option value="{$list.deptid}" <if condition="$list.deptid eq $rs.deptid "> selected</if> >{$list.deptname}</option>
+                                                    </foreach>
                                                 </select>
                                             </div>
                                         </div><!-- form-group -->
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">移动电话 <span class="asterisk">*</span></label>
+                                                <label class="col-sm-2 control-label">本地电话1 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                    <input type="text" name="mobile" value="{$rs.mobile}" class="form-control" placeholder="本地电话1"  />
                                                 </div>
                                             </div><!-- form-group -->
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">办公电话 <span class="asterisk">*</span></label>
+                                                <label class="col-sm-2 control-label">本地电话2 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                    <input type="text" name="officenum" value="{$rs.officenum}" class="form-control" placeholder="本地电话2"  />
                                                 </div>
                                             </div><!-- form-group -->
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label">其它电话 <span class="asterisk">*</span></label>
+                                                <label class="col-sm-2 control-label">本地电话3 <span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="name" class="form-control" placeholder="用户名" required />
+                                                    <input type="text" name="homenum" value="{$rs.homenum}" class="form-control" placeholder="本地电话3"  />
                                                 </div>
                                             </div><!-- form-group -->
-                                            
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">本地电话4 <span class="asterisk">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="othernum" value="{$rs.othernum}" class="form-control" placeholder="本地电话4"  />
+                                                </div>
+                                            </div><!-- form-group -->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">调度台电话(通过数据同步获取)</label>
+                                                <div class="col-sm-6">
+                                                    <input type="text" name="phones" value="{$rs.phones}" class="form-control"  disabled />
+                                                </div>
+                                            </div><!-- form-group -->
                                             <div class="form-group">
                                                 <label class="col-sm-2 control-label">备注信息<span class="asterisk">*</span></label>
                                                 <div class="col-sm-6">
-                                                    <textarea rows="5" class="form-control" placeholder="备注信息" required></textarea>
+                                                    <textarea rows="5" name="remark" class="form-control" placeholder="备注信息">{$rs.remark}</textarea>
                                                 </div>
                                             </div><!-- form-group -->
                                         </div><!-- row -->
                                         <div class="modal-footer col-sm-6">
 									        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-									        <button type="button" class="btn btn-primary">添加</button>
+									        <button type="submit" class="btn btn-primary">保存</button>
 									    </div>
                                     </div><!-- panel-body -->
                            

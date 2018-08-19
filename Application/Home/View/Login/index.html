@@ -167,9 +167,10 @@ hr.hr20 {
 					    <div id="darkbannerwrap"></div>
 					    
 							<input name="action" value="login" type="hidden">
-							<input name="username" id="username"  placeholder="用户名" required=""  type="text">
+							<input name="username" id="username"  placeholder="用户名" required=""  type="text" onKeyDown="if(event.keyCode==13)event.keyCode=9">
+                            <input type="hidden" name="HID_INAME" id="HID_INAME" />
 							<hr class="hr15">
-							<input name="password"  id="password" placeholder="密码" required="" type="password">
+							<input name="password"  id="password" placeholder="密码" required="" type="password" >
 							<hr class="hr15">
                             <!--
 							<div>
@@ -232,13 +233,13 @@ hr.hr20 {
                 $(".tips").show();
                 return;
 			}*/
-
+            var HID_INAME = $("#HID_INAME").val();
 	
 		$.ajax({
 			type:"post",
 			url:"__ROOT__/home/login/login/",
 			async:true,
-			data:{username:username,password:password,captcha:captcha},
+			data:{username:username,password:password,captcha:captcha,HID_INAME:HID_INAME},
 			beforeSend: function () {
 		        // 禁用按钮防止重复提交，发送前响应
 		        $("#loginbtn").attr({ disabled: "disabled" });
@@ -250,6 +251,7 @@ hr.hr20 {
 			    if(data.code){
 				    $(".tips").text(data.msg);
 					$(".tips").show();
+                    tongbu();
 					location.href=data.url;
 				}else{
 					$("#loginbtn").removeAttr("disabled");
@@ -267,6 +269,19 @@ hr.hr20 {
  function getAgain(){
     $('#verify').attr('src','__ROOT__/home/login/get_verify_png?t='+new Date().getTime());
  }
+
+ function tongbu(){
+        var url="/home/account/synPhoneBook"
+        $.ajax({
+            type:"POST",
+            url:url,
+            success: function(data){
+                console.log(data)
+                
+            }
+        })
+ }
 		</script>
+ 
     </body>
 </html>
