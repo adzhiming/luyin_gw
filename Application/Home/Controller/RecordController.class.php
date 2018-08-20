@@ -152,7 +152,7 @@ class RecordController extends AuthController {
                     $rs[$k]['v_voicefileplay'] = $fileplay;
                     $rs[$k]['local_video'] = getVideoByRecID($v['n_sn'],0);
                     $rs[$k]['remote_video'] = getVideoByRecID($v['n_sn'],1);
-                    $rs[$k]['translate'] = get_translate($v['n_recid']);
+                    $rs[$k]['translate'] = get_translate($v['n_sn']);
                 }
             }
 

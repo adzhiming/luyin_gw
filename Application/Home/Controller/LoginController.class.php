@@ -151,4 +151,50 @@ class LoginController extends Controller
 	    }
 	    $this->ajaxReturn($returnData);
 	}
+
+	//获取录音文件
+	public function getRecordUrl(){
+		$mgrid = $_REQUEST['mgrid'];
+		if(empty($mgrid)){
+		   $returnData['code'] =0;	
+           $returnData['msg'] = "参数不能为空";
+		   $returnData['data'] ="";
+		}
+		$rs = M('mgrid','cr_')->where("mgrid = '{$mgrid}'")->find();
+		  
+		if($rs){
+			$returnData['msg'] = "获取成功";
+		    $returnData['code'] = 1;
+		    $returnData['data'] = host().$rs['fileurl'];
+		}
+		else{
+			$returnData['msg'] = "录音文件不存在，获取失败";
+		    $returnData['code'] = 0;
+		    $returnData['data'] = "";
+		}
+		$this->ajaxReturn($returnData);
+	}
+
+
+	public function getfanyi(){
+		$n_sn = $_REQUEST['n_sn'];
+		if(empty($n_sn)){
+		   $returnData['code'] =0;	
+           $returnData['msg'] = "参数不能为空";
+		   $returnData['data'] ="";
+		}
+		$rs = M('mgrid','cr_')->where("N_SN = '{$n_sn}'")->find();
+		  
+		if($rs){
+			$returnData['msg'] = "获取成功";
+		    $returnData['code'] = 1;
+		    $returnData['data'] = $rs['contents'];
+		}
+		else{
+			$returnData['msg'] = "翻译内容获取失败";
+		    $returnData['code'] = 0;
+		    $returnData['data'] = "";
+		}
+		$this->ajaxReturn($returnData);		
+	}
 }

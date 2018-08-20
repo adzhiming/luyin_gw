@@ -101,6 +101,15 @@
     overflow: auto;
     width: 250px;
 }
+
+.fynr{
+    width: 750px;
+
+    word-wrap:break-word;
+        line-height: 28px;
+    height: 350px;
+    overflow: auto;
+}
         </style>
  
     </head>
@@ -310,6 +319,41 @@
 		    </div>
 		  </div>
 		</div>
+
+        <!-- 翻译内容模态框 -->
+        <div class="modal fade" id="fanyiModel" tabindex="-1" role="dialog" aria-labelledby="myFanyi">
+          <div class="modal-dialog" role="document" style="width:800px">
+            <div class="modal-content" >
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myFanyi" style="text-align: center;">翻译内容</h4>
+              </div>
+              <div class="modal-body">
+                <div class="inner">
+                    <div class="loadEffect">
+                         <span></span>
+                         <span></span>
+                         <span></span>
+                         <span></span>
+                         <span></span>
+                         <span></span>
+                         <span></span>
+                         <span></span>
+                     </div>
+                     <div class="fynr"></div>
+                     
+                </div>
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                <!-- <button type="button" class="btn btn-primary">确定</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <script src="__PUBLIC__/assets/bootstrap/js/jquery-1.11.1.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="__PUBLIC__/assets/bootstrap/js/jquery.datatables.min.js"></script>
@@ -351,7 +395,7 @@ CHANNEL_TB = $('#basicTable').dataTable(
                 	if($('#has_video').is(':checked')){
                 		has_video = 1;
                 	}
-                    console.log($('#channels_sel').val())
+                    //console.log($('#channels_sel').val())
                 	d.chk_CN = String($('#channels_sel').val());
                 	d.datetimepicker_start=$('#datetimepicker_start').val();
                 	d.datetimepicker_end=$('#datetimepicker_end').val();
@@ -413,7 +457,7 @@ CHANNEL_TB = $('#basicTable').dataTable(
                 {"mData": 'longtime'},
                 {"mData": function(mData){
                     if(mData.translate !=''){
-                        return mData.v_voicefileplay+"<a>查看翻译</a>";
+                        return mData.v_voicefileplay+"&nbsp;&nbsp;<span class='fanyi' style='cursor:pointer;' data-sn='"+mData.n_sn+"')'>翻译</span>";
                     }
                     return mData.v_voicefileplay;
                 }},
@@ -744,6 +788,37 @@ function batDownExcel(){
             }
         })
     }
+
+$('body').on('click', '.fanyi',function(){
+    var n_sn = $(this).data('sn')
+    if(n_sn ==''){
+        alert('获取信息失败，请刷新重试');
+        return;
+    }
+    $(".fynr").html('');
+    $('#fanyiModel').modal('show');
+    $.ajax({
+        type:"post",
+        url:"__ROOT__/home/login/getfanyi",
+        async:true,
+        data:{n_sn:n_sn}, 
+        beforeSend:function(XMLHttpRequest){ 
+            $('.loadEffect').css("display","block");
+        }, 
+        success:function(data){
+            $('.loadEffect').css("display","none");
+            if(data.code){  
+                $(".fynr").html(data.data);
+                 
+                
+            }else{ 
+                $(".fynr").html(data.msg);
+                return;
+            } 
+        }
+    });
+});   
+    
 </script>        
 		
 		

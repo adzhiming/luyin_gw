@@ -464,11 +464,11 @@ function formatNetPath($p){
     return $p;
 }
 
-function get_translate($recid){
-   if(empty($recid)){
+function get_translate($n_sn){
+   if(empty($n_sn)){
        return "";
    }
-  $rs = M("mgrid","cr_")->where("recid = '{$recid}'")->find();
+  $rs = M("mgrid","cr_")->where("N_SN = '{$n_sn}'")->find();
   if($rs){
     return $rs['contents'];
   }
