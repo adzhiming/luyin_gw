@@ -625,8 +625,9 @@ function vplay(N_SN,fname){
 	//var dsc="dialogWidth=450px;dialogHeight=400px;status=no";
 	if(N_SN!=""){
 		//直接点击某条录音的小喇叭，只播放当前录音
-		var dsc="dialogWidth=700px;dialogHeight=700px;status=no";
-		window.open(url+N_SN+"&fname="+fname,"player","height=700,width=700, top="+ iTop + ",left="+ iLeft + ",toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
+		var dsc="dialogWidth=450px;dialogHeight=425px;status=no";
+		 
+        window.open(url+N_SN+"&fname="+fname,"player","height=700,width=700, top="+ iTop + ",left="+ iLeft + ", toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no");
 		//模式窗口，需关闭播放器后才能选择其他录音，不方便
 		//window.showModalDialog(url+N_SN+"&fname="+fname,"录音文件试听",dsc);
 		

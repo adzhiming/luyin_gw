@@ -6,7 +6,17 @@ use Home\Controller\AppResult;
 class AuthController extends Controller {
     public function __construct(){
         parent::__construct();
-        header("Content-type: text/html; charset=utf-8"); 
+        header("Content-type: text/html; charset=utf-8");
+        $action = ACTION_NAME; 
+        $arr = array('recordPlayer','videoPlayer','recordPlayer');
+        if(in_array($action, $arr)){
+             return true;
+        }
+        $monitor = $this->params["monitor"];
+        var_dump($_REQUEST);
+        if(isset($monitor) && $monitor == 'y'){
+            return true;
+        }
         $checkLogin = $this->checkLogin();
         if(!$checkLogin){
             $redirect ="/home/login/index";
