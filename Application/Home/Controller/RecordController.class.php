@@ -219,10 +219,10 @@ class RecordController extends AuthController {
             {
                 
                 $field = "N_ChannelID,Count(N_SN) as 'cAmount',Sum(ABS(TIMESTAMPDIFF(SECOND,D_StartTime,D_StopTime))) as cSecond";
-                $cnt = M('rec_cdrinfo')->field("N_ChannelID ")->where($where)->group('N_ChannelID')->select();
+                $cnt = M('rec_bakinfo')->field("N_ChannelID ")->where($where)->group('N_ChannelID')->select();
                 $total = count($cnt);
                 
-                $rs = M('rec_cdrinfo')->field($field)->where($where)->group('N_ChannelID')->limit($start,$length)->select();
+                $rs = M('rec_bakinfo')->field($field)->where($where)->group('N_ChannelID')->limit($start,$length)->select();
                 //echo M()->getLastSql();
                 if($rs){
                     foreach ($rs as $k=>$v){
@@ -238,14 +238,17 @@ class RecordController extends AuthController {
             {
                 
                 $field = "*";
-                $cnt = M('rec_cdrinfo')->field("count(*) cnt ")->where($where)->find();
+                $cnt = M('rec_bakinfo')->field("count(*) cnt ")->where($where)->find();
                 $total = $cnt['cnt'];
-                $rs = M('rec_cdrinfo')->field($field)->where($where)->limit($start,$length)->select();
+                $rs = M('rec_bakinfo')->field($field)->where($where)->limit($start,$length)->select();
                
                 if($rs){
                     foreach ($rs as $k=>$v){
                         $rs[$k]['longtime'] = DateDiff($v['d_starttime'],$v['d_stoptime']);
                         $rs[$k]['n_calldirection'] = $v['n_calldirection']==1?'拨出':'来电';
+                        $rs[$k]['v_caller'] = getNameByPhoneNum($v['v_caller']);
+                        $rs[$k]['v_called'] = getNameByPhoneNum($v['v_called']);
+                        $rs[$k]['v_ext'] = getNameByPhoneNum($v['v_ext']);
                     }
                 }
             }

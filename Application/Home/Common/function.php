@@ -140,7 +140,9 @@ function getNameByPhoneNum($num){
     if(!strlen($num)>0){return "";}
     
     $rs = M('phonebook')
-          ->where("Mobile ='{$num}' or OfficeNum ='{$num}' or OtherNum ='{$num}' or remark='{$num}'")
+          ->where("Mobile ='{$num}' or OfficeNum ='{$num}' or OtherNum ='{$num}' or remark='{$num}' 
+            or phone1 = '{$num}' or phone2 = '{$num}' or phone3 = '{$num}' or phone4 = '{$num}' or phone5 = '{$num}' or phone6 = '{$num}' or phone7 = '{$num}'
+             or phone8 = '{$num}' or phone9 = '{$num}' or phone10 = '{$num}'")
           ->find();
     if($rs)
     {
